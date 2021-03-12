@@ -1,13 +1,3 @@
-<?php
-
-include('session.php');
-$res = $_SESSION["sessionid"];
-$c_mobile= $res;
-if(!isset($_SESSION['login_user'])){
-header("location: index.php"); // Redirecting To Profile Page
-}
-?> 
- 
 <!DOCTYPE html>
 <html>
 
@@ -57,7 +47,7 @@ header("location: index.php"); // Redirecting To Profile Page
         </div>
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px; ">
-        <form method="post" style="background: #0c3823;margin-bottom: 40px;">
+        <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
 
@@ -96,7 +86,7 @@ header("location: index.php"); // Redirecting To Profile Page
             <div class="form-group"><input class="form-control" id="farmer_aadhar" type="text" name="farmer_aadhar" placeholder="Your Aadhar Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Aadhar PDF</h5>
-            <div class="form-group"><input class="form-control" id="farmer_aadharpdf" type="file" accept="application/pdf" name="farmer_aadharpdf" placeholder="Your Aadhar PDF" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_aadharpdf" type="file" accept="application/pdf" name="farmer_aadharpdf" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN Number</h5>
             <div class="form-group"><input class="form-control" id="farmer_pan" type="text" name="farmer_pan" placeholder="Your PAN Number" required="" autofocus=""></div>
