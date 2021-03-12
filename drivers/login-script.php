@@ -22,7 +22,7 @@ $stmt->bind_result($d_mobile, $d_password);
 $stmt->store_result();
 if($stmt->fetch()) //fetching the contents of the row {
 $_SESSION['login_user'] = $d_mobile; // Initializing Session
-header("location: index.php"); // Redirecting To Profile Page
+header("location: login.php"); // Redirecting To Profile Page
 }
 mysqli_close(); // Closing Connection
 }
