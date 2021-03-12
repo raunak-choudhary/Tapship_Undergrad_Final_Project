@@ -1,10 +1,13 @@
 <?php
-include('login.php'); // Includes Login Script
-if(isset($_SESSION['login_user'])){
-header("location: farmer.php"); // Redirecting To Profile Page
-}
-?>
 
+include('session.php');
+$res = $_SESSION["sessionid"];
+$c_mobile= $res;
+if(!isset($_SESSION['login_user'])){
+header("location: index.php"); // Redirecting To Profile Page
+}
+?> 
+ 
 <!DOCTYPE html>
 <html>
 
@@ -39,8 +42,8 @@ header("location: farmer.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#about">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#contact">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../login.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign in</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Update Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -48,20 +51,11 @@ header("location: farmer.php"); // Redirecting To Profile Page
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmers Login</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>
             </div>
         </div>
     </div>
-    <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
-        <form method="post" style="background: #0c3823;margin-bottom: 40px;">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
-            <div class="form-group"><input class="form-control" type="phone" name="f_mobile" placeholder="Mobile Number"></div>
-            <div class="form-group"><input class="form-control" type="password" name="f_password" placeholder="Password"></div>
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
-            
-        </form>
-    </div>
+    
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
