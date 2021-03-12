@@ -27,11 +27,11 @@
                 id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#about">CONTACT</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#about">About</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="#contact">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="login.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign in</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="contact.php">CONTACT</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="about.php">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="faq.php">FAQ</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="login-choice.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="signup-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign in</button></a></li>
                 </ul>
             </div>
         </div>
@@ -47,12 +47,12 @@
             </div>
             
             <div class="row articles" style="margin: 5px;">
-                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;height: auto;min-height: auto;max-height: auto;font-size: 20px;"><a href="farmers/index.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmers.png" style="text-align: center;filter: invert(100%);"><h3 class="name" style="color: rgb(255,255,255);font-size: 24px;">Farmers</h3></a>
+                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;height: auto;min-height: auto;max-height: auto;font-size: 20px;"><a href="farmers/login.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmers.png" style="text-align: center;filter: invert(100%);"><h3 class="name" style="color: rgb(255,255,255);font-size: 24px;">Farmers</h3></a>
                 </div>
-                <div class="col-sm-6 col-md-4 item" style="background: #115434;min-height: auto;max-height: auto;"><a href="customers/index.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/customer.png" style="filter: invert(100%);">
+                <div class="col-sm-6 col-md-4 item" style="background: #115434;min-height: auto;max-height: auto;"><a href="customers/login.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/customer.png" style="filter: invert(100%);">
                     <h3 class="name" style="font-size: 24px;color: rgb(255,255,255);">Customers</h3></a>
                 </div>
-                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;min-height: auto;max-height: auto;text-align: center;"><a href="drivers/index.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/drivers.png" style="filter: invert(100%);"><h3 class="name" style="font-size: 24px;color: rgb(255,255,255);">Drivers</h3></a>
+                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;min-height: auto;max-height: auto;text-align: center;"><a href="drivers/login.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/drivers.png" style="filter: invert(100%);"><h3 class="name" style="font-size: 24px;color: rgb(255,255,255);">Drivers</h3></a>
                 </div>
             </div>        
         </div>
