@@ -25,9 +25,9 @@ if (isset($_POST["submit"]))
      $farmer_approve = 1;
      
     #file name with a random number so that similar dont get replaced
-     $farmer_aadharpdf= $farmer_mobile."-".rand(1000,10000)."-".$_FILES["farmer_aadharpdf"]["name"];
-     $farmer_panpdf= $farmer_mobile."-".rand(1000,10000)."-".$_FILES["farmer_panpdf"]["name"];
-     $farmer_photo= $farmer_mobile."-".rand(1000,10000)."-".$_FILES["farmer_photo"]["name"];
+     $farmer_aadharpdf= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_aadharpdf"]["name"];
+     $farmer_panpdf= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_panpdf"]["name"];
+     $farmer_photo= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_photo"]["name"];
 
     #temporary file name to store file
     $tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];

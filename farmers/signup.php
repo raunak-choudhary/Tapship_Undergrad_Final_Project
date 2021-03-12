@@ -52,7 +52,7 @@
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
 
             <h5 style="color:#fff;">Mobile Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" placeholder="Your Mobile Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number" placeholder="Your Mobile Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Full Name</h5>
             <div class="form-group"><input class="form-control" id="farmer_name" type="text" name="farmer_name" placeholder="Your Full Name" required="" autofocus=""></div>
@@ -68,7 +68,7 @@
             </div>
 
             <h5 style="color:#fff;">Age</h5>
-            <div class="form-group"><input class="form-control" id="farmer_age" type="text" name="farmer_age" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_age" type="text" name="farmer_age" pattern="^[1-9]{1}[0-9]{2}" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Apartment/Street</h5>
             <div class="form-group"><input class="form-control" id="farmer_street" type="text" name="farmer_street" placeholder="Your Apartment/Street" required="" autofocus=""></div>
@@ -80,16 +80,16 @@
             <div class="form-group"><input class="form-control" id="farmer_state" type="text" name="farmer_state" placeholder="Your State" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Pincode</h5>
-            <div class="form-group"><input class="form-control" id="farmer_pincode" type="text" name="farmer_pincode" placeholder="Your Pincode" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_pincode" type="text" name="farmer_pincode" pattern="^[1-9]{1}[0-9]{5}" title="Enter valid 6 digit Pincode" placeholder="Your Pincode" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Aadhar Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_aadhar" type="text" name="farmer_aadhar" placeholder="Your Aadhar Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_aadhar" type="text" name="farmer_aadhar" pattern="^[2-9]{1}[0-9]{11}$" title="Enter 12 digit Aadhar Number" placeholder="Your Aadhar Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Aadhar PDF</h5>
             <div class="form-group"><input class="form-control" id="farmer_aadharpdf" type="file" accept="application/pdf" name="farmer_aadharpdf" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_pan" type="text" name="farmer_pan" placeholder="Your PAN Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_pan" type="text" name="farmer_pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"  title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" placeholder="Your PAN Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN PDF</h5>
             <div class="form-group"><input class="form-control" id="farmer_panpdf" type="file" accept="application/pdf" name="farmer_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
@@ -98,13 +98,9 @@
             <div class="form-group"><input class="form-control" id="farmer_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="farmer_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Password</h5>
-            <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" placeholder="Your Password" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">Confirm Password</h5>
-            <div class="form-group"><input class="form-control" id="farmer_cfmpassword" type="password" name="farmer_cfmpassword" placeholder="Your Confirm Password" required="" autofocus=""></div>
-            
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>
-            
+            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
         </form>
     </div>
                 
