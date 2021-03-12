@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2021 at 01:11 PM
+-- Generation Time: Mar 12, 2021 at 12:05 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -91,27 +91,28 @@ CREATE TABLE `customer` (
   `c_mobile` varchar(25) NOT NULL,
   `c_contactname` varchar(50) NOT NULL,
   `c_gender` varchar(25) NOT NULL,
-  `c_age` int(11) NOT NULL,
+  `c_age` varchar(10) NOT NULL,
   `c_street` varchar(50) NOT NULL,
   `c_city` varchar(25) NOT NULL,
   `c_state` varchar(25) NOT NULL,
-  `c_pincode` int(11) NOT NULL,
+  `c_pincode` varchar(10) NOT NULL,
   `c_type` varchar(25) NOT NULL,
-  `c_document` blob DEFAULT NULL,
+  `c_document` varchar(100) DEFAULT NULL,
   `c_aadhar` varchar(25) DEFAULT NULL,
-  `c_aadharpdf` blob DEFAULT NULL,
+  `c_aadharpdf` varchar(100) DEFAULT NULL,
   `c_pan` varchar(25) DEFAULT NULL,
-  `c_panpdf` blob DEFAULT NULL,
-  `c_photo` blob NOT NULL,
-  `c_password` varchar(25) DEFAULT NULL
+  `c_panpdf` varchar(100) DEFAULT NULL,
+  `c_photo` varchar(100) NOT NULL,
+  `c_password` varchar(25) DEFAULT NULL,
+  `c_approve` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_document`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`) VALUES
-(1, 'Ram', '9672836724', 'Ram', '', 0, '202', 'Udupi', 'Karnataka', 576213, 'Holesaler', 0x31, NULL, NULL, '', '', '', '12345');
+INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_document`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`) VALUES
+(1, 'Ram', '9672836724', 'Ram', '', '0', '202', 'Udupi', 'Karnataka', '576213', 'Holesaler', '1', NULL, NULL, '', '', '', '12345', '0');
 
 -- --------------------------------------------------------
 
@@ -124,31 +125,32 @@ CREATE TABLE `driver` (
   `d_name` varchar(50) NOT NULL,
   `d_mobile` varchar(25) NOT NULL,
   `d_gender` varchar(25) NOT NULL,
-  `d_age` int(11) NOT NULL,
+  `d_age` varchar(10) NOT NULL,
   `d_street` varchar(50) NOT NULL,
   `d_city` varchar(25) NOT NULL,
   `d_state` varchar(25) NOT NULL,
-  `d_pincode` int(11) NOT NULL,
+  `d_pincode` varchar(10) NOT NULL,
   `d_aadhar` varchar(25) NOT NULL,
-  `d_aadharpdf` blob DEFAULT NULL,
+  `d_aadharpdf` varchar(100) DEFAULT NULL,
   `d_pan` varchar(25) NOT NULL,
-  `d_panpdf` blob DEFAULT NULL,
-  `d_photo` blob DEFAULT NULL,
+  `d_panpdf` varchar(100) DEFAULT NULL,
+  `d_photo` varchar(100) DEFAULT NULL,
   `d_dlnumber` varchar(25) NOT NULL,
-  `d_dlpdf` blob DEFAULT NULL,
+  `d_dlpdf` varchar(100) DEFAULT NULL,
   `d_vehiclenumber` varchar(25) NOT NULL,
-  `d_vehiclercpdf` blob DEFAULT NULL,
-  `d_lat` float NOT NULL,
-  `d_long` float NOT NULL,
-  `d_password` varchar(25) NOT NULL
+  `d_vehiclercpdf` varchar(100) DEFAULT NULL,
+  `d_lat` varchar(100) NOT NULL,
+  `d_long` varchar(100) NOT NULL,
+  `d_password` varchar(25) NOT NULL,
+  `d_approve` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`) VALUES
-(1, 'Laxman', '9672836724', 'Male', 25, '202, Laxmi Plaza', 'Brahmavara', 'Karnataka', 576213, '783427342354', '', 'EYCAA6586Z', '', '', '57586899379', '', 'KA-20 GH 6478', '', 54.34, 34, '12345');
+INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`, `d_approve`) VALUES
+(1, 'Laxman', '9672836724', 'Male', '25', '202, Laxmi Plaza', 'Brahmavara', 'Karnataka', '576213', '783427342354', '', 'EYCAA6586Z', '', '', '57586899379', '', 'KA-20 GH 6478', '', '54.34', '34', '12345', '0');
 
 -- --------------------------------------------------------
 
@@ -161,25 +163,46 @@ CREATE TABLE `farmer` (
   `f_name` varchar(50) NOT NULL,
   `f_mobile` varchar(25) NOT NULL,
   `f_gender` varchar(25) NOT NULL,
-  `f_age` int(11) NOT NULL,
+  `f_age` varchar(10) NOT NULL,
   `f_street` varchar(50) NOT NULL,
   `f_city` varchar(25) NOT NULL,
   `f_state` varchar(25) NOT NULL,
-  `f_pincode` int(11) NOT NULL,
+  `f_pincode` varchar(10) NOT NULL,
   `f_aadhar` varchar(25) NOT NULL,
-  `f_aadharpdf` blob DEFAULT NULL,
+  `f_aadharpdf` varchar(100) NOT NULL,
   `f_pan` varchar(25) NOT NULL,
-  `f_panpdf` blob DEFAULT NULL,
-  `f_photo` blob DEFAULT NULL,
-  `f_password` varchar(25) NOT NULL
+  `f_panpdf` varchar(100) NOT NULL,
+  `f_photo` varchar(100) NOT NULL,
+  `f_password` varchar(25) NOT NULL,
+  `f_approve` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`) VALUES
-(1, 'Bharat', '9672836724', 'Male', 34, '756, AJ Colony', 'Udupi', 'Karnataka', 576213, '687273827634', NULL, 'FTIVD6854F', NULL, NULL, '12345');
+INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
+(1, 'Bharat', '9672836724', 'Male', '34', '756, AJ Colony', 'Udupi', 'Karnataka', '576213', '687273827634', '', 'FTIVD6854F', '', '', '12345', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fileup`
+--
+
+CREATE TABLE `fileup` (
+  `title` varchar(25) NOT NULL,
+  `image` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fileup`
+--
+
+INSERT INTO `fileup` (`title`, `image`) VALUES
+('WEB & UX', '8325-Capture.PNG'),
+('WEB & UX', '6605-Capture.PNG'),
+('3D - Drowsiness Detection', '1627-Capture.PNG');
 
 -- --------------------------------------------------------
 
