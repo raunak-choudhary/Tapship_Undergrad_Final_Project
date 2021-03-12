@@ -4,7 +4,7 @@ include('session-script.php');
 $res = $_SESSION["sessionid"];
 $c_mobile= $res;
 if(!isset($_SESSION['login_user'])){
-header("location: index.php"); // Redirecting To Profile Page
+header("location: login.php"); // Redirecting To Profile Page
 }
 ?> 
  
