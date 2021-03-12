@@ -14,7 +14,7 @@ header("location: index.php"); // Redirecting To Profile Page
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Customer-Login</title>
+    <title>Farmer SignUp</title>
     <link rel="icon" href="assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -62,14 +62,14 @@ header("location: index.php"); // Redirecting To Profile Page
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
 
             <h5 style="color:#fff;">Mobile Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_mobile" type="text" name="farmer_mobile" placeholder="Your Mobile Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" placeholder="Your Mobile Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Full Name</h5>
             <div class="form-group"><input class="form-control" id="farmer_name" type="text" name="farmer_name" placeholder="Your Full Name" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Gender</h5>
             <div class="form-group">
-            <select class="form-control" id="farmer_gender" name="farmer_gender"" required>
+            <select class="form-control" id="farmer_gender" name="farmer_gender" required>
               <option selected disabled value="">Choose Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -77,16 +77,43 @@ header("location: index.php"); // Redirecting To Profile Page
             </select>
             </div>
 
-            <h5 style="color:#fff;">Full Name</h5>
-            <div class="form-group"><input class="form-control" id="customer_name" type="text" name="farmer_name" placeholder="Your Full Name" required="" autofocus=""></div>
+            <h5 style="color:#fff;">Age</h5>
+            <div class="form-group"><input class="form-control" id="farmer_age" type="text" name="farmer_age" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">Full Name</h5>
-            <div class="form-group"><input class="form-control" id="customer_name" type="text" name="farmer_name" placeholder="Your Full Name" required="" autofocus=""></div>
+            <h5 style="color:#fff;">Apartment/Street</h5>
+            <div class="form-group"><input class="form-control" id="farmer_street" type="text" name="farmer_street" placeholder="Your Apartment/Street" required="" autofocus=""></div>
 
+            <h5 style="color:#fff;">City</h5>
+            <div class="form-group"><input class="form-control" id="farmer_city" type="text" name="farmer_city" placeholder="Your City" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">State</h5>
+            <div class="form-group"><input class="form-control" id="farmer_state" type="text" name="farmer_state" placeholder="Your State" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Pincode</h5>
+            <div class="form-group"><input class="form-control" id="farmer_pincode" type="text" name="farmer_pincode" placeholder="Your Pincode" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Aadhar Number</h5>
+            <div class="form-group"><input class="form-control" id="farmer_aadhar" type="text" name="farmer_aadhar" placeholder="Your Aadhar Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Aadhar PDF</h5>
+            <div class="form-group"><input class="form-control" id="farmer_aadharpdf" type="file" accept="application/pdf" name="farmer_aadharpdf" placeholder="Your Aadhar PDF" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">PAN Number</h5>
+            <div class="form-group"><input class="form-control" id="farmer_pan" type="text" name="farmer_pan" placeholder="Your PAN Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">PAN PDF</h5>
+            <div class="form-group"><input class="form-control" id="farmer_panpdf" type="file" accept="application/pdf" name="farmer_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Photo</h5>
+            <div class="form-group"><input class="form-control" id="farmer_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="farmer_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Password</h5>
+            <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" placeholder="Your Password" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Confirm Password</h5>
+            <div class="form-group"><input class="form-control" id="farmer_cfmpassword" type="password" name="farmer_cfmpassword" placeholder="Your Confirm Password" required="" autofocus=""></div>
             
-
-            <div class="form-group"><input class="form-control" type="password" name="f_password" placeholder="Password"></div>
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
+            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>
             
         </form>
     </div>
