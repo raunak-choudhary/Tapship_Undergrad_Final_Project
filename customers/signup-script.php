@@ -11,8 +11,10 @@ $dbhost = "localhost";
 if (isset($_POST["submit"]))
  {
      #retrieve file title
+     $customer_type = $conn->real_escape_string($_POST['customer_type']);
      $customer_mobile = $conn->real_escape_string($_POST['customer_mobile']);
      $customer_name = $conn->real_escape_string($_POST['customer_name']);
+     $customer_contactname = $conn->real_escape_string($_POST['customer_contactname']);
      $customer_gender = $conn->real_escape_string($_POST['customer_gender']);
      $customer_age = $conn->real_escape_string($_POST['customer_age']);
      $customer_street = $conn->real_escape_string($_POST['customer_street']);
@@ -37,25 +39,40 @@ if (isset($_POST["submit"]))
                 $customer_aadharpdf= $customer_mobile."-".$customer_name."-".$_FILES["customer_aadharpdf"]["name"];
                 $customer_panpdf= $customer_mobile."-".$customer_name."-".$_FILES["customer_panpdf"]["name"];
                 $customer_photo= $customer_mobile."-".$customer_name."-".$_FILES["customer_photo"]["name"];
+                $customer_registration= $customer_mobile."-".$customer_name."-".$_FILES["customer_registration"]["name"];
 
                 #temporary file name to store file
                 $tname1 = $_FILES["customer_aadharpdf"]["tmp_name"];
                 $tname2 = $_FILES["customer_panpdf"]["tmp_name"];
                 $tname3 = $_FILES["customer_photo"]["tmp_name"];
+                $tname4 = $_FILES["customer_registration"]["tmp_name"];
 
                 #target path
-                $target_path1 = "../assets/documents/aadhar/".$customer_aadharpdf;
-                $target_path2 = "../assets/documents/pan/".$customer_panpdf;
-                $target_path3 = "../assets/documents/photo/".$customer_photo;
+                $target_path1 = "assets/documents/aadhar/".$customer_aadharpdf;
+                $target_path2 = "assets/documents/pan/".$customer_panpdf;
+                $target_path3 = "assets/documents/photo/".$customer_photo;
+                $target_path4 = "assets/documents/registration/".$customer_registration;
             
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname1, $target_path1);
                 move_uploaded_file($tname2, $target_path2);
                 move_uploaded_file($tname3, $target_path3);
+                move_uploaded_file($tname4, $target_path4);
 
                 #sql query to insert into database
-                $query = "INSERT into customer(c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
-                $success = $conn->query($query);
+                if($customer_type=="wholesaler")
+                {
+                    $query = "INSERT into customer(c_type,c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
+                    $success = $conn->query($query);
+                }
+
+                if($customer_type=="organization")
+                {
+                    $query = "INSERT into customer(c_type,c_mobile,c_name,c_contactname,c_registration,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_contactname','$customer_registration','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
+                    $success = $conn->query($query);
+                }
+
+                
 
             }
         }

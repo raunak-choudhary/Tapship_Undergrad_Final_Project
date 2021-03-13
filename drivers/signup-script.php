@@ -51,11 +51,11 @@ if (isset($_POST["submit"]))
                 $tname5 = $_FILES["driver_vehiclercpdf"]["tmp_name"];
 
                 #target path
-                $target_path1 = "../assets/documents/aadhar/".$driver_aadharpdf;
-                $target_path2 = "../assets/documents/pan/".$driver_panpdf;
-                $target_path3 = "../assets/documents/photo/".$driver_photo;
-                $target_path4 = "../assets/documents/dlpdf/".$driver_dlpdf;
-                $target_path5 = "../assets/documents/rcpdf/".$driver_vehiclercpdf;
+                $target_path1 = "assets/documents/aadhar/".$driver_aadharpdf;
+                $target_path2 = "assets/documents/pan/".$driver_panpdf;
+                $target_path3 = "assets/documents/photo/".$driver_photo;
+                $target_path4 = "assets/documents/dlpdf/".$driver_dlpdf;
+                $target_path5 = "assets/documents/rcpdf/".$driver_vehiclercpdf;
 
                 $d_lat = NULL;
                 $d_long = NULL;
