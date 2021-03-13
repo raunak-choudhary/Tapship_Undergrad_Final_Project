@@ -6,6 +6,7 @@ $c_mobile= $res;
 if(!isset($_SESSION['login_user'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
+error_reporting(0);
 ?> 
  
 <!DOCTYPE html>
@@ -14,20 +15,20 @@ header("location: login.php"); // Redirecting To Profile Page
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Customer Profile</title>
-    <link rel="icon" href="./assets/img/fav.png" type="image/png">
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <title>Farmer Profile</title>
+    <link rel="icon" href="assets/img/fav.png" type="image/png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
-    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="./assets/css/Article-List.css">
-    <link rel="stylesheet" href="./assets/css/Features-Boxed.css">
-    <link rel="stylesheet" href="./assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="./assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
-    <link rel="stylesheet" href="./assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
 </head>
 
 <body id="page-top">
@@ -42,7 +43,7 @@ header("location: login.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Update Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="#"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Update Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
@@ -51,7 +52,7 @@ header("location: login.php"); // Redirecting To Profile Page
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>
             </div>
         </div>
     </div>
@@ -63,12 +64,12 @@ header("location: login.php"); // Redirecting To Profile Page
             </div>
         </footer>
     </div>
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/js/bs-init.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="./assets/js/freelancer.js"></script>
+    <script src="assets/js/freelancer.js"></script>
 </body>
 
 </html>
