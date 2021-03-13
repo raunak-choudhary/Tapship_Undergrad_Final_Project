@@ -1,7 +1,7 @@
 <html>
 
   <head>
-  <title>User Exist - Farmer SignUp</title>
+  <title>User Exist - Customer SignUp</title>
   
   <link rel="shortcut icon" type="image/png" href="assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="assets/css/manager_registered_success.css">
@@ -52,7 +52,7 @@
     </nav>
     <div class="container" style="margin-top:200px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h3>Farmer with same mobile number already exist.</h3>
+            <h3>Customer with same mobile number already exist.</h3>
             <h5>Please try to login or register with different mobile number.</h5>
             <br>
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>

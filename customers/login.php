@@ -12,7 +12,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Farmer LogIn</title>
+    <title>Customer LogIn</title>
     <link rel="icon" href="assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -49,7 +49,7 @@ error_reporting(0);
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmers Login</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customers Login</h2>
             </div>
         </div>
     </div>
@@ -57,8 +57,8 @@ error_reporting(0);
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
-            <div class="form-group"><input class="form-control" type="phone" name="f_mobile" placeholder="Mobile Number"></div>
-            <div class="form-group"><input class="form-control" type="password" name="f_password" placeholder="Password"></div>
+            <div class="form-group"><input class="form-control" type="phone" name="c_mobile" placeholder="Mobile Number"></div>
+            <div class="form-group"><input class="form-control" type="password" name="c_password" placeholder="Password"></div>
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
             
         </form>

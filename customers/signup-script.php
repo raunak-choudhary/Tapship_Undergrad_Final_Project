@@ -11,42 +11,42 @@ $dbhost = "localhost";
 if (isset($_POST["submit"]))
  {
      #retrieve file title
-     $farmer_mobile = $conn->real_escape_string($_POST['farmer_mobile']);
-     $farmer_name = $conn->real_escape_string($_POST['farmer_name']);
-     $farmer_gender = $conn->real_escape_string($_POST['farmer_gender']);
-     $farmer_age = $conn->real_escape_string($_POST['farmer_age']);
-     $farmer_street = $conn->real_escape_string($_POST['farmer_street']);
-     $farmer_city = $conn->real_escape_string($_POST['farmer_city']);
-     $farmer_state= $conn->real_escape_string($_POST['farmer_state']);
-     $farmer_pincode= $conn->real_escape_string($_POST['farmer_pincode']);
-     $farmer_aadhar= $conn->real_escape_string($_POST['farmer_aadhar']);
-     $farmer_pan= $conn->real_escape_string($_POST['farmer_pan']);
-     $farmer_password= $conn->real_escape_string($_POST['farmer_password']);
-     $farmer_approve = 1;
+     $customer_mobile = $conn->real_escape_string($_POST['customer_mobile']);
+     $customer_name = $conn->real_escape_string($_POST['customer_name']);
+     $customer_gender = $conn->real_escape_string($_POST['customer_gender']);
+     $customer_age = $conn->real_escape_string($_POST['customer_age']);
+     $customer_street = $conn->real_escape_string($_POST['customer_street']);
+     $customer_city = $conn->real_escape_string($_POST['customer_city']);
+     $customer_state= $conn->real_escape_string($_POST['customer_state']);
+     $customer_pincode= $conn->real_escape_string($_POST['customer_pincode']);
+     $customer_aadhar= $conn->real_escape_string($_POST['customer_aadhar']);
+     $customer_pan= $conn->real_escape_string($_POST['customer_pan']);
+     $customer_password= $conn->real_escape_string($_POST['customer_password']);
+     $customer_approve = 1;
     
-     $sql = "Select * from farmer";
+     $sql = "Select * from customer";
      $result = $conn->query($sql);
 
      if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            if($row["f_mobile"]==$farmer_mobile){
+            if($row["c_mobile"]==$customer_mobile){
                 header("location: alreadyregistered.php");
             }
             else{
                 #file name with a random number so that similar dont get replaced
-                $farmer_aadharpdf= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_aadharpdf"]["name"];
-                $farmer_panpdf= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_panpdf"]["name"];
-                $farmer_photo= $farmer_mobile."-".$farmer_name."-".$_FILES["farmer_photo"]["name"];
+                $customer_aadharpdf= $customer_mobile."-".$customer_name."-".$_FILES["customer_aadharpdf"]["name"];
+                $customer_panpdf= $customer_mobile."-".$customer_name."-".$_FILES["customer_panpdf"]["name"];
+                $customer_photo= $customer_mobile."-".$customer_name."-".$_FILES["customer_photo"]["name"];
 
                 #temporary file name to store file
-                $tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];
-                $tname2 = $_FILES["farmer_panpdf"]["tmp_name"];
-                $tname3 = $_FILES["farmer_photo"]["tmp_name"];
+                $tname1 = $_FILES["customer_aadharpdf"]["tmp_name"];
+                $tname2 = $_FILES["customer_panpdf"]["tmp_name"];
+                $tname3 = $_FILES["customer_photo"]["tmp_name"];
 
                 #target path
-                $target_path1 = "assets/documents/aadhar/".$farmer_aadharpdf;
-                $target_path2 = "assets/documents/pan/".$farmer_panpdf;
-                $target_path3 = "assets/documents/photo/".$farmer_photo;
+                $target_path1 = "assets/documents/aadhar/".$customer_aadharpdf;
+                $target_path2 = "assets/documents/pan/".$customer_panpdf;
+                $target_path3 = "assets/documents/photo/".$customer_photo;
             
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname1, $target_path1);
@@ -54,7 +54,7 @@ if (isset($_POST["submit"]))
                 move_uploaded_file($tname3, $target_path3);
 
                 #sql query to insert into database
-                $query = "INSERT into farmer(f_mobile,f_name,f_gender,f_age,f_street,f_city,f_state,f_pincode,f_aadhar,f_aadharpdf,f_pan,f_panpdf,f_photo,f_password,f_approve) VALUES('$farmer_mobile','$farmer_name','$farmer_gender','$farmer_age','$farmer_street','$farmer_city','$farmer_state','$farmer_pincode','$farmer_aadhar','$target_path1','$farmer_pan','$target_path2','$target_path3','$farmer_password','$farmer_approve')";
+                $query = "INSERT into customer(c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
                 $success = $conn->query($query);
 
             }
@@ -70,7 +70,7 @@ $conn->close();
 <html>
 
   <head>
-  <title>Success - Farmer SignUp</title>
+  <title>Success - customer SignUp</title>
   
   <link rel="shortcut icon" type="image/png" href="assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="assets/css/manager_registered_success.css">
@@ -121,9 +121,9 @@ $conn->close();
     </nav>
     <div class="container" style="margin-top:150px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2> <?php echo "Welcome $farmer_name!" ?> </h2>
+            <h2> <?php echo "Welcome $customer_name!" ?> </h2>
             <br>
-            <h3>Your details for farmer account has been submitted Successfully.</h3>
+            <h3>Your details for customer account has been submitted Successfully.</h3>
             <h5>We are reviewing your details and documents. Please have a little patience.</h5>
             <br>
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>

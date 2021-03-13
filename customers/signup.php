@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Farmer SignUp</title>
+    <title>Customer SignUp</title>
     <link rel="icon" href="assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -42,7 +42,7 @@
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmers Sign Up</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customers Sign Up</h2>
             </div>
         </div>
     </div>
@@ -52,14 +52,14 @@
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
 
             <h5 style="color:#fff;">Mobile Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_mobile" type="phone" name="customer_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Full Name</h5>
-            <div class="form-group"><input class="form-control" id="farmer_name" type="text" name="farmer_name" placeholder="Your Full Name" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_name" type="text" name="customer_name" placeholder="Your Full Name" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Gender</h5>
             <div class="form-group">
-            <select class="form-control" id="farmer_gender" name="farmer_gender" required>
+            <select class="form-control" id="customer_gender" name="customer_gender" required>
               <option selected disabled value="">Choose Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -68,39 +68,39 @@
             </div>
 
             <h5 style="color:#fff;">Age</h5>
-            <div class="form-group"><input class="form-control" id="farmer_age" type="text" name="farmer_age" pattern="^[1-9]{1}[0-9]{1}$" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_age" type="text" name="customer_age" pattern="^[1-9]{1}[0-9]{1}$" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Apartment/Street</h5>
-            <div class="form-group"><input class="form-control" id="farmer_street" type="text" name="farmer_street" placeholder="Your Apartment/Street" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_street" type="text" name="customer_street" placeholder="Your Apartment/Street" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">City</h5>
-            <div class="form-group"><input class="form-control" id="farmer_city" type="text" name="farmer_city" placeholder="Your City" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_city" type="text" name="customer_city" placeholder="Your City" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">State</h5>
-            <div class="form-group"><input class="form-control" id="farmer_state" type="text" name="farmer_state" placeholder="Your State" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_state" type="text" name="customer_state" placeholder="Your State" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Pincode</h5>
-            <div class="form-group"><input class="form-control" id="farmer_pincode" type="text" name="farmer_pincode" pattern="^[1-9]{1}[0-9]{5}" title="Enter valid 6 digit Pincode (Ex. 5763XX)" placeholder="Your Pincode" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_pincode" type="text" name="customer_pincode" pattern="^[1-9]{1}[0-9]{5}" title="Enter valid 6 digit Pincode (Ex. 5763XX)" placeholder="Your Pincode" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Aadhar Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_aadhar" type="text" name="farmer_aadhar" pattern="^[2-9]{1}[0-9]{11}$" title="Enter 12 digit Aadhar Number (Ex. 2345678382XX)" placeholder="Your Aadhar Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_aadhar" type="text" name="customer_aadhar" pattern="^[2-9]{1}[0-9]{11}$" title="Enter 12 digit Aadhar Number (Ex. 2345678382XX)" placeholder="Your Aadhar Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Aadhar PDF</h5>
-            <div class="form-group"><input class="form-control" id="farmer_aadharpdf" type="file" accept="application/pdf" name="farmer_aadharpdf" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_aadharpdf" type="file" accept="application/pdf" name="customer_aadharpdf" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN Number</h5>
-            <div class="form-group"><input class="form-control" id="farmer_pan" type="text" name="farmer_pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"  title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" placeholder="Your PAN Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_pan" type="text" name="customer_pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"  title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" placeholder="Your PAN Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN PDF</h5>
-            <div class="form-group"><input class="form-control" id="farmer_panpdf" type="file" accept="application/pdf" name="farmer_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_panpdf" type="file" accept="application/pdf" name="customer_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Photo</h5>
-            <div class="form-group"><input class="form-control" id="farmer_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="farmer_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="customer_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Password</h5>
-            <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="customer_password" type="password" name="customer_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
 
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../farmers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
+            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../customers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
         </form>
     </div>
                 
