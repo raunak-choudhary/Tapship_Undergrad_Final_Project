@@ -68,8 +68,9 @@ header("location: login.php"); // Redirecting To Profile Page
  <th> Mobile </th>
  <th> City </th>
  <th> Type </th>
+ <th> Status </th>
  <th> Photo </th>
- <th> View Profile </th>
+ <th> Profile </th>
  </thead>
  </tr >
 
@@ -80,7 +81,7 @@ $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
      
- $q = "select c_name, c_mobile, c_city, c_type, c_photo from customer ";
+ $q = "select c_name, c_mobile, c_city, c_type, c_approve, c_photo from customer ";
 
  $query = mysqli_query($con,$q);
 
@@ -91,8 +92,9 @@ mysqli_select_db($con,'tapship');
  <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['c_city'];  ?> </td>
  <td data-label="Type"> <?php echo $res['c_type'];  ?> </td>
+ <td data-label="Status"> <?php if($res['c_approve']=="0"){echo "No Action";}else if($res['c_approve']=="1"){echo "Review";}else if($res['c_approve']=="2"){echo "Approved";}else if($res['c_approve']=="3"){echo "Rejected";}  ?> </td>
  <td data-label="Photo"> <img src="../customers/<?php echo $res['c_photo'];  ?>" width="50" height="60"> </td>
- <td data-label=> <button class="btn" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> View </a> </button> </td>
+ <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> View </a> </button> </td>
 
  </tr>
 
