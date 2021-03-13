@@ -28,6 +28,7 @@ header("location: login.php"); // Redirecting To Profile Page
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/table-style.css"/>
 </head>
 
 <body id="page-top">
@@ -44,6 +45,7 @@ header("location: login.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Update Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+
                 </ul>
             </div>
         </div>
@@ -53,14 +55,53 @@ header("location: login.php"); // Redirecting To Profile Page
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Admin Zone</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Manage Customers</h2>
             </div>
         </div>
     </div>
 
-    <a href="managecustomer.php">Manage Customer</a>
-    <a href="managedriver.php">Manage Driver</a>
-    <a href="managefarmer.php">Manage Farmer</a>
+<table  id="tabledata" class=" table table-striped table-hover table-bordered">
+ 
+ <tr class="bg-dark text-white text-center">
+ <thead>
+ <th> Name </th>
+ <th> Mobile </th>
+ <th> City </th>
+ <th> Type </th>
+ <th> Photo </th>
+ <th> View Profile </th>
+ </thead>
+ </tr >
+
+ <?php
+    
+$con = mysqli_connect('localhost','root');
+
+mysqli_select_db($con,'tapship');
+   
+     
+ $q = "select c_name, c_mobile, c_city, c_type, c_photo from customer ";
+
+ $query = mysqli_query($con,$q);
+
+ while($res = mysqli_fetch_array($query)){
+ ?>
+ <tr class="text-center">
+ <td data-label="Name"> <?php echo $res['c_name'];  ?> </td>
+ <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
+ <td data-label="City"> <?php echo $res['c_city'];  ?> </td>
+ <td data-label="Type"> <?php echo $res['c_type'];  ?> </td>
+ <td data-label="Photo"> <img src="../customers/<?php echo $res['c_photo'];  ?>" width="50" height="60"> </td>
+ <td data-label=> <button class="btn" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> View </a> </button> </td>
+
+ </tr>
+
+ <?php 
+ }
+  ?>
+ 
+ </table>  
+
     
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
