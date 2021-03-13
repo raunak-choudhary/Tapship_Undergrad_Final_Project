@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 $dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "";
@@ -21,6 +21,8 @@ if (isset($_POST["submit"]))
      $driver_pincode= $conn->real_escape_string($_POST['driver_pincode']);
      $driver_aadhar= $conn->real_escape_string($_POST['driver_aadhar']);
      $driver_pan= $conn->real_escape_string($_POST['driver_pan']);
+     $driver_dlnumber= $conn->real_escape_string($_POST['driver_dlnumber']);
+     $driver_vehiclenumber= $conn->real_escape_string($_POST['driver_vehiclenumber']);
      $driver_password= $conn->real_escape_string($_POST['driver_password']);
      $driver_approve = 1;
      
@@ -28,24 +30,35 @@ if (isset($_POST["submit"]))
      $driver_aadharpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_aadharpdf"]["name"];
      $driver_panpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_panpdf"]["name"];
      $driver_photo= $driver_mobile."-".$driver_name."-".$_FILES["driver_photo"]["name"];
+     $driver_dlpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_dlpdf"]["name"];
+     $driver_vehiclercpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_vehiclercpdf"]["name"];
 
     #temporary file name to store file
     $tname1 = $_FILES["driver_aadharpdf"]["tmp_name"];
     $tname2 = $_FILES["driver_panpdf"]["tmp_name"];
     $tname3 = $_FILES["driver_photo"]["tmp_name"];
+    $tname4 = $_FILES["driver_dlpdf"]["tmp_name"];
+    $tname5 = $_FILES["driver_vehiclercpdf"]["tmp_name"];
 
      #target path
      $target_path1 = "assets/documents/aadhar/".$driver_aadharpdf;
      $target_path2 = "assets/documents/pan/".$driver_panpdf;
      $target_path3 = "assets/documents/photo/".$driver_photo;
+     $target_path4 = "assets/documents/dlpdf/".$driver_dlpdf;
+     $target_path5 = "assets/documents/rcpdf/".$driver_vehiclercpdf;
+
+     $d_lat = NULL;
+     $d_long = NULL;
    
     #TO move the uploaded file to specific location
     move_uploaded_file($tname1, $target_path1);
     move_uploaded_file($tname2, $target_path2);
     move_uploaded_file($tname3, $target_path3);
+    move_uploaded_file($tname4, $target_path4);
+    move_uploaded_file($tname5, $target_path5);
 
     #sql query to insert into database
-    $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_password','$driver_approve')";
+    $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_dlnumber,d_dlpdf,d_vehiclenumber,d_vehiclercpdf,d_lat,d_long,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_dlnumber','$target_path4','$driver_vehiclenumber','$target_path5','$d_lat','$d_long','$driver_password','$driver_approve')";
     $success = $conn->query($query);
  
     if (!$success){
@@ -109,11 +122,14 @@ $conn->close();
             </div>
         </div>
     </nav>
-    <div class="container" style="margin-top:200px;">
+    <div class="container" style="margin-top:150px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
             <h2> <?php echo "Welcome $driver_name!" ?> </h2>
-            <h1>Your account has been created Successfully.</h1>
-            <p><strong>Login Now from <a href="login.php">HERE</strong></a></p>
+            <br>
+            <h3>Your details for driver account has been submitted Successfully.</h3>
+            <h5>We are reviewing your details and documents. Please have a little patience.</h5>
+            <br>
+            <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
         </div>    
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">

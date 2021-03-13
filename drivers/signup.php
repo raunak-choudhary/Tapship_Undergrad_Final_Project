@@ -42,7 +42,7 @@
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">drivers Sign Up</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Drivers Sign Up</h2>
             </div>
         </div>
     </div>
@@ -93,6 +93,18 @@
 
             <h5 style="color:#fff;">PAN PDF</h5>
             <div class="form-group"><input class="form-control" id="driver_panpdf" type="file" accept="application/pdf" name="driver_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Driving Licence Number</h5>
+            <div class="form-group"><input class="form-control" id="driver_dlnumber" type="text" name="driver_dlnumber" pattern="^[A-Z]{2}[0-9]{13}$"  title="Enter Valid Driving Licence Number (Ex. RJ43278905431XX)" placeholder="Driving Licence Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Driving Licence PDF</h5>
+            <div class="form-group"><input class="form-control" id="driver_dlpdf" type="file" accept="application/pdf" name="driver_dlpdf" placeholder="Driving Licence PDF" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Vehicle number</h5>
+            <div class="form-group"><input class="form-control" id="driver_vehiclenumber" type="text" name="driver_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}"  title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Your PAN Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Vehicle RC PDF</h5>
+            <div class="form-group"><input class="form-control" id="driver_vehiclercpdf" type="file" accept="application/pdf" name="driver_vehiclercpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Photo</h5>
             <div class="form-group"><input class="form-control" id="driver_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="driver_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>

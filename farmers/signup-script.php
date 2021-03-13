@@ -111,9 +111,13 @@ $conn->close();
     </nav>
     <div class="container" style="margin-top:200px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2> <?php echo "Welcome $farmer_name!" ?> </h2>
-            <h1>Your account has been created Successfully.</h1>
-            <p><strong>Login Now from <a href="login.php">HERE</strong></a></p>
+        <h2> <?php echo "Welcome $driver_name!" ?> </h2>
+        <h2> <?php echo "Welcome $driver_name!" ?> </h2>
+            <br>
+            <h3>Your details for farmer account has been submitted Successfully.</h3>
+            <h5>We are reviewing your details and documents. Please have a little patience.</h5>
+            <br>
+            <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
         </div>    
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
