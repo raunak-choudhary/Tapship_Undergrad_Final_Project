@@ -73,7 +73,7 @@ $conn->close();
 <html>
 
   <head>
-  <title>Success!</title>
+  <title>Success - Driver</title>
   
   <link rel="shortcut icon" type="image/png" href="assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="assets/css/manager_registered_success.css">
