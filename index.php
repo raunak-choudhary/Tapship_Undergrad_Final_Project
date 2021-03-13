@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>TapShip</title>
-    <link rel="icon" href="assets/img/fav.png" type="image/png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="./assets/img/fav.png" type="image/png">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/Article-List.css">
+    <link rel="stylesheet" href="./assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="./assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="./assets/css/Highlight-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
 </head>
@@ -43,15 +43,15 @@
                 <h2 class="text-center" style="background: rgb(12,56,35);color: rgb(255,255,255);padding: 20px;padding-top: 20px;margin-bottom: 10px;margin-top: 50px;">Whom We Help?</h2>
             </div>
             <div class="row articles">
-                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmers.png" style="text-align: center;">
+                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="./assets/img/farmers.png" style="text-align: center;">
                     <h3 class="name" style="text-align: center;font-size: 18px;">Farmers</h3>
                     <p class="description" style="font-size: 16px;color: rgb(0,0,0);">We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br></p>
                 </div>
-                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/customer.png">
+                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="./assets/img/customer.png">
                     <h3 class="name" style="font-size: 18px;">Customers</h3>
                     <p class="description" style="font-size: 16px;color: rgb(0,0,0);">Wholesaler who buys from these APMC agents can directly buy from farmers. It will remove the cost added by APMC agents.</p>
                 </div>
-                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/drivers.png">
+                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="./assets/img/drivers.png">
                     <h3 class="name" style="font-size: 18px;">Drivers</h3>
                     <p class="description" style="font-size: 16px;color: rgb(0,0,0);">Truck Drivers can see the successful deals on platform and can transport the crop from Farmers to Wholesaler.</p>
                 </div>
@@ -119,12 +119,12 @@
             </div>
         </footer>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/freelancer.js"></script>
+    <script src="./assets/js/freelancer.js"></script>
 </body>
 
 </html>
