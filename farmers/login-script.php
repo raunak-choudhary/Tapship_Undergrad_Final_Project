@@ -1,6 +1,7 @@
  <?php
 session_start(); // Starting Session
 $error = ''; // Variable To Store Error Message
+error_reporting(0);
 if (isset($_POST['submit'])) {
 if (empty($_POST['f_mobile']) || empty($_POST['f_password'])) {
 $error = "Username or Password is invalid";

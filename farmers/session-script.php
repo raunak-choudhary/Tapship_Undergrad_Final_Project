@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 // mysqli_connect() function opens a new connection to the MySQL server.
 $conn = mysqli_connect("127.0.0.1", "root", "", "tapship");
 session_start();// Starting Session
