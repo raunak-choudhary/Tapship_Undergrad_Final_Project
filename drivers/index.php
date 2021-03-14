@@ -3,7 +3,7 @@
 include('session-script.php');
 $res = $_SESSION["sessionid"];
 $c_mobile= $res;
-if(!isset($_SESSION['login_user'])){
+if(!isset($_SESSION['login_driver'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
@@ -52,7 +52,7 @@ error_reporting(0);
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">driver Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Driver Profile</h2>
             </div>
         </div>
     </div>

@@ -4,10 +4,10 @@ error_reporting(0);
 $conn = mysqli_connect("127.0.0.1", "root", "", "tapship");
 session_start();// Starting Session
 // Storing Session
-$user_check = $_SESSION['login_user'];
+$user_check = $_SESSION['login_admin'];
 // SQL Query To Fetch Complete Information Of User
-$query = "SELECT d_mobile from driver where d_mobile = '$user_check'";
+$query = "SELECT a_name from admin where a_password = '$user_check'";
 $ses_sql = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($ses_sql);
-$login_session = $row['d_mobile'];
+$login_session = $row['a_name'];
 ?>

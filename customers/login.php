@@ -1,6 +1,6 @@
 <?php
 include('login-script.php'); // Includes Login Script
-if(isset($_SESSION['login_user'])){
+if(isset($_SESSION['login_customer'])){
 header("location: index.php"); // Redirecting To Profile Page
 }
 error_reporting(0);

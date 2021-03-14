@@ -3,7 +3,7 @@
 include('session-script.php');
 $res = $_SESSION["sessionid"];
 $c_mobile= $res;
-if(!isset($_SESSION['login_user'])){
+if(!isset($_SESSION['login_farmer'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);

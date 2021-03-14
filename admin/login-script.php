@@ -21,7 +21,7 @@ $stmt->execute();
 $stmt->bind_result($a_name, $a_password);
 $stmt->store_result();
 if($stmt->fetch()) //fetching the contents of the row {
-$_SESSION['login_user'] = $a_name; // Initializing Session
+$_SESSION['login_admin'] = $a_name; // Initializing Session
 header("location: login.php"); // Redirecting To Profile Page
 }
 mysqli_close(); // Closing Connection
