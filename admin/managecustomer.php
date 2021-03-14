@@ -43,7 +43,7 @@ header("location: login.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Update Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
@@ -92,7 +92,7 @@ mysqli_select_db($con,'tapship');
  <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['c_city'];  ?> </td>
  <td data-label="Type"> <?php echo $res['c_type'];  ?> </td>
- <td data-label="Status"> <?php if($res['c_approve']=="0"){echo "No Action";}else if($res['c_approve']=="1"){echo "Review";}else if($res['c_approve']=="2"){echo "Approved";}else if($res['c_approve']=="3"){echo "Rejected";}  ?> </td>
+ <td data-label="Status"> <?php if($res['c_approve']=="0"){echo "No Action";}else if($res['c_approve']=="1"){echo " Accepted";}else if($res['c_approve']=="2"){echo "Review";}else if($res['c_approve']=="3"){echo "Rejected";}else if($res['c_approve']=="4"){echo "Resubmitted";}  ?> </td>
  <td data-label="Photo"> <img src="../customers/<?php echo $res['c_photo'];  ?>" width="50" height="60"> </td>
  <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> View </a> </button> </td>
 

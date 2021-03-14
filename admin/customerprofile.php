@@ -114,7 +114,7 @@ $con=mysqli_connect("localhost","root","","tapship");
     <p>Aadhar PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_aadharpdf;?>" target="_blank">View Aadhar PDF</a></button></p>
     <p>PAN: <?php echo "$c_pan"?></p>
     <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
-    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($res['c_approve']=="1"){echo "Review";}else if($res['c_approve']=="2"){echo "Approved";}else if($res['c_approve']=="3"){echo "Rejected";}  ?></p>
+    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
     <?php
     }
     if($c_type=="organization")
@@ -135,42 +135,52 @@ $con=mysqli_connect("localhost","root","","tapship");
     <p>Registration Document: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document PDF</a></button></p>
     <p>PAN: <?php echo "$c_pan"?></p>
     <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
-    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($res['c_approve']=="1"){echo "Review";}else if($res['c_approve']=="2"){echo "Approved";}else if($res['c_approve']=="3"){echo "Rejected";}  ?></p>
+    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
     <?php
     }
     ?>
     
+    <form action="statuscustomer.php?c_mobile=<?php echo $c_mobile; ?>" method="post">
     <?php
     if($c_approve==0){
     ?>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Accept </a> </button> </td>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Review </a> </button> </td>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Reject </a> </button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
      <hr>
     <?php
     }
     if($c_approve==1){
     ?>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Review </a> </button> </td>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Reject </a> </button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
      <hr>
     <?php
     }
     if($c_approve==2){
     ?>
-    <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Accept </a> </button> </td>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Reject </a> </button> </td>
+    <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
      <hr>
     <?php
     }
     if($c_approve==3){
     ?>
-    <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Accept </a> </button> </td>
-     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> Review </a> </button> </td>
+    <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
      <hr>
     <?php
     }
+    if($c_approve==4){
     ?>
+    <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
+    <hr>
+    <?php
+    }
+    ?>
+    </form>
     </div>
 
     
