@@ -8,6 +8,6 @@ $user_check = $_SESSION['login_customer'];
 // SQL Query To Fetch Complete Information Of User
 $query = "SELECT c_mobile from customer where c_mobile = '$user_check'";
 $ses_sql = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($ses_sql);
-$login_session = $row['c_mobile'];
+ $res = mysqli_fetch_assoc($ses_sql);
+$login_session =  $res['c_mobile'];
 ?>

@@ -30,8 +30,8 @@ if (isset($_POST["submit"]))
      $result = $conn->query($sql);
 
      if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-            if($row["d_mobile"]==$driver_mobile){
+        while( $res = mysqli_fetch_assoc($result)) {
+            if( $res["d_mobile"]==$driver_mobile){
                 header("location: alreadyregistered.php");
             }
             else{

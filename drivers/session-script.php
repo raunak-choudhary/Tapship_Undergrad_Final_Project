@@ -8,6 +8,6 @@ $user_check = $_SESSION['login_driver'];
 // SQL Query To Fetch Complete Information Of User
 $query = "SELECT d_mobile from driver where d_mobile = '$user_check'";
 $ses_sql = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($ses_sql);
-$login_session = $row['d_mobile'];
+ $res = mysqli_fetch_assoc($ses_sql);
+$login_session =  $res['d_mobile'];
 ?>
