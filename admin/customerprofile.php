@@ -121,7 +121,7 @@ $con=mysqli_connect("localhost","root","","tapship");
     {
     ?>
     <p><img src="../customers/<?php echo  $c_photo;  ?>" width="200" height="240"></p>
-    <<p>Type: <?php echo "$c_type"?></p>
+    <p>Type: <?php echo "$c_type"?></p>
     <p>ID: <?php echo "$c_id"?></p>
     <p>Name: <?php echo "$c_name"?></p>
     <p>Mobile: <?php echo "$c_mobile"?></p>

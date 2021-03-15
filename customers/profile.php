@@ -50,7 +50,7 @@ error_reporting(0);
         </div>
     </nav>
     <?php 
-    
+
 $con=mysqli_connect("localhost","root","","tapship");
    if(!$con)
    {
@@ -62,64 +62,82 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    while( $res=mysqli_fetch_assoc($result))
    {
+       $c_id =  $res['c_id'];
+       $c_name =  $res['c_name'];
+       $c_contactname =  $res['c_contactname'];
+       $c_gender =  $res['c_gender'];
+       $c_age =  $res['c_age'];
+       $c_street =  $res['c_street'];
+       $c_city =  $res['c_city'];
+       $c_state =  $res['c_state'];
+       $c_pincode =  $res['c_pincode'];
+       $c_type =  $res['c_type'];
+       $c_registration =  $res['c_registration'];
+       $c_aadhar =  $res['c_aadhar'];
+       $c_aadharpdf =  $res['c_aadharpdf'];
+       $c_pan =  $res['c_pan'];
+       $c_panpdf =  $res['c_panpdf'];
+       $c_photo =  $res['c_photo'];
        $c_approve =  $res['c_approve'];
    }
 ?>
-
-<?php
-if($c_approve==0||$c_approve==2||$c_approve==3||$c_approve==4)
-{?>
-<div class="container" style="margin-top:150px;">
-        <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2>Status : <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h4><hr>
-            <h3>Your profile is not approved by Tapship.</h2>
-            <?php
-            if($c_approve==0)
-            {?>
-            <h5>You have registerd successfully. We are checking your details.</h5>
-            <h5>Please wait for sometime.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($c_approve==2)
-            {?>
-            <h5>Your application have some problem. We will contact you soon</h5>
-            <h5>Please wait for for our call.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($c_approve==3)
-            {?>
-            <h5>Your application got rejected due to not following rules.</h5>
-            <h5>You can contact our customer care for more details.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($c_approve==4)
-            {?>
-            <h5>Your have resubmitted application successfully. We are checking your details.</h5>
-            <h5>Please wait for sometime.</h5>
-            <h5>Thank You</h5>
-            <?php }?>
-            <br>
-            <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
-        </div>    
-    </div>
-<?php }?>
-
-
-<?php
-if($c_approve==1)
-{?>
-
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">customer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Profile - <?php echo "$c_name"?></h2>
             </div>
         </div>
     </div>
-<?php }?>
+
+
+    <div class="container">
+
+    <?php
+    if($c_type=="wholesaler")
+    {
+    ?>
+    <p><img src="../customers/<?php echo  $c_photo;?>" width="200" height="240"></p>
+    <p>Type: <?php echo "$c_type"?></p>
+    <p>ID: <?php echo "$c_id"?></p>
+    <p>Name: <?php echo "$c_name"?></p>
+    <p>Mobile: <?php echo "$c_mobile"?></p>
+    <p>Gender: <?php echo "$c_gender"?></p>
+    <p>Age: <?php echo "$c_age"?></p>
+    <p>Street: <?php echo "$c_street"?></p>
+    <p>City: <?php echo "$c_city"?></p>
+    <p>State: <?php echo "$c_state"?></p>
+    <p>Pincode: <?php echo "$c_pincode"?></p>
+    <p>Aadhar: <?php echo "$c_aadhar"?></p>
+    <p>Aadhar PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_aadharpdf;?>" target="_blank">View Aadhar PDF</a></button></p>
+    <p>PAN: <?php echo "$c_pan"?></p>
+    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
+    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
+    <?php
+    }
+    if($c_type=="organization")
+    {
+    ?>
+    <p><img src="../customers/<?php echo  $c_photo;  ?>" width="200" height="240"></p>
+    <p>Type: <?php echo "$c_type"?></p>
+    <p>ID: <?php echo "$c_id"?></p>
+    <p>Name: <?php echo "$c_name"?></p>
+    <p>Mobile: <?php echo "$c_mobile"?></p>
+    <p>Contact Person Name: <?php echo "$c_contactname"?></p>
+    <p>Contact Person Gender: <?php echo "$c_gender"?></p>
+    <p> Contact Person Age: <?php echo "$c_age"?></p>
+    <p>Street: <?php echo "$c_street"?></p>
+    <p>City: <?php echo "$c_city"?></p>
+    <p>State: <?php echo "$c_state"?></p>
+    <p>Pincode: <?php echo "$c_pincode"?></p>
+    <p>Registration Document: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document PDF</a></button></p>
+    <p>PAN: <?php echo "$c_pan"?></p>
+    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
+    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
+    <?php
+    }
+    ?>
+
+</div>
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
