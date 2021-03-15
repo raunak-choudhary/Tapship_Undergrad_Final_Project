@@ -22,7 +22,7 @@ if (isset($_POST["submit"]))
      $farmer_aadhar= $conn->real_escape_string($_POST['farmer_aadhar']);
      $farmer_pan= $conn->real_escape_string($_POST['farmer_pan']);
      $farmer_password= $conn->real_escape_string($_POST['farmer_password']);
-     $farmer_approve = 1;
+     $farmer_approve = 0;
     
      $sql = "Select * from farmer";
      $result = $conn->query($sql);

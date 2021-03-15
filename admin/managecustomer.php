@@ -2,7 +2,7 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$c_mobile= $res;
+$a_name= $res;
 if(!isset($_SESSION['login_admin'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
@@ -43,7 +43,7 @@ header("location: login.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../signup.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
@@ -64,6 +64,7 @@ header("location: login.php"); // Redirecting To Profile Page
  
  <tr class="bg-dark text-white text-center">
  <thead>
+ <th>Sr. No.</th>
  <th> Name </th>
  <th> Mobile </th>
  <th> City </th>
@@ -77,17 +78,17 @@ header("location: login.php"); // Redirecting To Profile Page
  <?php
     
 $con = mysqli_connect('localhost','root');
-
 mysqli_select_db($con,'tapship');
    
      
  $q = "select c_name, c_mobile, c_city, c_type, c_approve, c_photo from customer ";
-
  $query = mysqli_query($con,$q);
+ $c = 1;
 
  while($res = mysqli_fetch_array($query)){
  ?>
  <tr class="text-center">
+ <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
  <td data-label="Name"> <?php echo $res['c_name'];  ?> </td>
  <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['c_city'];  ?> </td>

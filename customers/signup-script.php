@@ -24,7 +24,7 @@ if (isset($_POST["submit"]))
      $customer_aadhar= $conn->real_escape_string($_POST['customer_aadhar']);
      $customer_pan= $conn->real_escape_string($_POST['customer_pan']);
      $customer_password= $conn->real_escape_string($_POST['customer_password']);
-     $customer_approve = 1;
+     $customer_approve = 0;
     
      $sql = "Select * from customer";
      $result = $conn->query($sql);

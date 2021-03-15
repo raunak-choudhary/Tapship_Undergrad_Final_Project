@@ -24,7 +24,7 @@ if (isset($_POST["submit"]))
      $driver_dlnumber= $conn->real_escape_string($_POST['driver_dlnumber']);
      $driver_vehiclenumber= $conn->real_escape_string($_POST['driver_vehiclenumber']);
      $driver_password= $conn->real_escape_string($_POST['driver_password']);
-     $driver_approve = 1;
+     $driver_approve = 0;
 
      $sql = "Select * from driver";
      $result = $conn->query($sql);

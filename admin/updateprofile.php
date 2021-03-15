@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
@@ -6,8 +7,27 @@ $a_name= $res;
 if(!isset($_SESSION['login_admin'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
-?> 
- 
+
+ $con=mysqli_connect("localhost","root","","tapship");
+    if(!$con)
+    {
+        die(" Connection Error ");
+    }
+
+
+    $a_name = $_GET['a_name'];
+    $query = " select * from admin where a_name='".$a_name."'";
+    $result = mysqli_query($con,$query);
+
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $a_name = $row['a_name'];
+        $a_password = $row['a_password'];
+        
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +48,6 @@ header("location: login.php"); // Redirecting To Profile Page
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../assets/css/table-style.css"/>
 </head>
 
 <body id="page-top">
@@ -45,70 +64,28 @@ header("location: login.php"); // Redirecting To Profile Page
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
                 </ul>
             </div>
         </div>
     </nav>
-
-   
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Manage Drivers</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Profile Updtae</h2>
             </div>
         </div>
     </div>
-
-<table  id="tabledata" class=" table table-striped table-hover table-bordered">
- 
- <tr class="bg-dark text-white text-center">
- <thead>
- <th>Sr. No.</th>
- <th> Name </th>
- <th> Mobile </th>
- <th> City </th>
- <th> DL Number </th>
- <th> Vehicle Number </th>
- <th> Status </th>
- <th> Photo </th>
- <th> Profile </th>
- </thead>
- </tr >
-
- <?php
-    
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'tapship');
-   
-     
- $q = "select d_name, d_mobile, d_city, d_dlnumber, d_vehiclenumber, d_approve, d_photo from driver ";
- $query = mysqli_query($con,$q);
- $c = 1;
-
- while($res = mysqli_fetch_array($query)){
- ?>
- <tr class="text-center">
- <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="Name"> <?php echo $res['d_name'];  ?> </td>
- <td data-label="Mobile"> <?php echo $res['d_mobile'];  ?> </td>
- <td data-label="City"> <?php echo $res['d_city'];  ?> </td>
- <td data-label="DL Number"> <?php echo $res['d_dlnumber'];  ?> </td>
- <td data-label="Vehicle Number"> <?php echo $res['d_vehiclenumber'];  ?> </td>
- <td data-label="Status"> <?php if($res['d_approve']=="0"){echo "No Action";}else if($res['d_approve']=="1"){echo " Accepted";}else if($res['d_approve']=="2"){echo "Review";}else if($res['d_approve']=="3"){echo "Rejected";}else if($res['d_approve']=="4"){echo "Resubmitted";}  ?> </td>
- <td data-label="Photo"> <img src="../drivers/<?php echo $res['d_photo'];  ?>" width="50" height="60"> </td>
- <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="driverprofile.php?d_mobile=<?php echo $res['d_mobile']; ?>" class="text-white"> View </a> </button> </td>
-
- </tr>
-
- <?php 
- }
-  ?>
- 
- </table>  
-
-    
-    
+    <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
+        <form method="post" action="updateprofile-script.php?a_name=<?php echo $a_name ?>" style="background: #0c3823; margin-bottom: 40px;">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
+            <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username" value="<?php echo $a_name ?>"></div>
+            <div class="form-group"><input class="form-control" type="text" name="a_password" placeholder="Password" value="<?php echo $a_password ?>"></div>
+            <p style="color:#fff;"> <strong>Note:</strong> You will be logged out after update. Please login again to access admin account with new credentials.</p>
+            <button class="btn btn-primary btn-block" type="submit" name="update">Update</button>
+            
+        </form>
+    </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
