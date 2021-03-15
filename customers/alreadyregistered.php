@@ -1,8 +1,7 @@
 <html>
 
   <head>
-  <title>User Exist - Customer SignUp</title>
-  
+  <title>User Exist - Customer SignUp</title>  
   <link rel="shortcut icon" type="image/png" href="../assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="../assets/css/manager_registered_success.css">
   <link rel="stylesheet" type = "text/css" href ="../assets/bootstrap/css/bootstrap.min.css">
