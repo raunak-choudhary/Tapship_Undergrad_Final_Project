@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 08:15 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Host: localhost
+-- Generation Time: Mar 15, 2021 at 10:16 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -156,7 +156,9 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`, `d_approve`) VALUES
-(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.png', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', '12345', '1');
+(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.png', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', '12345', '1'),
+(2, 'Yash Nayak', '7070414133', 'Male', '24', '4AB, Sardar Vallabhai Patel Road', 'Ahmedabad', 'Gujarat', '320008', '821367489408', 'assets/documents/aadhar/7070414133-Yash Nayak-aadhar.pdf', 'SBVXE6360B', 'assets/documents/pan/7070414133-Yash Nayak-pan.pdf', 'assets/documents/photo/7070414133-Yash Nayak-driver2.png', 'DL5857254678123', 'assets/documents/dlpdf/7070414133-Yash Nayak-dlpdf.pdf', 'DL42RM4763', 'assets/documents/rcpdf/7070414133-Yash Nayak-rcpdf.pdf', '', '', 'Yn123456', '0'),
+(3, 'Arjun Pathak', '8228229090', 'Male', '30', '866C, Rajiv Gandhi Road', 'Hyderabad', 'Telangana', '500001', '735194058610', 'assets/documents/aadhar/8228229090-Arjun Pathak-aadhar.pdf', 'ABQWD4562R', 'assets/documents/pan/8228229090-Arjun Pathak-pan.pdf', 'assets/documents/photo/8228229090-Arjun Pathak-driver3.png', 'TS4562538457562', 'assets/documents/dlpdf/8228229090-Arjun Pathak-dlpdf.pdf', 'TS02AB0007', 'assets/documents/rcpdf/8228229090-Arjun Pathak-rcpdf.pdf', '', '', 'Ap123456', '0');
 
 -- --------------------------------------------------------
 
@@ -188,7 +190,9 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
-(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', '12345', '0');
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', '12345', '0'),
+(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/8745123411-Ajay Kumar-aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/8745123411-Ajay Kumar-pan.pdf', 'assets/documents/photo/8745123411-Ajay Kumar-farmer2.png', 'Ak123456', '0'),
+(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/9446552020-Karthik Gupta-aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/9446552020-Karthik Gupta-pan.pdf', 'assets/documents/photo/9446552020-Karthik Gupta-farmer3.png', 'Kg123456', '0');
 
 -- --------------------------------------------------------
 
@@ -369,13 +373,13 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `kiosk`
