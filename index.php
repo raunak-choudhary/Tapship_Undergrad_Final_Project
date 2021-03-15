@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/customer.png">
                     <h3 class="name" style="font-size: 18px;">Customers</h3>
-                    <p class="description" style="font-size: 16px;color: rgb(0,0,0);">Wholesaler who buys from these APMC agents can directly buy from farmers. It will remove the cost added by APMC agents.</p>
+                    <p class="description" style="font-size: 16px;color: rgb(0,0,0);">Wholesaler who buys from these agents can directly buy from farmers. It will remove the cost added by APMC agents.</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/drivers.png">
                     <h3 class="name" style="font-size: 18px;">Drivers</h3>
