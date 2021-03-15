@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 12:05 PM
+-- Generation Time: Mar 15, 2021 at 08:15 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -30,9 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `a_id` int(25) NOT NULL,
   `a_name` varchar(50) NOT NULL,
-  `a_mobile` varchar(25) NOT NULL,
   `a_password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
+(1, 'admin', '12345');
 
 -- --------------------------------------------------------
 
@@ -87,7 +93,7 @@ CREATE TABLE `cropsale` (
 
 CREATE TABLE `customer` (
   `c_id` int(11) NOT NULL,
-  `c_name` varchar(50) NOT NULL,
+  `c_name` varchar(100) NOT NULL,
   `c_mobile` varchar(25) NOT NULL,
   `c_contactname` varchar(50) NOT NULL,
   `c_gender` varchar(25) NOT NULL,
@@ -97,13 +103,13 @@ CREATE TABLE `customer` (
   `c_state` varchar(25) NOT NULL,
   `c_pincode` varchar(10) NOT NULL,
   `c_type` varchar(25) NOT NULL,
-  `c_document` varchar(100) DEFAULT NULL,
-  `c_aadhar` varchar(25) DEFAULT NULL,
-  `c_aadharpdf` varchar(100) DEFAULT NULL,
-  `c_pan` varchar(25) DEFAULT NULL,
-  `c_panpdf` varchar(100) DEFAULT NULL,
+  `c_registration` varchar(100) NOT NULL,
+  `c_aadhar` varchar(25) NOT NULL,
+  `c_aadharpdf` varchar(100) NOT NULL,
+  `c_pan` varchar(25) NOT NULL,
+  `c_panpdf` varchar(100) NOT NULL,
   `c_photo` varchar(100) NOT NULL,
-  `c_password` varchar(25) DEFAULT NULL,
+  `c_password` varchar(25) NOT NULL,
   `c_approve` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -111,8 +117,8 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_document`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`) VALUES
-(1, 'Ram', '9672836724', 'Ram', '', '0', '202', 'Udupi', 'Karnataka', '576213', 'Holesaler', '1', NULL, NULL, '', '', '', '12345', '0');
+INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`) VALUES
+(1, 'Ganpat Patel', '9672836724', 'NULL', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', 'wholesaler', 'NULL', '799721133696', 'assets/documents/aadhar/aadhar.pdf', 'EYCPP1502E', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', '12345', '1');
 
 -- --------------------------------------------------------
 
@@ -131,16 +137,16 @@ CREATE TABLE `driver` (
   `d_state` varchar(25) NOT NULL,
   `d_pincode` varchar(10) NOT NULL,
   `d_aadhar` varchar(25) NOT NULL,
-  `d_aadharpdf` varchar(100) DEFAULT NULL,
+  `d_aadharpdf` varchar(100) NOT NULL,
   `d_pan` varchar(25) NOT NULL,
-  `d_panpdf` varchar(100) DEFAULT NULL,
-  `d_photo` varchar(100) DEFAULT NULL,
+  `d_panpdf` varchar(100) NOT NULL,
+  `d_photo` varchar(100) NOT NULL,
   `d_dlnumber` varchar(25) NOT NULL,
-  `d_dlpdf` varchar(100) DEFAULT NULL,
+  `d_dlpdf` varchar(100) NOT NULL,
   `d_vehiclenumber` varchar(25) NOT NULL,
-  `d_vehiclercpdf` varchar(100) DEFAULT NULL,
-  `d_lat` varchar(100) NOT NULL,
-  `d_long` varchar(100) NOT NULL,
+  `d_vehiclercpdf` varchar(100) NOT NULL,
+  `d_lat` varchar(100) DEFAULT NULL,
+  `d_long` varchar(100) DEFAULT NULL,
   `d_password` varchar(25) NOT NULL,
   `d_approve` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -150,7 +156,7 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`, `d_approve`) VALUES
-(1, 'Laxman', '9672836724', 'Male', '25', '202, Laxmi Plaza', 'Brahmavara', 'Karnataka', '576213', '783427342354', '', 'EYCAA6586Z', '', '', '57586899379', '', 'KA-20 GH 6478', '', '54.34', '34', '12345', '0');
+(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.png', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', '12345', '1');
 
 -- --------------------------------------------------------
 
@@ -182,7 +188,7 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
-(1, 'Bharat', '9672836724', 'Male', '34', '756, AJ Colony', 'Udupi', 'Karnataka', '576213', '687273827634', '', 'FTIVD6854F', '', '', '12345', '0');
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', '12345', '0');
 
 -- --------------------------------------------------------
 
@@ -288,19 +294,22 @@ ALTER TABLE `cropsale`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`c_id`);
+  ADD PRIMARY KEY (`c_id`),
+  ADD UNIQUE KEY `c_mobile` (`c_mobile`);
 
 --
 -- Indexes for table `driver`
 --
 ALTER TABLE `driver`
-  ADD PRIMARY KEY (`d_id`);
+  ADD PRIMARY KEY (`d_id`),
+  ADD UNIQUE KEY `d_mobile` (`d_mobile`);
 
 --
 -- Indexes for table `farmer`
 --
 ALTER TABLE `farmer`
-  ADD PRIMARY KEY (`f_id`);
+  ADD PRIMARY KEY (`f_id`),
+  ADD UNIQUE KEY `f_mobile` (`f_mobile`);
 
 --
 -- Indexes for table `kiosk`
@@ -330,7 +339,7 @@ ALTER TABLE `transportbid`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_id` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `a_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cropbid`
@@ -354,7 +363,7 @@ ALTER TABLE `cropsale`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `driver`
@@ -366,7 +375,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `kiosk`
