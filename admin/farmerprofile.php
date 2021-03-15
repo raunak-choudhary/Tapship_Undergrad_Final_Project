@@ -59,35 +59,34 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
 
-   $c_mobile = $_GET['c_mobile'];
-   $query = " select * from customer where c_mobile=".$c_mobile."";
+   $f_mobile = $_GET['f_mobile'];
+   $query = " select * from farmer where f_mobile=".$f_mobile."";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
    {
-       $c_id =  $res['c_id'];
-       $c_name =  $res['c_name'];
-       $c_contactname =  $res['c_contactname'];
-       $c_gender =  $res['c_gender'];
-       $c_age =  $res['c_age'];
-       $c_street =  $res['c_street'];
-       $c_city =  $res['c_city'];
-       $c_state =  $res['c_state'];
-       $c_pincode =  $res['c_pincode'];
-       $c_type =  $res['c_type'];
-       $c_registration =  $res['c_registration'];
-       $c_aadhar =  $res['c_aadhar'];
-       $c_aadharpdf =  $res['c_aadharpdf'];
-       $c_pan =  $res['c_pan'];
-       $c_panpdf =  $res['c_panpdf'];
-       $c_photo =  $res['c_photo'];
-       $c_approve =  $res['c_approve'];
+       $f_id =  $res['f_id'];
+       $f_name =  $res['f_name'];
+ 
+       $f_gender =  $res['f_gender'];
+       $f_age =  $res['f_age'];
+       $f_street =  $res['f_street'];
+       $f_city =  $res['f_city'];
+       $f_state =  $res['f_state'];
+       $f_pincode =  $res['f_pincode'];
+ 
+       $f_aadhar =  $res['f_aadhar'];
+       $f_aadharpdf =  $res['f_aadharpdf'];
+       $f_pan =  $res['f_pan'];
+       $f_panpdf =  $res['f_panpdf'];
+       $f_photo =  $res['f_photo'];
+       $f_approve =  $res['f_approve'];
    }
 ?>
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Profile - <?php echo "$c_name"?></h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Profile - <?php echo "$f_name"?></h2>
             </div>
         </div>
     </div>
@@ -96,53 +95,53 @@ $con=mysqli_connect("localhost","root","","tapship");
     <div class="container">
 
     <?php
-    if($c_type=="wholesaler")
+    if($f_type=="wholesaler")
     {
     ?>
-    <p><img src="../customers/<?php echo  $c_photo;?>" width="200" height="240"></p>
-    <p>Type: <?php echo "$c_type"?></p>
-    <p>ID: <?php echo "$c_id"?></p>
-    <p>Name: <?php echo "$c_name"?></p>
-    <p>Mobile: <?php echo "$c_mobile"?></p>
-    <p>Gender: <?php echo "$c_gender"?></p>
-    <p>Age: <?php echo "$c_age"?></p>
-    <p>Street: <?php echo "$c_street"?></p>
-    <p>City: <?php echo "$c_city"?></p>
-    <p>State: <?php echo "$c_state"?></p>
-    <p>Pincode: <?php echo "$c_pincode"?></p>
-    <p>Aadhar: <?php echo "$c_aadhar"?></p>
-    <p>Aadhar PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_aadharpdf;?>" target="_blank">View Aadhar PDF</a></button></p>
-    <p>PAN: <?php echo "$c_pan"?></p>
-    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
-    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
+    <p><img src="../farmers/<?php echo  $f_photo;?>" width="200" height="240"></p>
+ 
+    <p>ID: <?php echo "$f_id"?></p>
+    <p>Name: <?php echo "$f_name"?></p>
+    <p>Mobile: <?php echo "$f_mobile"?></p>
+    <p>Gender: <?php echo "$f_gender"?></p>
+    <p>Age: <?php echo "$f_age"?></p>
+    <p>Street: <?php echo "$f_street"?></p>
+    <p>City: <?php echo "$f_city"?></p>
+    <p>State: <?php echo "$f_state"?></p>
+    <p>Pincode: <?php echo "$f_pincode"?></p>
+    <p>Aadhar: <?php echo "$f_aadhar"?></p>
+    <p>Aadhar PDF: <button class="btn btn-dark text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar PDF</a></button></p>
+    <p>PAN: <?php echo "$f_pan"?></p>
+    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
+    <p>Status: <?php if($f_approve=="0"){echo "No Action";}else if($f_approve=="1"){echo " Accepted";}else if($f_approve=="2"){echo "Review";}else if($f_approve=="3"){echo "Rejected";}else if($f_approve=="4"){echo "Resubmitted";}  ?></p>
     <?php
     }
-    if($c_type=="organization")
+    if($f_type=="organization")
     {
     ?>
-    <p><img src="../customers/<?php echo  $c_photo;  ?>" width="200" height="240"></p>
-    <<p>Type: <?php echo "$c_type"?></p>
-    <p>ID: <?php echo "$c_id"?></p>
-    <p>Name: <?php echo "$c_name"?></p>
-    <p>Mobile: <?php echo "$c_mobile"?></p>
-    <p>Contact Person Name: <?php echo "$c_contactname"?></p>
-    <p>Contact Person Gender: <?php echo "$c_gender"?></p>
-    <p> Contact Person Age: <?php echo "$c_age"?></p>
-    <p>Street: <?php echo "$c_street"?></p>
-    <p>City: <?php echo "$c_city"?></p>
-    <p>State: <?php echo "$c_state"?></p>
-    <p>Pincode: <?php echo "$c_pincode"?></p>
-    <p>Registration Document: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document PDF</a></button></p>
-    <p>PAN: <?php echo "$c_pan"?></p>
-    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
-    <p>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></p>
+    <p><img src="../farmers/<?php echo  $f_photo;  ?>" width="200" height="240"></p>
+    <<p>Type: <?php echo "$f_type"?></p>
+    <p>ID: <?php echo "$f_id"?></p>
+    <p>Name: <?php echo "$f_name"?></p>
+    <p>Mobile: <?php echo "$f_mobile"?></p>
+    <p>Contact Person Name: <?php echo "$f_contactname"?></p>
+    <p>Contact Person Gender: <?php echo "$f_gender"?></p>
+    <p> Contact Person Age: <?php echo "$f_age"?></p>
+    <p>Street: <?php echo "$f_street"?></p>
+    <p>City: <?php echo "$f_city"?></p>
+    <p>State: <?php echo "$f_state"?></p>
+    <p>Pincode: <?php echo "$f_pincode"?></p>
+    <p>Registration Document: <button class="btn btn-dark text-monospace"><a href="../farmers/<?php echo  $f_registration;?>" target="_blank">View Document PDF</a></button></p>
+    <p>PAN: <?php echo "$f_pan"?></p>
+    <p>PAN PDF: <button class="btn btn-dark text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN PDF</a></button></p>
+    <p>Status: <?php if($f_approve=="0"){echo "No Action";}else if($f_approve=="1"){echo " Accepted";}else if($f_approve=="2"){echo "Review";}else if($f_approve=="3"){echo "Rejected";}else if($f_approve=="4"){echo "Resubmitted";}  ?></p>
     <?php
     }
     ?>
     
-    <form action="statuscustomer.php?c_mobile=<?php echo $c_mobile; ?>" method="post">
+    <form action="statusfarmer.php?f_mobile=<?php echo $f_mobile; ?>" method="post">
     <?php
-    if($c_approve==0){
+    if($f_approve==0){
     ?>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
@@ -150,28 +149,28 @@ $con=mysqli_connect("localhost","root","","tapship");
      <hr>
     <?php
     }
-    if($c_approve==1){
+    if($f_approve==1){
     ?>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
      <hr>
     <?php
     }
-    if($c_approve==2){
+    if($f_approve==2){
     ?>
     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
      <hr>
     <?php
     }
-    if($c_approve==3){
+    if($f_approve==3){
     ?>
     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
      <hr>
     <?php
     }
-    if($c_approve==4){
+    if($f_approve==4){
     ?>
     <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
      <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>

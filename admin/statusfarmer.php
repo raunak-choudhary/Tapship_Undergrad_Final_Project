@@ -13,22 +13,22 @@ $con=mysqli_connect("localhost","root","","tapship");
        die(" Connection Error ");
    }
 
-   $c_mobile = $_GET['c_mobile'];
+   $f_mobile = $_GET['f_mobile'];
 
    if(isset($_POST['accept']))
    {        
-        $query = " update customer set c_approve = '1' where c_mobile='".$c_mobile."'";
+        $query = " update farmer set f_approve = '1' where f_mobile='".$f_mobile."'";
         $result = mysqli_query($con,$query);
    }
    if(isset($_POST['review']))
    {        
-        $query = " update customer set c_approve = '2' where c_mobile='".$c_mobile."'";
+        $query = " update farmer set f_approve = '2' where f_mobile='".$f_mobile."'";
         $result = mysqli_query($con,$query);
    }
    if(isset($_POST['reject']))
    {        
-        $query = " update customer set c_approve = '3' where c_mobile='".$c_mobile."'";
+        $query = " update farmer set f_approve = '3' where f_mobile='".$f_mobile."'";
         $result = mysqli_query($con,$query);
    }
-   header("Location: customerprofile.php?c_mobile=$c_mobile"); 
+   header("Location: farmerprofile.php?f_mobile=$f_mobile"); 
 ?>

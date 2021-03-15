@@ -49,13 +49,77 @@ error_reporting(0);
             </div>
         </div>
     </nav>
+    <?php 
+    
+$con=mysqli_connect("localhost","root","","tapship");
+   if(!$con)
+   {
+       die(" Connection Error ");
+   }
+
+   $query = " select * from customer where c_mobile=".$c_mobile."";
+   $result = mysqli_query($con,$query);
+
+   while( $res=mysqli_fetch_assoc($result))
+   {
+       $c_approve =  $res['c_approve'];
+   }
+?>
+
+<?php
+if($c_approve==0||$c_approve==2||$c_approve==3||$c_approve==4)
+{?>
+<div class="container" style="margin-top:150px;">
+        <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
+            <h2>Status : <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h4><hr>
+            <h3>Your profile is not approved by Tapship.</h2>
+            <?php
+            if($c_approve==0)
+            {?>
+            <h5>You have registerd successfully. We are checking your details.</h5>
+            <h5>Please wait for sometime.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($c_approve==2)
+            {?>
+            <h5>Your application have some problem. We will contact you soon</h5>
+            <h5>Please wait for for our call.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($c_approve==3)
+            {?>
+            <h5>Your application got rejected due to not following rules.</h5>
+            <h5>You can contact our customer care for more details.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($c_approve==4)
+            {?>
+            <h5>Your have resubmitted application successfully. We are checking your details.</h5>
+            <h5>Please wait for sometime.</h5>
+            <h5>Thank You</h5>
+            <?php }?>
+            <br>
+            <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
+        </div>    
+    </div>
+<?php }?>
+
+
+<?php
+if($c_approve==1)
+{?>
+
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">customer Profile</h2>
             </div>
         </div>
     </div>
+<?php }?>
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

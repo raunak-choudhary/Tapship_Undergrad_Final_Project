@@ -57,10 +57,42 @@ header("location: login.php"); // Redirecting To Profile Page
             </div>
         </div>
     </div>
-
-    <a href="managecustomer.php">Manage Customer</a>
-    <a href="managedriver.php">Manage Driver</a>
-    <a href="managefarmer.php">Manage Farmer</a>
+    
+    <div class="container-fluid">
+                <div class="row" style="margin-top: 40px;">
+                      <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow border-left-primary py-2" style="background-color: #0c3823;">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><a href="managecustomer.php" class="text-capitalize text-center" style="font-size: 25px;color: #fff;">Manage Customers</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow border-left-primary py-2" style="background-color: #0c3823;">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><a href="managedriver.php" class="text-capitalize text-center" style="font-size: 25px;color: #fff;">Manage Drivers</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow border-left-primary py-2" style="background-color: #0c3823;">
+                            <div class="card-body">
+                                <div class="col mr-2">
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><a href="managefarmer.php" class="text-capitalize text-center" style="font-size: 25px;color: #fff;">Manage Farmers</a></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     
     
     <div class="footer-dark" style="background: rgb(12,56,35);">

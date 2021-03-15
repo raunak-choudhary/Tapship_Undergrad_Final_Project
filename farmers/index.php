@@ -2,7 +2,7 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$c_mobile= $res;
+$f_mobile= $res;
 if(!isset($_SESSION['login_farmer'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
@@ -49,6 +49,69 @@ error_reporting(0);
             </div>
         </div>
     </nav>
+
+<?php 
+$con=mysqli_connect("localhost","root","","tapship");
+   if(!$con)
+   {
+       die(" Connection Error ");
+   }
+
+   $query = " select * from farmer where f_mobile=".$f_mobile."";
+   $result = mysqli_query($con,$query);
+
+   while( $res=mysqli_fetch_assoc($result))
+   {
+       $f_approve =  $res['f_approve'];
+   }
+?>
+
+<?php
+if($f_approve==0||$f_approve==2||$f_approve==3||$f_approve==4)
+{?>
+<div class="container" style="margin-top:150px;">
+        <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
+            <h2>Status : <?php if($f_approve=="0"){echo "No Action";}else if($f_approve=="1"){echo " Accepted";}else if($f_approve=="2"){echo "Review";}else if($f_approve=="3"){echo "Rejected";}else if($f_approve=="4"){echo "Resubmitted";}  ?></h4><hr>
+            <h3>Your profile is not approved by Tapship.</h2>
+            <?php
+            if($f_approve==0)
+            {?>
+            <h5>You have registerd successfully. We are checking your details.</h5>
+            <h5>Please wait for sometime.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($f_approve==2)
+            {?>
+            <h5>Your application have some problem. We will contact you soon</h5>
+            <h5>Please wait for for our call.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($f_approve==3)
+            {?>
+            <h5>Your application got rejected due to not following rules.</h5>
+            <h5>You can contact our customer care for more details.</h5>
+            <h5>Thank You</h5>
+            <?php
+            }
+            if($f_approve==4)
+            {?>
+            <h5>Your have resubmitted application successfully. We are checking your details.</h5>
+            <h5>Please wait for sometime.</h5>
+            <h5>Thank You</h5>
+            <?php }?>
+            <br>
+            <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
+        </div>    
+    </div>
+<?php }?>
+
+
+<?php
+if($f_approve==1)
+{?>
+
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
@@ -56,6 +119,9 @@ error_reporting(0);
             </div>
         </div>
     </div>
+<?php }?>
+
+
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
