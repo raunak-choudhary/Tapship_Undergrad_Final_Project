@@ -56,8 +56,8 @@ header("location: index.php"); // Redirecting To Profile Page
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
-            <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="a_password" placeholder="Password"></div>
+            <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username" required></div>
+            <div class="form-group"><input class="form-control" type="password" name="a_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
             
         </form>
