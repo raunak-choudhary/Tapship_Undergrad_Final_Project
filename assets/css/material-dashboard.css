@@ -6437,7 +6437,7 @@ button.bg-secondary:focus {
 }
 
 .bg-success {
-  background-color: #4caf50 !important;
+  background-color: #0C3823 !important;
 }
 
 a.bg-success:hover,
@@ -13934,7 +13934,7 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar.bg-success {
   color: #fff;
-  background-color: #4caf50 !important;
+  background-color: #0C3823 !important;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(76, 175, 80, 0.46);
 }
 
