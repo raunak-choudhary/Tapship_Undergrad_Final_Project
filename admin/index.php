@@ -1,14 +1,12 @@
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
+<?php
 
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+include('session-script.php');
+$res = $_SESSION["sessionid"];
+$a_name= $res;
+if(!isset($_SESSION['login_admin'])){
+header("location: login.php"); // Redirecting To Profile Page
+}
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +46,7 @@ The above copyright notice and this permission notice shall be included in all c
               <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="faq.php">FAQ</a></li>
               <li class="nav-item mx-0 mx-lg-1"><a href="login-choice.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
               <li class="nav-item mx-0 mx-lg-1"><a href="signup-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign Up</button></a></li>
-              <li class="nav-item mx-0 mx-lg-1"><a href="admin/login.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Admin</button></a></li>
+              <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
             </ul>
           </div>
         </div>
