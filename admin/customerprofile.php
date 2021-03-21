@@ -448,6 +448,9 @@ $con=mysqli_connect("localhost","root","","tapship");
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
 <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
