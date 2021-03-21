@@ -179,7 +179,7 @@ header("location: login.php"); // Redirecting To Profile Page
                   <div class="card-icon">
                     <i class="material-icons">info_outline</i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
+                  <p class="card-category">Registered Driver</p>
                   <h3 class="card-title">75</h3>
                 </div>
                 <div class="card-footer">
