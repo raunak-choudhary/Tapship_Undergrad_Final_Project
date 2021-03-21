@@ -48,8 +48,8 @@
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
+              
+             
 
             <h5 style="color:#fff;">Mobile Number</h5>
             <div class="form-group"><input class="form-control" id="driver_mobile" type="phone" name="driver_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>

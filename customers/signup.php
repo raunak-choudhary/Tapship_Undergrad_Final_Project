@@ -26,7 +26,7 @@ function yesnoCheck(that) {
         document.getElementById("ifwholesaler").style.display = "block";
         document.getElementById("iforganization").style.display = "none";
         document.getElementById("customer_registration").required = false;
-        document.getElementById("customer_contactname").required = false;
+        document.getElementById("customer_contactname").required = false; 
         document.getElementById("no1").style.display = "block";
         document.getElementById("no2").style.display = "block";
         document.getElementById("no3").style.display = "block";
@@ -35,7 +35,7 @@ function yesnoCheck(that) {
         document.getElementById("ifwholesaler").style.display = "none";
         document.getElementById("customer_aadhar").required = false;
         document.getElementById("customer_aadharpdf").required = false;
-        document.getElementById("no1").style.display = "block";
+        document.getElementById("no1").style.display = "block"; 
         document.getElementById("no2").style.display = "block";
         document.getElementById("no3").style.display = "block";
     } else {
@@ -76,8 +76,8 @@ function yesnoCheck(that) {
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
+              
+             
 
             <h5 style="color:#fff;">Select Customer Type</h5>
             <div class="form-group">

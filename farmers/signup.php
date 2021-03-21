@@ -48,8 +48,8 @@
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
+              
+             
 
             <h5 style="color:#fff;">Mobile Number</h5>
             <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>
@@ -100,7 +100,7 @@
             <h5 style="color:#fff;">Password</h5>
             <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
 
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../farmers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
+            <input name="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../farmers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
         </form>
     </div>
                 

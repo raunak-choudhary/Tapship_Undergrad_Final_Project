@@ -77,8 +77,8 @@ header("location: login.php"); // Redirecting To Profile Page
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" action="updateprofile-script.php?a_name=<?php echo $a_name ?>" style="background: #0c3823; margin-bottom: 40px;">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(255,255,255);"></i></div>
+              
+             
             <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username" value="<?php echo $a_name ?>"></div>
             <div class="form-group"><input class="form-control" type="text" name="a_password" placeholder="Password" value="<?php echo $a_password ?>"></div>
             <p style="color:#fff;"> <strong>Note:</strong> You will be logged out after update. Please login again to access admin account with new credentials.</p>
