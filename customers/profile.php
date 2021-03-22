@@ -174,7 +174,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#FFFF00;"><a href="#" target="_blank">Update</a></button></p>
+                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="#" target="_blank">Update</a></button></p>
                                         
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#FFFF00;"><a href="#" target="_blank">Update</a></button></p>
+                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="#" target="_blank">Update</a></button></p>
                                         
                                     </div>
                                 </div>
