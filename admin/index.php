@@ -16,7 +16,7 @@ header("location: login.php"); // Redirecting To Profile Page
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard by Creative Tim
+    Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -66,9 +66,21 @@ header("location: login.php"); // Redirecting To Profile Page
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+            <a class="nav-link" href="managecustomer.php">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Manage Customer</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="managefarmer.php">
+              <i class="material-icons">person</i>
+              <p>Manage Farmer</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="managedriver.php">
+              <i class="material-icons">person</i>
+              <p>Manage Driver</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -84,12 +96,6 @@ header("location: login.php"); // Redirecting To Profile Page
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
             <a class="nav-link" href="./map.html">
               <i class="material-icons">location_ons</i>
               <p>Maps</p>
@@ -99,18 +105,6 @@ header("location: login.php"); // Redirecting To Profile Page
             <a class="nav-link" href="./notifications.html">
               <i class="material-icons">notifications</i>
               <p>Notifications</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
             </a>
           </li>
         </ul>
@@ -592,30 +586,7 @@ header("location: login.php"); // Redirecting To Profile Page
             <img src="../assets/img/sidebar-4.jpg" alt="">
           </a>
         </li>
-        <li class="button-container">
-          <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
-        </li>
-        <!-- <li class="header-title">Want more components?</li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                  Get the pro version
-                </a>
-            </li> -->
-        <li class="button-container">
-          <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-            View Documentation
-          </a>
-        </li>
-        <li class="button-container github-star">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-        </li>
+        
       </ul>
     </div>
   </div>
