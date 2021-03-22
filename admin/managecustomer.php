@@ -90,7 +90,7 @@ mysqli_select_db($con,'tapship');
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="ID"> <?php echo $c; $res['c_id']; ?> </td>
+ <td data-label="ID"> <?php echo $res['c_id']; ?> </td>
  <td data-label="Name"> <?php echo $res['c_name'];  ?> </td>
  <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['c_city'];  ?> </td>
