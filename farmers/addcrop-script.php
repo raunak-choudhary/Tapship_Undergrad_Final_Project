@@ -17,12 +17,10 @@ if (isset($_POST["submit"]))
                 $crop_mep = $conn->real_escape_string($_POST['crop_mep']);
 
                 $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-                echo $sql;
                 $query = mysqli_query($conn,$sql);
                
                 while($res = mysqli_fetch_array($query)){
                                 $crop_cro_id = $res['cro_id'];
-                                echo $crop_cro_id;
                 }
     
                 #file name with a random number so that similar dont get replaced
@@ -45,7 +43,10 @@ if (isset($_POST["submit"]))
                 move_uploaded_file($tname2, $target_path2);
                 move_uploaded_file($tname3, $target_path3);
 
-                $query = "INSERT into cropsale(cr_cro_id,cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3) VALUES('$crop_cro_id','$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3')";
+                $date = strval(date("Y/m/d")); 
+                echo $date;
+
+                $query = "INSERT into cropsale(cr_cro_id,cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3, cr_date) VALUES('$crop_cro_id','$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3',$date)";
                 $success = $conn->query($query);
 
 }

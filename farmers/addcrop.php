@@ -362,7 +362,7 @@ function yesnoCheck(that) {
             <h5 style="color:#fff;">Quantity (in kgs.)</h5>
             <div class="form-group"><input class="form-control" id="crop_quantity" type="number" name="crop_quantity" placeholder="Enter Quantity in Kilograms" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">Minimum Expected Price</h5>
+            <h5 style="color:#fff;">Minimum Expected Price (per kgs.)</h5>
             <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep"  placeholder="Minimum Expected Price" required="" autofocus=""></div>
             
             <h5 style="color:#fff;">Image - 01</h5>
