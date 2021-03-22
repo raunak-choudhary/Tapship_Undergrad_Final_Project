@@ -267,7 +267,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 								<?php
 								if($c_approve==0){
 								?>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
@@ -275,28 +275,28 @@ $con=mysqli_connect("localhost","root","","tapship");
 								}
 								if($c_approve==1){
 								?>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
 								}
 								if($c_approve==2){
 								?>
-								<td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
 								}
 								if($c_approve==3){
 								?>
-								<td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <hr>
 								<?php
 								}
 								if($c_approve==4){
 								?>
-								<td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								<hr>
