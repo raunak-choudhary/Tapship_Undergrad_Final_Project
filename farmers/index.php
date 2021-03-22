@@ -75,6 +75,7 @@ if($f_approve==0||$f_approve==2||$f_approve==3||$f_approve==4)
             <h3>Your profile is not approved by Tapship.</h2>
             <?php
             if($f_approve==0)
+            echo $f_approve;
             {?>
             <h5>You have registerd successfully. We are checking your details.</h5>
             <h5>Please wait for sometime.</h5>
@@ -115,7 +116,7 @@ if($f_approve==1)
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile- <?php echo $f_approve;?></h2>
             </div>
         </div>
     </div>
