@@ -1,5 +1,5 @@
 <?php
-
+include '../assets/database/dbconfig.php';
 include('session-script.php');
 $res = $_SESSION["sessionid"];
 $a_name= $res;
@@ -126,9 +126,11 @@ header("location: login.php"); // Redirecting To Profile Page
                   <div class="card-icon">
                     <i class="material-icons">content_copy</i>
                   </div>
-                  <p class="card-category">Used Space</p>
-                  <h3 class="card-title">49/50
-                    <small>GB</small>
+                  <p class="card-category">Total Farmer</p>
+                  <h3 class="card-title">
+                  <?php
+                  echo $FarmerTotalCount=$conn->query("SELECT * FROM farmer")->num_rows;
+                  ?>
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -145,8 +147,12 @@ header("location: login.php"); // Redirecting To Profile Page
                   <div class="card-icon">
                     <i class="material-icons">store</i>
                   </div>
-                  <p class="card-category">Revenue</p>
-                  <h3 class="card-title">$34,245</h3>
+                  <p class="card-category">Total Customer</p>
+                  <h3 class="card-title">
+                    <?php
+                  echo $CustomerTotalCount=$conn->query("SELECT * FROM customer")->num_rows;
+                  ?>
+                  </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -161,8 +167,12 @@ header("location: login.php"); // Redirecting To Profile Page
                   <div class="card-icon">
                     <i class="material-icons">info_outline</i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
+                  <p class="card-category">Total Driver</p>
+                  <h3 class="card-title">
+                    <?php
+                  echo $DriverTotalCount=$conn->query("SELECT * FROM driver")->num_rows;
+                  ?>
+                  </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
