@@ -163,23 +163,23 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 m-l-20 f-w-600">Aadhaar</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_aadhar"?> &nbsp; <button class="btn btn-dark text-monospace" style="background-color:#999;"><a href="../drivers/<?php echo  $d_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_aadhar"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">PAN</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_pan"?> &nbsp; <button class="btn btn-dark text-monospace" style="background-color:#999;"><a href="../drivers/<?php echo  $d_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">DL Number</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_dlnumber"?> &nbsp; <button class="btn btn-dark text-monospace" style="background-color:#999;"><a href="../drivers/<?php echo  $d_dlpdf;?>" target="_blank">View DL</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_dlnumber"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_dlpdf;?>" target="_blank">View DL</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">Vehicle Number</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_vehiclenumber"?> &nbsp; <button class="btn btn-dark text-monospace" style="background-color:#999;"><a href="../drivers/<?php echo  $d_vehiclercpdf;?>" target="_blank">View RC</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_vehiclenumber"?> &nbsp; <button class="btn btn-grey text-monospace" ><a href="../drivers/<?php echo  $d_vehiclercpdf;?>" target="_blank">View RC</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">Live Location</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-dark text-monospace" style="background-color:#999;"><a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></button></h6>
                                     </div>
 									
 									<div class="col-sm-6">
@@ -188,7 +188,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 									<?php
 									if($d_approve==0){
 									?>
-									 <td data-label="Profile"> <button class="btn btn-dark text-monospace text-muted m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+									 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace " style="background-color:#968b0c;"  name="review">Review</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace " style="background-color:#780611;"  name="reject">Reject</button> </td>
 									 <hr>
@@ -196,28 +196,28 @@ $con=mysqli_connect("localhost","root","","tapship");
 									}
 									if($d_approve==1){
 									?>
-									 <td data-label="Profile"> <button class="btn btn-dark text-monospace text-muted m-l-20 f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
+									 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace " style="background-color:#780611;"  name="reject">Reject</button> </td>
 									 <hr>
 									<?php
 									}
 									if($d_approve==2){
 									?>
-									<td data-label="Profile"> <button class="btn btn-dark text-monospace text-muted m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+									<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace " style="background-color:#780611;"  name="reject">Reject</button> </td>
 									 <hr>
 									<?php
 									}
 									if($d_approve==3){
 									?>
-									<td data-label="Profile"> <button class="btn btn-dark text-monospace text-muted m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+									<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace " style="background-color:#968b0c;"  name="review">Review</button> </td>
 									 <hr>
 									<?php
 									}
 									if($d_approve==4){
 									?>
-									<td data-label="Profile"> <button class="btn btn-dark text-monospace text-muted m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+									<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
 									 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 									<hr>
