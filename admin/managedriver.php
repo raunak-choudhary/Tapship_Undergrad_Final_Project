@@ -114,7 +114,7 @@ mysqli_select_db($con,'tapship');
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
-                <p style="text-align: center;"><strong>© 2020 TapShip.&nbsp; All rights reserved.</strong><br></p>
+                <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
             </div>
         </footer>
     </div>
