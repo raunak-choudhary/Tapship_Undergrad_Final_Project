@@ -116,11 +116,40 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.): <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php echo $cr_status;?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Transport Pending";}else if($cr_status=="4"){echo "Deal Over";}  ?></P>
 
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
 <p>Farmer Mobile: <?php echo $f_mobile;?></P>
+
+<?php
+if($cr_status==0){
+?>
+	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Edit Details</a></button> 
+     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
+	<hr>
+<?php
+}
+if($cr_status==1){
+?>
+     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Bids</a></button> 
+     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
+	 <hr>
+<?php
+}
+if($cr_status==2){
+?>
+     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Accepted Bid</a></button> 
+	<hr>
+<?php
+}
+if($cr_status==3){
+?>
+	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Transport Details</a></button> 
+	<hr>
+<?php
+}
+?>
 
 <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
