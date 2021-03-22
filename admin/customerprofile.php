@@ -89,11 +89,20 @@ $con=mysqli_connect("localhost","root","","tapship");
 ?>
 
 
+    <div class="features-boxed">
+        <div class="container" style="background: #ffffff;">
+            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Profile</h2>
+            </div>
+        </div>
+    </div>
+
+
     <?php
     if($c_type=="wholesaler")
     {
     ?>
-    <div class="padding">
+    <div class="intro">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
@@ -242,7 +251,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 m-l-20 f-w-600">Regestration Document</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_registration"?><button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">PAN</p>

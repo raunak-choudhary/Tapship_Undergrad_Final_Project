@@ -121,6 +121,10 @@ if($f_approve==1)
     </div>
 <?php }?>
 
+<a href="addcrop.php">Add Crop</a>
+<a href="activecrop.php">Active Crop</a>
+<a href="bidcompleted.php">Bid Completed</a>
+<a href="sellhistory.php">Sell History</a>
 
     
     <div class="footer-dark" style="background: rgb(12,56,35);">

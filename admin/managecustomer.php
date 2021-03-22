@@ -65,6 +65,7 @@ header("location: login.php"); // Redirecting To Profile Page
  <tr class="bg-dark text-white text-center">
  <thead>
  <th>Sr. No.</th>
+ <th>ID</th>
  <th> Name </th>
  <th> Mobile </th>
  <th> City </th>
@@ -81,7 +82,7 @@ $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
      
- $q = "select c_name, c_mobile, c_city, c_type, c_approve, c_photo from customer ";
+ $q = "select c_id, c_name, c_mobile, c_city, c_type, c_approve, c_photo from customer ORDER BY c_id DESC";
  $query = mysqli_query($con,$q);
  $c = 1;
 
@@ -89,6 +90,7 @@ mysqli_select_db($con,'tapship');
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
+ <td data-label="ID"> <?php echo $c; $res['c_id']; ?> </td>
  <td data-label="Name"> <?php echo $res['c_name'];  ?> </td>
  <td data-label="Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['c_city'];  ?> </td>
