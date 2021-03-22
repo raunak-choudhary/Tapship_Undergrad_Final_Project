@@ -102,7 +102,7 @@ $con=mysqli_connect("localhost","root","","tapship");
     if($c_type=="wholesaler")
     {
     ?>
-    <div class="intro">
+    <div class="padding">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
