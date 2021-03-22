@@ -184,7 +184,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 									
 									<div class="col-sm-6">
 										<p class="m-b-10  m-l-20 f-w-600">Status View</p>
-										<form action="statusdriver.php?d_mobile=<?php echo $d_mobile; ?>" method="post">
+									<form action="statusdriver.php?d_mobile=<?php echo $d_mobile; ?>" method="post">
 									<?php
 									if($d_approve==0){
 									?>

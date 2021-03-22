@@ -74,7 +74,8 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Crop Quantity</th>
  <th> Crop MEP</th>
  <th> Crop MSP</th>
- <th> Crop Date</th>
+ <th> Date</th>
+ <th> Crop Status</th>
  <th> View</th>
  </thead>
  </tr >
@@ -85,14 +86,16 @@ $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
      
- $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date
+ $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status
         FROM cropdetails CD
         JOIN cropsale CS ON CD.cro_id=CS.cr_cro_id
+        JOIN farmer f ON f.f_mobile=CS.cr_f_mobile
         ORDER BY CS.cr_id DESC";
  $query = mysqli_query($con,$q);
  $c = 1;
 
  while($res = mysqli_fetch_array($query)){
+     if($res['cr_status']==0||1||2||3){
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
@@ -102,12 +105,13 @@ mysqli_select_db($con,'tapship');
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs';  ?> </td>
  <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep'];  ?> </td>
  <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp'];  ?> </td>
- <td data-label="Crop Date"> <?php echo $res['cr_date'];  ?> </td>
- <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="customerprofile.php?c_mobile=<?php echo $res['c_mobile']; ?>" class="text-white"> View </a> </button> </td>
+ <td data-label="Date"> <?php echo $res['cr_date'];  ?> </td>
+ <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Added";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Bid Accepted";}else if($res['cr_status']=="3"){echo "Transport Pending";}else if($res['cr_status']=="4"){echo "Deal Over";}  ?> </td>
+ <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
  </tr>
 
  <?php 
- }
+ }}
   ?>
  
  </table>  

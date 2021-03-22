@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 11:14 AM
+-- Generation Time: Mar 22, 2021 at 04:44 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
-(1, 'admin', '12345');
+(1, 'admin', 'Gapu@8540');
 
 -- --------------------------------------------------------
 
@@ -68,6 +68,14 @@ CREATE TABLE `cropdetails` (
   `cro_msp` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cropdetails`
+--
+
+INSERT INTO `cropdetails` (`cro_id`, `cro_name`, `cro_type`, `cro_msp`) VALUES
+(1, 'Mango', 'Fruits', 30),
+(2, 'Tomato', 'Vegitables', 25);
+
 -- --------------------------------------------------------
 
 --
@@ -76,14 +84,24 @@ CREATE TABLE `cropdetails` (
 
 CREATE TABLE `cropsale` (
   `cr_id` int(11) NOT NULL,
+  `cr_f_mobile` varchar(10) NOT NULL,
   `cr_cro_id` int(11) NOT NULL,
-  `cr_quantity` float NOT NULL,
-  `cr_img1` blob NOT NULL,
-  `cr_img2` blob NOT NULL,
-  `cr_img3` blob NOT NULL,
-  `cr_mep` float NOT NULL,
-  `cr_date` date NOT NULL
+  `cr_quantity` varchar(10) NOT NULL,
+  `cr_img1` varchar(50) NOT NULL,
+  `cr_img2` varchar(50) NOT NULL,
+  `cr_img3` varchar(50) NOT NULL,
+  `cr_mep` varchar(10) NOT NULL,
+  `cr_date` date NOT NULL,
+  `cr_status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cropsale`
+--
+
+INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
+(35, '8745123411', 1, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '1'),
+(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0');
 
 -- --------------------------------------------------------
 
@@ -118,9 +136,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`) VALUES
-(1, 'Ganpat Patel', '9672836724', 'NULL', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', 'wholesaler', 'NULL', '799721133696', 'assets/documents/aadhar/aadhar.pdf', 'EYCPP1502E', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', '12345', '1'),
-(2, 'Ram Pvt. LTD.', '9672836728', 'Ram Patel', 'Male', '56', 'Old Fish Market Road, Brahmavara', 'Kundapura', 'karnataka', '576217', 'organization', '9672836728-Ganpat Patel-aadhar.pdf', '', '', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2'),
-(3, 'Ashwin Prabhakar', '9672836730', '', 'Male', '54', '234, Subhas Road', 'Mumbai', 'Maharashtra', '453423', 'wholesaler', '', '784567327436', 'assets/documents/aadhar/aadhar.pdf', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', 'Gapu@8540', '4');
+(1, 'Ganpat Patel', '9672836724', '', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', 'wholesaler', '', '799721133696', 'assets/documents/aadhar/aadhar.pdf', 'EYCPP1502E', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', '12345', '1'),
+(2, 'Ram Pvt. LTD.', '9672836728', 'Ram Patel', 'Male', '56', 'Old Fish Market Road, Brahmavara', 'Kundapura', 'karnataka', '576217', 'organization', 'assets/documents/aadhar/aadhar.pdf', '', '', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '1'),
+(3, 'Ashwin Prabhakar', '9672836730', '', 'Male', '54', '234, Subhas Road', 'Mumbai', 'Maharashtra', '453423', 'wholesaler', '', '784567327436', 'assets/documents/aadhar/aadhar.pdf', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '4');
 
 -- --------------------------------------------------------
 
@@ -158,9 +176,9 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`, `d_approve`) VALUES
-(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.png', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', '12345', '1'),
-(2, 'Yash Nayak', '7070414133', 'Male', '24', '4AB, Sardar Vallabhai Patel Road', 'Ahmedabad', 'Gujarat', '320008', '821367489408', 'assets/documents/aadhar/aadhar.pdf', 'SBVXE6360B', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'DL5857254678123', 'assets/documents/dlpdf/dlpdf.png', 'DL42RM4763', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Yn123456', '3'),
-(3, 'Arjun Pathak', '8228229090', 'Male', '30', '866C, Rajiv Gandhi Road', 'Hyderabad', 'Telangana', '500001', '735194058610', 'assets/documents/aadhar/aadhar.pdf', 'ABQWD4562R', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'TS4562538457562', 'assets/documents/dlpdf/dlpdf.png', 'TS02AB0007', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Ap123456', '4');
+(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.pdf', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', '12345', '1'),
+(2, 'Yash Nayak', '7070414133', 'Male', '24', '4AB, Sardar Vallabhai Patel Road', 'Ahmedabad', 'Gujarat', '320008', '821367489408', 'assets/documents/aadhar/aadhar.pdf', 'SBVXE6360B', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'DL5857254678123', 'assets/documents/dlpdf/dlpdf.pdf', 'DL42RM4763', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Yn123456', '3'),
+(3, 'Arjun Pathak', '8228229090', 'Male', '30', '866C, Rajiv Gandhi Road', 'Hyderabad', 'Telangana', '500001', '735194058610', 'assets/documents/aadhar/aadhar.pdf', 'ABQWD4562R', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'TS4562538457562', 'assets/documents/dlpdf/dlpdf.pdf', 'TS02AB0007', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Ap123456', '4');
 
 -- --------------------------------------------------------
 
@@ -193,28 +211,8 @@ CREATE TABLE `farmer` (
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
 (1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', '12345', '1'),
-(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Ak123456', '2'),
-(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Kg123456', '0');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fileup`
---
-
-CREATE TABLE `fileup` (
-  `title` varchar(25) NOT NULL,
-  `image` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `fileup`
---
-
-INSERT INTO `fileup` (`title`, `image`) VALUES
-('WEB & UX', '8325-Capture.PNG'),
-('WEB & UX', '6605-Capture.PNG'),
-('3D - Drowsiness Detection', '1627-Capture.PNG');
+(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Ak123456', '1'),
+(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Kg123456', '1');
 
 -- --------------------------------------------------------
 
@@ -357,13 +355,13 @@ ALTER TABLE `cropbid`
 -- AUTO_INCREMENT for table `cropdetails`
 --
 ALTER TABLE `cropdetails`
-  MODIFY `cro_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `customer`
