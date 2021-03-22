@@ -43,7 +43,7 @@ if (isset($_POST["submit"]))
                 move_uploaded_file($tname2, $target_path2);
                 move_uploaded_file($tname3, $target_path3);
 
-                $date = date("Y - m - d"); 
+                $date = strval(date("Y/m/d")); 
                 echo $date;
 
                 $query = "INSERT into cropsale(cr_cro_id,cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3, cr_date) VALUES('$crop_cro_id','$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3',$date)";
