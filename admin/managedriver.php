@@ -97,7 +97,7 @@ mysqli_select_db($con,'tapship');
  <td data-label="City"> <?php echo $res['d_city'];  ?> </td>
  <td data-label="DL Number"> <?php echo $res['d_dlnumber'];  ?> </td>
  <td data-label="Vehicle Number"> <?php echo $res['d_vehiclenumber'];  ?> </td>
- <td data-label="Status"> <?php if($res['d_approve']=="0"){echo "No Action";}else if($res['d_approve']=="1"){echo " Accepted";}else if($res['d_approve']=="2"){echo "Review";}else if($res['d_approve']=="3"){echo "Rejected";}else if($res['d_approve']=="4"){echo "Resubmitted";}  ?> </td>
+ <td data-label="Status"> <?php if($res['d_approve']=="1"){echo "No Action";}else if($res['d_approve']=="2"){echo " Accepted";}else if($res['d_approve']=="3"){echo "Review";}else if($res['d_approve']=="4"){echo "Rejected";}else if($res['d_approve']=="5"){echo "Resubmitted";}  ?> </td>
  <td data-label="Photo"> <img src="../drivers/<?php echo $res['d_photo'];  ?>" width="50" height="60"> </td>
  <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="driverprofile.php?d_mobile=<?php echo $res['d_mobile']; ?>" class="text-white"> View </a> </button> </td>
 
@@ -111,7 +111,7 @@ mysqli_select_db($con,'tapship');
 
     
     
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

@@ -112,7 +112,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../customers/<?php echo  $c_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Wholesaler</h5>
-								<h5>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}  ?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -191,7 +191,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../customers/<?php echo  $c_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Organization</h5>
-								<h5>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}  ?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -265,7 +265,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 								
 								<form action="statuscustomer.php?c_mobile=<?php echo $c_mobile; ?>" method="post">
 								<?php
-								if($c_approve==0){
+								if($c_approve==1){
 								?>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
@@ -273,16 +273,9 @@ $con=mysqli_connect("localhost","root","","tapship");
 								 <hr>
 								<?php
 								}
-								if($c_approve==1){
-								?>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
-								 <hr>
-								<?php
-								}
 								if($c_approve==2){
 								?>
-								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
@@ -290,11 +283,18 @@ $con=mysqli_connect("localhost","root","","tapship");
 								if($c_approve==3){
 								?>
 								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
 								}
 								if($c_approve==4){
+								?>
+								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+								 <hr>
+								<?php
+								}
+								if($c_approve==5){
 								?>
 								<td data-label="Profile"> <button class="btn btn-dark text-monospace  m-l-20 f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
@@ -322,7 +322,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 </div>
             </div></div>
-<div class="footer-dark" style="background: rgb(12,56,35);">
+<div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

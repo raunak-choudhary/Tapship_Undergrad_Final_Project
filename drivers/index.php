@@ -67,41 +67,49 @@ $con=mysqli_connect("localhost","root","","tapship");
 ?>
 
 <?php
-if($d_approve==0||$d_approve==2||$d_approve==3||$d_approve==4)
+if($d_approve==1||$d_approve==3||$d_approve==4||$d_approve==5||$d_approve==NULL)
 {?>
 <div class="container" style="margin-top:150px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2>Status : <?php if($d_approve=="0"){echo "No Action";}else if($d_approve=="1"){echo " Accepted";}else if($d_approve=="2"){echo "Review";}else if($d_approve=="3"){echo "Rejected";}else if($d_approve=="4"){echo "Resubmitted";}  ?></h4><hr>
-            <h3>Your profile is not approved by Tapship.</h2>
+            <h2>Status : <?php if($d_approve=="1"){echo "No Action";}else if($d_approve=="2"){echo " Accepted";}else if($d_approve=="3"){echo "Review";}else if($d_approve=="4"){echo "Rejected";}else if($d_approve=="5"){echo "Resubmitted";}  else if($d_approve==NULL){echo "Multiple Login State";}  ?></h4><hr>
             <?php
-            if($d_approve==0)
+            if($d_approve==1)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>You have registerd successfully. We are checking your details.</h5>
             <h5>Please wait for sometime.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($d_approve==2)
+            if($d_approve==3)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your application have some problem. We will contact you soon</h5>
             <h5>Please wait for for our call.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($d_approve==3)
+            if($d_approve==4)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your application got rejected due to not following rules.</h5>
             <h5>You can contact our customer care for more details.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($d_approve==4)
+            if($d_approve==5)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your have resubmitted application successfully. We are checking your details.</h5>
             <h5>Please wait for sometime.</h5>
             <h5>Thank You</h5>
-            <?php }?>
-            <br>
+            <?php 
+            }
+            else if($d_approve==NULL)
+            {?>
+            <h4> You Have logged in to multiple user Accounts. Please Logout from all other accounts and then login to Driver Profile.
+            <?php
+            }?>
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
         </div>    
     </div>
@@ -109,7 +117,7 @@ if($d_approve==0||$d_approve==2||$d_approve==3||$d_approve==4)
 
 
 <?php
-if($d_approve==1)
+if($d_approve==2)
 {?>
 
     <div class="features-boxed">
@@ -122,7 +130,7 @@ if($d_approve==1)
 <?php }?>
 
     
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

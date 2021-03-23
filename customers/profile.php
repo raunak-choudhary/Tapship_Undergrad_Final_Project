@@ -111,7 +111,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../customers/<?php echo  $c_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Wholesaler</h5>
-								<h5>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}  else{echo "Multiple Login State";} ?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -194,7 +194,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../customers/<?php echo  $c_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Organization</h5>
-								<h5>Status: <?php if($c_approve=="0"){echo "No Action";}else if($c_approve=="1"){echo " Accepted";}else if($c_approve=="2"){echo "Review";}else if($c_approve=="3"){echo "Rejected";}else if($c_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}   else{echo "Multiple Login State";} ?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -289,7 +289,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 </div>
             </div></div>
-<div class="footer-dark" style="background: rgb(12,56,35);">
+<div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

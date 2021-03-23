@@ -17,17 +17,17 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    if(isset($_POST['accept']))
    {        
-        $query = " update driver set d_approve = '1' where d_mobile='".$d_mobile."'";
+        $query = " update driver set d_approve = '2' where d_mobile='".$d_mobile."'";
         $result = mysqli_query($con,$query);
    }
    if(isset($_POST['review']))
    {        
-        $query = " update driver set d_approve = '2' where d_mobile='".$d_mobile."'";
+        $query = " update driver set d_approve = '3' where d_mobile='".$d_mobile."'";
         $result = mysqli_query($con,$query);
    }
    if(isset($_POST['reject']))
    {        
-        $query = " update driver set d_approve = '3' where d_mobile='".$d_mobile."'";
+        $query = " update driver set d_approve = '4' where d_mobile='".$d_mobile."'";
         $result = mysqli_query($con,$query);
    }
    header("Location: driverprofile.php?d_mobile=$d_mobile"); 

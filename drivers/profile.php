@@ -110,7 +110,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../drivers/<?php echo  $d_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$d_name"?></h3>
                                 <h5>Driver</h5>
-								<h5>Status: <?php if($d_approve=="0"){echo "No Action";}else if($d_approve=="1"){echo " Accepted";}else if($d_approve=="2"){echo "Review";}else if($d_approve=="3"){echo "Rejected";}else if($d_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($d_approve=="1"){echo "No Action";}else if($d_approve=="2"){echo " Accepted";}else if($d_approve=="3"){echo "Review";}else if($d_approve=="4"){echo "Rejected";}else if($d_approve=="5"){echo "Resubmitted";}   else{echo "Multiple Login State";}?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -203,7 +203,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 </div>
             </div></div>
-<div class="footer-dark" style="background: rgb(12,56,35);">
+<div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

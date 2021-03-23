@@ -67,42 +67,49 @@ $con=mysqli_connect("localhost","root","","tapship");
 ?>
 
 <?php
-if($f_approve==0||$f_approve==2||$f_approve==3||$f_approve==4)
+if($f_approve==1||$f_approve==3||$f_approve==4||$f_approve==5||$f_approve==NULL)
 {?>
 <div class="container" style="margin-top:150px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2>Status : <?php if($f_approve=="0"){echo "No Action";}else if($f_approve=="1"){echo " Accepted";}else if($f_approve=="2"){echo "Review";}else if($f_approve=="3"){echo "Rejected";}else if($f_approve=="4"){echo "Resubmitted";}  ?></h4><hr>
-            <h3>Your profile is not approved by Tapship.</h2>
+            <h2>Status : <?php if($f_approve=="1"){echo "No Action";}else if($f_approve=="2"){echo " Accepted";}else if($f_approve=="3"){echo "Review";}else if($f_approve=="4"){echo "Rejected";}else if($f_approve=="5"){echo "Resubmitted";}    else if($f_approve==NULL){echo "Multiple Login State";} ?></h4><hr>
             <?php
-            if($f_approve==0)
-            echo $f_approve;
+            if($f_approve==1)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>You have registerd successfully. We are checking your details.</h5>
             <h5>Please wait for sometime.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($f_approve==2)
+            if($f_approve==3)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your application have some problem. We will contact you soon</h5>
             <h5>Please wait for for our call.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($f_approve==3)
+            if($f_approve==4)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your application got rejected due to not following rules.</h5>
             <h5>You can contact our customer care for more details.</h5>
             <h5>Thank You</h5>
             <?php
             }
-            if($f_approve==4)
+            if($f_approve==5)
             {?>
+            <h3>Your profile is not approved by Tapship.</h2>
             <h5>Your have resubmitted application successfully. We are checking your details.</h5>
             <h5>Please wait for sometime.</h5>
             <h5>Thank You</h5>
-            <?php }?>
-            <br>
+            <?php 
+            }
+            else if($f_approve==NULL)
+            {?>
+            <h4> You Have logged in to multiple user Accounts. Please Logout from all other accounts and then login to Farmer Profile.
+            <?php
+            }?>
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
         </div>    
     </div>
@@ -110,7 +117,7 @@ if($f_approve==0||$f_approve==2||$f_approve==3||$f_approve==4)
 
 
 <?php
-if($f_approve==1)
+if($f_approve==2)
 {?>
 
     <div class="features-boxed">
@@ -127,7 +134,7 @@ if($f_approve==1)
 <a href="sellhistory.php">Sell History</a>
 
     
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

@@ -107,7 +107,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="m-b-25"> <img src="../farmers/<?php echo  $f_photo;?>" width="200" height="240" align="center" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h3 class="f-w-600"><?php echo "$f_name"?></h3>
                                 <h5>Farmer</h5>
-								<h5>Status: <?php if($f_approve=="0"){echo "No Action";}else if($f_approve=="1"){echo " Accepted";}else if($f_approve=="2"){echo "Review";}else if($f_approve=="3"){echo "Rejected";}else if($f_approve=="4"){echo "Resubmitted";}  ?></h5>
+								<h5>Status: <?php if($f_approve=="1"){echo "No Action";}else if($f_approve=="2"){echo " Accepted";}else if($f_approve=="3"){echo "Review";}else if($f_approve=="4"){echo "Rejected";}else if($f_approve=="5"){echo "Resubmitted";}  ?></h5>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -169,7 +169,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 								
 								 <form action="statusfarmer.php?f_mobile=<?php echo $f_mobile; ?>" method="post">
 									<?php
-								if($f_approve==0){
+								if($f_approve==1){
 								?>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
@@ -177,16 +177,9 @@ $con=mysqli_connect("localhost","root","","tapship");
 								 <hr>
 								<?php
 								}
-								if($f_approve==1){
-								?>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
-								 <hr>
-								<?php
-								}
 								if($f_approve==2){
 								?>
-								<td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#968b0c;"  name="review">Review</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
@@ -194,11 +187,18 @@ $con=mysqli_connect("localhost","root","","tapship");
 								if($f_approve==3){
 								?>
 								<td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
-								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#780611;"  name="reject">Reject</button> </td>
 								 <hr>
 								<?php
 								}
 								if($f_approve==4){
+								?>
+								<td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
+								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
+								 <hr>
+								<?php
+								}
+								if($f_approve==5){
 								?>
 								<td data-label="Profile"> <button class="btn btn-dark text-monospace   f-w-400" style="background-color:#0c3823;"  name="accept">Accept</button> </td>
 								 <td data-label="Profile"> <button class="btn btn-dark text-monospace" style="background-color:#968b0c;"  name="review">Review</button> </td>
@@ -232,7 +232,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 </div>
             </div></div>
-<div class="footer-dark" style="background: rgb(12,56,35);">
+<div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

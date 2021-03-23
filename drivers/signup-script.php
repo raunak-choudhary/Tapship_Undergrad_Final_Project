@@ -24,7 +24,7 @@ if (isset($_POST["submit"]))
      $driver_dlnumber= $conn->real_escape_string($_POST['driver_dlnumber']);
      $driver_vehiclenumber= $conn->real_escape_string($_POST['driver_vehiclenumber']);
      $driver_password= $conn->real_escape_string($_POST['driver_password']);
-     $driver_approve = 0;
+     $driver_approve = 1;
 
      $sql = "Select * from driver";
      $result = $conn->query($sql);
@@ -143,7 +143,7 @@ $conn->close();
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
         </div>    
     </div>
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

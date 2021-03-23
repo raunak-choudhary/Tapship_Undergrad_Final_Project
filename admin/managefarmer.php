@@ -95,7 +95,7 @@ mysqli_select_db($con,'tapship');
  <td data-label="Mobile"> <?php echo $res['f_mobile'];  ?> </td>
  <td data-label="City"> <?php echo $res['f_city'];  ?> </td>
  <td data-label="PAN"> <?php echo $res['f_pan'];  ?> </td>
- <td data-label="Status"> <?php if($res['f_approve']=="0"){echo "No Action";}else if($res['f_approve']=="1"){echo " Accepted";}else if($res['f_approve']=="2"){echo "Review";}else if($res['f_approve']=="3"){echo "Rejected";}else if($res['f_approve']=="4"){echo "Resubmitted";}  ?> </td>
+ <td data-label="Status"> <?php if($res['f_approve']=="1"){echo "No Action";}else if($res['f_approve']=="2"){echo " Accepted";}else if($res['f_approve']=="3"){echo "Review";}else if($res['f_approve']=="3"){echo "Rejected";}else if($res['f_approve']=="5"){echo "Resubmitted";}  ?> </td>
  <td data-label="Photo"> <img src="../farmers/<?php echo $res['f_photo'];  ?>" width="50" height="60"> </td>
  <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="farmerprofile.php?f_mobile=<?php echo $res['f_mobile']; ?>" class="text-white"> View </a> </button> </td>
 
@@ -109,7 +109,7 @@ mysqli_select_db($con,'tapship');
 
     
     
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
