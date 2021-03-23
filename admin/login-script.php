@@ -11,11 +11,11 @@ $a_name = $_POST['a_name'];
 $a_password = $_POST['a_password'];
 $_SESSION["sessionid"] = $_POST['a_name'];
 // mysqli_connect() function opens a new connection to the MySQL server.
-$conn = mysqli_connect("127.0.0.1", "root", "", "tapship");
+$con = mysqli_connect("127.0.0.1", "root", "", "tapship");
 // SQL query to fetch information of registerd users and finds user match.
 $query = "SELECT a_name, a_password from admin where a_name=? AND a_password=? LIMIT 1";
 // To protect MySQL injection for Security purpose
-$stmt = $conn->prepare($query);
+$stmt = $con->prepare($query);
 $stmt->bind_param("ss", $a_name, $a_password);
 $stmt->execute();
 $stmt->bind_result($a_name, $a_password);

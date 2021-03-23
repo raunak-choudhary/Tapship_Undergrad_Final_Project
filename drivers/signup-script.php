@@ -6,28 +6,28 @@ $dbhost = "localhost";
 	$dbname = "tapship";
 
 	//Create Connection
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($conn->connect_error);
+	$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
 if (isset($_POST["submit"]))
  {
      #retrieve file title
-     $driver_mobile = $conn->real_escape_string($_POST['driver_mobile']);
-     $driver_name = $conn->real_escape_string($_POST['driver_name']);
-     $driver_gender = $conn->real_escape_string($_POST['driver_gender']);
-     $driver_age = $conn->real_escape_string($_POST['driver_age']);
-     $driver_street = $conn->real_escape_string($_POST['driver_street']);
-     $driver_city = $conn->real_escape_string($_POST['driver_city']);
-     $driver_state= $conn->real_escape_string($_POST['driver_state']);
-     $driver_pincode= $conn->real_escape_string($_POST['driver_pincode']);
-     $driver_aadhar= $conn->real_escape_string($_POST['driver_aadhar']);
-     $driver_pan= $conn->real_escape_string($_POST['driver_pan']);
-     $driver_dlnumber= $conn->real_escape_string($_POST['driver_dlnumber']);
-     $driver_vehiclenumber= $conn->real_escape_string($_POST['driver_vehiclenumber']);
-     $driver_password= $conn->real_escape_string($_POST['driver_password']);
+     $driver_mobile = $con->real_escape_string($_POST['driver_mobile']);
+     $driver_name = $con->real_escape_string($_POST['driver_name']);
+     $driver_gender = $con->real_escape_string($_POST['driver_gender']);
+     $driver_age = $con->real_escape_string($_POST['driver_age']);
+     $driver_street = $con->real_escape_string($_POST['driver_street']);
+     $driver_city = $con->real_escape_string($_POST['driver_city']);
+     $driver_state= $con->real_escape_string($_POST['driver_state']);
+     $driver_pincode= $con->real_escape_string($_POST['driver_pincode']);
+     $driver_aadhar= $con->real_escape_string($_POST['driver_aadhar']);
+     $driver_pan= $con->real_escape_string($_POST['driver_pan']);
+     $driver_dlnumber= $con->real_escape_string($_POST['driver_dlnumber']);
+     $driver_vehiclenumber= $con->real_escape_string($_POST['driver_vehiclenumber']);
+     $driver_password= $con->real_escape_string($_POST['driver_password']);
      $driver_approve = 1;
 
      $sql = "Select * from driver";
-     $result = $conn->query($sql);
+     $result = $con->query($sql);
 
      if (mysqli_num_rows($result) > 0) {
         while( $res = mysqli_fetch_assoc($result)) {
@@ -69,7 +69,7 @@ if (isset($_POST["submit"]))
 
                 #sql query to insert into database
                 $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_dlnumber,d_dlpdf,d_vehiclenumber,d_vehiclercpdf,d_lat,d_long,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_dlnumber','$target_path4','$driver_vehiclenumber','$target_path5','$d_lat','$d_long','$driver_password','$driver_approve')";
-                $success = $conn->query($query);
+                $success = $con->query($query);
 
             }
         }
@@ -77,7 +77,7 @@ if (isset($_POST["submit"]))
 }
 
  
-$conn->close();
+$con->close();
  
 ?>
 

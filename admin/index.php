@@ -68,7 +68,7 @@ header("location: login.php"); // Redirecting To Profile Page
                                 <div class="col mr-2">
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Customer :- 
                                         <?php
-                                            echo $CustomerTotalCount=$conn->query("SELECT * FROM customer")->num_rows;
+                                            echo $CustomerTotalCount=$con->query("SELECT * FROM customer")->num_rows;
                                         ?> 
                                         &nbsp;</span>
                                     </div>
@@ -90,7 +90,7 @@ header("location: login.php"); // Redirecting To Profile Page
                                 <div class="col mr-2">
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Driver :- 
                                         <?php
-                                            echo $DriverTotalCount=$conn->query("SELECT * FROM driver")->num_rows;
+                                            echo $DriverTotalCount=$con->query("SELECT * FROM driver")->num_rows;
                                         ?> 
                                         &nbsp;</span></div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
@@ -111,7 +111,7 @@ header("location: login.php"); // Redirecting To Profile Page
                                 <div class="col mr-2">
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Farmer :- 
                                         <?php
-                                            echo $FarmerTotalCount=$conn->query("SELECT * FROM farmer")->num_rows;
+                                            echo $FarmerTotalCount=$con->query("SELECT * FROM farmer")->num_rows;
                                         ?> 
                                         &nbsp;</span></div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">

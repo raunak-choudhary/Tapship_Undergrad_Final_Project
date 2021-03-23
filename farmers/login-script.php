@@ -12,11 +12,11 @@ $f_mobile = $_POST['f_mobile'];
 $f_password = $_POST['f_password'];
 $_SESSION["sessionid"] = $_POST['f_mobile'];
 // mysqli_connect() function opens a new connection to the MySQL server.
-$conn = mysqli_connect("127.0.0.1", "root", "", "tapship");
+$con = mysqli_connect("127.0.0.1", "root", "", "tapship");
 // SQL query to fetch information of registerd users and finds user match.
 $query = "SELECT f_mobile, f_password from farmer where f_mobile=? AND f_password=? LIMIT 1";
 // To protect MySQL injection for Security purpose
-$stmt = $conn->prepare($query);
+$stmt = $con->prepare($query);
 $stmt->bind_param("ss", $f_mobile, $f_password);
 $stmt->execute();
 $stmt->bind_result($f_mobile, $f_password);

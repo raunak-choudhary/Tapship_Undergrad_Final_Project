@@ -12,11 +12,11 @@ $c_mobile = $_POST['c_mobile'];
 $c_password = $_POST['c_password'];
 $_SESSION["sessionid"] = $_POST['c_mobile'];
 // mysqli_connect() function opens a new connection to the MySQL server.
-$conn = mysqli_connect("127.0.0.1", "root", "", "tapship");
+$con = mysqli_connect("127.0.0.1", "root", "", "tapship");
 // SQL query to fetch information of registerd users and finds user match.
 $query = "SELECT c_mobile, c_password from customer where c_mobile=? AND c_password=? LIMIT 1";
 // To protect MySQL injection for Security purpose
-$stmt = $conn->prepare($query);
+$stmt = $con->prepare($query);
 $stmt->bind_param("ss", $c_mobile, $c_password);
 $stmt->execute();
 $stmt->bind_result($c_mobile, $c_password);

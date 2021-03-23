@@ -6,28 +6,28 @@ $dbhost = "localhost";
 	$dbname = "tapship";
 
 	//Create Connection
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($conn->connect_error);
+	$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
 if (isset($_POST["submit"]))
  {
      #retrieve file title
-     $customer_type = $conn->real_escape_string($_POST['customer_type']);
-     $customer_mobile = $conn->real_escape_string($_POST['customer_mobile']);
-     $customer_name = $conn->real_escape_string($_POST['customer_name']);
-     $customer_contactname = $conn->real_escape_string($_POST['customer_contactname']);
-     $customer_gender = $conn->real_escape_string($_POST['customer_gender']);
-     $customer_age = $conn->real_escape_string($_POST['customer_age']);
-     $customer_street = $conn->real_escape_string($_POST['customer_street']);
-     $customer_city = $conn->real_escape_string($_POST['customer_city']);
-     $customer_state= $conn->real_escape_string($_POST['customer_state']);
-     $customer_pincode= $conn->real_escape_string($_POST['customer_pincode']);
-     $customer_aadhar= $conn->real_escape_string($_POST['customer_aadhar']);
-     $customer_pan= $conn->real_escape_string($_POST['customer_pan']);
-     $customer_password= $conn->real_escape_string($_POST['customer_password']);
+     $customer_type = $con->real_escape_string($_POST['customer_type']);
+     $customer_mobile = $con->real_escape_string($_POST['customer_mobile']);
+     $customer_name = $con->real_escape_string($_POST['customer_name']);
+     $customer_contactname = $con->real_escape_string($_POST['customer_contactname']);
+     $customer_gender = $con->real_escape_string($_POST['customer_gender']);
+     $customer_age = $con->real_escape_string($_POST['customer_age']);
+     $customer_street = $con->real_escape_string($_POST['customer_street']);
+     $customer_city = $con->real_escape_string($_POST['customer_city']);
+     $customer_state= $con->real_escape_string($_POST['customer_state']);
+     $customer_pincode= $con->real_escape_string($_POST['customer_pincode']);
+     $customer_aadhar= $con->real_escape_string($_POST['customer_aadhar']);
+     $customer_pan= $con->real_escape_string($_POST['customer_pan']);
+     $customer_password= $con->real_escape_string($_POST['customer_password']);
      $customer_approve = 1;
     
      $sql = "Select * from customer";
-     $result = $conn->query($sql);
+     $result = $con->query($sql);
 
      if (mysqli_num_rows($result) > 0) {
         while( $res = mysqli_fetch_assoc($result)) {
@@ -63,13 +63,13 @@ if (isset($_POST["submit"]))
                 if($customer_type=="wholesaler")
                 {
                     $query = "INSERT into customer(c_type,c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
-                    $success = $conn->query($query);
+                    $success = $con->query($query);
                 }
 
                 if($customer_type=="organization")
                 {
                     $query = "INSERT into customer(c_type,c_mobile,c_name,c_contactname,c_registration,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_contactname','$customer_registration','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
-                    $success = $conn->query($query);
+                    $success = $con->query($query);
                 }
 
                 
@@ -79,7 +79,7 @@ if (isset($_POST["submit"]))
      }
 }
  
-$conn->close();
+$con->close();
  
 ?>
 
