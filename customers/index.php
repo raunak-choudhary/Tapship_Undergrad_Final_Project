@@ -120,6 +120,8 @@ if($c_approve==1)
         </div>
     </div>
 <?php }?>
+
+<a href="findcrop.php">Find Crop</a>
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

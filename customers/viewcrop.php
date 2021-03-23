@@ -72,10 +72,10 @@ $con=mysqli_connect("localhost","root","","tapship");
        die(" Connection Error ");
    }
 
-   $cr_id = $_GET['cr_id'];
-   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, f.f_name, f.f_mobile
-   FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND CS.cr_id = $cr_id
-   ORDER BY CS.cr_id DESC";
+    $cr_id = $_GET['cr_id'];
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode
+    FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND CS.cr_id = $cr_id
+    ORDER BY CS.cr_id DESC";
 
    $result = mysqli_query($con,$query);
 
@@ -95,6 +95,12 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cr_img3 = $res['cr_img3'];
        $f_name = $res['f_name'];
        $f_mobile =  $res['f_mobile'];
+       $f_gender = $res['f_gender'];
+       $f_age = $res['f_age'];
+       $f_street = $res['f_street'];
+       $f_city = $res['f_city'];
+       $f_state = $res['f_state'];
+       $f_pincode = $res['f_pincode'];
    }
 ?>
 
@@ -118,31 +124,19 @@ $con=mysqli_connect("localhost","root","","tapship");
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
 <p>Farmer Mobile: <?php echo $f_mobile;?></P>
+<p>Farmer Gender: <?php echo $f_gender;?></P>
+<p>Farmer Age: <?php echo $f_age;?></P>
+<p>Farmer Street: <?php echo $f_street;?></P>
+<p>Farmer City: <?php echo $f_city;?></P>
+<p>Farmer State: <?php echo $f_state;?></P>
+<p>Farmer Pincode: <?php echo $f_pincode;?></P>
+
 
 <?php
-if($cr_status==0){
+if($cr_status==0||1){
 ?>
 	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Edit Details</a></button> 
      <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
-	<hr>
-<?php
-}
-if($cr_status==1){
-?>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Bids</a></button> 
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
-	 <hr>
-<?php
-}
-if($cr_status==2){
-?>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Accepted Bid</a></button> 
-	<hr>
-<?php
-}
-if($cr_status==3){
-?>
-	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Transport Details</a></button> 
 	<hr>
 <?php
 }

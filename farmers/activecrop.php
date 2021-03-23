@@ -87,9 +87,7 @@ mysqli_select_db($con,'tapship');
    
      
  $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status
-        FROM cropdetails CD
-        JOIN cropsale CS ON CD.cro_id=CS.cr_cro_id
-        JOIN farmer f ON f.f_mobile=CS.cr_f_mobile
+        FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile
         ORDER BY CS.cr_id DESC";
  $query = mysqli_query($con,$q);
  $c = 1;
