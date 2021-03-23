@@ -86,7 +86,7 @@ header("location: login.php"); // Redirecting To Profile Page
             
         </form>
     </div>
-    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
+    <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
