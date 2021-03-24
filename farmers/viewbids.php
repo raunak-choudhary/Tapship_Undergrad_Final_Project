@@ -73,6 +73,7 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Crop Qunatity </th>
  <th> Crop MEP </th>
  <th> Crop MSP </th>
+ <th> Customer Type </th>
  <th> Customer Name </th>
  <th> Customer Mobile</th>
  <th> Customer City</th>
@@ -86,9 +87,9 @@ $con=mysqli_connect("localhost","root","","tapship");
 $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
-$cr_ID = $_GET['cr_id'];
+$cr_id = $_GET['cr_id'];
 
- $q = "SELECT CD.cro_name, CS.cr_quantity, CS.cr_mep, CD.cro_msp, cb.cb_bidprice, c.c_mobile,c.c_name, c.c_city, c.c_state,cs.cr_status, cb.cb_id FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
+ $q = "SELECT CD.cro_name, CS.cr_quantity, CS.cr_mep, CD.cro_msp, cb.cb_bidprice, c.c_mobile,c.c_name, c.c_city, c.c_type,cs.cr_status, cb.cb_id FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id= $cr_id AND cs.cr_id=$cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
  $query = mysqli_query($con,$q);
  $c = 1;
 
@@ -102,11 +103,12 @@ $cr_ID = $_GET['cr_id'];
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs'; ?> </td>
  <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep']; ?> </td>
  <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp']; ?> </td>
+ <td data-label="Customer Type"> <?php echo $res['c_type'];  ?> </td>
  <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
  <td data-label="CCustomer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
  <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
- <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
+ <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
  </tr>
 
  <?php 

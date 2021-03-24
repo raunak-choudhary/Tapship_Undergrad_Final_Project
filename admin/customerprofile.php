@@ -99,7 +99,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 
     <?php
-    if($c_type=="wholesaler")
+    if($c_type=="Wholesaler")
     {
     ?>
     <div class="padding">
@@ -178,7 +178,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 								
 	<?php
 	}
-    if($c_type=="organization")
+    if($c_type=="Organization")
 	{
 	?>
 	<div class="padding">

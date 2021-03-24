@@ -35,7 +35,7 @@ reduction in asymmetry in information between buyers and sellers has the biggest
 In Present, Indian farmers faces many challenges. We know that, the Technological innovation and
 competition have forced farmers to adopt supply chain mode to manage their supply, production and sale.
 Hence, there is a requirement of an Agriculture Product Supply Chain. An Agriculture Product Supply
-Chain is the system of organizations, people, technology, activities, information and resources involved in
+Chain is the system of Organizations, people, technology, activities, information and resources involved in
 moving agricultures product from supplier to customer. [4] One more big challenge for farmers is that to
 get a good profit for the efforts and investment that they had put in. There exist different reasons like season
 limitation, crop life due to which farmer get very limited amount of time to study and get profit for the

@@ -60,13 +60,13 @@ if (isset($_POST["submit"]))
                 move_uploaded_file($tname4, $target_path4);
 
                 #sql query to insert into database
-                if($customer_type=="wholesaler")
+                if($customer_type=="Wholesaler")
                 {
                     $query = "INSERT into customer(c_type,c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
                     $success = $con->query($query);
                 }
 
-                if($customer_type=="organization")
+                if($customer_type=="Organization")
                 {
                     $query = "INSERT into customer(c_type,c_mobile,c_name,c_contactname,c_registration,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_contactname','$customer_registration','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
                     $success = $con->query($query);

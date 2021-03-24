@@ -146,9 +146,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`) VALUES
-(1, 'Ganpat Patel', '9672836724', '', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', 'wholesaler', '', '799721133696', 'assets/documents/aadhar/aadhar.pdf', 'EYCPP1502E', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', 'Gapu@8540', '2'),
-(2, 'Ram Pvt. LTD.', '9672836728', 'Ram Patel', 'Male', '56', 'Old Fish Market Road, Brahmavara', 'Kundapura', 'karnataka', '576217', 'organization', 'assets/documents/aadhar/aadhar.pdf', '', '', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2'),
-(3, 'Ashwin Prabhakar', '9672836730', '', 'Male', '54', '234, Subhas Road', 'Mumbai', 'Maharashtra', '453423', 'wholesaler', '', '784567327436', 'assets/documents/aadhar/aadhar.pdf', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2');
+(1, 'Ganpat Patel', '9672836724', '', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', 'Wholesaler', '', '799721133696', 'assets/documents/aadhar/aadhar.pdf', 'EYCPP1502E', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.png', 'Gapu@8540', '2'),
+(2, 'Ram Pvt. LTD.', '9672836728', 'Ram Patel', 'Male', '56', 'Old Fish Market Road, Brahmavara', 'Kundapura', 'karnataka', '576217', 'Organization', 'assets/documents/aadhar/aadhar.pdf', '', '', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2'),
+(3, 'Ashwin Prabhakar', '9672836730', '', 'Male', '54', '234, Subhas Road', 'Mumbai', 'Maharashtra', '453423', 'Wholesaler', '', '784567327436', 'assets/documents/aadhar/aadhar.pdf', 'RTYTY6756G', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2');
 
 -- --------------------------------------------------------
 

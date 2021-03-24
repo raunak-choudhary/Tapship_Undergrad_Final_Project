@@ -22,25 +22,25 @@
 
 <script>
 function yesnoCheck(that) {
-    if (that.value == "wholesaler") {
-        document.getElementById("ifwholesaler").style.display = "block";
-        document.getElementById("iforganization").style.display = "none";
+    if (that.value == "Wholesaler") {
+        document.getElementById("ifWholesaler").style.display = "block";
+        document.getElementById("ifOrganization").style.display = "none";
         document.getElementById("customer_registration").required = false;
         document.getElementById("customer_contactname").required = false; 
         document.getElementById("no1").style.display = "block";
         document.getElementById("no2").style.display = "block";
         document.getElementById("no3").style.display = "block";
-    } else if (that.value == "organization") {
-        document.getElementById("iforganization").style.display = "block";
-        document.getElementById("ifwholesaler").style.display = "none";
+    } else if (that.value == "Organization") {
+        document.getElementById("ifOrganization").style.display = "block";
+        document.getElementById("ifWholesaler").style.display = "none";
         document.getElementById("customer_aadhar").required = false;
         document.getElementById("customer_aadharpdf").required = false;
         document.getElementById("no1").style.display = "block"; 
         document.getElementById("no2").style.display = "block";
         document.getElementById("no3").style.display = "block";
     } else {
-        document.getElementById("ifwholesaler").style.display = "none";
-        document.getElementById("iforganization").style.display = "none";
+        document.getElementById("ifWholesaler").style.display = "none";
+        document.getElementById("ifOrganization").style.display = "none";
         document.getElementById("no1").style.display = "none";
         document.getElementById("no2").style.display = "none";
         document.getElementById("no3").style.display = "none";
@@ -83,8 +83,8 @@ function yesnoCheck(that) {
             <div class="form-group">
             <select class="form-control" id="customer_type" name="customer_type" required onchange="yesnoCheck(this);">
             <option value="">Choose</option>
-            <option value="wholesaler">Wholesaler</option>
-            <option value="organization">Organization</option>
+            <option value="Wholesaler">Wholesaler</option>
+            <option value="Organization">Organization</option>
             </select>
             <hr>
 
@@ -96,7 +96,7 @@ function yesnoCheck(that) {
             <div class="form-group"><input class="form-control" id="customer_name" type="text" name="customer_name" placeholder="Your Full Name" required="" autofocus=""></div>
             </div>
 
-            <div id="iforganization" style="display: none;">
+            <div id="ifOrganization" style="display: none;">
             <h6 style="color:#fff;">Organization Registration</h6>
             <div class="form-group"><input class="form-control" id="customer_registration" type="file" accept="application/pdf" name="customer_registration" placeholder="Organization Registration Documnet" required="" autofocus=""></div>
 
@@ -130,7 +130,7 @@ function yesnoCheck(that) {
             <div class="form-group"><input class="form-control" id="customer_pincode" type="text" name="customer_pincode" pattern="^[1-9]{1}[0-9]{5}" title="Enter valid 6 digit Pincode (Ex. 5763XX)" placeholder="Your Pincode" required="" autofocus=""></div>
             </div>
 
-            <div id="ifwholesaler" style="display: none;">
+            <div id="ifWholesaler" style="display: none;">
             <h5 style="color:#fff;">Aadhar Number</h5>
             <div class="form-group"><input class="form-control" id="customer_aadhar" type="text" name="customer_aadhar" pattern="^[2-9]{1}[0-9]{11}$" title="Enter 12 digit Aadhar Number (Ex. 2345678382XX)" placeholder="Your Aadhar Number" required="" autofocus=""></div>
             

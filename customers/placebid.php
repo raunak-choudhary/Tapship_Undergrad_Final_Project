@@ -30,7 +30,10 @@ if (isset($_POST["submit"]))
                 $cropbid_transport = 0;
                
                 $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_transport) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_transport')";
-                $success = $con->query($query);
+                $con->query($query);
+
+                $q = "UPDATE cropsale set cr_status='1' where cr_id=$cr_id";
+                $con->query($q);
 
                 #header("location: activecrop.php");
 
