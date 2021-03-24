@@ -19,7 +19,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Active Crop</title>
+    <title>View Bids</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -68,7 +68,7 @@ $con=mysqli_connect("localhost","root","","tapship");
  <tr class="bg-dark text-white text-center">
  <thead>
  <th>Sr. No.</th>
- <th> ID </th>
+ <th> Bid ID </th>
  <th> Crop Name </th>
  <th> Crop Qunatity </th>
  <th> Crop MEP </th>
@@ -98,14 +98,14 @@ $cr_id = $_GET['cr_id'];
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="ID"> <?php echo $res['cb_id']; ?> </td>
+ <td data-label="Bid ID"> <?php echo $res['cb_id']; ?> </td>
  <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs'; ?> </td>
  <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep']; ?> </td>
  <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp']; ?> </td>
  <td data-label="Customer Type"> <?php echo $res['c_type'];  ?> </td>
  <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
- <td data-label="CCustomer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
+ <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
  <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
  <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>

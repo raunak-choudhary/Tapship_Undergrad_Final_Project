@@ -4,7 +4,7 @@ include('session-script.php');
 $res = $_SESSION["sessionid"];
 $f_mobile= $res;
 if(!isset($_SESSION['login_farmer'])){
-header("location: login.php"); // Redirecting To Profile Page
+//header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
 ?>
@@ -35,6 +35,7 @@ error_reporting(0);
                 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
                 <script type='text/javascript'></script>
             </head>
+
         <body oncontextmenu='return false' class='snippet-body'>
         <div class="page-content page-container" id="page-content">
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
@@ -49,7 +50,7 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="#"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmer/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
             </div>
@@ -72,11 +73,11 @@ $con=mysqli_connect("localhost","root","","tapship");
        die(" Connection Error ");
    }
 
-   $cr_id = $_GET['cr_id'];
-   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, f.f_name, f.f_mobile, cb.cb_id FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND CS.cr_id=cb.cb_cr_id AND CS.cr_id = $cr_id ORDER BY CS.cr_id DESC";
+   $cb_id = $_GET['cb_id'];
 
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1'";
 
-   $result = mysqli_query($con,$query);
+   $result = mysqli_query($con,$q);
 
    while( $res=mysqli_fetch_assoc($result))
    {
@@ -92,9 +93,22 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cr_img1 = $res['cr_img1'];
        $cr_img2 = $res['cr_img2'];
        $cr_img3 = $res['cr_img3'];
+
+       $f_mobile = $res['f_mobile'];
        $f_name = $res['f_name'];
-       $f_mobile =  $res['f_mobile'];
-       $cb_id =  $res['cb_id'];
+       $f_gender = $res['f_gender'];
+       $f_age = $res['f_age'];
+       $f_street = $res['f_street'];
+       $f_city = $res['f_city'];
+       $f_state = $res['f_state'];
+       $f_pincode = $res['f_pincode'];
+
+       $cb_id = $res['cb_id'];
+       $cb_bidprice = $res['cb_bidprice'];
+       $cb_status = $res['cb_status'];
+
+       $c_name = $res['c_name'];
+       $c_mobile =  $res['c_mobile'];
    }
 ?>
 
@@ -118,35 +132,21 @@ $con=mysqli_connect("localhost","root","","tapship");
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
 <p>Farmer Mobile: <?php echo $f_mobile;?></P>
+<p>Farmer Gender: <?php echo $f_gender;?></P>
+<p>Farmer Age: <?php echo $f_age;?></P>
+<p>Farmer Street: <?php echo $f_street;?></P>
+<p>Farmer City: <?php echo $f_city;?></P>
+<p>Farmer State: <?php echo $f_street;?></P>
+<p>Farmer Pincode: <?php echo $f_pincode;?></P>
 
-<?php
-if($cr_status==0){
-?>
-	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Edit Details</a></button> 
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
-	<hr>
-<?php
-}
-if($cr_status==1){
-?>
-     <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white"> View Bids </a> </button>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
-	 <hr>
-<?php
-}
-if($cr_status==2){
-?>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="viewacceptedbiddetails.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Accepted Bid </a></button> 
-	<hr>
-<?php
-}
-if($cr_status==3){
-?>
-	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Transport Details</a></button> 
-	<hr>
-<?php
-}
-?>
+<p>Bid ID: <?php echo $cb_id;?></P>
+<p>Bid Price: <?php echo $cb_bidprice;?></P>
+<p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}?></P>
+
+<h5>Customer Details</h5>
+<p>Customer Name: <?php echo $c_name;?></P>
+<p>Customer Mobile: <?php echo $c_mobile;?></P>
+
 
 <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

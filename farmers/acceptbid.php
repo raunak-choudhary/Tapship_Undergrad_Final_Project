@@ -37,8 +37,8 @@ $con=mysqli_connect("localhost","root","","tapship");
     $result = mysqli_query($con,$query);
 
     $query = " update cropbid set cb_status='2' where cb_cr_id=$cr_id and cb_id!=$cb_id";
-    echo $query;
     $result = mysqli_query($con,$query);
+    
    }
    
 ?>

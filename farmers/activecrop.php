@@ -68,7 +68,7 @@ $con=mysqli_connect("localhost","root","","tapship");
  <tr class="bg-dark text-white text-center">
  <thead>
  <th>Sr. No.</th>
- <th> ID </th>
+ <th> Crop ID </th>
  <th> Crop Name </th>
  <th> Crop Type</th>
  <th> Crop Quantity</th>
@@ -98,7 +98,7 @@ mysqli_select_db($con,'tapship');
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="ID"> <?php echo $res['cr_id']; ?> </td>
+ <td data-label="Crop ID"> <?php echo $res['cr_id']; ?> </td>
  <td data-label="Crop Name"> <?php echo $res['cro_name'];  ?> </td>
  <td data-label="Crop Type"> <?php echo $res['cro_type'];  ?> </td>
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs';  ?> </td>

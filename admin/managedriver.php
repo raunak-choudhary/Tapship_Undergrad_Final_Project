@@ -65,7 +65,7 @@ header("location: login.php"); // Redirecting To Profile Page
  <tr class="bg-dark text-white text-center">
  <thead>
  <th>Sr. No.</th>
- <th>ID</th>
+ <th> ID</th>
  <th> Name </th>
  <th> Mobile </th>
  <th> City </th>
