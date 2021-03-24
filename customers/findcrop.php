@@ -88,8 +88,8 @@ mysqli_select_db($con,'tapship');
    
      
  $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, f.f_name, f.f_mobile
-        FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile
-        ORDER BY CS.cr_id DESC";
+ FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile = $c_mobile AND cb.cb_cr_id = cs.cr_id)=0
+ ORDER BY CS.cr_id DESC";
  $query = mysqli_query($con,$q);
  $c = 1;
 
