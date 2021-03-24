@@ -76,7 +76,6 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Customer Name </th>
  <th> Customer Mobile</th>
  <th> Customer City</th>
- <th> Customer State</th>
  <th> Bid Price (per kgs.)</th>
  <th> View</th>
  </thead>
@@ -106,7 +105,6 @@ $cr_ID = $_GET['cr_id'];
  <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
  <td data-label="CCustomer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
  <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
- <td data-label="Customer City"> <?php echo $res['c_state'];  ?> </td>
  <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
  <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
  </tr>

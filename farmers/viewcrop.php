@@ -129,7 +129,7 @@ if($cr_status==0){
 }
 if($cr_status==1){
 ?>
-     <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white"> View </a> </button>
+     <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white"> View Bids </a> </button>
      <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
 	 <hr>
 <?php
