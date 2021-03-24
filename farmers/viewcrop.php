@@ -109,8 +109,8 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Crop Sale ID: <?php echo $cr_id;?></P>
 
 <h5>Crop Figures</h5>
-<p>Minimun Expected Price (per kgs.): <?php echo '₹ ',$cr_mep;?></P>
-<p>Maximum Selling Price (per kgs.): <?php echo '₹ ',$cro_msp;?></P>
+<p>Minimun Expected Price (per kgs.) <?php echo '₹ ',$cr_mep;?></P>
+<p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
 <p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Transport Pending";}else if($cr_status=="4"){echo "Deal Over";}  ?></P>
@@ -129,7 +129,7 @@ if($cr_status==0){
 }
 if($cr_status==1){
 ?>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Bids</a></button> 
+     <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white"> View </a> </button>
      <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">Delete</a></button> 
 	 <hr>
 <?php
