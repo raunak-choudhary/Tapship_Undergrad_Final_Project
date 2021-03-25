@@ -41,6 +41,6 @@ $con=mysqli_connect("localhost","root","","tapship");
     
    }
 
-   header("location: yourbids.php");
+   header("location: activecrop.php");
    
 ?>
