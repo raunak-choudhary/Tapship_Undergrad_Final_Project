@@ -9,12 +9,6 @@ $dbhost = "localhost";
 	//Create Connection
 	$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
     $f_mobile = $_SESSION["sessionid"];
-$q = "select * from farmer where f_mobile= $f_mobile";
-$query = mysqli_query($con,$q);
-
- while($res = mysqli_fetch_array($query)){
-        $crop_f_id = $res['f_id'];
- }
 
 if (isset($_POST["submit"]))
  {
@@ -34,9 +28,9 @@ if (isset($_POST["submit"]))
                 }
     
                 #file name with a random number so that similar dont get replaced
-                $crop_img1= rand(10,10000)."-".$crop_type."-".$crop_name."-".$_FILES["crop_img1"]["name"];
-                $crop_img2= rand(10,10000)."-".$crop_type."-".$crop_name."-".$_FILES["crop_img2"]["name"];
-                $crop_img3= rand(10,10000)."-".$crop_type."-".$crop_name."-".$_FILES["crop_img3"]["name"];
+                $crop_img1= "1".rand(100,10000)."-".rand(100,10000)."-".rand(100,10000)."-".$f_mobile.".png";
+                $crop_img2= "1".rand(100,10000)."-".rand(100,10000)."-".rand(100,10000)."-".$f_mobile.".png";
+                $crop_img3= "1".rand(100,10000)."-".rand(100,10000)."-".rand(100,10000)."-".$f_mobile.".png";
 
                 #temporary file name to store file
                 $tname1 = $_FILES["crop_img1"]["tmp_name"];
@@ -54,8 +48,9 @@ if (isset($_POST["submit"]))
                 move_uploaded_file($tname3, $target_path3);
 
                 $date = date("Y/m/d");
-                $query = "INSERT into cropsale(cr_f_mobile, cr_f_id, cr_cro_id, cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3, cr_date, cr_status) VALUES('$crop_f_mobile', '$crop_f_id', '$crop_cro_id', '$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3','$date', '$crop_status')";
+                $query = "INSERT into cropsale(cr_f_mobile, cr_cro_id, cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3, cr_date, cr_status) VALUES('$crop_f_mobile', '$crop_cro_id', '$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3','$date', '$crop_status')";           
                 $success = $con->query($query);
+
 
                 header("location: activecrop.php");
 

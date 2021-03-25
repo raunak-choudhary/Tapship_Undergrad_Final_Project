@@ -136,6 +136,8 @@ $con=mysqli_connect("localhost","root","","tapship");
 if($cr_status==0||1){
 ?>
     <form method="post" action="placebid.php?cr_id=<?php echo $cr_id; ?> " enctype="multipart/form-data">
+
+        <input type="hidden" name="mep" value="<?php echo $cr_mep;?>">
         <div class="form-group"><input class="form-control" id="cropbid_bidprice" type="text" name="cropbid_bidprice" placeholder="Bid your price (per kgs.)" required="" autofocus="" style="width: 300px;"></div>
         <input name="submit" type="submit"class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value=" Place Bid">
         <hr>

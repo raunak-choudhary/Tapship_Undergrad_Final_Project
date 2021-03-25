@@ -49,7 +49,7 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="#"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmer/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
             </div>
@@ -73,8 +73,9 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
    $cr_id = $_GET['cr_id'];
-   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, f.f_name, f.f_mobile, cb.cb_id FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND CS.cr_id=cb.cb_cr_id AND CS.cr_id = $cr_id ORDER BY CS.cr_id DESC";
-
+   $query ="SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_img1, CS.cr_img2, CS.cr_img3, CS.cr_status, f.f_name, f.f_mobile
+        FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND CS.cr_id = $cr_id
+        ORDER BY CS.cr_id DESC";
 
    $result = mysqli_query($con,$query);
 

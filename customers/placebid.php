@@ -26,16 +26,28 @@ if (isset($_POST["submit"]))
  {
                 #retrieve file title
                 $cropbid_bidprice =  $con->real_escape_string($_POST['cropbid_bidprice']);
+                $crop_mep =  $con->real_escape_string($_POST['mep']);
                 $cropbid_status = 0;
                 $cropbid_transport = 0;
+
+                echo $crop_mep;
+                echo $cropbid_bidprice;
                
+                if($cropbid_bidprice > $crop_mep){
                 $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_transport) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_transport')";
                 $con->query($query);
 
                 $q = "UPDATE cropsale set cr_status='1' where cr_id=$cr_id";
                 $con->query($q);
 
-                #header("location: activecrop.php");
+
+                header("location: activecrop.php");
+                }
+
+                else{
+                  header("location: viewcrop.php?cr_id=$cr_id");
+                }
+                
 
 }
  

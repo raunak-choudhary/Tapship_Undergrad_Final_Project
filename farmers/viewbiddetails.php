@@ -74,8 +74,8 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, cb.cb_bidprice,  cb.cb_id, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
-
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, cb.cb_bidprice,  cb.cb_id, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =$f_mobile AND cb.cb_id=$cb_id ORDER BY CS.cr_id DESC";
+    
    $result = mysqli_query($con,$q);
 
    while( $res=mysqli_fetch_assoc($result))

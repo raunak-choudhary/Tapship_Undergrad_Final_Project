@@ -2,7 +2,7 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$f_mobile= $res;
+$c_mobile= $res;
 if(!isset($_SESSION['login_farmer'])){
 //header("location: login.php"); // Redirecting To Profile Page
 }
@@ -75,7 +75,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1'";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1' AND cb.cb_c_mobile=$c_mobile";
 
    $result = mysqli_query($con,$q);
 

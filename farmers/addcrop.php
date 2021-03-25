@@ -95,6 +95,7 @@ function yesnoCheck(that) {
         document.getElementById("iffruits").style.display = "none";
         document.getElementById("ifvegitables").style.display = "none";
         document.getElementById("ifgrains").style.display = "none";
+        document.getElementById("iffeedcrops").style.display = "block";
         document.getElementById("iffibrecrops").style.display = "none";
         document.getElementById("ifoilcrops").style.display = "none";
         document.getElementById("ifflowers").style.display = "none";
@@ -112,6 +113,7 @@ function yesnoCheck(that) {
         document.getElementById("iffruits").style.display = "none";
         document.getElementById("ifvegitables").style.display = "none";
         document.getElementById("ifgrains").style.display = "none";
+        document.getElementById("iffeedcrops").style.display = "block";
         document.getElementById("iffeedcrops").style.display = "none";
         document.getElementById("ifoilcrops").style.display = "none";
         document.getElementById("ifflowers").style.display = "none";
@@ -121,7 +123,6 @@ function yesnoCheck(that) {
         document.getElementById("ifvegitables").required = false;
         document.getElementById("ifgrains").required = false;
         document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
         document.getElementById("ifoilcrops").required = false;
         document.getElementById("ifflowers").required = false;
         document.getElementById("ifindustrialcrops").required = false;
@@ -284,7 +285,7 @@ function yesnoCheck(that) {
             </select>
             </div>
 
-            <div class="form-group" id="iffeedcrop" style="display: none;">
+            <div class="form-group" id="iffeedcrops" style="display: none;">
             <h5 style="color:#fff;">Crop Name</h5>
             <select class="form-control" id="crop_feedcrop" name="crop_name" >
                 <option disabled selected value="">-- Select Feed Crop Name --</option>
@@ -299,7 +300,7 @@ function yesnoCheck(that) {
             </select>
             </div>
 
-            <div class="form-group" id="iffibrecrop" style="display: none;">
+            <div class="form-group" id="iffibrecrops" style="display: none;">
             <h5 style="color:#fff;">Crop Name</h5>
             <select class="form-control" id="crop_fibrecrop" name="crop_name" >
                 <option disabled selected value="">-- Select Fibre Crop Name --</option>
@@ -314,7 +315,7 @@ function yesnoCheck(that) {
             </select>
             </div>
 
-            <div class="form-group" id="ifoilcrop" style="display: none;">
+            <div class="form-group" id="ifoilcrops" style="display: none;">
             <h5 style="color:#fff;">Crop Name</h5>
             <select class="form-control" id="crop_oilcrop" name="crop_name" >
                 <option disabled selected value="">-- Select Oil Crop Name --</option>
@@ -344,7 +345,7 @@ function yesnoCheck(that) {
             </select>
             </div>
 
-            <div class="form-group" id="ifindustrialcrop" style="display: none;">
+            <div class="form-group" id="ifindustrialcrops" style="display: none;">
             <h5 style="color:#fff;">Crop Name</h5>
             <select class="form-control" id="crop_industrialcrop" name="crop_name" >
                 <option disabled selected value="">-- Select Industrial Crop Name --</option>
