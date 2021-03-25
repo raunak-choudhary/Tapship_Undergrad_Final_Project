@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2021 at 05:21 PM
+-- Generation Time: Mar 25, 2021 at 01:22 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -47,7 +47,7 @@ INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
 --
 
 CREATE TABLE `cropbid` (
-  `cb_bid` int(11) NOT NULL,
+  `cb_id` int(11) NOT NULL,
   `cb_c_mobile` varchar(50) NOT NULL,
   `cb_f_mobile` varchar(50) NOT NULL,
   `cb_cr_id` int(11) NOT NULL,
@@ -60,9 +60,12 @@ CREATE TABLE `cropbid` (
 -- Dumping data for table `cropbid`
 --
 
-INSERT INTO `cropbid` (`cb_bid`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`) VALUES
-(1, '9672836730', '9446552020', 42, 100, '0', '0'),
-(2, '9672836728', '9672836726', 42, 100, '0', '0');
+INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`) VALUES
+(11, '9672836728', '8745123411', 35, 100, '0', '0'),
+(12, '9672836728', '8745123411', 42, 300, '0', '0'),
+(13, '9672836724', '8745123411', 42, 500, '0', '0'),
+(14, '9672836724', '8745123411', 36, 600, '0', '0'),
+(15, '9672836724', '9672836726', 47, 25, '0', '0');
 
 -- --------------------------------------------------------
 
@@ -83,7 +86,10 @@ CREATE TABLE `cropdetails` (
 
 INSERT INTO `cropdetails` (`cro_id`, `cro_name`, `cro_type`, `cro_msp`) VALUES
 (1, 'Mango', 'Fruits', 30),
-(2, 'Tomato', 'Vegitables', 25);
+(2, 'Tomato', 'Vegitables', 25),
+(3, 'Banana', 'Fruits', 20),
+(4, 'Carrot', 'Vegitables', 20),
+(5, 'Rice', 'Feed Crops', 15);
 
 -- --------------------------------------------------------
 
@@ -96,9 +102,9 @@ CREATE TABLE `cropsale` (
   `cr_f_mobile` varchar(10) NOT NULL,
   `cr_cro_id` int(11) NOT NULL,
   `cr_quantity` varchar(10) NOT NULL,
-  `cr_img1` varchar(50) NOT NULL,
-  `cr_img2` varchar(50) NOT NULL,
-  `cr_img3` varchar(50) NOT NULL,
+  `cr_img1` varchar(500) NOT NULL,
+  `cr_img2` varchar(500) NOT NULL,
+  `cr_img3` varchar(500) NOT NULL,
   `cr_mep` varchar(10) NOT NULL,
   `cr_date` date NOT NULL,
   `cr_status` varchar(10) NOT NULL
@@ -109,9 +115,12 @@ CREATE TABLE `cropsale` (
 --
 
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
-(35, '9672836726', 1, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '1'),
-(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0');
+(35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '1'),
+(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
+(44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
+(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '0'),
+(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '1');
 
 -- --------------------------------------------------------
 
@@ -207,10 +216,10 @@ CREATE TABLE `farmer` (
   `f_state` varchar(25) NOT NULL,
   `f_pincode` varchar(10) NOT NULL,
   `f_aadhar` varchar(25) NOT NULL,
-  `f_aadharpdf` varchar(100) NOT NULL,
+  `f_aadharpdf` varchar(500) NOT NULL,
   `f_pan` varchar(25) NOT NULL,
-  `f_panpdf` varchar(100) NOT NULL,
-  `f_photo` varchar(100) NOT NULL,
+  `f_panpdf` varchar(500) NOT NULL,
+  `f_photo` varchar(500) NOT NULL,
   `f_password` varchar(25) NOT NULL,
   `f_approve` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -220,9 +229,9 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
-(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', '12345', '2'),
-(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Ak123456', '2'),
-(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Kg123456', '2');
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2'),
+(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2'),
+(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2');
 
 -- --------------------------------------------------------
 
@@ -286,7 +295,7 @@ ALTER TABLE `admin`
 -- Indexes for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  ADD PRIMARY KEY (`cb_bid`),
+  ADD PRIMARY KEY (`cb_id`),
   ADD KEY `fkcb_cb_cr_id` (`cb_cr_id`),
   ADD KEY `fk_cb_f_mobile` (`cb_f_mobile`),
   ADD KEY `fk_cb_c_mobile` (`cb_c_mobile`);
@@ -342,9 +351,7 @@ ALTER TABLE `quries`
 -- Indexes for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  ADD PRIMARY KEY (`tb_id`),
-  ADD KEY `fktb_tb_cb_id` (`tb_cb_id`),
-  ADD KEY `fktb_tb_d_id` (`tb_d_id`);
+  ADD PRIMARY KEY (`tb_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -360,19 +367,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
 --
 ALTER TABLE `cropdetails`
-  MODIFY `cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -390,7 +397,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `kiosk`
@@ -428,13 +435,6 @@ ALTER TABLE `cropbid`
 ALTER TABLE `cropsale`
   ADD CONSTRAINT `fk_cr_cro_id` FOREIGN KEY (`cr_cro_id`) REFERENCES `cropdetails` (`cro_id`),
   ADD CONSTRAINT `fk_cr_f_mobile` FOREIGN KEY (`cr_f_mobile`) REFERENCES `farmer` (`f_mobile`);
-
---
--- Constraints for table `transportbid`
---
-ALTER TABLE `transportbid`
-  ADD CONSTRAINT `fktb_tb_cb_id` FOREIGN KEY (`tb_cb_id`) REFERENCES `cropbid` (`cb_bid`),
-  ADD CONSTRAINT `fktb_tb_d_id` FOREIGN KEY (`tb_d_id`) REFERENCES `driver` (`d_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
