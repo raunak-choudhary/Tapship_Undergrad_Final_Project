@@ -159,11 +159,11 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Aadhaar</p>
-                                        <h6 class="text-muted  f-w-400"><?php echo "$f_aadhar"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
+                                        <h6 class="text-muted  f-w-400"><?php echo "$f_aadhar"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">PAN</p>
-                                        <h6 class="text-muted f-w-400"><?php echo "$f_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
 								</div>
 								
