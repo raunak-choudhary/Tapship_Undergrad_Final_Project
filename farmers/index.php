@@ -123,15 +123,18 @@ if($f_approve==2)
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Dashboard</h2>
             </div>
         </div>
     </div>
-<?php }?>
 
 <a href="addcrop.php">Add Crop</a>
 <a href="activecrop.php">Active Crop</a>
 <a href="sellhistory.php">Sell History</a>
+
+
+<?php }?>
+
 
     
     <div class="footer-dark" style="background: rgb(12,56,35);">

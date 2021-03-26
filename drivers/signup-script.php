@@ -84,7 +84,7 @@ $con->close();
 <html>
 
   <head>
-  <title>Success - Driver SignUp</title>
+  <title>Success - Driver Signup</title>
   
   <link rel="shortcut icon" type="image/png" href="../assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="../assets/css/manager_registered_success.css">

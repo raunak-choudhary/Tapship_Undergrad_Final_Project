@@ -124,15 +124,18 @@ if($c_approve==2)
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">customer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Dashboard</h2>
             </div>
         </div>
     </div>
-<?php }?>
 
 <a href="findcrop.php">Find Crop</a>
-<a href="yourbids.php">Your Bids</a>
+<a href="youractivebids.php">Your Bids</a>
 <a href="acceptedbids.php">Accepted Bids</a>
+<a href="rejectedbids.php">Rejected Bids</a>
+
+
+<?php }?>
     
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

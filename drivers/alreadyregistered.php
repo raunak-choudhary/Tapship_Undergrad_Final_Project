@@ -1,7 +1,7 @@
 <html>
 
   <head>
-  <title>User Exist - Driver SignUp</title>
+  <title>User Exist - Driver</title>
   <link rel="shortcut icon" type="image/png" href="../assets/img/fav.png">
   <link rel="stylesheet" type = "text/css" href ="../assets/css/manager_registered_success.css">
   <link rel="stylesheet" type = "text/css" href ="../assets/bootstrap/css/bootstrap.min.css">
@@ -57,6 +57,7 @@
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
         </div>    
     </div>
+    
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
