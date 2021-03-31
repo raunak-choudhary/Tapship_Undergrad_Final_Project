@@ -97,6 +97,24 @@
             <h5 style="color:#fff;">Photo</h5>
             <div class="form-group"><input class="form-control" id="farmer_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="farmer_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
 
+            <h5 style="color:#fff;">Bank Account Holder Name</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankholder" type="text" name="farmer_bankholder" placeholder="Account Holder Name" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Bank Account Name</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankaccount" type="text" name="farmer_bankaccount" placeholder="Your Bank Account Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Bank IFSC Code</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankifsc" type="text" name="farmer_bankifsc" pattern="^[A-Z]{4}0[A-Z0-9]{6}$"  title="Your Bank IFSC Code" placeholder="Your Bank Account Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Bank Name</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankname" type="text" name="farmer_bankname" placeholder="Your Bank Name" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Bank Branch Name</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankbranch" type="text" name="farmer_bankbranch"  placeholder="Your PAN Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Bank Passbook PDF</h5>
+            <div class="form-group"><input class="form-control" id="farmer_bankpassbook" type="file" accept="application/pdf" name="farmer_bankpassbook" required="" autofocus=""></div>
+
             <h5 style="color:#fff;">Password</h5>
             <div class="form-group"><input class="form-control" id="farmer_password" type="password" name="farmer_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
 

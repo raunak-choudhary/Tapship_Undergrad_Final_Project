@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2021 at 01:22 PM
+-- Generation Time: Mar 31, 2021 at 05:56 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -61,11 +61,13 @@ CREATE TABLE `cropbid` (
 --
 
 INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`) VALUES
-(11, '9672836728', '8745123411', 35, 100, '0', '0'),
-(12, '9672836728', '8745123411', 42, 300, '0', '0'),
-(13, '9672836724', '8745123411', 42, 500, '0', '0'),
+(11, '9672836728', '8745123411', 35, 100, '1', '0'),
+(12, '9672836728', '8745123411', 42, 300, '2', '0'),
+(13, '9672836724', '8745123411', 42, 500, '1', '0'),
 (14, '9672836724', '8745123411', 36, 600, '0', '0'),
-(15, '9672836724', '9672836726', 47, 25, '0', '0');
+(15, '9672836724', '9672836726', 47, 25, '0', '0'),
+(24, '9672836728', '9672836726', 44, 44, '0', '0'),
+(25, '9672836728', '9672836726', 46, 30, '0', '0');
 
 -- --------------------------------------------------------
 
@@ -115,11 +117,11 @@ CREATE TABLE `cropsale` (
 --
 
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
-(35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '1'),
+(35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '2'),
 (36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '2'),
 (44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
-(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '0'),
+(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '1'),
 (47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '1');
 
 -- --------------------------------------------------------
@@ -221,17 +223,24 @@ CREATE TABLE `farmer` (
   `f_panpdf` varchar(500) NOT NULL,
   `f_photo` varchar(500) NOT NULL,
   `f_password` varchar(25) NOT NULL,
-  `f_approve` varchar(10) NOT NULL
+  `f_approve` varchar(10) NOT NULL,
+  `f_bankholder` varchar(100) NOT NULL,
+  `f_bankaccount` varchar(100) NOT NULL,
+  `f_bankifsc` varchar(100) NOT NULL,
+  `f_bankname` varchar(200) NOT NULL,
+  `f_bankbranch` varchar(100) NOT NULL,
+  `f_bankpassbook` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`) VALUES
-(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2'),
-(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2'),
-(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2');
+INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`) VALUES
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2', 'Raunak Choudhary', '8823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
+(20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Ajay Kumar', '9823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
+(21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Karthik Gupta', '47823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
+(61, 'Anish Sharma', '9672836722', 'Male', '78', '202, Laxmi Plaza, Old Fish Market Road, Brahmavara', 'Udupi', 'Karnataka', '576213', '643436728767', 'assets/documents/aadhar/aadhar.pdf', 'TTHUO8765U', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8654', '2', 'Anish Sharma', '7823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf');
 
 -- --------------------------------------------------------
 
@@ -367,7 +376,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
@@ -397,7 +406,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `kiosk`

@@ -83,6 +83,13 @@ $con=mysqli_connect("localhost","root","","tapship");
        $f_pan =  $res['f_pan'];
        $f_panpdf =  $res['f_panpdf'];
        $f_photo =  $res['f_photo'];
+       
+       $f_bankholder = $res['f_bankholder'];
+       $f_bankaccount = $res['f_bankaccount'];
+       $f_bankifsc = $res['f_bankifsc'];
+       $f_bankname = $res['f_bankname'];
+       $f_bankbranch = $res['f_bankbranch'];
+       $f_bankpassbook = $res['f_bankpassbook'];
        $f_approve =  $res['f_approve'];
    }
 ?>
@@ -155,7 +162,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                     </div>
                                 </div>
                   
-                                <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Address</strong></h4>
+                                <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Documents</strong></h4>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Aadhaar</p>
@@ -166,6 +173,37 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <h6 class="text-muted f-w-400"><?php echo "$f_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
 								</div>
+                                
+
+                                <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Account Holder Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankholder"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Account Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankaccount"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank IFSC Code</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankifsc"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankname"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Branch</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankbranch"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Passbook</p>
+                                        <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
+                                    </div>
+								</div>
+
+
 								
 								 <form action="statusfarmer.php?f_mobile=<?php echo $f_mobile; ?>" method="post">
 									<?php

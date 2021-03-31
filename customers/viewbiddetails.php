@@ -49,7 +49,7 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="#"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
@@ -75,7 +75,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1' AND cb.cb_c_mobile=$c_mobile";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1' AND cb.cb_c_mobile=$c_mobile";
 
    $result = mysqli_query($con,$q);
 
@@ -102,6 +102,13 @@ $con=mysqli_connect("localhost","root","","tapship");
        $f_city = $res['f_city'];
        $f_state = $res['f_state'];
        $f_pincode = $res['f_pincode'];
+
+       $f_bankholder = $res['f_bankholder'];
+       $f_bankaccount = $res['f_bankaccount'];
+       $f_bankifsc = $res['f_bankifsc'];
+       $f_bankname = $res['f_bankname'];
+       $f_bankbranch = $res['f_bankbranch'];
+       $f_approve =  $res['f_approve'];
 
        $cb_id = $res['cb_id'];
        $cb_bidprice = $res['cb_bidprice'];
@@ -139,6 +146,14 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Farmer State: <?php echo $f_street;?></P>
 <p>Farmer Pincode: <?php echo $f_pincode;?></P>
 
+<h5>Bank Details</h5>
+<p>Bank Account Holder: <?php echo $f_bankholder;?></P>
+<p>Account Number: <?php echo $f_bankaccount;?></P>
+<p>Bank IFSC Code: <?php echo $f_bankifsc;?></P>
+<p>Bank Name: <?php echo $f_bankname;?></P>
+<p>Bank Branch: <?php echo $f_bankbranch;?></P>
+
+<h5>Bid Details</h5>
 <p>Bid ID: <?php echo $cb_id;?></P>
 <p>Bid Price: <?php echo $cb_bidprice;?></P>
 <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}?></P>
