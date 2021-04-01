@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2021 at 05:56 PM
+-- Generation Time: Apr 01, 2021 at 08:10 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -53,21 +53,24 @@ CREATE TABLE `cropbid` (
   `cb_cr_id` int(11) NOT NULL,
   `cb_bidprice` int(11) NOT NULL,
   `cb_status` varchar(10) NOT NULL,
-  `cb_transport` varchar(10) NOT NULL
+  `cb_transport` varchar(10) NOT NULL,
+  `cb_paytype` varchar(100) NOT NULL,
+  `cb_tid` varchar(100) NOT NULL,
+  `cb_tproof` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cropbid`
 --
 
-INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`) VALUES
-(11, '9672836728', '8745123411', 35, 100, '1', '0'),
-(12, '9672836728', '8745123411', 42, 300, '2', '0'),
-(13, '9672836724', '8745123411', 42, 500, '1', '0'),
-(14, '9672836724', '8745123411', 36, 600, '0', '0'),
-(15, '9672836724', '9672836726', 47, 25, '0', '0'),
-(24, '9672836728', '9672836726', 44, 44, '0', '0'),
-(25, '9672836728', '9672836726', 46, 30, '0', '0');
+INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`, `cb_paytype`, `cb_tid`, `cb_tproof`) VALUES
+(11, '9672836728', '8745123411', 35, 100, '2', '0', '', '', ''),
+(12, '9672836728', '8745123411', 46, 300, '2', '0', '', '', ''),
+(13, '9672836724', '8745123411', 42, 500, '1', '0', '', '', ''),
+(14, '9672836724', '8745123411', 36, 600, '0', '0', '', '', ''),
+(15, '9672836724', '9672836726', 47, 25, '0', '0', '', '', ''),
+(24, '9672836728', '9672836726', 44, 44, '0', '0', '', '', ''),
+(25, '9672836728', '9672836726', 46, 30, '0', '0', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -376,7 +379,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
