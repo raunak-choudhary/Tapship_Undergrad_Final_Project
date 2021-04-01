@@ -21,6 +21,8 @@ if (isset($_POST["submit"]))
                 $tname1 = $_FILES["cropbid_tproof"]["tmp_name"];
                 $target_path1 = "assets/documents/payment/".$cropbid_tproof;
                 move_uploaded_file($tname1, $target_path1);
+                echo $cropbid_paytype;
+                echo "Hello";
                 
                 $query = "INSERT into cropbid(cb_paytype, cb_tid, cb_tproof) VALUES('$cropbid_paytype', '$cropbid_tid', '$target_path1')";
                 $con->query($query);
