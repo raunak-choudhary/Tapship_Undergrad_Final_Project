@@ -177,12 +177,12 @@ $con=mysqli_connect("localhost","root","","tapship");
 <form method="post" action="payment.php?cb_id=<?php echo $cb_id; ?> " enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
         <h5 style="color:#fff;">Payment Type</h5>
         <div class="form-group">
-        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="male" required>
-        <label for="male" style="color:#fff;" class="radio-inline">IMPS</label><br>
-        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="female" required>
-        <label for="female" style="color:#fff;" class="radio-inline">NEFT</label><br>
-        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="other" required>
-        <label for="female" style="color:#fff;" class="radio-inline">RTGS</label><br>
+        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="IMPS" required>
+        <label style="color:#fff;" class="radio-inline">IMPS</label><br>
+        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="NEFT" required>
+        <label style="color:#fff;" class="radio-inline">NEFT</label><br>
+        <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="RTGS" required>
+        <labe style="color:#fff;" class="radio-inline">RTGS</label><br>
         </div>
         <h5 style="color:#fff;">Transaction ID</h5>
         <div class="form-group"><input class="form-control" id="cropbid_tid" type="text" name="cropbid_tid" placeholder="Put Transaction ID" required="" autofocus=""></div>
