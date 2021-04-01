@@ -182,7 +182,7 @@ $con=mysqli_connect("localhost","root","","tapship");
         <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="NEFT" required>
         <label style="color:#fff;" class="radio-inline">NEFT</label><br>
         <input type="radio" name="cropbid_paytype" id="cropbid_paytype" value="RTGS" required>
-        <labe style="color:#fff;" class="radio-inline">RTGS</label><br>
+        <label style="color:#fff;" class="radio-inline">RTGS</label><br>
         </div>
         <h5 style="color:#fff;">Transaction ID</h5>
         <div class="form-group"><input class="form-control" id="cropbid_tid" type="text" name="cropbid_tid" placeholder="Put Transaction ID" required="" autofocus=""></div>
