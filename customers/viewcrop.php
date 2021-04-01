@@ -139,7 +139,7 @@ if($cr_status==0||1){
 
         <input type="hidden" name="mep" value="<?php echo $cr_mep;?>">
         <div class="form-group"><input class="form-control" id="cropbid_bidprice" type="text" name="cropbid_bidprice" placeholder="Bid your price (per kgs.)" required="" autofocus="" style="width: 300px;"></div>
-        <input name="submit" type="submit"class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value=" Place Bid">
+        <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value=" Place Bid">
         <hr>
     </form>
 <?php
