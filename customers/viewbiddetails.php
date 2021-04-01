@@ -75,7 +75,10 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='1' AND cb.cb_c_mobile=$c_mobile";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=$c_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+    
+    
+    /*CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_status='1'";*/
 
    $result = mysqli_query($con,$q);
 
@@ -134,7 +137,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Transport Pending";}else if($cr_status=="4"){echo "Deal Over";}  ?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Payment Pending";}else if($cr_status=="4"){echo "Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Pending";} else if($cr_status=="6"){echo "Deal Over";}  ?></P>
 
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
@@ -156,11 +159,38 @@ $con=mysqli_connect("localhost","root","","tapship");
 <h5>Bid Details</h5>
 <p>Bid ID: <?php echo $cb_id;?></P>
 <p>Bid Price: <?php echo $cb_bidprice;?></P>
+<p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
 <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}?></P>
 
 <h5>Customer Details</h5>
 <p>Customer Name: <?php echo $c_name;?></P>
 <p>Customer Mobile: <?php echo $c_mobile;?></P>
+
+<div class="features-boxed">
+        <div class="container" style="background: #ffffff;">
+            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Payment Details</h2>
+            </div>
+        </div>
+    </div>
+<div class="login-clean" style="padding: 0px; background: rgb(255,255,255); ">
+<form method="post" action="payment.php?cb_id=<?php echo $cb_id; ?> " enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
+        <h5 style="color:#fff;">Payment Type</h5>
+        <div class="form-group">
+        <input type="radio" name="cropbid__paytype" id="cropbid_paytype" value="male" required>
+        <label for="male" style="color:#fff;" class="radio-inline">IMPS</label><br>
+        <input type="radio" name="cropbid__paytype" id="cropbid__paytype" value="female" required>
+        <label for="female" style="color:#fff;" class="radio-inline">NEFT</label><br>
+        <input type="radio" name="cropbid__paytype" id="cropbid__paytype" value="other" required>
+        <label for="female" style="color:#fff;" class="radio-inline">RTGS</label><br>
+        </div>
+        <h5 style="color:#fff;">Transaction ID</h5>
+        <div class="form-group"><input class="form-control" id="cropbid__tid" type="text" name="cropbid__tid" placeholder="Put Transaction ID" required="" autofocus=""></div>
+        <h5 style="color:#fff;">Transaction Proof (PDF/Photo)</h5>
+        <div class="form-group"><input class="form-control" id="cropbid__tproof" type="file"  accept="image/jpeg, image/jpg, image/png, application/pdf" name="cropbid__tproof" required="" autofocus=""></div>
+        <input name="submit" type="submit" class="btn btn-primary btn-block"  value="Update Payment">
+</form>
+</div>
 
 
 <div class="footer-dark" style="background: rgb(12,56,35);">

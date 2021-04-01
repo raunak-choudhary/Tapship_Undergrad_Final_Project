@@ -93,7 +93,6 @@ mysqli_select_db($con,'tapship');
  $c = 1;
 
  while($res = mysqli_fetch_array($query)){
-     if($res['cr_status']==0||1){
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
@@ -112,7 +111,7 @@ mysqli_select_db($con,'tapship');
  </tr>
 
  <?php 
- }}
+ }
   ?>
  
  </table>  

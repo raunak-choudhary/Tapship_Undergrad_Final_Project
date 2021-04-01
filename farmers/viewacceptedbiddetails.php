@@ -127,7 +127,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Transport Pending";}else if($cr_status=="4"){echo "Deal Over";}  ?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Payment Pending";}else if($cr_status=="4"){echo "Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Pending";} else if($cr_status=="6"){echo "Deal Over";}  ?></P>
 
 <h5>Customer Details</h5>
 <p>Customer Type: <?php echo $c_type;?></P>

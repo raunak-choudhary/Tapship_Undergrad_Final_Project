@@ -6,7 +6,7 @@ $c_mobile= $res;
 if(!isset($_SESSION['login_customer'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
-//error_reporting(0);
+error_reporting(0);
 
 
 $con=mysqli_connect("localhost","root","","tapship");
@@ -29,9 +29,6 @@ if (isset($_POST["submit"]))
                 $crop_mep =  $con->real_escape_string($_POST['mep']);
                 $cropbid_status = 0;
                 $cropbid_transport = 0;
-
-                echo $crop_mep;
-                echo $cropbid_bidprice;
                
                 if($cropbid_bidprice > $crop_mep){
                 $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_transport) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_transport')";
