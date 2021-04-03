@@ -23,13 +23,37 @@ if (isset($_POST["submit"]))
  {
                 $cropbid_transporttype =  $con->real_escape_string($_POST['cropbid_transporttype']);
 
-                $q1 = "UPDATE cropbid set cb_status='5', cb_transporttype=$cropbid_transporttype where cb_id=$cb_id";
-                $con->query($q1);
+                if($cropbid_transporttype == 1){
 
-                $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
-                $con->query($q2);
+                  $q1 = "UPDATE cropbid set cb_status='5', cb_transporttype=$cropbid_transporttype where cb_id=$cb_id";
+                  $con->query($q1);
+  
+                  $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
+                  $con->query($q2);
+
+                  $ts_name = $con->real_escape_string($_POST['ts_name']);
+                  $ts_mobile = $con->real_escape_string($_POST['ts_mobile']);
+                  $ts_vehiclenumber = $con->real_escape_string($_POST['ts_vehiclenumber']);
+
+                  $q3 = "INSERT into transportself(ts_cb_id, ts_name, ts_mobile, ts_vehiclenumber) VALUES('$cb_id', '$ts_name', '$ts_mobile', '$ts_vehiclenumber')";
+                  $con->query($q3);
+
+                  echo $q3;
+                }
+
+                if($cropbid_transporttype == 2){
+
+                  $q1 = "UPDATE cropbid set cb_status='5', cb_transporttype=$cropbid_transporttype where cb_id=$cb_id";
+                  $con->query($q1);
+
+                  $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
+                  $con->query($q2);
+
+                }
+
                 
-                //header("location: acceptedbids.php");
+
+                header("location: acceptedbids.php");
 }
  
 $con->close();

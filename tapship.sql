@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 07:08 AM
+-- Generation Time: Apr 03, 2021 at 04:31 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -66,7 +66,7 @@ CREATE TABLE `cropbid` (
 INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
 (11, '9672836728', '8745123411', 35, 100, '0', '0', '0', '0', '0'),
 (12, '9672836728', '8745123411', 46, 300, '0', '0', '0', '0', '0'),
-(13, '9672836724', '8745123411', 42, 500, '5', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '2'),
+(13, '9672836724', '8745123411', 42, 500, '5', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
 (14, '9672836724', '8745123411', 36, 600, '1', '0', '0', '0', '0'),
 (15, '9672836724', '9672836726', 47, 25, '2', '0', '0', '0', '0'),
 (24, '9672836728', '9672836726', 44, 44, '0', '0', '0', '0', '0'),
@@ -293,6 +293,27 @@ CREATE TABLE `transportbid` (
   `tb_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transportself`
+--
+
+CREATE TABLE `transportself` (
+  `ts_id` int(11) NOT NULL,
+  `ts_cb_id` varchar(100) NOT NULL,
+  `ts_name` varchar(100) NOT NULL,
+  `ts_mobile` varchar(100) NOT NULL,
+  `ts_vehiclenumber` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transportself`
+--
+
+INSERT INTO `transportself` (`ts_id`, `ts_cb_id`, `ts_name`, `ts_mobile`, `ts_vehiclenumber`) VALUES
+(4, '13', 'Arvind', '9672836778', 'KA45TR6820');
+
 --
 -- Indexes for dumped tables
 --
@@ -366,6 +387,12 @@ ALTER TABLE `transportbid`
   ADD PRIMARY KEY (`tb_id`);
 
 --
+-- Indexes for table `transportself`
+--
+ALTER TABLE `transportself`
+  ADD PRIMARY KEY (`ts_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -428,6 +455,12 @@ ALTER TABLE `quries`
 --
 ALTER TABLE `transportbid`
   MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `transportself`
+--
+ALTER TABLE `transportself`
+  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

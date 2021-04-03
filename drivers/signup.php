@@ -101,7 +101,7 @@
             <div class="form-group"><input class="form-control" id="driver_dlpdf" type="file" accept="application/pdf" name="driver_dlpdf" placeholder="Driving Licence PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Vehicle number</h5>
-            <div class="form-group"><input class="form-control" id="driver_vehiclenumber" type="text" name="driver_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}"  title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Your PAN Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_vehiclenumber" type="text" name="driver_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}"  title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Your Vehicle Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Vehicle RC PDF</h5>
             <div class="form-group"><input class="form-control" id="driver_vehiclercpdf" type="file" accept="application/pdf" name="driver_vehiclercpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>

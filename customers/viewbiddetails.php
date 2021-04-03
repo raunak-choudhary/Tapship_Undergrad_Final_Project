@@ -8,6 +8,7 @@ if(!isset($_SESSION['login_farmer'])){
 }
 error_reporting(0);
 ?>
+
 <!doctype html>
         <html>
             <head>
@@ -35,6 +36,17 @@ error_reporting(0);
                 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
                 <script type='text/javascript'></script>
             </head>
+
+
+<script>
+function yesnoCheck(that) {
+    if (that.value == "1") {
+        document.getElementById("ifself").style.display = "block";
+    } else {
+        document.getElementById("ifself").style.display = "none";
+    }
+}
+</script>
 
         <body oncontextmenu='return false' class='snippet-body'>
         <div class="page-content page-container" id="page-content">
@@ -215,11 +227,23 @@ $con=mysqli_connect("localhost","root","","tapship");
 <form method="post" action="selecttransport.php?cb_id=<?php echo $cb_id; ?> " enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
         <h5 style="color:#fff;">Select Tranport Type</h5>
         <div class="form-group">
-        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="1" required>
+        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="1" required onchange="yesnoCheck(this);">
         <label style="color:#fff;" class="radio-inline">Self Transport</label><br>
-        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="2" required>
+        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="2" required onchange="yesnoCheck(this);">
         <label style="color:#fff;" class="radio-inline">Find A Truck</label><br>
         </div>
+
+        <div id="ifself" style="display: none;">
+            <h6 style="color:#fff;">Driver Name</h6>
+            <div class="form-group"><input class="form-control" id="ts_name" type="text" name="ts_name" placeholder="Your Full Name" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Driver Mobile Number</h5>
+            <div class="form-group"><input class="form-control" id="ts_mobile" type="text" name="ts_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Enter Driver Mobile Number" required="" autofocus=""></div>
+
+            <h5 style="color:#fff;">Vehicle Number</h5>
+            <div class="form-group"><input class="form-control" id="ts_vehiclenumber" type="text" name="ts_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}"  title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Enter Vehicle Number" required="" autofocus=""></div>
+        </div>
+
         <input name="submit" type="submit" class="btn btn-primary btn-block"  value="Submit">
 </form>
 </div>
@@ -232,6 +256,22 @@ $con=mysqli_connect("localhost","root","","tapship");
 
     <h5>Transport Details</h5>
     <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+
+    <?php
+    if($cb_transporttype=="1"){ 
+    $query = "select * from transportself where ts_cb_id=$cb_id";
+    $result = mysqli_query($con,$query);
+
+    while( $res=mysqli_fetch_assoc($result))
+    {
+        $ts_name =  $res['ts_name'];
+        $ts_mobile =  $res['ts_mobile'];
+        $ts_vehiclenumber =  $res['ts_vehiclenumber'];
+    } ?>
+    <p>Driver Name: <?php echo $ts_name;?></P>
+    <p>Driver Mobile: <?php echo $ts_mobile;?></P>
+    <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
+    <?php } ?>
 
     <hr>
   <?php  }?>

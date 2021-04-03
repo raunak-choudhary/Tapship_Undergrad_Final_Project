@@ -277,6 +277,22 @@ if($cr_status==5){
 	<h5>Transport Details</h5>
     <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
 
+    <?php
+    if($cb_transporttype=="1"){ 
+    $query = "select * from transportself where ts_cb_id=$cb_id";
+    $result = mysqli_query($con,$query);
+
+    while( $res=mysqli_fetch_assoc($result))
+    {
+        $ts_name =  $res['ts_name'];
+        $ts_mobile =  $res['ts_mobile'];
+        $ts_vehiclenumber =  $res['ts_vehiclenumber'];
+    } ?>
+    <p>Driver Name: <?php echo $ts_name;?></P>
+    <p>Driver Mobile: <?php echo $ts_mobile;?></P>
+    <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
+    <?php } ?>
+
     
 	<hr>
 <?php
