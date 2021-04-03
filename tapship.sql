@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2021 at 08:10 AM
+-- Generation Time: Apr 03, 2021 at 07:08 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -53,24 +53,24 @@ CREATE TABLE `cropbid` (
   `cb_cr_id` int(11) NOT NULL,
   `cb_bidprice` int(11) NOT NULL,
   `cb_status` varchar(10) NOT NULL,
-  `cb_transport` varchar(10) NOT NULL,
   `cb_paytype` varchar(100) NOT NULL,
   `cb_tid` varchar(100) NOT NULL,
-  `cb_tproof` varchar(500) NOT NULL
+  `cb_tproof` varchar(500) NOT NULL,
+  `cb_transporttype` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cropbid`
 --
 
-INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_transport`, `cb_paytype`, `cb_tid`, `cb_tproof`) VALUES
-(11, '9672836728', '8745123411', 35, 100, '2', '0', '', '', ''),
-(12, '9672836728', '8745123411', 46, 300, '2', '0', '', '', ''),
-(13, '9672836724', '8745123411', 42, 500, '1', '0', '', '', ''),
-(14, '9672836724', '8745123411', 36, 600, '0', '0', '', '', ''),
-(15, '9672836724', '9672836726', 47, 25, '0', '0', '', '', ''),
-(24, '9672836728', '9672836726', 44, 44, '0', '0', '', '', ''),
-(25, '9672836728', '9672836726', 46, 30, '0', '0', '', '', '');
+INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
+(11, '9672836728', '8745123411', 35, 100, '0', '0', '0', '0', '0'),
+(12, '9672836728', '8745123411', 46, 300, '0', '0', '0', '0', '0'),
+(13, '9672836724', '8745123411', 42, 500, '5', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '2'),
+(14, '9672836724', '8745123411', 36, 600, '1', '0', '0', '0', '0'),
+(15, '9672836724', '9672836726', 47, 25, '2', '0', '0', '0', '0'),
+(24, '9672836728', '9672836726', 44, 44, '0', '0', '0', '0', '0'),
+(25, '9672836728', '9672836726', 46, 30, '0', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -121,11 +121,11 @@ CREATE TABLE `cropsale` (
 
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
 (35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '2'),
-(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '2'),
+(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '2'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '5'),
 (44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
 (46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '1'),
-(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '1');
+(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '2');
 
 -- --------------------------------------------------------
 
@@ -379,7 +379,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
