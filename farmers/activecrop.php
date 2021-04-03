@@ -94,7 +94,6 @@ mysqli_select_db($con,'tapship');
  $c = 1;
 
  while($res = mysqli_fetch_array($query)){
-     if($res['cr_status']==0||1||2||3){
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
@@ -105,12 +104,12 @@ mysqli_select_db($con,'tapship');
  <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep'];  ?> </td>
  <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp'];  ?> </td>
  <td data-label="Date"> <?php echo $res['cr_date'];  ?> </td>
- <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Added";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Bid Accepted";}else if($res['cr_status']=="3"){echo "Transport Pending";}else if($res['cr_status']=="4"){echo "Deal Over";}  ?> </td>
+ <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Added";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Accepeted / Payment Pending";}else if($res['cr_status']=="3"){echo "Paid / Pending Conformation";} else if($res['cr_status']=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($res['cr_status']=="5"){echo "Transport Selected / Delivery Peneding ";} else if($res['cr_status']=="6"){echo "Transport Selected";} ?></td>
  <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
  </tr>
 
  <?php 
- }}
+ }
   ?>
  
  </table>  

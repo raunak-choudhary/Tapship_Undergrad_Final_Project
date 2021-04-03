@@ -73,10 +73,17 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
    $cr_id = $_GET['cr_id'];
-   $query ="SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_img1, CS.cr_img2, CS.cr_img3, CS.cr_status, f.f_name, f.f_mobile
-        FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND CS.cr_id = $cr_id
-        ORDER BY CS.cr_id DESC";
 
+   $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
+   $result = mysqli_query($con,$q);
+
+   while( $res=mysqli_fetch_assoc($result))
+   {
+       $cb_id =  $res['cb_id'];
+   }
+
+   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_transporttype, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+    
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
@@ -93,9 +100,27 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cr_img1 = $res['cr_img1'];
        $cr_img2 = $res['cr_img2'];
        $cr_img3 = $res['cr_img3'];
-       $f_name = $res['f_name'];
-       $f_mobile =  $res['f_mobile'];
        $cb_id =  $res['cb_id'];
+
+       $c_mobile = $res['c_mobile'];
+       $c_name = $res['c_name'];
+       $c_contactname = $res['c_contactname'];
+       $c_gender = $res['c_gender'];
+       $c_age = $res['c_age'];
+       $c_street = $res['c_street'];
+       $c_city = $res['c_city'];
+       $c_state = $res['c_state'];
+       $c_pincode = $res['c_pincode'];
+       $c_type = $res['c_type'];
+
+       $cb_id = $res['cb_id'];
+       $cb_bidprice = $res['cb_bidprice'];
+       $cb_status = $res['cb_status'];
+       $cb_transporttype = $res['cb_transporttype'];
+
+       $cb_paytype = $res['cb_paytype'];
+       $cb_tid = $res['cb_tid'];
+       $cb_tproof = $res['cb_tproof'];
    }
 ?>
 
@@ -114,11 +139,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Payment Pending";}else if($cr_status=="4"){echo "Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Pending";} else if($cr_status=="6"){echo "Deal Over";}  ?></P>
-
-<h5>Farmer Details</h5>
-<p>Farmer Name: <?php echo $f_name;?></P>
-<p>Farmer Mobile: <?php echo $f_mobile;?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?></P>
 
 <?php
 if($cr_status==0){
@@ -137,13 +158,159 @@ if($cr_status==1){
 }
 if($cr_status==2){
 ?>
-     <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="viewacceptedbiddetails.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Accepted Bid </a></button> 
+    <h5>Customer Details</h5>
+    <p>Customer Type: <?php echo $c_type;?></P>
+    <p>Customer Name: <?php echo $c_name;?></P>
+    <p>Customer Mobile: <?php echo $c_mobile;?></P>
+    <?php if($c_type=='Organization'){?>
+    <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+    <?php }?>
+    <p>Customer Gender: <?php echo $c_gender;?></P>
+    <p>Customer Age: <?php echo $c_age;?></P>
+    <p>Customer Street: <?php echo $c_street;?></P>
+    <p>Customer City: <?php echo $c_city;?></P>
+    <p>Customer State: <?php echo $c_street;?></P>
+    <p>Customer Pincode: <?php echo $c_pincode;?></P>
+
+    <h5>Bid Details</h5>
+    <p>Bid ID: <?php echo $cb_id;?></P>
+    <p>Bid Price: <?php echo $cb_bidprice;?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+
+    <h6> Note: - Please wait for payment from <?php echo $c_name;?></h6>
 	<hr>
 <?php
 }
 if($cr_status==3){
 ?>
-	 <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="#">View Transport Details</a></button> 
+    <h5>Customer Details</h5>
+    <p>Customer Type: <?php echo $c_type;?></P>
+    <p>Customer Name: <?php echo $c_name;?></P>
+    <p>Customer Mobile: <?php echo $c_mobile;?></P>
+    <?php if($c_type=='Organization'){?>
+    <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+    <?php }?>
+    <p>Customer Gender: <?php echo $c_gender;?></P>
+    <p>Customer Age: <?php echo $c_age;?></P>
+    <p>Customer Street: <?php echo $c_street;?></P>
+    <p>Customer City: <?php echo $c_city;?></P>
+    <p>Customer State: <?php echo $c_street;?></P>
+    <p>Customer Pincode: <?php echo $c_pincode;?></P>
+
+    <h5>Bid Details</h5>
+    <p>Bid ID: <?php echo $cb_id;?></P>
+    <p>Bid Price: <?php echo $cb_bidprice;?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+	 <form method="post" action="confirmpayment.php?cr_id=<?php echo $cr_id; ?>" enctype="multipart/form-data">
+        <button name="submit" type="submit"class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Payment </button>
+	    <hr>
+     </form>
+	<hr>
+<?php
+}
+if($cr_status==4){
+?>
+    <h5>Customer Details</h5>
+    <p>Customer Type: <?php echo $c_type;?></P>
+    <p>Customer Name: <?php echo $c_name;?></P>
+    <p>Customer Mobile: <?php echo $c_mobile;?></P>
+    <?php if($c_type=='Organization'){?>
+    <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+    <?php }?>
+    <p>Customer Gender: <?php echo $c_gender;?></P>
+    <p>Customer Age: <?php echo $c_age;?></P>
+    <p>Customer Street: <?php echo $c_street;?></P>
+    <p>Customer City: <?php echo $c_city;?></P>
+    <p>Customer State: <?php echo $c_street;?></P>
+    <p>Customer Pincode: <?php echo $c_pincode;?></P>
+
+    <h5>Bid Details</h5>
+    <p>Bid ID: <?php echo $cb_id;?></P>
+    <p>Bid Price: <?php echo $cb_bidprice;?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+	<h6> Note: - Please wait for transport type selection by <?php echo $c_name;?></h6>
+	<hr>
+<?php
+}
+if($cr_status==5){
+?>
+    <h5>Customer Details</h5>
+    <p>Customer Type: <?php echo $c_type;?></P>
+    <p>Customer Name: <?php echo $c_name;?></P>
+    <p>Customer Mobile: <?php echo $c_mobile;?></P>
+    <?php if($c_type=='Organization'){?>
+    <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+    <?php }?>
+    <p>Customer Gender: <?php echo $c_gender;?></P>
+    <p>Customer Age: <?php echo $c_age;?></P>
+    <p>Customer Street: <?php echo $c_street;?></P>
+    <p>Customer City: <?php echo $c_city;?></P>
+    <p>Customer State: <?php echo $c_street;?></P>
+    <p>Customer Pincode: <?php echo $c_pincode;?></P>
+
+    <h5>Bid Details</h5>
+    <p>Bid ID: <?php echo $cb_id;?></P>
+    <p>Bid Price: <?php echo $cb_bidprice;?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+	<h5>Transport Details</h5>
+    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+
+    
+	<hr>
+<?php
+}
+if($cr_status==6){
+?>
+    <h5>Customer Details</h5>
+    <p>Customer Type: <?php echo $c_type;?></P>
+    <p>Customer Name: <?php echo $c_name;?></P>
+    <p>Customer Mobile: <?php echo $c_mobile;?></P>
+    <?php if($c_type=='Organization'){?>
+    <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+    <?php }?>
+    <p>Customer Gender: <?php echo $c_gender;?></P>
+    <p>Customer Age: <?php echo $c_age;?></P>
+    <p>Customer Street: <?php echo $c_street;?></P>
+    <p>Customer City: <?php echo $c_city;?></P>
+    <p>Customer State: <?php echo $c_street;?></P>
+    <p>Customer Pincode: <?php echo $c_pincode;?></P>
+
+    <h5>Bid Details</h5>
+    <p>Bid ID: <?php echo $cb_id;?></P>
+    <p>Bid Price: <?php echo $cb_bidprice;?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+	<h5>Transport Details</h5>
+    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+
 	<hr>
 <?php
 }

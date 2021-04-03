@@ -75,10 +75,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=$c_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
-    
-    
-    /*CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_status='1'";*/
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_transporttype, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=$c_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
 
    $result = mysqli_query($con,$q);
 
@@ -116,9 +113,12 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_id = $res['cb_id'];
        $cb_bidprice = $res['cb_bidprice'];
        $cb_status = $res['cb_status'];
+       $cb_transporttype = $res['cb_transporttype'];
 
-       $c_name = $res['c_name'];
-       $c_mobile =  $res['c_mobile'];
+       $cb_paytype = $res['cb_paytype'];
+       $cb_tid = $res['cb_tid'];
+       $cb_tproof = $res['cb_tproof'];
+
    }
 ?>
 
@@ -137,7 +137,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepted";}else if($cr_status=="3"){echo "Payment Pending";}else if($cr_status=="4"){echo "Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Pending";} else if($cr_status=="6"){echo "Deal Over";}  ?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?></P>
 
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
@@ -160,15 +160,12 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Bid ID: <?php echo $cb_id;?></P>
 <p>Bid Price: <?php echo $cb_bidprice;?></P>
 <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
-<p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}?></P>
+<p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
 
-<h5>Customer Details</h5>
-<p>Customer Name: <?php echo $c_name;?></P>
-<p>Customer Mobile: <?php echo $c_mobile;?></P>
-
+<?php if($cb_status=='1'){ ?>
 <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
-            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+            <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Payment Details</h2>
             </div>
         </div>
@@ -191,6 +188,53 @@ $con=mysqli_connect("localhost","root","","tapship");
         <input name="submit" type="submit" class="btn btn-primary btn-block"  value="Update Payment">
 </form>
 </div>
+<?php  }?>
+
+<?php if($cb_status=='3'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value="Edit Details">
+    <hr>
+  <?php  }?>
+
+<?php if($cb_status=='4'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+  <div class="features-boxed">
+        <div class="container" style="background: #ffffff;">
+            <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Transport Type</h2>
+            </div>
+        </div>
+    </div>
+<div class="login-clean" style="padding: 0px; background: rgb(255,255,255); ">
+<form method="post" action="selecttransport.php?cb_id=<?php echo $cb_id; ?> " enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
+        <h5 style="color:#fff;">Select Tranport Type</h5>
+        <div class="form-group">
+        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="1" required>
+        <label style="color:#fff;" class="radio-inline">Self Transport</label><br>
+        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="2" required>
+        <label style="color:#fff;" class="radio-inline">Find A Truck</label><br>
+        </div>
+        <input name="submit" type="submit" class="btn btn-primary btn-block"  value="Submit">
+</form>
+</div>
+<?php  }?>
+
+<?php if($cb_status=='5'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+
+    <hr>
+  <?php  }?>
 
 
 <div class="footer-dark" style="background: rgb(12,56,35);">
