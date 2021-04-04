@@ -70,7 +70,7 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
     $cb_id = $_GET['cb_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status='7' AND cb.cb_id = $cb_id";
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10) AND cb.cb_id = $cb_id";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
@@ -146,7 +146,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <h5>Bid Details</h5>
 <p>Bid ID: <?php echo $tb_id;?></P>
 <p>Bid Price: <?php echo $tb_bid;?></P>
-<p>Bid Status: <?php if($tb_status=="0"){echo "Bidding";}else if($tb_status=="1"){echo "Accepted";}else if($tb_status=="2"){echo "Bid Rejected";}else if($tb_status=="3"){echo "Paid / Conformation Pending";}else if($tb_status=="4"){echo "Payment Confirmed";}else if($tb_status=="5"){echo "Transport Selected";}?></P>
+<p>Bid Status: <?php echo $tb_status;?></P>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">

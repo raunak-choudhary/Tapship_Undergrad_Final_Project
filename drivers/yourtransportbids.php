@@ -73,9 +73,9 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Farmer Name </th>
  <th> Farmer Mobile</th>
  <th> Farmer City</th>
- <th> Farmer Name </th>
- <th> Farmer Mobile</th>
- <th> Farmer City</th>
+ <th> Customer Name </th>
+ <th> Customer Mobile</th>
+ <th> Customer City</th>
  <th> Bid ID</th>
  <th> Transport Bid</th>
  <th> Bid Status</th>

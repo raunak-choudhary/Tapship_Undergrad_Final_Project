@@ -82,8 +82,7 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_id =  $res['cb_id'];
    }
 
-   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
-    
+   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
@@ -120,6 +119,19 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_paytype = $res['cb_paytype'];
        $cb_tid = $res['cb_tid'];
        $cb_tproof = $res['cb_tproof'];
+
+       $tb_id = $res['tb_id'];
+       $tb_bid = $res['tb_bid'];
+       $tb_status = $res['tb_status'];
+
+       $d_mobile = $res['d_mobile'];
+       $d_name = $res['d_name'];
+       $d_gender = $res['d_gender'];
+       $d_age = $res['d_age'];
+       $d_dlnumber = $res['d_dlnumber'];
+       $d_vehiclenumber = $res['d_vehiclenumber'];
+       $d_lat = $res['d_lat'];
+       $d_long = $res['d_long'];
    }
 ?>
 
@@ -331,6 +343,86 @@ if($cr_status==6){
     <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
 
 	<hr>
+<?php
+}
+if($cr_status==7){
+    ?>
+        <h5>Customer Details</h5>
+        <p>Customer Type: <?php echo $c_type;?></P>
+        <p>Customer Name: <?php echo $c_name;?></P>
+        <p>Customer Mobile: <?php echo $c_mobile;?></P>
+        <?php if($c_type=='Organization'){?>
+        <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+        <?php }?>
+        <p>Customer Gender: <?php echo $c_gender;?></P>
+        <p>Customer Age: <?php echo $c_age;?></P>
+        <p>Customer Street: <?php echo $c_street;?></P>
+        <p>Customer City: <?php echo $c_city;?></P>
+        <p>Customer State: <?php echo $c_street;?></P>
+        <p>Customer Pincode: <?php echo $c_pincode;?></P>
+    
+        <h5>Bid Details</h5>
+        <p>Bid ID: <?php echo $cb_id;?></P>
+        <p>Bid Price: <?php echo $cb_bidprice;?></P>
+        <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+        <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+    
+        <h5>Payment Details</h5>
+        <p>Payment Type: <?php echo $cb_paytype;?></P>
+        <p>Transcation ID: <?php echo $cb_tid;?></P>
+        <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    
+        <h5>Transport Details</h5>
+        <p>Medium: <?php echo "Find A Truck";?></P>
+    
+        <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
+    
+        <hr>
+<?php
+}
+if($cr_status==8){
+    ?>
+
+        <h5>Customer Details</h5>
+        <p>Customer Type: <?php echo $c_type;?></P>
+        <p>Customer Name: <?php echo $c_name;?></P>
+        <p>Customer Mobile: <?php echo $c_mobile;?></P>
+        <?php if($c_type=='Organization'){?>
+        <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+        <?php }?>
+        <p>Customer Gender: <?php echo $c_gender;?></P>
+        <p>Customer Age: <?php echo $c_age;?></P>
+        <p>Customer Street: <?php echo $c_street;?></P>
+        <p>Customer City: <?php echo $c_city;?></P>
+        <p>Customer State: <?php echo $c_street;?></P>
+        <p>Customer Pincode: <?php echo $c_pincode;?></P>
+    
+        <h5>Bid Details</h5>
+        <p>Bid ID: <?php echo $cb_id;?></P>
+        <p>Bid Price: <?php echo $cb_bidprice;?></P>
+        <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+        <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+    
+        <h5>Payment Details</h5>
+        <p>Payment Type: <?php echo $cb_paytype;?></P>
+        <p>Transcation ID: <?php echo $cb_tid;?></P>
+        <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    
+        <p>Medium: <?php echo "Find A Truck";?></P>
+        <p>Transport ID: <?php echo $tb_id;?></P>
+        <p>Transport Bid: <?php echo $tb_bid;?></P>
+        <p>Transport Status: <?php echo $tb_status;?></P>
+
+        <h5>Driver Details</h5>
+        <p>Driver Name: <?php echo $d_name;?></P>
+        <p>Driver Mobile: <?php echo $d_mobile;?></P>
+        <p>Driver Age: <?php echo $d_age;?></P>
+        <p>Driver Gender: <?php echo $d_gender;?></P>
+        <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+        <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+        <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+    
+        <hr>
 <?php
 }
 ?>

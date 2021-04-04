@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 04:31 PM
+-- Generation Time: Apr 04, 2021 at 08:05 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -64,10 +64,10 @@ CREATE TABLE `cropbid` (
 --
 
 INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
-(11, '9672836728', '8745123411', 35, 100, '0', '0', '0', '0', '0'),
+(11, '9672836728', '8745123411', 35, 100, '1', '0', '0', '0', '0'),
 (12, '9672836728', '8745123411', 46, 300, '0', '0', '0', '0', '0'),
-(13, '9672836724', '8745123411', 42, 500, '5', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
-(14, '9672836724', '8745123411', 36, 600, '1', '0', '0', '0', '0'),
+(13, '9672836724', '8745123411', 42, 500, '8', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
+(14, '9672836724', '8745123411', 36, 600, '0', '0', '0', '0', '0'),
 (15, '9672836724', '9672836726', 47, 25, '2', '0', '0', '0', '0'),
 (24, '9672836728', '9672836726', 44, 44, '0', '0', '0', '0', '0'),
 (25, '9672836728', '9672836726', 46, 30, '0', '0', '0', '0', '0');
@@ -121,8 +121,8 @@ CREATE TABLE `cropsale` (
 
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
 (35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '2'),
-(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '2'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '5'),
+(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '8'),
 (44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
 (46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '1'),
 (47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '2');
@@ -248,25 +248,6 @@ INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_stre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kiosk`
---
-
-CREATE TABLE `kiosk` (
-  `k_id` int(11) NOT NULL,
-  `k_name` varchar(50) NOT NULL,
-  `k_mobile` varchar(25) NOT NULL,
-  `k_gender` varchar(25) NOT NULL,
-  `k_age` int(11) NOT NULL,
-  `k_location` varchar(50) NOT NULL,
-  `k_aadhar` varchar(25) NOT NULL,
-  `k_aadharpdf` blob NOT NULL,
-  `k_photo` blob NOT NULL,
-  `k_password` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `quries`
 --
 
@@ -287,11 +268,18 @@ CREATE TABLE `quries` (
 
 CREATE TABLE `transportbid` (
   `tb_id` int(11) NOT NULL,
-  `tb_d_id` int(11) NOT NULL,
+  `tb_d_mobile` varchar(200) NOT NULL,
   `tb_cb_id` int(11) NOT NULL,
-  `tb_bid` float NOT NULL,
-  `tb_status` int(11) NOT NULL
+  `tb_bid` varchar(100) NOT NULL,
+  `tb_status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transportbid`
+--
+
+INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_status`) VALUES
+(1, '9672836725', 13, '2000', '1');
 
 -- --------------------------------------------------------
 
@@ -369,12 +357,6 @@ ALTER TABLE `farmer`
   ADD UNIQUE KEY `f_mobile` (`f_mobile`);
 
 --
--- Indexes for table `kiosk`
---
-ALTER TABLE `kiosk`
-  ADD PRIMARY KEY (`k_id`);
-
---
 -- Indexes for table `quries`
 --
 ALTER TABLE `quries`
@@ -384,7 +366,8 @@ ALTER TABLE `quries`
 -- Indexes for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  ADD PRIMARY KEY (`tb_id`);
+  ADD PRIMARY KEY (`tb_id`),
+  ADD KEY `fk_tb_cb_id` (`tb_cb_id`);
 
 --
 -- Indexes for table `transportself`
@@ -439,12 +422,6 @@ ALTER TABLE `farmer`
   MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- AUTO_INCREMENT for table `kiosk`
---
-ALTER TABLE `kiosk`
-  MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `quries`
 --
 ALTER TABLE `quries`
@@ -454,7 +431,7 @@ ALTER TABLE `quries`
 -- AUTO_INCREMENT for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transportself`
@@ -480,6 +457,12 @@ ALTER TABLE `cropbid`
 ALTER TABLE `cropsale`
   ADD CONSTRAINT `fk_cr_cro_id` FOREIGN KEY (`cr_cro_id`) REFERENCES `cropdetails` (`cro_id`),
   ADD CONSTRAINT `fk_cr_f_mobile` FOREIGN KEY (`cr_f_mobile`) REFERENCES `farmer` (`f_mobile`);
+
+--
+-- Constraints for table `transportbid`
+--
+ALTER TABLE `transportbid`
+  ADD CONSTRAINT `fk_tb_cb_id` FOREIGN KEY (`tb_cb_id`) REFERENCES `cropbid` (`cb_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
