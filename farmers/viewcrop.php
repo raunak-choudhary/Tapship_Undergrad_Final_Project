@@ -82,7 +82,7 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_id =  $res['cb_id'];
    }
 
-   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_transporttype, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+   $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
     
    $result = mysqli_query($con,$query);
 
@@ -116,7 +116,6 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_id = $res['cb_id'];
        $cb_bidprice = $res['cb_bidprice'];
        $cb_status = $res['cb_status'];
-       $cb_transporttype = $res['cb_transporttype'];
 
        $cb_paytype = $res['cb_paytype'];
        $cb_tid = $res['cb_tid'];
@@ -275,10 +274,10 @@ if($cr_status==5){
     <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
 
 	<h5>Transport Details</h5>
-    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+    <p>Medium: <?php echo "Self Transport";?></P>
 
     <?php
-    if($cb_transporttype=="1"){ 
+    if($cb_status=="5"){ 
     $query = "select * from transportself where ts_cb_id=$cb_id";
     $result = mysqli_query($con,$query);
 
@@ -292,6 +291,8 @@ if($cr_status==5){
     <p>Driver Mobile: <?php echo $ts_mobile;?></P>
     <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
     <?php } ?>
+
+
 
     
 	<hr>
@@ -325,7 +326,9 @@ if($cr_status==6){
     <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
 
 	<h5>Transport Details</h5>
-    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+
+    <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
 
 	<hr>
 <?php

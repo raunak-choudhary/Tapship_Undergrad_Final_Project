@@ -29,7 +29,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    if(isset($_POST['submit']))
    {        
-    $query = " update cropsale set cr_status='2' where cr_id=$cr_id.";
+    $query = " update cropsale set cr_status='2' where cr_id=$cr_id";
 
     $result = mysqli_query($con,$query);
 

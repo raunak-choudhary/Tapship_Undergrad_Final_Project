@@ -150,7 +150,6 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Farmer Name: <?php echo $f_name;?></P>
 <p>Farmer Mobile: <?php echo $f_mobile;?></P>
 
-
 <?php
 if($cr_status==1){
 ?>

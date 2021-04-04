@@ -25,7 +25,7 @@ if (isset($_POST["submit"]))
 
                 if($cropbid_transporttype == 1){
 
-                  $q1 = "UPDATE cropbid set cb_status='5', cb_transporttype=$cropbid_transporttype where cb_id=$cb_id";
+                  $q1 = "UPDATE cropbid set cb_status='5' where cb_id=$cb_id";
                   $con->query($q1);
   
                   $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
@@ -43,10 +43,10 @@ if (isset($_POST["submit"]))
 
                 if($cropbid_transporttype == 2){
 
-                  $q1 = "UPDATE cropbid set cb_status='5', cb_transporttype=$cropbid_transporttype where cb_id=$cb_id";
+                  $q1 = "UPDATE cropbid set cb_status='6' where cb_id=$cb_id";
                   $con->query($q1);
 
-                  $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
+                  $q2 = "UPDATE cropsale set cr_status='6' where cr_id=$cr_id";
                   $con->query($q2);
 
                 }

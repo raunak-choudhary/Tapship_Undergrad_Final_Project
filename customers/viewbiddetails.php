@@ -87,7 +87,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_transporttype, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=$c_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f_bankholder, f_bankaccount, f_bankifsc, f_bankname, f_bankbranch, cb.cb_bidprice,  cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, c.c_name, c.c_mobile FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=$c_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
 
    $result = mysqli_query($con,$q);
 
@@ -125,7 +125,6 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_id = $res['cb_id'];
        $cb_bidprice = $res['cb_bidprice'];
        $cb_status = $res['cb_status'];
-       $cb_transporttype = $res['cb_transporttype'];
 
        $cb_paytype = $res['cb_paytype'];
        $cb_tid = $res['cb_tid'];
@@ -202,20 +201,19 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 <?php  }?>
 
-<?php if($cb_status=='3'){ ?>
+<?php if($cb_status=='3'||'4'||'5'||'6'||'7'||'8'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
     <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+<?php }?>
+
+<?php if($cb_status=='3'){ ?>
     <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value="Edit Details">
     <hr>
   <?php  }?>
 
 <?php if($cb_status=='4'){ ?>
-    <h5>Payment Details</h5>
-    <p>Payment Type: <?php echo $cb_paytype;?></P>
-    <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
   <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
@@ -250,15 +248,10 @@ $con=mysqli_connect("localhost","root","","tapship");
 <?php  }?>
 
 <?php if($cb_status=='5'){ ?>
-    <h5>Payment Details</h5>
-    <p>Payment Type: <?php echo $cb_paytype;?></P>
-    <p>Transcation ID: <?php echo $cb_tid;?></P>
-
     <h5>Transport Details</h5>
-    <p>Medium: <?php if($cb_transporttype=="1"){echo "Self Transport";}else if($cb_transporttype=="2"){echo "Find A Truck";}?></P>
+    <p>Medium: <?php echo "Self Transport";?></P>
 
     <?php
-    if($cb_transporttype=="1"){ 
     $query = "select * from transportself where ts_cb_id=$cb_id";
     $result = mysqli_query($con,$query);
 
@@ -271,9 +264,35 @@ $con=mysqli_connect("localhost","root","","tapship");
     <p>Driver Name: <?php echo $ts_name;?></P>
     <p>Driver Mobile: <?php echo $ts_mobile;?></P>
     <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
-    <?php } ?>
 
     <hr>
+  <?php  }?>
+
+  <?php if($cb_status=='6'){ ?>
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+
+    <h6> Note: - Please wait for bids from Drivers</h6>
+
+    <hr>
+  <?php  }?>
+
+  <?php if($cb_status=='7'){ ?>
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+
+    <button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbids.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Transport Bids </a> </button>
+	 <hr>
+
+  <?php  }?>
+
+  <?php if($cb_status=='8'){ ?>
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+
+    
+	 <hr>
+
   <?php  }?>
 
 

@@ -34,7 +34,7 @@ if (isset($_POST["submit"]))
                 $cropbid_tproof = 0;
                
                 if($cropbid_bidprice > $crop_mep){
-                $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_paytype, cb_tid, cb_tproof,cb_transporttype) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_paytype','$cropbid_tid','$cropbid_tproof','$cropbid_transporttype')";
+                $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_paytype, cb_tid, cb_tproof) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_paytype','$cropbid_tid','$cropbid_tproof')";
                 $con->query($query);
 
                 $q = "UPDATE cropsale set cr_status='1' where cr_id=$cr_id";

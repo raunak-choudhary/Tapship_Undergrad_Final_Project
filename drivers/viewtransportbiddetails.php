@@ -7,15 +7,17 @@ if(!isset($_SESSION['login_driver'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
-?> 
- 
+$con=mysqli_connect("localhost","root","","tapship");
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Driver Dashboard</title>
+    <title>Find Crops</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -29,6 +31,7 @@ error_reporting(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/table-style.css"/>
 </head>
 
 <body id="page-top">
@@ -49,92 +52,103 @@ error_reporting(0);
             </div>
         </div>
     </nav>
-    <?php 
-    
+
+    <div class="features-boxed">
+        <div class="container" style="background: #ffffff;">
+            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Transport Details</h2>
+            </div>
+        </div>
+    </div>
+
+
+	<?php 
 $con=mysqli_connect("localhost","root","","tapship");
    if(!$con)
    {
        die(" Connection Error ");
    }
 
-   $query = " select * from driver where d_mobile=".$d_mobile."";
+    $cb_id = $_GET['cb_id'];
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status='7' AND cb.cb_id = $cb_id";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
    {
-       $d_approve =  $res['d_approve'];
+       $cro_id =  $res['cro_id'];
+       $cro_name =  $res['cro_name'];
+       $cro_type =  $res['cro_type'];
+       $cr_id = $res['cr_id'];
+       $cr_status = $res['cr_status'];
+       $cr_quantity = $res['cr_quantity'];
+       $cr_img1 = $res['cr_img1'];
+       $cr_img2 = $res['cr_img2'];
+       $cr_img3 = $res['cr_img3'];
+       
+       $f_name = $res['f_name'];
+       $f_mobile =  $res['f_mobile'];
+       $f_gender = $res['f_gender'];
+       $f_age = $res['f_age'];
+       $f_street = $res['f_street'];
+       $f_city = $res['f_city'];
+       $f_state = $res['f_state'];
+       $f_pincode = $res['f_pincode'];
+
+       $c_name = $res['c_name'];
+       $c_mobile =  $res['c_mobile'];
+       $c_gender = $res['c_gender'];
+       $c_age = $res['c_age'];
+       $c_street = $res['c_street'];
+       $c_city = $res['c_city'];
+       $c_state = $res['c_state'];
+       $c_pincode = $res['c_pincode'];
+
+       $tb_id = $res['tb_id'];
+       $tb_bid = $res['tb_bid'];
+       $tb_status = $res['tb_status'];
    }
 ?>
 
-<?php
-if($d_approve==1||$d_approve==3||$d_approve==4||$d_approve==5||$d_approve==NULL)
-{?>
-<div class="container" style="margin-top:150px;">
-        <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
-            <h2>Status : <?php if($d_approve=="1"){echo "No Action";}else if($d_approve=="2"){echo " Accepted";}else if($d_approve=="3"){echo "Review";}else if($d_approve=="4"){echo "Rejected";}else if($d_approve=="5"){echo "Resubmitted";}  else if($d_approve==NULL){echo "Multiple Login State";}  ?></h4><hr>
-            <?php
-            if($d_approve==1)
-            {?>
-            <h3>Your profile is not approved by Tapship.</h2>
-            <h5>You have registerd successfully. We are checking your details.</h5>
-            <h5>Please wait for sometime.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($d_approve==3)
-            {?>
-            <h3>Your profile is not approved by Tapship.</h2>
-            <h5>Your application have some problem. We will contact you soon</h5>
-            <h5>Please wait for for our call.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($d_approve==4)
-            {?>
-            <h3>Your profile is not approved by Tapship.</h2>
-            <h5>Your application got rejected due to not following rules.</h5>
-            <h5>You can contact our customer care for more details.</h5>
-            <h5>Thank You</h5>
-            <?php
-            }
-            if($d_approve==5)
-            {?>
-            <h3>Your profile is not approved by Tapship.</h2>
-            <h5>Your have resubmitted application successfully. We are checking your details.</h5>
-            <h5>Please wait for sometime.</h5>
-            <h5>Thank You</h5>
-            <?php 
-            }
-            else if($d_approve==NULL)
-            {?>
-            <h4> You Have logged in to multiple user Accounts. Please Logout from all other accounts and then login to Driver Profile.
-            <?php
-            }?>
-            <h6><strong>Go to home <a href="../index.php">HERE</a></strong></a></h6>
-        </div>    
-    </div>
-<?php }?>
+<img src="../farmers/<?php echo  $cr_img1;?>" width="30%">
+<img src="../farmers/<?php echo  $cr_img2;?>" width="30%">
+<img src="../farmers/<?php echo  $cr_img3;?>" width="30%">
+
+<h5>Crop Details</h5>
+<p>Crop ID: <?php echo $cro_id;?></P>
+<p>Crop Name: <?php echo $cro_name;?></P>
+<p>Crop Type: <?php echo $cro_type;?></P>
+<p>Crop Sale ID: <?php echo $cr_id;?></P>
+<p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 
 
-<?php
-if($d_approve==2)
-{?>
+</P>
 
-    <div class="features-boxed">
-        <div class="container" style="background: #ffffff;">
-            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Driver Dashboard</h2>
-            </div>
-        </div>
-    </div>
+<h5>Farmer Details</h5>
+<p>Farmer Name: <?php echo $f_name;?></P>
+<p>Farmer Mobile: <?php echo $f_mobile;?></P>
+<p>Farmer Gender: <?php echo $f_gender;?></P>
+<p>Farmer Age: <?php echo $f_age;?></P>
+<p>Farmer Street: <?php echo $f_street;?></P>
+<p>Farmer City: <?php echo $f_city;?></P>
+<p>Farmer State: <?php echo $f_state;?></P>
+<p>Farmer Pincode: <?php echo $f_pincode;?></P>
 
-<a href="finddeal.php">Find Crop</a>
-<a href="yourtransportbids.php">Your Bids</a>
-<a href="acceptedtransportbids.php">Accepted Bids</a>
-<a href="rejectedtransportbids.php">Rejected Bids</a>
-<?php }?>
+<h5>Customer Details</h5>
+<p>Customer Name: <?php echo $c_name;?></P>
+<p>Customer Mobile: <?php echo $c_mobile;?></P>
+<p>Customer Gender: <?php echo $c_gender;?></P>
+<p>Customer Age: <?php echo $c_age;?></P>
+<p>Customer Street: <?php echo $c_street;?></P>
+<p>Customer City: <?php echo $c_city;?></P>
+<p>Customer State: <?php echo $c_state;?></P>
+<p>Customer Pincode: <?php echo $c_pincode;?></P>
 
-    
+<h5>Bid Details</h5>
+<p>Bid ID: <?php echo $tb_id;?></P>
+<p>Bid Price: <?php echo $tb_bid;?></P>
+<p>Bid Status: <?php if($tb_status=="0"){echo "Bidding";}else if($tb_status=="1"){echo "Accepted";}else if($tb_status=="2"){echo "Bid Rejected";}else if($tb_status=="3"){echo "Paid / Conformation Pending";}else if($tb_status=="4"){echo "Payment Confirmed";}else if($tb_status=="5"){echo "Transport Selected";}?></P>
+
+
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
