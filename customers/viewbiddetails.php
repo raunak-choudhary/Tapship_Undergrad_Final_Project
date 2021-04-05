@@ -440,6 +440,32 @@ if($cb_status=='11'){ ?>
     <h6> Note: - Please wait for successfully delivered conformation from Driver</h6>
     <hr>
 
+<?php  
+}
+if($cb_status=='12'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Transport ID: <?php echo $tb_id;?></P>
+    <p>Transport Bid: <?php echo $tb_bid;?></P>
+    <p>Transport Status: <?php echo $tb_status;?></P>
+
+    <h5>Driver Details</h5>
+    <p>Driver Name: <?php echo $d_name;?></P>
+    <p>Driver Mobile: <?php echo $d_mobile;?></P>
+    <p>Driver Age: <?php echo $d_age;?></P>
+    <p>Driver Gender: <?php echo $d_gender;?></P>
+    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+
+    <h6> Note: - This deal is successfully completed and closed</h6>
+    <hr>
+
 <?php  }?>
 
 

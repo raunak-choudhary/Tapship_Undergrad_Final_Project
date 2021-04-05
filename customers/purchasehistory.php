@@ -2,8 +2,8 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$d_mobile= $res;
-if(!isset($_SESSION['login_driver'])){
+$c_mobile= $res;
+if(!isset($_SESSION['login_customer'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
@@ -19,7 +19,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Active Bids</title>
+    <title>Accepted Bids</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -48,8 +48,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -57,7 +57,7 @@ $con=mysqli_connect("localhost","root","","tapship");
     <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Active Bids</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Accepted Bids</h2>
             </div>
         </div>
     </div>
@@ -65,20 +65,19 @@ $con=mysqli_connect("localhost","root","","tapship");
 
     <table  id="tabledata" class=" table table-striped table-hover table-bordered">
  
-    <tr class="bg-dark text-white text-center">
+ <tr class="bg-dark text-white text-center">
  <thead>
  <th>Sr. No.</th>
+ <th> Bid ID </th>
  <th> Crop Name </th>
  <th> Crop Qunatity </th>
+ <th> Crop MEP </th>
+ <th> Crop MSP </th>
  <th> Farmer Name </th>
  <th> Farmer Mobile</th>
  <th> Farmer City</th>
- <th> Customer Name </th>
- <th> Customer Mobile</th>
- <th> Customer City</th>
- <th> Bid ID</th>
- <th> Transport Bid</th>
  <th> Bid Status</th>
+ <th> Bid Price (per kgs.)</th>
  <th> View</th>
  </thead>
  </tr >
@@ -88,8 +87,8 @@ $con=mysqli_connect("localhost","root","","tapship");
 $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
- $q = "SELECT CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, c.c_name, c.c_mobile, c.c_city, tb.tb_id, tb.tb_bid, cb.cb_id FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status in (8,9,10,11) AND tb.tb_d_mobile=$d_mobile AND tb.tb_status='1'";
-
+     
+ $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, f.f_name, f.f_mobile, f.f_city, cb.cb_bidprice, cb.cb_cr_id, cb.cb_status, cb.cb_id FROM cropdetails CD, cropsale CS, farmer f, cropbid cb,customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status='12' AND cb.cb_status='12' AND cb.cb_c_mobile=$c_mobile";
  $query = mysqli_query($con,$q);
  $c = 1;
 
@@ -97,18 +96,18 @@ mysqli_select_db($con,'tapship');
  ?>
  <tr class="text-center">
  <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
+ <td data-label="Bid ID"> <?php echo $res['cb_id']; ?> </td>
  <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs'; ?> </td>
+ <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep']; ?> </td>
+ <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp']; ?> </td>
  <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
  <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
  <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
- <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
- <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
- <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
- <td data-label="Bid ID"> <?php echo $res['tb_id']; ?> </td>
- <td data-label="Transport Bid"> <?php echo '₹ ',$res['tb_bid'];  ?> </td>
- <td data-label="Bid Status"> <?php if($res['cb_status']=="0"){echo "Bidding";}else if($res['cb_status']=="1"){echo "Accepted";}else if($res['cb_status']=="2"){echo "Bid Rejected";}?> </td>
- <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
+ <td data-label="Bid Status"> <?php echo $res['cb_status']?> </td>
+ <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
+
+ <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
  </tr>
 
  <?php 

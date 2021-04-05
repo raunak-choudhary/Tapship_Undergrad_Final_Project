@@ -590,6 +590,54 @@ if($cr_status==11){
         <h6> Note: - Please wait for successfully delivered conformation from Driver</h6>
         <hr>
 <?php
+}
+if($cr_status==12){
+    ?>
+
+        <h5>Customer Details</h5>
+        <p>Customer Type: <?php echo $c_type;?></P>
+        <p>Customer Name: <?php echo $c_name;?></P>
+        <p>Customer Mobile: <?php echo $c_mobile;?></P>
+        <?php if($c_type=='Organization'){?>
+        <p>Customer Contact Name: <?php echo $c_contactname;?></P>
+        <?php }?>
+        <p>Customer Gender: <?php echo $c_gender;?></P>
+        <p>Customer Age: <?php echo $c_age;?></P>
+        <p>Customer Street: <?php echo $c_street;?></P>
+        <p>Customer City: <?php echo $c_city;?></P>
+        <p>Customer State: <?php echo $c_street;?></P>
+        <p>Customer Pincode: <?php echo $c_pincode;?></P>
+    
+        <h5>Bid Details</h5>
+        <p>Bid ID: <?php echo $cb_id;?></P>
+        <p>Bid Price: <?php echo $cb_bidprice;?></P>
+        <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
+        <p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+    
+        <h5>Payment Details</h5>
+        <p>Payment Type: <?php echo $cb_paytype;?></P>
+        <p>Transcation ID: <?php echo $cb_tid;?></P>
+        <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+            
+        <h5>Transport Details</h5>
+        <p>Medium: <?php echo "Find A Truck";?></P>
+        <p>Transport ID: <?php echo $tb_id;?></P>
+        <p>Transport Bid: <?php echo $tb_bid;?></P>
+        <p>Transport Status: <?php echo $tb_status;?></P>
+
+        <h5>Driver Details</h5>
+        <p>Driver Name: <?php echo $d_name;?></P>
+        <p>Driver Mobile: <?php echo $d_mobile;?></P>
+        <p>Driver Age: <?php echo $d_age;?></P>
+        <p>Driver Gender: <?php echo $d_gender;?></P>
+        <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+        <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+        <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+            
+       
+        <h6> Note: - This deal is successfully completed and closed</h6>
+        <hr>
+<?php
 }?>
 
 <div class="footer-dark" style="background: rgb(12,56,35);">

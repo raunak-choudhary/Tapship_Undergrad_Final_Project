@@ -133,8 +133,7 @@ if($c_approve==2)
 <a href="youractivebids.php">Your Bids</a>
 <a href="acceptedbids.php">Accepted Bids</a>
 <a href="rejectedbids.php">Rejected Bids</a>
-
-
+<a href="purchasehistory.php">Purchase History</a>
 <?php }?>
     
     <div class="footer-dark" style="background: rgb(12,56,35);">

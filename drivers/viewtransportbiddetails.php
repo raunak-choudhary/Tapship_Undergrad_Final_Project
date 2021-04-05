@@ -208,6 +208,14 @@ if($cr_status==11){
         </script>
 <?php }?>
 
+<?php
+if($cr_status==12){
+?>
+
+<h6> Note: - This deal is successfully completed and closed</h6>
+
+<?php }?>
+
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">

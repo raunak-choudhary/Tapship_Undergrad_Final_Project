@@ -132,6 +132,7 @@ if($d_approve==2)
 <a href="yourtransportbids.php">Your Bids</a>
 <a href="acceptedtransportbids.php">Accepted Bids</a>
 <a href="rejectedtransportbids.php">Rejected Bids</a>
+<a href="transporthistory.php">Transport History</a>
 <?php }?>
 
     
