@@ -87,7 +87,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
 
    $result = mysqli_query($con,$q);
 
@@ -340,6 +340,104 @@ if($cb_status=='8'){ ?>
     <p>Driver License Number: <?php echo $d_dlnumber;?></P>
     <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
     <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+
+    <h6> Note: - Please wait for pickup conformation from customer</h6>
+    <hr>
+
+<?php
+}
+if($cb_status=='9'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Transport ID: <?php echo $tb_id;?></P>
+    <p>Transport Bid: <?php echo $tb_bid;?></P>
+    <p>Transport Status: <?php echo $tb_status;?></P>
+
+    <h5>Driver Details</h5>
+    <p>Driver Name: <?php echo $d_name;?></P>
+    <p>Driver Mobile: <?php echo $d_mobile;?></P>
+    <p>Driver Age: <?php echo $d_age;?></P>
+    <p>Driver Gender: <?php echo $d_gender;?></P>
+    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+
+    <h6> Note: - Please wait for pickup conformation from Driver</h6>
+    <hr>
+
+<?php
+}
+if($cb_status=='10'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Transport ID: <?php echo $tb_id;?></P>
+    <p>Transport Bid: <?php echo $tb_bid;?></P>
+    <p>Transport Status: <?php echo $tb_status;?></P>
+
+    <h5>Driver Details</h5>
+    <p>Driver Name: <?php echo $d_name;?></P>
+    <p>Driver Mobile: <?php echo $d_mobile;?></P>
+    <p>Driver Age: <?php echo $d_age;?></P>
+    <p>Driver Gender: <?php echo $d_gender;?></P>
+    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+
+    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+        <input type="checkbox" id="check"> I got <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> from <?php echo $f_name;?>  ehich is delivered by Driver <?php echo $d_name;?>
+        <br>
+        <p id="demo"></p>
+        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Pickup </button>
+	    <hr>
+        </form>
+
+        <script>
+
+        function checkForm(form)
+        {
+            if(!form.check.checked) {
+            document.getElementById("demo").innerHTML =("Please confirm that you have recived crop delivery from by clicking checkbox");
+            return false;
+            }
+            return true;
+        }
+        </script>
+    <hr>
+
+<?php
+}
+if($cb_status=='11'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Transport ID: <?php echo $tb_id;?></P>
+    <p>Transport Bid: <?php echo $tb_bid;?></P>
+    <p>Transport Status: <?php echo $tb_status;?></P>
+
+    <h5>Driver Details</h5>
+    <p>Driver Name: <?php echo $d_name;?></P>
+    <p>Driver Mobile: <?php echo $d_mobile;?></P>
+    <p>Driver Age: <?php echo $d_age;?></P>
+    <p>Driver Gender: <?php echo $d_gender;?></P>
+    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
+    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
+    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+
+    <h6> Note: - Please wait for successfully delivered conformation from Driver</h6>
     <hr>
 
 <?php  }?>

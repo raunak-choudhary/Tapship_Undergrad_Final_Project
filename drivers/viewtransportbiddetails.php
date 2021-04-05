@@ -70,7 +70,7 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
     $cb_id = $_GET['cb_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10) AND cb.cb_id = $cb_id";
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
@@ -147,6 +147,67 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Bid ID: <?php echo $tb_id;?></P>
 <p>Bid Price: <?php echo $tb_bid;?></P>
 <p>Bid Status: <?php echo $tb_status;?></P>
+
+<?php
+if($cr_status==8){
+?>
+        <h6> Note: - Please wait for pickup conformation by farmer</h6>
+<?php }?>
+
+<?php
+if($cr_status==9){
+?>
+        <form method="post" action="pickupdone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+        <input type="checkbox" id="check"> I have picked up <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> to deliver it to <?php echo $c_name;?> from <?php echo$f_name;?> 
+        <br>
+        <p id="demo"></p>
+        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Pickup </button>
+	    <hr>
+        </form>
+
+        <script>
+
+        function checkForm(form)
+        {
+            if(!form.check.checked) {
+            document.getElementById("demo").innerHTML =("Please accept your pickup from farmer by clicking checkbox");
+            return false;
+            }
+            return true;
+        }
+        </script>
+<?php }?>
+
+<?php
+if($cr_status==10){
+?>
+        <h6> Note: - Please wait for crop successfully delivered to customer conformation from customer</h6>
+<?php }?>
+
+<?php
+if($cr_status==11){
+?>
+        <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+        <input type="checkbox" id="check"> I have delivered <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> to <?php echo $c_name;?>which I picked from <?php echo$f_name;?>
+        <br>
+        <p id="demo"></p>
+        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
+	    <hr>
+        </form>
+
+        <script>
+
+        function checkForm(form)
+        {
+            if(!form.check.checked) {
+            document.getElementById("demo").innerHTML =("Please accept that you have delivered items to customer successfully by clicking checkbox");
+            return false;
+            }
+            return true;
+        }
+        </script>
+<?php }?>
+
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
