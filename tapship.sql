@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 08:05 PM
+-- Generation Time: Apr 05, 2021 at 09:30 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -66,7 +66,7 @@ CREATE TABLE `cropbid` (
 INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
 (11, '9672836728', '8745123411', 35, 100, '1', '0', '0', '0', '0'),
 (12, '9672836728', '8745123411', 46, 300, '0', '0', '0', '0', '0'),
-(13, '9672836724', '8745123411', 42, 500, '8', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
+(13, '9672836724', '8745123411', 42, 500, '12', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
 (14, '9672836724', '8745123411', 36, 600, '0', '0', '0', '0', '0'),
 (15, '9672836724', '9672836726', 47, 25, '2', '0', '0', '0', '0'),
 (24, '9672836728', '9672836726', 44, 44, '0', '0', '0', '0', '0'),
@@ -122,7 +122,7 @@ CREATE TABLE `cropsale` (
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
 (35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '2'),
 (36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '8'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '12'),
 (44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
 (46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '1'),
 (47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '2');
