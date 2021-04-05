@@ -8,36 +8,45 @@ if(!isset($_SESSION['login_farmer'])){
 }
 error_reporting(0);
 ?>
-<!doctype html>
-        <html>
-            <head>
-                <meta charset='utf-8'>
-                <meta name='viewport' content='width=device-width, initial-scale=1'>
-				<title>Crop Details</title>
-				<link rel="icon" href="../assets/img/fav.png" type="image/png">
-				<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
-				<link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-				<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-				<link rel="stylesheet" href="../assets/css/Article-List.css">
-				<link rel="stylesheet" href="../assets/css/Footer-Dark.css">
-				<link rel="stylesheet" href="../assets/css/Highlight-Blue.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
-				<link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-				<link rel="stylesheet" href="../assets/css/table-style.css">
-                <link rel="stylesheet" href="../assets/css/profile.css">
-                <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
-                <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Crop Details</title>
+	<link rel="icon" href="../assets/img/fav.png" type="image/png">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+	<link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+	<link rel="stylesheet" href="../assets/css/Article-List.css">
+	<link rel="stylesheet" href="../assets/css/Footer-Dark.css">
+	<link rel="stylesheet" href="../assets/css/Highlight-Blue.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+	<link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+	<link rel="stylesheet" href="../assets/css/table-style.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
                                 
-                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-                <script type='text/javascript'></script>
-            </head>
-        <body oncontextmenu='return false' class='snippet-body'>
-        <div class="page-content page-container" id="page-content">
-		<nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'></script>
+    <link rel="stylesheet" href="assets1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="assets1/css/cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets1/css/styles.css">
+                
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+	 <div class="page-content page-container" id="page-content">
+	<nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
@@ -49,22 +58,20 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../customers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmer/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
             </div>
         </div>
     </nav>
-
-    <div class="features-boxed">
+	<div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Crop Details</h2>
             </div>
         </div>
     </div>
-
-
+	</div>
 	<?php 
 $con=mysqli_connect("localhost","root","","tapship");
    if(!$con)
@@ -103,37 +110,101 @@ $con=mysqli_connect("localhost","root","","tapship");
        $f_pincode = $res['f_pincode'];
    }
 ?>
-
-<img src="../farmers/<?php echo  $cr_img1;?>" width="30%">
-<img src="../farmers/<?php echo  $cr_img2;?>" width="30%">
-<img src="../farmers/<?php echo  $cr_img3;?>" width="30%">
-
-<h5>Crop Details</h5>
-<p>Crop ID: <?php echo $cro_id;?></P>
-<p>Crop Name: <?php echo $cro_name;?></P>
-<p>Crop Type: <?php echo $cro_type;?></P>
-<p>Crop Sale ID: <?php echo $cr_id;?></P>
-
-<h5>Crop Figures</h5>
-<p>Minimun Expected Price (per kgs.): <?php echo '₹ ',$cr_mep;?></P>
-<p>Maximum Selling Price (per kgs.): <?php echo '₹ ',$cro_msp;?></P>
-<p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
-<p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?>
-</P>
-
-<h5>Farmer Details</h5>
-<p>Farmer Name: <?php echo $f_name;?></P>
-<p>Farmer Mobile: <?php echo $f_mobile;?></P>
-<p>Farmer Gender: <?php echo $f_gender;?></P>
-<p>Farmer Age: <?php echo $f_age;?></P>
-<p>Farmer Street: <?php echo $f_street;?></P>
-<p>Farmer City: <?php echo $f_city;?></P>
-<p>Farmer State: <?php echo $f_state;?></P>
-<p>Farmer Pincode: <?php echo $f_pincode;?></P>
-
-
-<?php
+    <div>
+        <div class="container">
+            <div class="cust_bloglistintro">
+                <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    
+                </div>
+                <div class="col-md-4 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    <a class="h4" href="#"></a></div>
+                <div class="col-md-4 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    <a class="h4" href="#"></a></div>
+            </div>
+        
+        </div>
+		 <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Crop Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_id"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_name"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Type</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_type"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Sale ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_id"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Maximum Selling Price (per kgs.)</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Quantity</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_quantity Kgs"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Date</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_date"?></h6>
+                                    </div>
+                                </div><br>
+                                <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Farmer Details</strong></h4>
+                                <div class="row">
+                                   <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_name"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_mobile"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Gender</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_gender"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Age</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_age"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Street</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_street"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer City</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_city"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer State</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_state"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Pincode</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_pincode"?></h6>
+                                    </div>
+                                </div><br>
+								<?php
 if($cr_status==0||1){
 ?>
     <form method="post" action="placebid.php?cr_id=<?php echo $cr_id; ?> " enctype="multipart/form-data">
@@ -146,8 +217,12 @@ if($cr_status==0||1){
 <?php
 }
 ?>
-
-<div class="footer-dark" style="background: rgb(12,56,35);">
+    </div>
+	</div>
+	</div>
+	</div></div></div></div></div>
+	
+	<div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
@@ -160,5 +235,9 @@ if($cr_status==0||1){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>
-  </body>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
 </html>
