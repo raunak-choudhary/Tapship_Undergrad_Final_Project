@@ -80,15 +80,22 @@ $con=mysqli_connect("localhost","root","","tapship");
    while( $res=mysqli_fetch_assoc($result))
    {
        $cb_id =  $res['cb_id'];
-       $cb_ststus = $res['cb_status'];
+   }
+
+   $q = "select cr_status from cropsale where cr_id = $cr_id";
+   $result = mysqli_query($con,$q);
+
+   while( $res=mysqli_fetch_assoc($result))
+   {
+       $cr_status = $res['cb_status'];
    }
 
 
-   if($cb_status==0 || $cb_status==1 ||$cb_status==2 ||$cb_status==3 ||$cb_status==4 ||$cb_status==5 ||$cb_status==6){
+   if($cr_status==0 || $cr_status==1 ||$cr_status==2 ||$cr_status==3 ||$cr_status==4 ||$cr_status==5 ||$cr_status==6){
         $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id ";
         }
 
-    if($cb_status==7 || $cb_status==8 ||$cb_status==9 ||$cb_status==10 ||$cb_status==11 ||$cb_status==12){
+    if($cr_status==7 || $cr_status==8 ||$cr_status==9 ||$cr_status==10 ||$cr_status==11 ||$cr_status==12){
         $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
          }
 
@@ -159,7 +166,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Added Crop";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($cr_status=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($cr_status=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($cr_status=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($cr_status=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($cr_status=="10"){echo "Driver Pickup Conformed / Customer Delivery COnformation Pending";}else if($cr_status=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($cr_status=="12"){echo "Deal Over";} ?></td></P>
 
 <?php
 if($cr_status==0){

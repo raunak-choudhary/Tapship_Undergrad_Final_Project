@@ -76,7 +76,7 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Farmer Name </th>
  <th> Farmer Mobile</th>
  <th> Farmer City</th>
- <th> Bid Status</th>
+ <th> Crop Status</th>
  <th> Bid Price (per kgs.)</th>
  <th> View</th>
  </thead>

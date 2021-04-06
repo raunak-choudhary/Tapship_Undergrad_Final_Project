@@ -87,7 +87,21 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+   $q = "select cs.cr_status from cropsale cs, cropbid cb where cs.cr_id=cb.cb_cr_id AND cb.cb_id = $cb_id";
+   $result = mysqli_query($con,$q);
+
+   while( $res=mysqli_fetch_assoc($result))
+   {
+       $cr_status = $res['cb_status'];
+   }
+
+   if($cr_status==0 || $cr_status==1 ||$cr_status==2 ||$cr_status==3 ||$cr_status==4 ||$cr_status==5 ||$cr_status==6){
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+   }
+
+    if($cr_status==7 || $cr_status==8 ||$cr_status==9 ||$cr_status==10 ||$cr_status==11 ||$cr_status==12){
+        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+    }
 
    $result = mysqli_query($con,$q);
 
