@@ -6,7 +6,7 @@ $c_mobile= $res;
 if(!isset($_SESSION['login_customer'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
-//error_reporting(0);
+error_reporting(0);
 
 
 $con=mysqli_connect("localhost","root","","tapship");

@@ -76,7 +76,6 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Farmer Name </th>
  <th> Farmer Mobile</th>
  <th> Farmer City</th>
- <th> Bid Status</th>
  <th> Bid Price (per kgs.)</th>
  <th> View</th>
  </thead>
@@ -104,7 +103,6 @@ mysqli_select_db($con,'tapship');
  <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
  <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
  <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
- <td data-label="Bid Status"> <?php echo 'Bid Rejected'?> </td>
  <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
 
  <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>

@@ -74,7 +74,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, cb.cb_bidprice,  cb.cb_id, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
 
    $result = mysqli_query($con,$q);
 
@@ -106,6 +106,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
        $cb_id = $res['cb_id'];
        $cb_bidprice = $res['cb_bidprice'];
+       $cb_status = $res['cb_status'];
 
        $f_name = $res['f_name'];
        $f_mobile =  $res['f_mobile'];
@@ -127,7 +128,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Crop Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepeted";}else if($cr_status=="3"){echo "Payment Done";} else if($cr_status=="4"){echo "Payment Confirmed";} else if($cr_status=="5"){echo "Self Transport Selected";} else if($cr_status=="6"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="7"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="8"){echo "Tapship Delivery Selected";} else if($cr_status=="9"){echo "Farmer Pickup conformed";} else if($cr_status=="10"){echo "Driver Pickup Conformed";}else if($cr_status=="11"){echo "Customer Delivery Conformed";} else if($cr_status=="12"){echo "Deal Over";} ?></P>
 
 <h5>Customer Details</h5>
 <p>Customer Type: <?php echo $c_type;?></P>

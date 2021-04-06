@@ -166,7 +166,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added Crop";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($cr_status=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($cr_status=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($cr_status=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($cr_status=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($cr_status=="10"){echo "Driver Pickup Conformed / Customer Delivery COnformation Pending";}else if($cr_status=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($cr_status=="12"){echo "Deal Over";} ?></td></P>
+<p>Crop Status: <?php if($cr_status=="0"){echo "Crop Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepeted";}else if($cr_status=="3"){echo "Payment Done";} else if($cr_status=="4"){echo "Payment Confirmed";} else if($cr_status=="5"){echo "Self Transport Selected";} else if($cr_status=="6"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="7"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="8"){echo "Tapship Delivery Selected";} else if($cr_status=="9"){echo "Farmer Pickup conformed";} else if($cr_status=="10"){echo "Driver Pickup Conformed";}else if($cr_status=="11"){echo "Customer Delivery Conformed";} else if($cr_status=="12"){echo "Deal Over";} ?></td></P>
 
 <?php
 if($cr_status==0){
@@ -203,7 +203,9 @@ if($cr_status==1){
     <h5>Bid Details</h5>
     <p>Bid ID: <?php echo $cb_id;?></P>
     <p>Bid Price: <?php echo $cb_bidprice;?></P>
-    <p>Bid Total Amount: <?php if($cb_status=="0"){echo "Added Crop";}else if($cb_status=="1"){echo "Bidding";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Pending Conformation";} else if($cb_status=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($cb_status=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($cb_status=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($cb_status=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($cb_status=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($cb_status=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($cb_status=="10"){echo "Driver Pickup Conformed / Customer Delivery COnformation Pending";}else if($cb_status=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($cb_status=="12"){echo "Deal Over";} ?></P>
+    <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P></p>
+    <p>Bid Status: <?php if($cb_status=="0"){echo "Bid Placed";}else if($cb_status=="1"){echo "Bid Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Payment Conformation Pending";} else if($cb_status=="4"){echo "Transport Selection Pending";} else if($cb_status=="5"){echo "Delivery Pending";} else if($cb_status=="6"){echo "Tapship Delievry Selected ";} else if($cb_status=="7"){echo "Tapship Delivery Bidding";} else if($cb_status=="8"){echo "Farmer Pickup Conformation Pending";} else if($cb_status=="9"){echo "Driver Pickup Conformation Pending";} else if($cb_status=="10"){echo "Customer Delivery Conformation Pending";}else if($cb_status=="11"){echo "Driver Delivery Conformation Pending";} else if($cb_status=="12"){echo "Deal Over";} ?>
+</P>
 
 <?php
 }
@@ -288,7 +290,7 @@ if($cr_status==5){
 if($cr_status==6){
 ?>
 	<h5>Transport Details</h5>
-    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Medium: <?php echo "Tapship Delivery";?></P>
 
     <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
 
@@ -298,7 +300,7 @@ if($cr_status==6){
 if($cr_status==7){
     ?>
         <h5>Transport Details</h5>
-        <p>Medium: <?php echo "Find A Truck";?></P>
+        <p>Medium: <?php echo "Tapship Delivery";?></P>
     
         <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
      
@@ -307,7 +309,7 @@ if($cr_status==7){
 }if($cr_status==8 || $cr_status==9 || $cr_status==10 || $cr_status==11 || $cr_status==12){
     ?>
     <h5>Transport Details</h5>
-        <p>Medium: <?php echo "Find A Truck";?></P>
+        <p>Medium: <?php echo "Tapship Delivery";?></P>
         <p>Transport ID: <?php echo $tb_id;?></P>
         <p>Transport Bid: <?php echo $tb_bid;?></P>
         <p>Transport Status: <?php echo $tb_status;?></P>
