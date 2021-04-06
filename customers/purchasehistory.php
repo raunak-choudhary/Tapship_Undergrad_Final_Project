@@ -104,7 +104,7 @@ mysqli_select_db($con,'tapship');
  <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
  <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
  <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
- <td data-label="Bid Status"> <?php echo $res['cb_status']?> </td>
+ <td data-label="Bid Status"> <?php if(  $res['cb_status']=="0"){echo "Added Crop";}else if(  $res['cb_status']=="1"){echo "Bidding";}else if(  $res['cb_status']=="2"){echo "Accepeted / Payment Pending";}else if(  $res['cb_status']=="3"){echo "Paid / Pending Conformation";} else if(  $res['cb_status']=="4"){echo "Conformed Paid / Transport Selection Pending";} else if(  $res['cb_status']=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if(  $res['cb_status']=="6"){echo "Transport Selected / Truck Selection Pending ";} else if(  $res['cb_status']=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if(  $res['cb_status']=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if(  $res['cb_status']=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if(  $res['cb_status']=="10"){echo "Driver Pickup Conformed / Customer Delivery Conformation Pending";}else if(  $res['cb_status']=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if(  $res['cb_status']=="12"){echo "Deal Over";} ?></td>
  <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
 
  <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>

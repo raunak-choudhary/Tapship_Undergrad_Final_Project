@@ -25,16 +25,29 @@ $con=mysqli_connect("localhost","root","","tapship");
    {
     $cr_id =  $res['cb_cr_id'];
     $c_mobile = $res['cb_c_mobile'];
+    $c_type = $res['cb_transporttype'];
    }
 
    if(isset($_POST['submit']))
-   {        
-    $query = " update cropsale set cr_status='9' where cr_id=$cr_id";
+   {     
+    if($c_type==1){   
+        $query = " update cropsale set cr_status='10' where cr_id=$cr_id";
 
-    $result = mysqli_query($con,$query);
+        $result = mysqli_query($con,$query);
 
-    $query = " update cropbid set cb_status='9' where cb_cr_id=$cr_id and cb_c_mobile=$c_mobile and cb_id=$cb_id";
-    $result = mysqli_query($con,$query);    
+        $query = " update cropbid set cb_status='10' where cb_cr_id=$cr_id and cb_c_mobile=$c_mobile and cb_id=$cb_id";
+        $result = mysqli_query($con,$query);
+
+    } 
+    if($c_type==2){   
+        $query = " update cropsale set cr_status='9' where cr_id=$cr_id";
+
+        $result = mysqli_query($con,$query);
+
+        $query = " update cropbid set cb_status='9' where cb_cr_id=$cr_id and cb_c_mobile=$c_mobile and cb_id=$cb_id";
+        $result = mysqli_query($con,$query);
+
+    }      
    }
 
    header("location: activecrop.php");

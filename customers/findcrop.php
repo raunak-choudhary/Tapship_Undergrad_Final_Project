@@ -74,7 +74,7 @@ $con=mysqli_connect("localhost","root","","tapship");
  <th> Crop Quantity</th>
  <th> Crop MEP</th>
  <th> Crop MSP</th>
- <th> Farmer Status</th>
+ <th> Crop Status</th>
  <th> Date</th>
 
  <th> Farmer Name</th>
@@ -105,7 +105,7 @@ mysqli_select_db($con,'tapship');
  <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs';  ?> </td>
  <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep'];  ?> </td>
  <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp'];  ?> </td>
- <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Added";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Bid Accepted";}else if($res['cr_status']=="3"){echo "Transport Pending";}else if($res['cr_status']=="4"){echo "Transport Selected";}  ?> </td>
+ <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Added Crop";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Accepeted / Payment Pending";}else if($res['cr_status']=="3"){echo "Paid / Pending Conformation";} else if($res['cr_status']=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($res['cr_status']=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($res['cr_status']=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($res['cr_status']=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($res['cr_status']=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($res['cr_status']=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($res['cr_status']=="10"){echo "Driver Pickup Conformed / Customer Delivery Conformation Pending";}else if($res['cr_status']=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($res['cr_status']=="12"){echo "Deal Over";} ?> </td>
  <td data-label="Date"> <?php echo $res['cr_date'];  ?> </td>
  <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
  <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>

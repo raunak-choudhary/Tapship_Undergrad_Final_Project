@@ -96,11 +96,11 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
    if($cr_status==0 || $cr_status==1 ||$cr_status==2 ||$cr_status==3 ||$cr_status==4 ||$cr_status==5 ||$cr_status==6){
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.ccb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
    }
 
     if($cr_status==7 || $cr_status==8 ||$cr_status==9 ||$cr_status==10 ||$cr_status==11 ||$cr_status==12){
-        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.ccb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
     }
 
    $result = mysqli_query($con,$q);
@@ -143,6 +143,7 @@ $con=mysqli_connect("localhost","root","","tapship");
        $cb_paytype = $res['cb_paytype'];
        $cb_tid = $res['cb_tid'];
        $cb_tproof = $res['cb_tproof'];
+       $cb_transporttype = $res['cb_transporttype'];
 
        $tb_id = $res['tb_id'];
        $tb_bid = $res['tb_bid'];
@@ -177,7 +178,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
 <p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
 <p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status: <?php if($cr_status=="0"){echo "Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending ";} else if($cr_status=="4"){echo "Transport Selected / Delivery Peneding ";} else if($cr_status=="5"){echo "Transport Selected";}  ?></P>
+<p>Crop Status:<?php if($cr_status=="0"){echo "Added Crop";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Accepeted / Payment Pending";}else if($cr_status=="3"){echo "Paid / Pending Conformation";} else if($cr_status=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($cr_status=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($cr_status=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($cr_status=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($cr_status=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($cr_status=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($cr_status=="10"){echo "Driver Pickup Conformed / Customer Delivery COnformation Pending";}else if($cr_status=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($cr_status=="12"){echo "Deal Over";} ?></P>
 
 <h5>Farmer Details</h5>
 <p>Farmer Name: <?php echo $f_name;?></P>
@@ -200,7 +201,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <p>Bid ID: <?php echo $cb_id;?></P>
 <p>Bid Price: <?php echo $cb_bidprice;?></P>
 <p>Bid Total Amount: <?php echo $cb_bidprice*$cr_quantity;?></P>
-<p>Bid Status: <?php if($cb_status=="0"){echo "Bidding";}else if($cb_status=="1"){echo "Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Conformation Pending";}else if($cb_status=="4"){echo "Payment Confirmed";}else if($cb_status=="5"){echo "Transport Selected";}?></P>
+<p>Bid Status: <?php if($cb_status=="0"){echo "Added Crop";}else if($cb_status=="1"){echo "Bidding";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Paid / Pending Conformation";} else if($cb_status=="4"){echo "Conformed Paid / Transport Selection Pending";} else if($cb_status=="5"){echo "Transport Selected / Self Delivery Peneding ";} else if($cb_status=="6"){echo "Transport Selected / Truck Selection Pending ";} else if($cb_status=="7"){echo "Transport Selected / Truck Selection Peneding ";} else if($cb_status=="8"){echo "Truck selected / Farmer Pickup conformation pending";} else if($cb_status=="9"){echo "Farmer Pickup conformed / Driver Pickup Conformation Pending ";} else if($cb_status=="10"){echo "Driver Pickup Conformed / Customer Delivery COnformation Pending";}else if($cb_status=="11"){echo "Customer Delivery Conformed / Driver Delivery conformation pending ";} else if($cb_status=="12"){echo "Deal Over";} ?></P>
 
 <?php if($cb_status=='1'){ ?>
 <div class="features-boxed">
@@ -234,7 +235,7 @@ if($cb_status=='3'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value="Edit Details">
     <hr>
@@ -245,7 +246,7 @@ if($cb_status=='4'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
   <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
@@ -284,7 +285,7 @@ if($cb_status=='5'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Self Transport";?></P>
@@ -310,7 +311,7 @@ if($cb_status=='6'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -324,7 +325,7 @@ if($cb_status=='7'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -338,7 +339,7 @@ if($cb_status=='8'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -355,7 +356,7 @@ if($cb_status=='8'){ ?>
     <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
     <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
 
-    <h6> Note: - Please wait for pickup conformation from customer</h6>
+    <h6> Note: - Please wait for pickup conformation from driver</h6>
     <hr>
 
 <?php
@@ -364,7 +365,7 @@ if($cb_status=='9'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -386,11 +387,62 @@ if($cb_status=='9'){ ?>
 
 <?php
 }
-if($cb_status=='10'){ ?>
+if($cb_status=='10' && $cb_transporttype=='1'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
+
+    <h5>Transport Details</h5>
+    <p>Medium: <?php echo "Find A Truck";?></P>
+    <p>Transport ID: <?php echo $tb_id;?></P>
+    <p>Transport Bid: <?php echo $tb_bid;?></P>
+    <p>Transport Status: <?php echo $tb_status;?></P>
+
+    <?php
+    if($cb_status=="5"){ 
+    $query = "select * from transportself where ts_cb_id=$cb_id";
+    $result = mysqli_query($con,$query);
+
+    while( $res=mysqli_fetch_assoc($result))
+    {
+        $ts_name =  $res['ts_name'];
+        $ts_mobile =  $res['ts_mobile'];
+        $ts_vehiclenumber =  $res['ts_vehiclenumber'];
+    } ?>
+    <p>Driver Name: <?php echo $ts_name;?></P>
+    <p>Driver Mobile: <?php echo $ts_mobile;?></P>
+    <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
+    <?php } ?>
+
+    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+        <input type="checkbox" id="check"> I got <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> from <?php echo $f_name;?>  ehich is delivered by Driver <?php echo $d_name;?>
+        <br>
+        <p id="demo"></p>
+        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
+	    <hr>
+        </form>
+
+        <script>
+
+        function checkForm(form)
+        {
+            if(!form.check.checked) {
+            document.getElementById("demo").innerHTML =("Please confirm that you have recived crop delivery from by clicking checkbox");
+            return false;
+            }
+            return true;
+        }
+        </script>
+    <hr>
+
+<?php
+}
+if($cb_status=='10' && $cb_transporttype=='2'){ ?>
+    <h5>Payment Details</h5>
+    <p>Payment Type: <?php echo $cb_paytype;?></P>
+    <p>Transcation ID: <?php echo $cb_tid;?></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -411,7 +463,7 @@ if($cb_status=='10'){ ?>
         <input type="checkbox" id="check"> I got <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> from <?php echo $f_name;?>  ehich is delivered by Driver <?php echo $d_name;?>
         <br>
         <p id="demo"></p>
-        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Pickup </button>
+        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
 	    <hr>
         </form>
 
@@ -434,7 +486,7 @@ if($cb_status=='11'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
@@ -460,7 +512,7 @@ if($cb_status=='12'){ ?>
     <h5>Payment Details</h5>
     <p>Payment Type: <?php echo $cb_paytype;?></P>
     <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View RC</a></P>
+    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
 
     <h5>Transport Details</h5>
     <p>Medium: <?php echo "Find A Truck";?></P>
