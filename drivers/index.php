@@ -128,7 +128,7 @@ if($d_approve==2)
         </div>
     </div>
 
-<a href="finddeal.php">Find Crop</a>
+<a href="finddeal.php">Find Deal</a>
 <a href="yourtransportbids.php">Your Bids</a>
 <a href="acceptedtransportbids.php">Accepted Bids</a>
 <a href="rejectedtransportbids.php">Rejected Bids</a>

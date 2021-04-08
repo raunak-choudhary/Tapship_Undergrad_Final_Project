@@ -368,6 +368,7 @@ if($cr_status==11){
 if($cr_status==12){
     ?> 
         <h6> Note: - This deal is successfully completed and closed</h6> 
+        <h4 style="text-align: center;">Thank You for doing business with us</h4>
 <?php
 }?>
 <hr>

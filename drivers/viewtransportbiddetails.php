@@ -70,7 +70,7 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 
     $cb_id = $_GET['cb_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id";
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11) AND cb.cb_id = $cb_id";
    $result = mysqli_query($con,$query);
 
    while( $res=mysqli_fetch_assoc($result))
@@ -106,6 +106,8 @@ $con=mysqli_connect("localhost","root","","tapship");
        $tb_id = $res['tb_id'];
        $tb_bid = $res['tb_bid'];
        $tb_status = $res['tb_status'];
+
+       $cb_status = $res['cb_status'];
    }
 ?>
 
@@ -146,7 +148,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <h5>Bid Details</h5>
 <p>Bid ID: <?php echo $tb_id;?></P>
 <p>Bid Price: <?php echo $tb_bid;?></P>
-<p>Bid Status: <?php echo $tb_status;?></P>
+<p>Bid Status: <?php if($cb_status=="0"){echo "Bid Placed";}else if($cb_status=="1"){echo "Bid Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Payment Conformation Pending";} else if($cb_status=="4"){echo "Transport Selection Pending";} else if($cb_status=="5"){echo "Delivery Pending";} else if($cb_status=="6"){echo "Tapship Delievry Selected ";} else if($cb_status=="7"){echo "Tapship Delivery Bidding";} else if($cb_status=="8"){echo "Farmer Pickup Conformation Pending";} else if($cb_status=="9"){echo "Driver Pickup Conformation Pending";} else if($cb_status=="10"){echo "Customer Delivery Conformation Pending";}else if($cb_status=="11"){echo "Driver Delivery Conformation Pending";} else if($cb_status=="12"){echo "Deal Over";} ?></P>
 
 <?php
 if($cr_status==8){
@@ -162,7 +164,6 @@ if($cr_status==9){
         <br>
         <p id="demo"></p>
         <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Pickup </button>
-	    <hr>
         </form>
 
         <script>
@@ -192,7 +193,6 @@ if($cr_status==11){
         <br>
         <p id="demo"></p>
         <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-	    <hr>
         </form>
 
         <script>
@@ -211,10 +211,28 @@ if($cr_status==11){
 <?php
 if($cr_status==12){
 ?>
-
 <h6> Note: - This deal is successfully completed and closed</h6>
+<h4 style="text-align: center;">Thank You for doing business with us</h4>
+<?php 
+}?>
+<hr>
 
-<?php }?>
+<?php
+// create a new cURL resource
+$ch = curl_init();
+
+// set URL and other appropriate options
+curl_setopt($ch, CURLOPT_URL, "https://maps.googleapis.com/maps/api/distancematrix/xml?origins=576213&destinations=342802&key=AIzaSyBFUBZiQ2CkwjHxuTZra6Jh4J9K7LGjgsA");
+curl_setopt($ch, CURLOPT_HEADER, 0);
+
+// grab URL and pass it to the browser
+curl_exec($ch);
+
+// close cURL resource, and free up system resources
+curl_close($ch);
+
+echo $ch;
+?>
 
 
 

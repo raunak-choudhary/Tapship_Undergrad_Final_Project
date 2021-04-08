@@ -243,7 +243,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 }
 if($cb_status=='3'){ ?>
     <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;"  value="Edit Details">
-    <hr>
+       
 <?php
 }
 if($cb_status=='4'){ ?>
@@ -298,7 +298,7 @@ if($cb_status=='5'){ ?>
     <p>Driver Mobile: <?php echo $ts_mobile;?></P>
     <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
 
-    <hr>
+       
 <?php  
 }
 if($cb_status=='6'){ ?>
@@ -307,7 +307,7 @@ if($cb_status=='6'){ ?>
 
     <h6> Note: - Please wait for bids from Drivers</h6>
 
-    <hr>
+       
 <?php 
 }
 if($cb_status=='7'){ ?>
@@ -315,7 +315,7 @@ if($cb_status=='7'){ ?>
     <p>Medium: <?php echo "Tapship Delivery";?></P>
 
     <button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbids.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Transport Bids </a> </button>
-	 <hr>
+	    
 
 <?php  
 }if($cb_status==8 || $cb_status==9 ||$cb_status==11 || $cb_status==12){
@@ -339,13 +339,13 @@ if($cb_status=='7'){ ?>
 }
 if($cb_status=='8'){ ?>
     <h6> Note: - Please wait for pickup conformation from driver</h6>
-    <hr>
+       
 
 <?php
 }
 if($cb_status=='9'){ ?>
     <h6> Note: - Please wait for pickup conformation from Driver</h6>
-    <hr>
+       
 
 <?php
 }
@@ -377,7 +377,7 @@ if($cb_status=='10' && $cb_transporttype=='1'){ ?>
         <br>
         <p id="demo"></p>
         <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-	    <hr>
+	       
         </form>
 
         <script>
@@ -391,7 +391,7 @@ if($cb_status=='10' && $cb_transporttype=='1'){ ?>
             return true;
         }
         </script>
-    <hr>
+       
 
 <?php
 }
@@ -416,7 +416,7 @@ if($cb_status=='10' && $cb_transporttype=='2'){ ?>
         <br>
         <p id="demo"></p>
         <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-	    <hr>
+	       
         </form>
 
         <script>
@@ -430,21 +430,21 @@ if($cb_status=='10' && $cb_transporttype=='2'){ ?>
             return true;
         }
         </script>
-    <hr>
+       
 
 <?php
 }
 if($cb_status=='11'){ ?>
     <h6> Note: - Please wait for successfully delivered conformation from Driver</h6>
-    <hr>
+       
 
 <?php  
 }
 if($cb_status=='12'){ ?>
     <h6> Note: - This deal is successfully completed and closed</h6>
-    <hr>
-
+    <h4 style="text-align: center;">Thank You for doing business with us</h4>
 <?php  }?>
+<hr>
 
 
 <div class="footer-dark" style="background: rgb(12,56,35);">

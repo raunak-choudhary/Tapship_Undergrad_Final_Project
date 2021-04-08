@@ -85,7 +85,7 @@ $con = mysqli_connect('localhost','root');
 mysqli_select_db($con,'tapship');
    
      
- $q = "SELECT CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, c.c_name, c.c_mobile, c.c_city FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status='6'";
+ $q = "SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status='6' AND cs.cr_status = '6'";
  $query = mysqli_query($con,$q);
  $c = 1;
 
