@@ -65,12 +65,13 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 $q = "SELECT * from driver where d_mobile = $d_mobile";
 $query = mysqli_query($con,$q);
-$c = 1;
 
 while($res = mysqli_fetch_array($query)){
-    $d_pincode = $res['d_pincode'];
+    //$d_pincode = $res['d_pincode'];
+    $d_lat = $$res['d_lat'];
+    $d_long = $$res['d_long'];
 }
-$res = shell_exec("python finddeal-ml.py $d_mobile $d_pincode");
+$res = shell_exec("python finddeal-ml.py $d_mobile $d_lat $d_long");
 echo $res;
 ?>
 

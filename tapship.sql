@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 09:30 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Apr 09, 2021 at 08:00 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,13 +64,13 @@ CREATE TABLE `cropbid` (
 --
 
 INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
-(11, '9672836728', '8745123411', 35, 100, '1', '0', '0', '0', '0'),
-(12, '9672836728', '8745123411', 46, 300, '0', '0', '0', '0', '0'),
-(13, '9672836724', '8745123411', 42, 500, '12', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
-(14, '9672836724', '8745123411', 36, 600, '0', '0', '0', '0', '0'),
-(15, '9672836724', '9672836726', 47, 25, '2', '0', '0', '0', '0'),
-(24, '9672836728', '9672836726', 44, 44, '0', '0', '0', '0', '0'),
-(25, '9672836728', '9672836726', 46, 30, '0', '0', '0', '0', '0');
+(11, '9672836728', '8745123411', 35, 100, '6', '0', '0', '0', '0'),
+(12, '9672836728', '8745123411', 46, 300, '2', '0', '0', '0', '0'),
+(13, '9672836724', '8745123411', 42, 500, '6', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
+(14, '9672836724', '8745123411', 36, 600, '6', '0', '0', '0', '0'),
+(15, '9672836724', '9672836726', 47, 25, '6', '0', '0', '0', '0'),
+(24, '9672836728', '9672836726', 44, 44, '6', '0', '0', '0', '0'),
+(25, '9672836728', '9672836726', 46, 30, '6', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -120,12 +120,12 @@ CREATE TABLE `cropsale` (
 --
 
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
-(35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '2'),
-(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '1'),
-(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '12'),
-(44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '1'),
-(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '1'),
-(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '2');
+(35, '8745123411', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '6'),
+(36, '8745123411', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '6'),
+(42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '6'),
+(44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '6'),
+(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '6'),
+(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '6');
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_password`, `d_approve`) VALUES
-(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.pdf', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Gapu@8540', '2'),
+(1, 'Faheem Ahmad', '9672836725', 'Male', '22', '302, Main Street', 'Patna', 'Bihar', '800001', '675324567892', 'assets/documents/aadhar/aadhar.pdf', 'GYTHI8643T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'BH6754356789076', 'assets/documents/dlpdf/dlpdf.pdf', 'BH14RT7634', 'assets/documents/rcpdf/rcpdf.pdf', '28.6327', '77.2196', 'Gapu@8540', '2'),
 (2, 'Yash Nayak', '7070414133', 'Male', '24', '4AB, Sardar Vallabhai Patel Road', 'Ahmedabad', 'Gujarat', '320008', '821367489408', 'assets/documents/aadhar/aadhar.pdf', 'SBVXE6360B', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'DL5857254678123', 'assets/documents/dlpdf/dlpdf.pdf', 'DL42RM4763', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Yn123456', '2'),
 (3, 'Arjun Pathak', '8228229090', 'Male', '30', '866C, Rajiv Gandhi Road', 'Hyderabad', 'Telangana', '500001', '735194058610', 'assets/documents/aadhar/aadhar.pdf', 'ABQWD4562R', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'TS4562538457562', 'assets/documents/dlpdf/dlpdf.pdf', 'TS02AB0007', 'assets/documents/rcpdf/rcpdf.pdf', '13.3343382', '74.7169643', 'Ap123456', '2');
 
