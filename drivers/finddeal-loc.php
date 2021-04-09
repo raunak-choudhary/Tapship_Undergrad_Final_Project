@@ -68,10 +68,11 @@ $query = mysqli_query($con,$q);
 
 while($res = mysqli_fetch_array($query)){
     //$d_pincode = $res['d_pincode'];
-    $d_lat = $$res['d_lat'];
-    $d_long = $$res['d_long'];
+    $d_lat = $res['d_lat'];
+    $d_long = $res['d_long'];
 }
-$res = shell_exec("python finddeal-ml.py $d_mobile $d_lat $d_long");
+
+$res = shell_exec("python finddeal-loc.py $d_mobile $d_lat $d_long");
 echo $res;
 ?>
 

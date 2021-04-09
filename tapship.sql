@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 08:00 PM
+-- Generation Time: Apr 09, 2021 at 08:40 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -240,7 +240,7 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`) VALUES
-(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2', 'Raunak Choudhary', '8823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '344001', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2', 'Raunak Choudhary', '8823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
 (20, 'Ajay Kumar', '8745123411', 'Male', '28', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855225', 'assets/documents/aadhar/aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Ajay Kumar', '9823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
 (21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Karthik Gupta', '47823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
 (61, 'Anish Sharma', '9672836722', 'Male', '78', '202, Laxmi Plaza, Old Fish Market Road, Brahmavara', 'Udupi', 'Karnataka', '576213', '643436728767', 'assets/documents/aadhar/aadhar.pdf', 'TTHUO8765U', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8654', '2', 'Anish Sharma', '7823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf');
