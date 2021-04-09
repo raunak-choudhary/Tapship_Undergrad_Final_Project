@@ -70,8 +70,6 @@ probability of a crop that has the highest price based on the previous year data
 of making predictions of the future based on past and present data. The common method of Prediction is
 the ARIMA model, which stands for Auto Regressive Integrated Moving Average. [1]
 
-We are near to end our project soon.
-
 Reference:
 1. Krishna S, Midhul M S, Rahul R Pillai - An efficient agricultural marketing system
 for optimizing the benefits of farmers: 2019 2nd International Conference on Intelligent
