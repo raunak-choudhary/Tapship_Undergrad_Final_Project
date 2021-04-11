@@ -36,7 +36,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
             <div class="collapse navbar-collapse"
@@ -54,7 +54,7 @@ $con=mysqli_connect("localhost","root","","tapship");
     </nav>
 
     <div class="features-boxed">
-        <div class="container" style="background: #ffffff;">
+        <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Transport Details</h2>
             </div>
@@ -155,7 +155,7 @@ if($cr_status==6){
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
-            <div class="container">
+            <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
             </div>
         </footer>
