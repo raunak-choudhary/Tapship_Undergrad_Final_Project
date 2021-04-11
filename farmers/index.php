@@ -132,7 +132,7 @@ if($f_approve==2)
             <div class="row" style="margin-top: 10px;">
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="features-boxed">
-                        <div class="container" style="background: #ffffff;">
+                        <div class="container-fluid" style="background: #ffffff;">
                             <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px; ">
                                     <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total added crop :
                                         <?php
@@ -146,7 +146,7 @@ if($f_approve==2)
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="features-boxed">
-                        <div class="container" style="background: #ffffff;">
+                        <div class="container-fluid" style="background: #ffffff;">
                             <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
                                     <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total active crop :
                                         <?php
@@ -160,7 +160,7 @@ if($f_approve==2)
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="features-boxed">
-                        <div class="container" style="background: #ffffff;">
+                        <div class="container-fluid" style="background: #ffffff;">
                             <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
                                     <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total sold crop :
                                         <?php
@@ -181,7 +181,7 @@ if($f_approve==2)
                                     <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
                                             
                                     </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 390px;">
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
 
                                         <br><a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>
 
