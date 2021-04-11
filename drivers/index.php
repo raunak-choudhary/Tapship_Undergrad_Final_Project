@@ -130,147 +130,40 @@ if($d_approve==2)
     <center>             
         <div class="container-fluid">
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px; ">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total Deals Available :
-                                        <?php
-                                            echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of your Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of Accepted Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of Rejected Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total Completed Deals :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/find deal.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);"><br>&nbsp; &nbsp; Total Deals Available :
+                                            <?php
+                                                echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
+                                            ?>
+                                            &nbsp;</span>  
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                        <br><a href="finddeal.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Deals</button></a>
-
+                                        <a href="finddeal.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Deals</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/your bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="yourtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View your Bids</button></a>
-
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);"><br>&nbsp; &nbsp; Count of your Bids :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/accepted bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                             <?php
-                                            // echo $FarmerTotalCount = $con->query("SELECT * FROM farmer")->num_rows;
-                                            ?> 
-                                            &nbsp;</span>
-                                    </div>-->
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="acceptedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/rejected bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="rejectedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Rejected Bids</button></a>
-
+                                            <a href="yourtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View your Bids</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -283,21 +176,61 @@ if($d_approve==2)
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/transport history.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);"><br>&nbsp;Total Completed Deals :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="transporthistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Transport History</button></a>
-
+                                        <a href="transporthistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Transport History</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                <div class="col-md-6 col-xl-6 mb-6">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/accepted bids.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);"><br>Count of Accepted Bids :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                       </span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="acceptedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-6 mb-6">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                    <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/rejected bids.png" style="text-align: center;"></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);"><br>Count of Rejected Bids :
+                                            <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                            ?></span>
+                                        </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="rejectedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Rejected Bids</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-6 mb-6">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -313,8 +246,8 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                <div class="col-md-6 col-xl-6 mb-6">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
