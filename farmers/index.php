@@ -8,7 +8,7 @@ header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
 ?> 
- 
+
 <!DOCTYPE html>
 <html>
 
@@ -52,18 +52,18 @@ error_reporting(0);
 
 <?php 
 $con=mysqli_connect("localhost","root","","tapship");
-   if(!$con)
-   {
-       die(" Connection Error ");
-   }
+    if(!$con)
+    {
+        die(" Connection Error ");
+    }
 
-   $query = " select * from farmer where f_mobile=".$f_mobile."";
-   $result = mysqli_query($con,$query);
+    $query = " select * from farmer where f_mobile=".$f_mobile."";
+    $result = mysqli_query($con,$query);
 
-   while( $res=mysqli_fetch_assoc($result))
-   {
-       $f_approve =  $res['f_approve'];
-   }
+    while( $res=mysqli_fetch_assoc($result))
+    {
+        $f_approve =  $res['f_approve'];
+    }
 ?>
 
 <?php
@@ -131,60 +131,19 @@ if($f_approve==2)
         <div class="container-fluid">
             <div class="row" style="margin-top: 10px;">
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px; ">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total added crop :
-                                        <?php
-                                            echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total active crop :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total sold crop :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/add crop.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total added crop :
+                                        <?php
+                                            echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                        <br><a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>
-
+                                        <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>                                   
                                     </div>
                                 </div>
                             </div>
@@ -192,18 +151,19 @@ if($f_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/activecrop.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total active crop :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Active Crop</button></a>
-
+                                        <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Active Crop</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -211,19 +171,19 @@ if($f_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/sell history.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                             <?php
-                                            // echo $FarmerTotalCount = $con->query("SELECT * FROM farmer")->num_rows;
-                                            ?> 
-                                            &nbsp;</span>
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total sold crop :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Sell History</button></a>
+                                        <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Sell History</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -231,18 +191,15 @@ if($f_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/msp.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">MSP Tracking
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Track Crop MSP</button></a>
-
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View MSP</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -250,18 +207,15 @@ if($f_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/helpzone.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Help Zone
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
-
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -269,16 +223,15 @@ if($f_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/knowledge.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Knowledge Zone
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Knowledge Zone</button></a>
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
                                     </div>
                                 </div>
                             </div>

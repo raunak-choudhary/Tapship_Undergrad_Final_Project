@@ -131,89 +131,116 @@ if($c_approve==2)
     <center>             
         <div class="container-fluid">
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px; ">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total Available Crops :
-                                        <?php
-                                            echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of your Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of Accepted Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Count of Rejected Bids :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="features-boxed">
-                        <div class="container-fluid" style="background: #ffffff;">
-                            <div class="intro" style="background: #0c3823;margin-top: 20px;margin-bottom: 30px;">
-                                    <h4 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">&nbsp; &nbsp; Total Completed Deals :
-                                        <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                        ?>
-                                        &nbsp;</span>
-                                    </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/find crop.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Available Crops :
+                                        <?php
+                                            echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                        <br><a href="findcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Crops</button></a>
-
+                                        <a href="findcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Crops</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/your bids.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Bids :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="youractivebids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View your Bids</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/purchase history.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">Total Completed Deals :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="purchasehistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Purchase History</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/accepted bids.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">Total Accepted Bids :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        </span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="acceptedbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/rejected bids.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">Total Rejected Bids :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        </span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="rejectedbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Rejected Bids</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/msp.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">MSP Tracking     
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View MSP</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -221,127 +248,31 @@ if($c_approve==2)
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-6 mb-6">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/your bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="youractivebids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View your Bids</button></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/accepted bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                             <?php
-                                            // echo $FarmerTotalCount = $con->query("SELECT * FROM farmer")->num_rows;
-                                            ?> 
-                                            &nbsp;</span>
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="acceptedbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/rejected bids.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="rejectedbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Rejected Bids</button></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/purchase history.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                    <br> <a href="purchasehistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Purchase History</button></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/msp.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                            
-                                    </div>-->
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Track Crop MSP</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;margin-bottom: 30px; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/helpzone.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Help Zone  
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;">
+                <div class="col-md-6 col-xl-6 mb-6">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                 <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/knowledge.png" style="text-align: center;"></div>
-                                    <!--<div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Sell History
-                                            
-                                    </div>-->
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Knowledge Zone       
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <br> <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Knowledge Zone</button></a>
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
                                     </div>
                                 </div>
                             </div>
