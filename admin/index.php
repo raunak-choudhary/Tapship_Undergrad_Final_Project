@@ -58,10 +58,15 @@ if (!isset($_SESSION['login_admin'])) {
     </div>
 
     <center>
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="row" style="margin-top: 10px;">
+<<<<<<< HEAD
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+=======
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-right">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
+>>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -100,8 +105,13 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+=======
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-down">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
+>>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -120,8 +130,13 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-md-6 col-xl-4 mb-4">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+=======
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-left">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
+>>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
