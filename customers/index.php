@@ -248,7 +248,7 @@ if($c_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-6 mb-6"data-aos="fade-right">
+                <div class="col-md-6 col-xl-6 mb-6"data-aos="fade-up">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black;margin-bottom: 30px; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -264,7 +264,7 @@ if($c_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-6 mb-6"data-aos="fade-left">
+                <div class="col-md-6 col-xl-6 mb-6"data-aos="fade-up">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; margin-bottom: 30px; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
