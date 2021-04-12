@@ -58,9 +58,9 @@ if (!isset($_SESSION['login_admin'])) {
     </div>
 
     <center>
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-right">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -82,7 +82,7 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-down">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -104,7 +104,7 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-left">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">

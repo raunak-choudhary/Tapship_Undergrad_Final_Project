@@ -29,6 +29,7 @@ error_reporting(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/card-hover.css">
 </head>
 
 <body id="page-top">
@@ -130,7 +131,7 @@ if($d_approve==2)
     <center>             
         <div class="container-fluid">
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-right">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0; ">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -150,7 +151,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-down">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  ">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -170,7 +171,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-left">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  ">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -190,7 +191,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-right">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;   margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -210,7 +211,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-up">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;   margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -229,7 +230,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-left">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -246,7 +247,7 @@ if($d_approve==2)
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-xl-12 mb-12">
+                <div class="col-md-12 col-xl-12 mb-12" data-aos="fade-up">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  margin-bottom: 30px;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters" style="float: left;">
