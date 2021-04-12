@@ -58,15 +58,10 @@ if (!isset($_SESSION['login_admin'])) {
     </div>
 
     <center>
-        <div class="container-fluid" >
+    <div class="container-fluid" >
             <div class="row" style="margin-top: 10px;">
-<<<<<<< HEAD
-                <div class="col-md-6 col-xl-4 mb-4">
+            <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-right">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
-=======
-                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-right">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
->>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -78,14 +73,14 @@ if (!isset($_SESSION['login_admin'])) {
                                         &nbsp;</span>
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>                                   
-                                    </div>
+                                        <a href="managefarmer.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Manage Farmer</button></a>                                   
+                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-down">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -98,20 +93,15 @@ if (!isset($_SESSION['login_admin'])) {
                                         &nbsp;</span>
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Active Crop</button></a>
+                                        <a href="managecustomer.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Manage Customer</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-left">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
-=======
-                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-down">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
->>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -123,20 +113,15 @@ if (!isset($_SESSION['login_admin'])) {
                                         &nbsp;</span>
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Manage Driver</button></a>
+                                        <a href="managedriver.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Manage Driver</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-<<<<<<< HEAD
-                <div class="col-md-6 col-xl-4 mb-4">
+                </div>                    
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-right">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
-=======
-                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-left">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
->>>>>>> e6e204d62016f37f30e13fb93ba695d40673b68e
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
@@ -151,7 +136,7 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-up">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
@@ -167,7 +152,7 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4"data-aos="fade-left">
                     <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
