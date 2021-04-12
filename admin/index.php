@@ -61,64 +61,107 @@ if (!isset($_SESSION['login_admin'])) {
         <div class="container-fluid">
             <div class="row" style="margin-top: 10px;">
                 <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
-                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Customer :-
-                                            <?php
-                                            echo $CustomerTotalCount = $con->query("SELECT * FROM customer")->num_rows;
-                                            ?>
-                                            &nbsp;</span>
-                                    </div>
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                        <a href="managecustomer.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px;">Manage</button></a>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Driver :-
-                                            <?php
-                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                            ?>
-                                            &nbsp;</span></div>
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-
-                                        <a href="managedriver.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px;">Manage</button></a>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-4">
-                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0);">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Farmer :-
-                                            <?php
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/farmer.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Farmer :
+                                        <?php
                                             echo $FarmerTotalCount = $con->query("SELECT * FROM farmer")->num_rows;
-                                            ?>
-                                            &nbsp;</span></div>
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-
-                                        <a href="managefarmer.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px;">Manage</button></a>
-
-
+                                        <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/customer.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Customer :
+                                        <?php
+                                            echo $CustomerTotalCount = $con->query("SELECT * FROM customer")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Active Crop</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/driver.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Driver :
+                                        <?php
+                                            echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                        ?>
+                                        &nbsp;</span>
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Manage Driver</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/kiosk.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; KIOSK Centre Details
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Information</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/crop and activities.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Crop and Activities
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Crops</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 mb-4">
+                    <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;">
+                        <div class="card-body">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2">
+                                <div class="col-sm-6 col-md-4 item no-gutters" ><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/queriesadmin.png" style="text-align: center;"></div>
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Query Zone
+                                    </div>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Queries</button></a>
                                     </div>
                                 </div>
                             </div>
