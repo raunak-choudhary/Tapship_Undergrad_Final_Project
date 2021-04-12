@@ -43,7 +43,7 @@
                 <h2 class="text-center" style="background: rgb(12,56,35);color: rgb(255,255,255);padding: 20px;padding-top: 20px;margin-bottom: 10px;margin-top: 50px;">Whom We Help?</h2>
             </div>
             <div class="row articles">
-                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmers.png" style="text-align: center;">
+                <div class="col-sm-6 col-md-4 item" style="background: #ffffff;"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmer.png" style="text-align: center;">
                     <h3 class="name" style="text-align: center;font-size: 18px;">Farmers</h3>
                     <p class="description" style="font-size: 16px;color: rgb(0,0,0);">We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br></p>
                 </div>

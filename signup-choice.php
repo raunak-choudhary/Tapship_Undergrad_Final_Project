@@ -47,7 +47,7 @@
             </div>
             
             <div class="row articles" style="margin: 5px;">
-                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;height: auto;min-height: auto;max-height: auto;font-size: 20px;"><a href="farmers/signup.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmers.png" style="text-align: center;filter: invert(100%);"><h3 class="name" style="color: rgb(255,255,255);font-size: 24px;">New Farmers</h3></a>
+                <div class="col-sm-6 col-md-4 item" style="background: #0c3823;height: auto;min-height: auto;max-height: auto;font-size: 20px;"><a href="farmers/signup.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/farmer.png" style="text-align: center;filter: invert(100%);"><h3 class="name" style="color: rgb(255,255,255);font-size: 24px;">New Farmers</h3></a>
                 </div>
                 <div class="col-sm-6 col-md-4 item" style="background: #115434;min-height: auto;max-height: auto;"><a href="customers/signup.php"><img class="img-fluid" data-bs-hover-animate="pulse" src="assets/img/customer.png" style="filter: invert(100%);">
                     <h3 class="name" style="font-size: 24px;color: rgb(255,255,255);">New Customers</h3></a>
