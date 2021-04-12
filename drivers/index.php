@@ -200,7 +200,7 @@ if($d_approve==2)
                                         <?php
                                             echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
                                         ?>
-                                        </span>
+                                       </span>
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
                                         <a href="acceptedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
@@ -239,7 +239,7 @@ if($d_approve==2)
                                             
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
+                                      <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -256,11 +256,11 @@ if($d_approve==2)
                                             
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                    <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
+                                     <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
                                     </div>
                                     <br>
                                 </div>
-                        </div>
+                         </div>
                             <div style="text-align:left;">
                             <h4 style="text-align:center;"> Suggestions </h4>
                             <h6>1. Hey There. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
