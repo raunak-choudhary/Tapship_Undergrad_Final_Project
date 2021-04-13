@@ -105,7 +105,7 @@ while( $res=mysqli_fetch_assoc($result))
     
     <div class="padding">
         <div class="row container d-flex justify-content-center">
-            <form method="post" action="updateprofile-script.php?f_mobile=<?php echo $f_mobile?>">
+            <form id="editFarmerDetails">
                 <div class="col-xl-12 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
@@ -187,6 +187,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 								    </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
+                                    <div class="text-danger" id="bankerror" ></div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Account Holder Name</p>
@@ -209,8 +210,10 @@ while( $res=mysqli_fetch_assoc($result))
                                             <div class="form-group"><input class="form-control" type="text" name="farmer_bankbranch" placeholder="Your Bank Branch" value="<?php echo $f_bankbranch ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
+                                            <input type="file" name="" id="f_passbook">
+
                                             <p class="m-b-10 f-w-600">Passbook</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
+                                            <input class="btn btn-grey"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
                                         </div>
 								    </div>
                                 </div>
@@ -226,6 +229,32 @@ while( $res=mysqli_fetch_assoc($result))
 </div>
 </div>
             </div></div>
+
+<script type="text/javascript">
+$("#editFarmerDetails").submit(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'updateprofile-script.php',
+        type: 'POST',
+        data: $('#editFarmerDetails').serialize()+'&f_mobile=<?php echo $f_mobile?>',
+        success: function(response){
+            
+            if(response==1){
+                $("#bankerror").html("You have changed account details. please uplaod new Passbook");
+                 $("f_passbook").attr("required","");
+            }
+
+            if(response==0){
+                alert("updated successfully");
+            }
+
+        }
+    })   
+});    
+</script>
+
+
 <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">

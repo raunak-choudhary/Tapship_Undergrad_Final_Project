@@ -6,16 +6,14 @@ if(!isset($_SESSION['login_farmer'])){
     header("location: login.php"); // Redirecting To Profile Page
 }
 
-    error_reporting(0);
     $con=mysqli_connect("localhost","root","","tapship");
     if(!$con)
     {
         die(" Connection Error ");
     }
-    if(isset($_POST['update']))
-    {
+
         #retrieve file title
-        $f_mobile = $_GET['f_mobile'];
+        $f_mobile = $_POST['f_mobile'];
         $farmer_name = $_POST['farmer_name'];
         $farmer_gender = $_POST['farmer_gender'];
         $farmer_age = $_POST['farmer_age'];
@@ -57,11 +55,26 @@ if(!isset($_SESSION['login_farmer'])){
         // move_uploaded_file($tname3, $target_path3);
         // move_uploaded_file($tname4, $target_path4);
 
+
+        //fetch old data
+        $OldData=$con->query("SELECT * FROM farmer WHERE f_mobile='".$f_mobile."'")->fetch_assoc();
+
+        //is account details changed
+        if($farmer_bankaccount!=$OldData['f_bankaccount']){
+            echo 1; //unique response code
+        }
+        else{
+
+
         #sql query to insert into database
         $query = "update farmer set f_name = '".$farmer_name."', f_gender = '".$farmer_gender."', f_age = '".$farmer_age."', f_street = '".$farmer_street."', f_city = '".$farmer_city."', f_state = '".$farmer_state."', f_pincode = '".$farmer_pincode."', f_aadhar = '".$farmer_aadhar."', f_pan = '".$farmer_pan."', f_bankholder = '".$farmer_bankholder."', f_bankaccount = '".$farmer_bankaccount."', f_bankifsc = '".$farmer_bankifsc."', f_bankname = '".$farmer_bankname."', f_bankbranch = '".$farmer_bankbranch."', f_password = '".$farmer_password."' where f_mobile = '".$f_mobile."'";
-        $result = mysqli_query($con,$query); 
-    }
-    header("location: logout-script.php");
+        $result = mysqli_query($con,$query);
+        if($result){
+            echo 0;
+            }
+        }
+ 
+
 ?>
 
 
