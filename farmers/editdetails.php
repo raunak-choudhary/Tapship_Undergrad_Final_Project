@@ -13,7 +13,7 @@ error_reporting(0);
             <head>
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
-				<title>Farmer Profile</title>
+				<title>Farmer Update Profile</title>
 				<link rel="icon" href="../assets/img/fav.png" type="image/png">
 				<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -58,53 +58,54 @@ error_reporting(0);
 	<?php 
 
 $con=mysqli_connect("localhost","root","","tapship");
-   if(!$con)
-   {
-       die(" Connection Error ");
-   }
+if(!$con)
+{
+    die(" Connection Error ");
+}
 
-   $query = " select * from farmer where f_mobile=".$f_mobile."";
-   $result = mysqli_query($con,$query);
+$query = " select * from farmer where f_mobile=".$f_mobile."";
+$result = mysqli_query($con,$query);
 
-   while( $res=mysqli_fetch_assoc($result))
-   {
-      $f_id =  $res['f_id'];
-       $f_name =  $res['f_name'];
-       $f_gender =  $res['f_gender'];
-       $f_age =  $res['f_age'];
-       $f_street =  $res['f_street'];
-       $f_city =  $res['f_city'];
-       $f_state =  $res['f_state'];
-       $f_pincode =  $res['f_pincode'];
-       $f_aadhar =  $res['f_aadhar'];
-       $f_aadharpdf =  $res['f_aadharpdf'];
-       $f_pan =  $res['f_pan'];
-       $f_panpdf =  $res['f_panpdf'];
-       $f_photo =  $res['f_photo'];
-       $f_approve =  $res['f_approve'];
+while( $res=mysqli_fetch_assoc($result))
+{
+    $f_id =  $res['f_id'];
+    $f_name =  $res['f_name'];
+    $f_gender =  $res['f_gender'];
+    $f_age =  $res['f_age'];
+    $f_street =  $res['f_street'];
+    $f_city =  $res['f_city'];
+    $f_state =  $res['f_state'];
+    $f_pincode =  $res['f_pincode'];
+    $f_aadhar =  $res['f_aadhar'];
+    $f_aadharpdf =  $res['f_aadharpdf'];
+    $f_pan =  $res['f_pan'];
+    $f_panpdf =  $res['f_panpdf'];
+    $f_photo =  $res['f_photo'];
+    $f_approve =  $res['f_approve'];
 
-       $f_bankholder = $res['f_bankholder'];
-       $f_bankaccount = $res['f_bankaccount'];
-       $f_bankifsc = $res['f_bankifsc'];
-       $f_bankname = $res['f_bankname'];
-       $f_bankbranch = $res['f_bankbranch'];
-       $f_bankpassbook = $res['f_bankpassbook'];
-       $f_approve =  $res['f_approve'];
+    $f_bankholder = $res['f_bankholder'];
+    $f_bankaccount = $res['f_bankaccount'];
+    $f_bankifsc = $res['f_bankifsc'];
+    $f_bankname = $res['f_bankname'];
+    $f_bankbranch = $res['f_bankbranch'];
+    $f_bankpassbook = $res['f_bankpassbook'];
+    $f_approve =  $res['f_approve'];
+    $f_password =  $res['f_password'];
    }
 ?>
 
- <div class="features-boxed">
+<div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Update Farmer Profile</h2>
             </div>
         </div>
     </div>
 
     
     <div class="padding">
-        
         <div class="row container d-flex justify-content-center">
+            <form method="post" action="updateprofile-script.php?f_mobile=<?php echo $f_mobile?>">
                 <div class="col-xl-12 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
@@ -114,8 +115,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <h3 class="f-w-600"><?php echo "$f_name"?></h3>
                                         <h5>Farmer</h5>
 								        <h5>Status: <?php if($f_approve=="1"){echo "No Action";}else if($f_approve=="2"){echo " Accepted";}else if($f_approve=="3"){echo "Review";}else if($f_approve=="4"){echo "Rejected";}else if($f_approve=="5"){echo "Resubmitted";}  else{echo "Multiple Login State";} ?></h5>
-                                        <br> <br><br><br>
-                                        <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;" >Edit Profile</button></a>
+                                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                        <button class="btn btn-primary btn-block" type="submit" name="update">Update</button>
                                     </div>
                                 </div>
                             <div class="col-sm-8">
@@ -123,77 +124,89 @@ $con=mysqli_connect("localhost","root","","tapship");
                                     <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Information</strong></h4>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Id</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_id"?></h6>
-                                        </div>
-									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Name</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_name"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_name" placeholder="Farmer Name" value="<?php echo $f_name ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Mobile</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_mobile"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_mobile" placeholder="Farmer Mobile" value="<?php echo $f_mobile ?>" required="" autofocus="" disabled></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Gender</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_gender"?></h6>
+                                            <select class="form-control" id="f_gender" name="farmer_gender" value="<?php echo $f_gender ?>" required="" autofocus="">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                            </select>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Age</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_age"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_age" placeholder="Farmer Age" value="<?php echo $f_age ?>" required="" autofocus=""></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Password</p>
+                                            <div class="form-group"><input class="form-control" type="password" name="farmer_password" placeholder="Farmer Password" value="<?php echo $f_password ?>" required="" autofocus=""></div>
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Address</strong></h4>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Street</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_street"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_street" placeholder="Your Street" value="<?php echo $f_street ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">City</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_city"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_city" placeholder="Your City" value="<?php echo $f_city ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">State</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_state"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_state" placeholder="Your State" value="<?php echo $f_state ?>" required="" autofocus=""></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Pincode</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_pincode"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_pincode" placeholder="Your Pincode" value="<?php echo $f_pincode ?>" required="" autofocus=""></div>
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Documents</strong></h4>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Aadhaar</p>
-                                            <h6 class="text-muted  f-w-400"><?php echo "$f_aadhar"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_aadhar" placeholder="Your Pincode" value="<?php echo $f_aadhar ?>" required="" autofocus="" ></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Upload Aadhaar</p>
+                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_pan" placeholder="Your PAN Number" value="<?php echo $f_pan ?>" required="" autofocus=""></div>  
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Upload PAN</p>
+                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                         </div>
 								    </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Account Holder Name</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_bankholder"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankholder" placeholder="Account Holder Name" value="<?php echo $f_bankholder ?>" required="" autofocus=""></div>
                                         </div>
 								    	<div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Account Number</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_bankaccount"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankaccount" placeholder="Your Bank Account Number" value="<?php echo $f_bankaccount ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank IFSC Code</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_bankifsc"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankifsc" placeholder="Your Bank IFSC Code" value="<?php echo $f_bankifsc ?>" required="" autofocus=""></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Name</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_bankname"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankname" placeholder="Your Bank Name" value="<?php echo $f_bankname ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Branch</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_bankbranch"?></h6>
+                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankbranch" placeholder="Your Bank Branch" value="<?php echo $f_bankbranch ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Passbook</p>
@@ -204,7 +217,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>  
+            </form>    
         </div> 
     </div>
 </div>

@@ -48,9 +48,6 @@
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-              
-             
-
             <h5 style="color:#fff;">Mobile Number</h5>
             <div class="form-group"><input class="form-control" id="farmer_mobile" type="phone" name="farmer_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>
 
@@ -60,10 +57,10 @@
             <h5 style="color:#fff;">Gender</h5>
             <div class="form-group">
             <select class="form-control" id="farmer_gender" name="farmer_gender" required>
-              <option selected disabled value="">Choose Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Others">Others</option>
+                <option selected disabled value="">Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
             </select>
             </div>
 
@@ -110,7 +107,7 @@
             <div class="form-group"><input class="form-control" id="farmer_bankname" type="text" name="farmer_bankname" placeholder="Your Bank Name" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Bank Branch Name</h5>
-            <div class="form-group"><input class="form-control" id="farmer_bankbranch" type="text" name="farmer_bankbranch"  placeholder="Your PAN Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="farmer_bankbranch" type="text" name="farmer_bankbranch"  placeholder="Your Bank Branch" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Bank Passbook PDF</h5>
             <div class="form-group"><input class="form-control" id="farmer_bankpassbook" type="file" accept="application/pdf" name="farmer_bankpassbook" required="" autofocus=""></div>

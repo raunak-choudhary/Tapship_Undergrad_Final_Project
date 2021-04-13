@@ -8,7 +8,7 @@ if(!isset($_SESSION['login_admin'])){
 header("location: login.php"); // Redirecting To Profile Page
 }
 
- $con=mysqli_connect("localhost","root","","tapship");
+$con=mysqli_connect("localhost","root","","tapship");
     if(!$con)
     {
         die(" Connection Error ");
