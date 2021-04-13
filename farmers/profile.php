@@ -48,7 +48,6 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
@@ -58,42 +57,43 @@ error_reporting(0);
 	<?php 
 
 $con=mysqli_connect("localhost","root","","tapship");
-   if(!$con)
-   {
-       die(" Connection Error ");
-   }
+if(!$con)
+{
+    die(" Connection Error ");
+}
 
-   $query = " select * from farmer where f_mobile=".$f_mobile."";
-   $result = mysqli_query($con,$query);
+$query = " select * from farmer where f_mobile=".$f_mobile."";
+$result = mysqli_query($con,$query);
 
-   while( $res=mysqli_fetch_assoc($result))
-   {
-      $f_id =  $res['f_id'];
-       $f_name =  $res['f_name'];
-       $f_gender =  $res['f_gender'];
-       $f_age =  $res['f_age'];
-       $f_street =  $res['f_street'];
-       $f_city =  $res['f_city'];
-       $f_state =  $res['f_state'];
-       $f_pincode =  $res['f_pincode'];
-       $f_aadhar =  $res['f_aadhar'];
-       $f_aadharpdf =  $res['f_aadharpdf'];
-       $f_pan =  $res['f_pan'];
-       $f_panpdf =  $res['f_panpdf'];
-       $f_photo =  $res['f_photo'];
-       $f_approve =  $res['f_approve'];
+while( $res=mysqli_fetch_assoc($result))
+{
+    $f_id =  $res['f_id'];
+    $f_name =  $res['f_name'];
+    $f_gender =  $res['f_gender'];
+    $f_age =  $res['f_age'];
+    $f_street =  $res['f_street'];
+    $f_city =  $res['f_city'];
+    $f_state =  $res['f_state'];
+    $f_pincode =  $res['f_pincode'];
+    $f_aadhar =  $res['f_aadhar'];
+    $f_aadharpdf =  $res['f_aadharpdf'];
+    $f_pan =  $res['f_pan'];
+    $f_panpdf =  $res['f_panpdf'];
+    $f_photo =  $res['f_photo'];
+    $f_approve =  $res['f_approve'];
 
-       $f_bankholder = $res['f_bankholder'];
-       $f_bankaccount = $res['f_bankaccount'];
-       $f_bankifsc = $res['f_bankifsc'];
-       $f_bankname = $res['f_bankname'];
-       $f_bankbranch = $res['f_bankbranch'];
-       $f_bankpassbook = $res['f_bankpassbook'];
-       $f_approve =  $res['f_approve'];
-   }
+    $f_bankholder = $res['f_bankholder'];
+    $f_bankaccount = $res['f_bankaccount'];
+    $f_bankifsc = $res['f_bankifsc'];
+    $f_bankname = $res['f_bankname'];
+    $f_bankbranch = $res['f_bankbranch'];
+    $f_bankpassbook = $res['f_bankpassbook'];
+    $f_approve =  $res['f_approve'];
+    $f_password =  $res['f_password'];
+}
 ?>
 
- <div class="features-boxed">
+<div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Farmer Profile</h2>

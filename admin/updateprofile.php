@@ -34,7 +34,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Update Profile</title>
+    <title>Admin Update Profile</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -62,7 +62,6 @@ $con=mysqli_connect("localhost","root","","tapship");
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
@@ -77,13 +76,10 @@ $con=mysqli_connect("localhost","root","","tapship");
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" action="updateprofile-script.php?a_name=<?php echo $a_name ?>" style="background: #0c3823; margin-bottom: 40px;">
-              
-             
             <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username" value="<?php echo $a_name ?>"></div>
-            <div class="form-group"><input class="form-control" type="text" name="a_password" placeholder="Password" value="<?php echo $a_password ?>"></div>
+            <div class="form-group"><input class="form-control" type="password" name="a_password" placeholder="Password" value="<?php echo $a_password ?>"></div>
             <p style="color:#fff;"> <strong>Note:</strong> You will be logged out after update. Please login again to access admin account with new credentials.</p>
             <button class="btn btn-primary btn-block" type="submit" name="update">Update</button>
-            
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">

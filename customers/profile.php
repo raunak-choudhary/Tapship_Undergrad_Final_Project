@@ -48,9 +48,7 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../customers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
                 </ul>
             </div>
         </div>
@@ -58,34 +56,34 @@ error_reporting(0);
 	<?php 
 
 $con=mysqli_connect("localhost","root","","tapship");
-   if(!$con)
-   {
-       die(" Connection Error ");
-   }
+if(!$con)
+{
+    die(" Connection Error ");
+}
 
-   $query = " select * from customer where c_mobile=".$c_mobile."";
-   $result = mysqli_query($con,$query);
+$query = " select * from customer where c_mobile=".$c_mobile."";
+$result = mysqli_query($con,$query);
 
-   while( $res=mysqli_fetch_assoc($result))
-   {
-       $c_id =  $res['c_id'];
-       $c_name =  $res['c_name'];
-       $c_contactname =  $res['c_contactname'];
-       $c_gender =  $res['c_gender'];
-       $c_age =  $res['c_age'];
-       $c_street =  $res['c_street'];
-       $c_city =  $res['c_city'];
-       $c_state =  $res['c_state'];
-       $c_pincode =  $res['c_pincode'];
-       $c_type =  $res['c_type'];
-       $c_registration =  $res['c_registration'];
-       $c_aadhar =  $res['c_aadhar'];
-       $c_aadharpdf =  $res['c_aadharpdf'];
-       $c_pan =  $res['c_pan'];
-       $c_panpdf =  $res['c_panpdf'];
-       $c_photo =  $res['c_photo'];
-       $c_approve =  $res['c_approve'];
-   }
+while( $res=mysqli_fetch_assoc($result))
+{
+    $c_id =  $res['c_id'];
+    $c_name =  $res['c_name'];
+    $c_contactname =  $res['c_contactname'];
+    $c_gender =  $res['c_gender'];
+    $c_age =  $res['c_age'];
+    $c_street =  $res['c_street'];
+    $c_city =  $res['c_city'];
+    $c_state =  $res['c_state'];
+    $c_pincode =  $res['c_pincode'];
+    $c_type =  $res['c_type'];
+    $c_registration =  $res['c_registration'];
+    $c_aadhar =  $res['c_aadhar'];
+    $c_aadharpdf =  $res['c_aadharpdf'];
+    $c_pan =  $res['c_pan'];
+    $c_panpdf =  $res['c_panpdf'];
+    $c_photo =  $res['c_photo'];
+    $c_approve =  $res['c_approve'];
+}
 ?>
 
     <div class="features-boxed">
@@ -112,6 +110,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Wholesaler</h5>
 								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}  else{echo "Multiple Login State";} ?></h5>
+                                <br> <br><br><br>
+                                <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;" >Edit Profile</button></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -173,12 +173,15 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <p class="m-b-10  m-l-20 f-w-600">PAN</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="#" target="_blank">Update</a></button></p>
-                                        
-                                    </div>
                                 </div>
-								
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>		
+					
 	<?php
 	}
     if($c_type=="Organization")
@@ -195,6 +198,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <h3 class="f-w-600"><?php echo "$c_name"?></h3>
                                 <h5>Organization</h5>
 								<h5>Status: <?php if($c_approve=="1"){echo "No Action";}else if($c_approve=="2"){echo " Accepted";}else if($c_approve=="3"){echo "Review";}else if($c_approve=="4"){echo "Rejected";}else if($c_approve=="5"){echo "Resubmitted";}   else{echo "Multiple Login State";} ?></h5>
+                                <br><br>
+                                <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;" >Edit Profile</button></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -253,54 +258,37 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <h4 class="m-b-20 m-t-40 p-b-5 b-b-default m-l-20 f-w-600"><strong>Documents</strong></h4>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 m-l-20 f-w-600">Regestration Document</p>
+                                        <p class="m-b-10 m-l-20 f-w-600">Registration Document</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document</a></button></h6>
                                     </div>
 									<div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">PAN</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan"?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
                                     </div>
-									<div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="#" target="_blank">Update</a></button></p>
-                                        
-                                    </div>
                                 </div>
-								<?php
-								}
-								?> 
-	
-								
-								
-															
-									                   <!--  <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                </ul> -->
+								</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-            </div></div>
+    </div>		    
+<?php
+}
+?> 
 <div class="footer-dark" style="background: rgb(12,56,35);">
-        <footer>
-            <div class="container-fluid">
-                <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
-            </div>
-        </footer>
- </div>
-	<script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="../assets/js/freelancer.js"></script>
-  </body>
+    <footer>
+        <div class="container-fluid">
+            <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
+        </div>
+    </footer>
+</div>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/js/bs-init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="../assets/js/freelancer.js"></script>
+</body>
 </html>

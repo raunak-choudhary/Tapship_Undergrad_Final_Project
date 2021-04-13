@@ -76,9 +76,6 @@ function yesnoCheck(that) {
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-              
-             
-
             <h5 style="color:#fff;">Select Customer Type</h5>
             <div class="form-group">
             <select class="form-control" id="customer_type" name="customer_type" required onchange="yesnoCheck(this);">
@@ -108,10 +105,10 @@ function yesnoCheck(that) {
             <h5 style="color:#fff;">Gender</h5>
             <div class="form-group">
             <select class="form-control" id="customer_gender" name="customer_gender" required>
-              <option selected disabled value="">Choose Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Others">Others</option>
+                <option selected disabled value="">Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
             </select>
         
             <h5 style="color:#fff;">Age</h5>

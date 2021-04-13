@@ -48,7 +48,6 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
 
                 </ul>
@@ -91,7 +90,7 @@ while( $res=mysqli_fetch_assoc($result))
     $f_bankpassbook = $res['f_bankpassbook'];
     $f_approve =  $res['f_approve'];
     $f_password =  $res['f_password'];
-   }
+}
 ?>
 
 <div class="features-boxed">
@@ -141,11 +140,11 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Age</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="farmer_age" placeholder="Farmer Age" value="<?php echo $f_age ?>" required="" autofocus=""></div>
+                                            <div class="form-group"><input class="form-control" type="text" pattern="^[1-9]{1}[0-9]{1}$" name="farmer_age" title="Enter your correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" value="<?php echo $f_age ?>" required="" autofocus=""></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Password</p>
-                                            <div class="form-group"><input class="form-control" type="password" name="farmer_password" placeholder="Farmer Password" value="<?php echo $f_password ?>" required="" autofocus=""></div>
+                                            <div class="form-group"><input class="form-control" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="farmer_password" placeholder="Farmer Password" value="<?php echo $f_password ?>" required="" autofocus=""></div>
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Address</strong></h4>
@@ -164,14 +163,14 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Pincode</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="farmer_pincode" placeholder="Your Pincode" value="<?php echo $f_pincode ?>" required="" autofocus=""></div>
+                                            <div class="form-group"><input class="form-control" type="text" pattern="^[1-9]{1}[0-9]{5}" name="farmer_pincode" title="Enter valid 6 digit Pincode (Ex. 5763XX)" placeholder="Your Pincode" value="<?php echo $f_pincode ?>" required="" autofocus=""></div>
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Documents</strong></h4>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Aadhaar</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="farmer_aadhar" placeholder="Your Pincode" value="<?php echo $f_aadhar ?>" required="" autofocus="" ></div>
+                                            <div class="form-group"><input class="form-control" type="text" pattern="^[2-9]{1}[0-9]{11}$" title="Enter 12 digit Aadhar Number (Ex. 2345678382XX)" name="farmer_aadhar" placeholder="Your Aadhar Number" value="<?php echo $f_aadhar ?>" required="" autofocus="" ></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
@@ -179,7 +178,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="farmer_pan" placeholder="Your PAN Number" value="<?php echo $f_pan ?>" required="" autofocus=""></div>  
+                                            <div class="form-group"><input class="form-control" type="text" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"  title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" name="farmer_pan" placeholder="Your PAN Number" value="<?php echo $f_pan ?>" required="" autofocus=""></div>  
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload PAN</p>
@@ -199,7 +198,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank IFSC Code</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="farmer_bankifsc" placeholder="Your Bank IFSC Code" value="<?php echo $f_bankifsc ?>" required="" autofocus=""></div>
+                                            <div class="form-group"><input class="form-control" type="text" pattern="^[A-Z]{4}0[A-Z0-9]{6}$"  title="Your Bank IFSC Code" name="farmer_bankifsc" placeholder="Your Bank IFSC Code" value="<?php echo $f_bankifsc ?>" required="" autofocus=""></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Bank Name</p>
@@ -210,10 +209,8 @@ while( $res=mysqli_fetch_assoc($result))
                                             <div class="form-group"><input class="form-control" type="text" name="farmer_bankbranch" placeholder="Your Bank Branch" value="<?php echo $f_bankbranch ?>" required="" autofocus=""></div>
                                         </div>
 									    <div class="col-sm-6">
-                                            <input type="file" name="" id="f_passbook">
-
                                             <p class="m-b-10 f-w-600">Passbook</p>
-                                            <input class="btn btn-grey"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
+                                            <input type="file" name="" id="f_passbook">
                                         </div>
 								    </div>
                                 </div>
@@ -241,12 +238,13 @@ $("#editFarmerDetails").submit(function(e) {
         success: function(response){
             
             if(response==1){
-                $("#bankerror").html("You have changed account details. please uplaod new Passbook");
-                 $("f_passbook").attr("required","");
+                $("#bankerror").html("You have changed your bank account details. Please uplaod new Passbook");
+                $("f_passbook").attr("required","");
             }
 
             if(response==0){
-                alert("updated successfully");
+                alert("Updated Successfully");
+                location.replace('logout-script.php');
             }
 
         }
@@ -261,12 +259,12 @@ $("#editFarmerDetails").submit(function(e) {
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
             </div>
         </footer>
- </div>
+</div>
 	<script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>
-  </body>
+</body>
 </html>
