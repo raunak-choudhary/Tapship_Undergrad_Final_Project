@@ -12,29 +12,36 @@ error_reporting(0);
 <!doctype html>
         <html>
             <head>
-                <meta charset='utf-8'>
-                <meta name='viewport' content='width=device-width, initial-scale=1'>
-				<title>Bid Details</title>
-				<link rel="icon" href="../assets/img/fav.png" type="image/png">
-				<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
-				<link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-				<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-				<link rel="stylesheet" href="../assets/css/Article-List.css">
-				<link rel="stylesheet" href="../assets/css/Footer-Dark.css">
-				<link rel="stylesheet" href="../assets/css/Highlight-Blue.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
-				<link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-				<link rel="stylesheet" href="../assets/css/table-style.css">
-                <link rel="stylesheet" href="../assets/css/profile.css">
-                <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
-                <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
-                                
-                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-                <script type='text/javascript'></script>
+					<meta charset="utf-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+					<meta name='viewport' content='width=device-width, initial-scale=1'>
+					<title>Crop Details</title>
+					<link rel="icon" href="../assets/img/fav.png" type="image/png">
+					<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+					<link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+					<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+					<link rel="stylesheet" href="../assets/css/Article-List.css">
+					<link rel="stylesheet" href="../assets/css/Footer-Dark.css">
+					<link rel="stylesheet" href="../assets/css/Highlight-Blue.css">
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+					<link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+					<link rel="stylesheet" href="../assets/css/table-style.css">
+					<link rel="stylesheet" href="../assets/css/profile.css">
+					<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+					<link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
+												
+					<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+					<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+					<script type='text/javascript'></script>
+					<link rel="stylesheet" href="assets1/bootstrap/css/bootstrap.min.css">
+					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+					<link rel="stylesheet" href="assets1/css/cards.css">
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+					<link rel="stylesheet" href="assets1/css/styles.css">
+                
             </head>
 
 
@@ -163,48 +170,147 @@ $con=mysqli_connect("localhost","root","","tapship");
    }
 ?>
 
-<img src="../farmers/<?php echo  $cr_img1;?>" width="30%">
-<img src="../farmers/<?php echo  $cr_img2;?>" width="30%">
-<img src="../farmers/<?php echo  $cr_img3;?>" width="30%">
+<div>
+        <div class="container">
+            <div class="cust_bloglistintro">
+                <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    <a class="h4" href="#"></a></div>
+                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                    <a class="h4" href="#"></a></div>
+            </div>
+        
+        </div>
 
-<h5>Crop Details</h5>
-<p>Crop ID: <?php echo $cro_id;?></P>
-<p>Crop Name: <?php echo $cro_name;?></P>
-<p>Crop Type: <?php echo $cro_type;?></P>
-<p>Crop Sale ID: <?php echo $cr_id;?></P>
-
-<h5>Crop Figures</h5>
-<p>Minimun Expected Price (per kgs.) <?php echo '₹ ',$cr_mep;?></P>
-<p>Maximum Selling Price (per kgs.) <?php echo '₹ ',$cro_msp;?></P>
-<p>Quantity: <?php echo $cr_quantity,' Kgs';?></P>
-<p>Date: <?php echo $cr_date;?></P>
-<p>Crop Status:<?php if($cr_status=="0"){echo "Crop Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepeted";}else if($cr_status=="3"){echo "Payment Done";} else if($cr_status=="4"){echo "Payment Confirmed";} else if($cr_status=="5"){echo "Self Transport Selected";} else if($cr_status=="6"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="7"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="8"){echo "Tapship Delivery Selected";} else if($cr_status=="9"){echo "Farmer Pickup conformed";} else if($cr_status=="10"){echo "Driver Pickup Conformed";}else if($cr_status=="11"){echo "Customer Delivery Conformed";} else if($cr_status=="12"){echo "Deal Over";} ?></P>
-
-<h5>Farmer Details</h5>
-<p>Farmer Name: <?php echo $f_name;?></P>
-<p>Farmer Mobile: <?php echo $f_mobile;?></P>
-<p>Farmer Gender: <?php echo $f_gender;?></P>
-<p>Farmer Age: <?php echo $f_age;?></P>
-<p>Farmer Street: <?php echo $f_street;?></P>
-<p>Farmer City: <?php echo $f_city;?></P>
-<p>Farmer State: <?php echo $f_street;?></P>
-<p>Farmer Pincode: <?php echo $f_pincode;?></P>
-
-<h5>Bank Details</h5>
-<p>Bank Account Holder: <?php echo $f_bankholder;?></P>
-<p>Account Number: <?php echo $f_bankaccount;?></P>
-<p>Bank IFSC Code: <?php echo $f_bankifsc;?></P>
-<p>Bank Name: <?php echo $f_bankname;?></P>
-<p>Bank Branch: <?php echo $f_bankbranch;?></P>
-
-<h5>Bid Details</h5>
-<p>Bid ID: <?php echo $cb_id;?></P>
-<p>Bid Price: <?php echo '₹ ',$cb_bidprice;?></P>
-<p>Bid Total Amount: <?php echo '₹ ',$cb_bidprice*$cr_quantity;?></P>
-<p>Bid Status: <?php if($cb_status=="0"){echo "Bid Placed";}else if($cb_status=="1"){echo "Bid Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Payment Conformation Pending";} else if($cb_status=="4"){echo "Transport Selection Pending";} else if($cb_status=="5"){echo "Delivery Pending";} else if($cb_status=="6"){echo "Tapship Delievry Selected ";} else if($cb_status=="7"){echo "Tapship Delivery Bidding";} else if($cb_status=="8"){echo "Farmer Pickup Conformation Pending";} else if($cb_status=="9"){echo "Driver Pickup Conformation Pending";} else if($cb_status=="10"){echo "Customer Delivery Conformation Pending";}else if($cb_status=="11"){echo "Driver Delivery Conformation Pending";} else if($cb_status=="12"){echo "Deal Over";} ?>
-
-</P>
-
+<div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        
+                        <div class="col-sm-12 col-md-12 col">
+                            <div class="card-block">
+                                <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Crop Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_id"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_name"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Type</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cro_type"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Sale ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_id"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Maximum Selling Price (per kgs.)</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Quantity</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_quantity Kgs"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Date</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cr_date"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Crop Status</p>
+                                        <h6 class="text-muted f-w-400"><?php if($cr_status=="0"){echo "Crop Added";}else if($cr_status=="1"){echo "Bidding";}else if($cr_status=="2"){echo "Bid Accepeted";}else if($cr_status=="3"){echo "Payment Done";} else if($cr_status=="4"){echo "Payment Confirmed";} else if($cr_status=="5"){echo "Self Transport Selected";} else if($cr_status=="6"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="7"){echo "Tapship Delivery Selection Pending";} else if($cr_status=="8"){echo "Tapship Delivery Selected";} else if($cr_status=="9"){echo "Farmer Pickup conformed";} else if($cr_status=="10"){echo "Driver Pickup Conformed";}else if($cr_status=="11"){echo "Customer Delivery Conformed";} else if($cr_status=="12"){echo "Deal Over";} ?></P></h6>
+                                    </div>
+                                </div><br>
+                                <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Farmer Details</strong></h4>
+                                <div class="row">
+                                   <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_name"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_mobile"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Gender</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_gender"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Age</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_age"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Street</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_street"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer City</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_city"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer State</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_state"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Farmer Pincode</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_pincode"?></h6>
+                                    </div></div><br>
+									<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Bank Details</strong></h4>
+                                <div class="row">
+                                   <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Account Holder</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankholder"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Account Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankaccount"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank IFSC Code</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankifsc"?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankname"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bank Branch</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$f_bankbranch"?></h6>
+                                    </div>
+                                </div><br>
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Bid Details</strong></h4>
+                                <div class="row">
+                                   <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bid ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo "$cb_id"?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bid Price</p>
+                                        <h6 class="text-muted f-w-400"><?php echo '₹ ',$cb_bidprice;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bid Total Amount</p>
+                                        <h6 class="text-muted f-w-400"><?php echo '₹ ',$cb_bidprice*$cr_quantity;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Bid Status</p>
+                                        <h6 class="text-muted f-w-400"><?php if($cb_status=="0"){echo "Bid Placed";}else if($cb_status=="1"){echo "Bid Accepted";}else if($cb_status=="2"){echo "Bid Rejected";}else if($cb_status=="3"){echo "Payment Conformation Pending";} else if($cb_status=="4"){echo "Transport Selection Pending";} else if($cb_status=="5"){echo "Delivery Pending";} else if($cb_status=="6"){echo "Tapship Delievry Selected ";} else if($cb_status=="7"){echo "Tapship Delivery Bidding";} else if($cb_status=="8"){echo "Farmer Pickup Conformation Pending";} else if($cb_status=="9"){echo "Driver Pickup Conformation Pending";} else if($cb_status=="10"){echo "Customer Delivery Conformation Pending";}else if($cb_status=="11"){echo "Driver Delivery Conformation Pending";} else if($cb_status=="12"){echo "Deal Over";} ?></h6>
+                                    </div>
+                                </div><br>
+								
 <?php if($cb_status=='1'){ ?>
 <div class="features-boxed">
         <div class="container" style="background: #ffffff;">
@@ -234,10 +340,21 @@ $con=mysqli_connect("localhost","root","","tapship");
 <?php 
 }if($cb_status==3 || $cb_status==4 || $cb_status==5 || $cb_status==6 || $cb_status==7 || $cb_status==8 || $cb_status==9 || $cb_status==10 || $cb_status==11 || $cb_status==12){
     ?> 
-    <h5>Payment Details</h5>
-    <p>Payment Type: <?php echo $cb_paytype;?></P>
-    <p>Transcation ID: <?php echo $cb_tid;?></P>
-    <p>Transcation Proof: <a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></P>
+							<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Payment Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Payment Type</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $cb_paytype;?></h6>
+									</div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Transaction ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $cb_tid;?></h6>
+									</div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Transaction Proof</p>
+                                        <h6 class="text-muted f-w-400"><a href="../customers/<?php echo  $cb_tproof;?>" target="_blank">View Transcation</a></h6>
+									</div>
+								</div><br> 
 <?php
 
 }
@@ -281,8 +398,12 @@ if($cb_status=='4'){ ?>
 <?php  
 }
 if($cb_status=='5'){ ?>
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Self Transport";?></P>
+							<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Self Transport";?></h6>
+                                    </div>
 
     <?php
     $query = "select * from transportself where ts_cb_id=$cb_id";
@@ -294,46 +415,96 @@ if($cb_status=='5'){ ?>
         $ts_mobile =  $res['ts_mobile'];
         $ts_vehiclenumber =  $res['ts_vehiclenumber'];
     } ?>
-    <p>Driver Name: <?php echo $ts_name;?></P>
-    <p>Driver Mobile: <?php echo $ts_mobile;?></P>
-    <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
-
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $ts_name;?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $ts_mobile;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo  $ts_vehiclenumber;?></h6>
+                                    </div>
+									</div><br>
        
 <?php  
 }
 if($cb_status=='6'){ ?>
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Tapship Delivery";?></P>
-
-    <h6> Note: - Please wait for bids from Drivers</h6>
-
-       
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Tapship Delivery";?></h6>
+									</div>
+									<h6> Note: - Please wait for bids from Drivers</h6>
+								</div>
 <?php 
 }
 if($cb_status=='7'){ ?>
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Tapship Delivery";?></P>
-
-    <button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbids.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Transport Bids </a> </button>
-	    
-
+							<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Tapship Delivery";?></h6>
+                                    </div>
+									<button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbids.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Transport Bids </a> </button>
+								</div><br>
 <?php  
 }if($cb_status==8 || $cb_status==9 ||$cb_status==11 || $cb_status==12){
     ?> 
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Tapship Delivery";?></P>
-    <p>Transport ID: <?php echo $tb_id;?></P>
-    <p>Transport Bid: <?php echo '₹ ',$tb_bid;?></P>
-    <p>Transport Status: <?php echo $tb_status;?></P>
-
-    <h5>Driver Details</h5>
-    <p>Driver Name: <?php echo $d_name;?></P>
-    <p>Driver Mobile: <?php echo $d_mobile;?></P>
-    <p>Driver Age: <?php echo $d_age;?></P>
-    <p>Driver Gender: <?php echo $d_gender;?></P>
-    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
-    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
-    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
+							<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Tapship Delivery";?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_id;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Bid</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_bid;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Status</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_status;?></h6>
+                                    </div>
+                                </div><br>
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_name;?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_mobile;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Age</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_age;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Gender</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_gender;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver License Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_dlnumber;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Location</p>
+                                        <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></h6>
+                                    </div>
+                                </div><br>
+    
 
 <?php
 }
@@ -350,11 +521,25 @@ if($cb_status=='9'){ ?>
 <?php
 }
 if($cb_status=='10' && $cb_transporttype=='1'){ ?>
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Tapship Delivery";?></P>
-    <p>Transport ID: <?php echo $tb_id;?></P>
-    <p>Transport Bid: <?php echo $tb_bid;?></P>
-    <p>Transport Status: <?php echo $tb_status;?></P>
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Tapship Delivery";?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_id;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Bid</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_bid;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Status</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_status;?></h6>
+                                    </div>
+                                
 
     <?php
     if($cb_status=="5"){ 
@@ -367,9 +552,21 @@ if($cb_status=='10' && $cb_transporttype=='1'){ ?>
         $ts_mobile =  $res['ts_mobile'];
         $ts_vehiclenumber =  $res['ts_vehiclenumber'];
     } ?>
-    <p>Driver Name: <?php echo $ts_name;?></P>
-    <p>Driver Mobile: <?php echo $ts_mobile;?></P>
-    <p>Vehicle Number: <?php echo $ts_vehiclenumber;?></P>
+								
+                                
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $ts_name;?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $ts_mobile;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo  $ts_vehiclenumber;?></h6>
+                                    </div>
+									</div><br>
     <?php } ?>
 
     <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
@@ -396,21 +593,57 @@ if($cb_status=='10' && $cb_transporttype=='1'){ ?>
 <?php
 }
 if($cb_status=='10' && $cb_transporttype=='2'){ ?>
-    <h5>Transport Details</h5>
-    <p>Medium: <?php echo "Tapship Delivery";?></P>
-    <p>Transport ID: <?php echo $tb_id;?></P>
-    <p>Transport Bid: <?php echo $tb_bid;?></P>
-    <p>Transport Status: <?php echo $tb_status;?></P>
-
-    <h5>Driver Details</h5>
-    <p>Driver Name: <?php echo $d_name;?></P>
-    <p>Driver Mobile: <?php echo $d_mobile;?></P>
-    <p>Driver Age: <?php echo $d_age;?></P>
-    <p>Driver Gender: <?php echo $d_gender;?></P>
-    <p>Driver License Number: <?php echo $d_dlnumber;?></P>
-    <p>Vehicle Number: <?php echo $d_vehiclenumber;?></P>
-    <p>Location: <a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></p>
-
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Medium</p>
+                                        <h6 class="text-muted f-w-400"><?php echo"Tapship Delivery";?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport ID</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_id;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Bid</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_bid;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tranport Status</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $tb_status;?></h6>
+                                    </div>
+                                </div><br>
+								<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                <div class="row">
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Name</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_name;?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_mobile;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Age</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_age;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver Gender</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_gender;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Driver License Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $d_dlnumber;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                        <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber;?></h6>
+                                    </div>
+									<div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Location</p>
+                                        <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></h6>
+                                    </div>
+                                </div><br>
+    
     <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
         <input type="checkbox" id="check"> I got <?php echo $cr_quantity;?> kgs. of <?php echo $cro_name;?> from <?php echo $f_name;?>  ehich is delivered by Driver <?php echo $d_name;?>
         <br>
@@ -445,6 +678,10 @@ if($cb_status=='12'){ ?>
     <h4 style="text-align: center;">Thank You for doing business with us</h4>
 <?php  }?>
 <hr>
+</div>
+	</div>
+	</div>
+	</div></div></div></div></div>
 
 
 <div class="footer-dark" style="background: rgb(12,56,35);">
@@ -460,5 +697,6 @@ if($cb_status=='12'){ ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>
+	</div>
   </body>
 </html>
