@@ -29,8 +29,7 @@ error_reporting(0);
 				<link rel="stylesheet" href="../assets/css/table-style.css">
                 <link rel="stylesheet" href="../assets/css/profile.css">
                 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
-                <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
-                                
+                <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>    
                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
                 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
                 <script type='text/javascript'></script>
@@ -48,9 +47,7 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="#"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
                 </ul>
             </div>
         </div>
@@ -58,40 +55,40 @@ error_reporting(0);
 	<?php 
 
 $con=mysqli_connect("localhost","root","","tapship");
-   if(!$con)
-   {
-       die(" Connection Error ");
-   }
+if(!$con)
+{
+    die(" Connection Error ");
+}
 
-   $query = " select * from driver where d_mobile=".$d_mobile."";
-   $result = mysqli_query($con,$query);
+$query = " select * from driver where d_mobile=".$d_mobile."";
+$result = mysqli_query($con,$query);
 
-   while( $res=mysqli_fetch_assoc($result))
-   {
-      $d_id =  $res['d_id'];
-       $d_name =  $res['d_name'];
-       $d_gender =  $res['d_gender'];
-       $d_age =  $res['d_age'];
-       $d_street =  $res['d_street'];
-       $d_city =  $res['d_city'];
-       $d_state =  $res['d_state'];
-       $d_pincode =  $res['d_pincode'];
-       $d_aadhar =  $res['d_aadhar'];
-       $d_aadharpdf =  $res['d_aadharpdf'];
-       $d_pan =  $res['d_pan'];
-       $d_panpdf =  $res['d_panpdf'];
-       $d_dlnumber =  $res['d_dlnumber'];
-       $d_dlpdf =  $res['d_dlpdf'];
-       $d_vehiclenumber =  $res['d_vehiclenumber'];
-       $d_vehiclercpdf =  $res['d_vehiclercpdf'];
-       $d_lat =  $res['d_lat'];
-       $d_long =  $res['d_long'];
-       $d_photo =  $res['d_photo'];
-       $d_approve =  $res['d_approve'];
-   }
+while( $res=mysqli_fetch_assoc($result))
+{
+    $d_id =  $res['d_id'];
+    $d_name =  $res['d_name'];
+    $d_gender =  $res['d_gender'];
+    $d_age =  $res['d_age'];
+    $d_street =  $res['d_street'];
+    $d_city =  $res['d_city'];
+    $d_state =  $res['d_state'];
+    $d_pincode =  $res['d_pincode'];
+    $d_aadhar =  $res['d_aadhar'];
+    $d_aadharpdf =  $res['d_aadharpdf'];
+    $d_pan =  $res['d_pan'];
+    $d_panpdf =  $res['d_panpdf'];
+    $d_dlnumber =  $res['d_dlnumber'];
+    $d_dlpdf =  $res['d_dlpdf'];
+    $d_vehiclenumber =  $res['d_vehiclenumber'];
+    $d_vehiclercpdf =  $res['d_vehiclercpdf'];
+    $d_lat =  $res['d_lat'];
+    $d_long =  $res['d_long'];
+    $d_photo =  $res['d_photo'];
+    $d_approve =  $res['d_approve'];
+}
 ?>
 
- <div class="features-boxed">
+<div class="features-boxed">
         <div class="container" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Driver Profile</h2>
@@ -111,6 +108,8 @@ $con=mysqli_connect("localhost","root","","tapship");
                                 <h3 class="f-w-600"><?php echo "$d_name"?></h3>
                                 <h5>Driver</h5>
 								<h5>Status: <?php if($d_approve=="1"){echo "No Action";}else if($d_approve=="2"){echo " Accepted";}else if($d_approve=="3"){echo "Review";}else if($d_approve=="4"){echo "Rejected";}else if($d_approve=="5"){echo "Resubmitted";}   else{echo "Multiple Login State";}?></h5>
+                                <br> <br><br><br>
+                                <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;">Edit Profile</button></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -180,17 +179,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                                         <p class="m-b-10  m-l-20 f-w-600">Live Location</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="https://www.google.com/maps/@<?php echo  $d_lat;?>,<?php echo  $d_long;?>,18z" target="_blank">View Location</a></button></h6>
                                     </div>
-                                  </div>
-    
-	
-								
-								
-															
-									                   <!--  <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                </ul> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,19 +191,19 @@ $con=mysqli_connect("localhost","root","","tapship");
 </div>
 </div>
 </div>
-            </div></div>
+</div></div>
 <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
             </div>
         </footer>
- </div>
+</div>
 	<script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>
-  </body>
+</body>
 </html>

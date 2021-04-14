@@ -175,7 +175,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
-                                            <div class="form-group"><input class="form-control" type="file" name="farmer_aadharpdf" accept="application/pdf" id="farmer_aadharpdf"></div>
+                                            <div class="form-group"><input class="form-control" type="file" name="farmer_aadharpdf" accept="application/pdf" id="f_aadharpdf"></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -183,7 +183,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload PAN</p>
-                                            <input type="file" name="farmer_panpdf" accept="application/pdf" id="f_pan">
+                                            <input type="file" name="farmer_panpdf" accept="application/pdf" id="f_panpdf">
                                         </div>
 								    </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
@@ -239,18 +239,18 @@ $("#editFarmerDetails").submit(function(e) {
         success: function(response){
             if(response==4){
                 $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
-                $("f_pan").attr("required","");
+                $("f_panpdf").attr("required","");
             }
 
             if(response==3){
                 $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
-                $("farmer_aadharpdf").attr("required","");
+                $("f_aadharpdf").attr("required","");
             }
 
             if(response==2){
                 $("#aadhar-pan-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
-                $("farmer_aadharpdf").attr("required","");
-                $("f_pan").attr("required","");
+                $("f_aadharpdf").attr("required","");
+                $("f_panpdf").attr("required","");
             }
             
             if(response==1){

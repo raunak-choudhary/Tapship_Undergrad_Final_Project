@@ -9,27 +9,27 @@ $dbhost = "localhost";
 	$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
 if (isset($_POST["submit"]))
- {
-     #retrieve file title
-     $customer_type = $con->real_escape_string($_POST['customer_type']);
-     $customer_mobile = $con->real_escape_string($_POST['customer_mobile']);
-     $customer_name = $con->real_escape_string($_POST['customer_name']);
-     $customer_contactname = $con->real_escape_string($_POST['customer_contactname']);
-     $customer_gender = $con->real_escape_string($_POST['customer_gender']);
-     $customer_age = $con->real_escape_string($_POST['customer_age']);
-     $customer_street = $con->real_escape_string($_POST['customer_street']);
-     $customer_city = $con->real_escape_string($_POST['customer_city']);
-     $customer_state= $con->real_escape_string($_POST['customer_state']);
-     $customer_pincode= $con->real_escape_string($_POST['customer_pincode']);
-     $customer_aadhar= $con->real_escape_string($_POST['customer_aadhar']);
-     $customer_pan= $con->real_escape_string($_POST['customer_pan']);
-     $customer_password= $con->real_escape_string($_POST['customer_password']);
-     $customer_approve = 1;
+{
+    #retrieve file title
+    $customer_type = $con->real_escape_string($_POST['customer_type']);
+    $customer_mobile = $con->real_escape_string($_POST['customer_mobile']);
+    $customer_name = $con->real_escape_string($_POST['customer_name']);
+    $customer_contactname = $con->real_escape_string($_POST['customer_contactname']);
+    $customer_gender = $con->real_escape_string($_POST['customer_gender']);
+    $customer_age = $con->real_escape_string($_POST['customer_age']);
+    $customer_street = $con->real_escape_string($_POST['customer_street']);
+    $customer_city = $con->real_escape_string($_POST['customer_city']);
+    $customer_state= $con->real_escape_string($_POST['customer_state']);
+    $customer_pincode= $con->real_escape_string($_POST['customer_pincode']);
+    $customer_aadhar= $con->real_escape_string($_POST['customer_aadhar']);
+    $customer_pan= $con->real_escape_string($_POST['customer_pan']);
+    $customer_password= $con->real_escape_string($_POST['customer_password']);
+    $customer_approve = 1;
     
-     $sql = "Select * from customer";
-     $result = $con->query($sql);
+    $sql = "Select * from customer";
+    $result = $con->query($sql);
 
-     if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         while( $res = mysqli_fetch_assoc($result)) {
             if( $res["c_mobile"]==$customer_mobile){
                 header("location: alreadyregistered.php");
@@ -77,11 +77,11 @@ if (isset($_POST["submit"]))
 
             }
         }
-     }
+    }
 }
- 
+
 $con->close();
- 
+
 ?>
 
 

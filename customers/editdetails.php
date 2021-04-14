@@ -31,9 +31,9 @@ error_reporting(0);
                 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
                 <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
                                 
-                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-                <script type='text/javascript'></script>
+                <scrip type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></scrip>
+                <scrip type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></scrip>
+                <scrip type='text/javascript'></scrip>
             </head>
         <body oncontextmenu='return false' class='snippet-body'>
         <div class="page-content page-container" id="page-content">
@@ -102,7 +102,7 @@ while( $res=mysqli_fetch_assoc($result))
     ?>
     <div class="padding">
         <div class="row container d-flex justify-content-center">
-            <form method="post" action="updateprofile-script.php?c_mobile=<?php echo $c_mobile?>">
+            <form id="editCustomerDetails">   
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
@@ -165,6 +165,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                 </div>
                                 <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Documents</strong></h4>
+                                <div class="text-danger" id="aadhar-pan-error" ></div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Aadhaar</p>
@@ -172,7 +173,7 @@ while( $res=mysqli_fetch_assoc($result))
                                     </div>
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
+                                            <input type="file" name="customer_aadharpdf" accept="application/pdf" id="c_aadharpdf">
                                     </div>
 									<div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -180,7 +181,7 @@ while( $res=mysqli_fetch_assoc($result))
                                     </div>
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload PAN</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                            <input type="file" name="customer_panpdf" accept="application/pdf" id="c_panpdf">
                                     </div>
 								</div>
                             </div>
@@ -198,7 +199,7 @@ while( $res=mysqli_fetch_assoc($result))
 	?>
 	<div class="padding">
         <div class="row container d-flex justify-content-center">
-            <form method="post" action="updateprofile-script.php?c_mobile=<?php echo $c_mobile?>">
+            <form id="editCustomerDetails">
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
@@ -215,6 +216,7 @@ while( $res=mysqli_fetch_assoc($result))
                         <div class="col-sm-8">
                             <div class="card-block">
                                 <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Information</strong></h4>
+                                <div class="text-danger" id="registration-error" ></div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Name</p>
@@ -265,6 +267,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                 </div>
                                 <h4 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"><strong>Documents</strong></h4>
+                                <div class="text-danger" id="aadhar-pan-error" ></div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -272,11 +275,11 @@ while( $res=mysqli_fetch_assoc($result))
                                     </div>
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload PAN</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                            <input type="file" name="customer_panpdf" accept="application/pdf" id="c_panpdf">
                                     </div>
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Registration Document</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_registration;?>" target="_blank">View Document</a></button></h6>
+                                            <input type="file" name="customer_registration" accept="application/pdf" id="c_registration">
                                     </div>
 								</div>
                             </div>
@@ -289,7 +292,54 @@ while( $res=mysqli_fetch_assoc($result))
     </div>		    
 <?php
 }
-?> 
+?>
+
+<script type="text/javascript">
+$("#editCustomerDetails").submit(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'updateprofile-script.php',
+        type: 'POST',
+        data: $('#editCustomerDetails').serialize()+'&c_mobile=<?php echo $c_mobile?>',
+        success: function(response){
+            // if(response==5){
+                // $("#registration-error").html("You have changed your company's name. Please upload new Registration Document.");
+                // $("#pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
+                // $("c_registration").attr("required","");
+                // $("c_pan").attr("required","");
+            // }
+
+            if(response==4){
+                $("#registration-error").html("You have changed your company's name. Please upload new Registration Document.");
+                $("c_registration").attr("required","");
+            }
+            if(response==3){
+                $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
+                $("c_panpdf").attr("required","");
+            }
+
+            if(response==2){
+                $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
+                $("c_aadharpdf").attr("required","");
+            }
+            
+            if(response==1){
+                $("#aadhar-pan-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
+                $("c_aadharpdf").attr("required","");
+                $("c_panpdf").attr("required","");
+            }
+
+            if(response==0){
+                alert("Updated Successfully");
+                location.replace('logout-script.php');
+            }
+
+        }
+    })   
+});       
+</script>
+
 <div class="footer-dark" style="background: rgb(12,56,35);">
     <footer>
         <div class="container-fluid">
