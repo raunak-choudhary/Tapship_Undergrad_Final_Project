@@ -132,7 +132,7 @@ $con=mysqli_connect("localhost","root","","tapship");
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
                         
-                        <div class="col-sm-8">
+                        <div class="col-sm-12 col-md-12 col">
                             <div class="card-block">
                                 <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Crop Details</strong></h4>
                                 <div class="row">
