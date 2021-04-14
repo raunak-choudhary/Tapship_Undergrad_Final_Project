@@ -167,6 +167,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Documents</strong></h4>
+                                    <div class="text-danger" id="aadhar-pan-error" ></div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Aadhaar</p>
@@ -174,7 +175,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf;?>" target="_blank">View Aadhar</a></button></h6>
+                                            <div class="form-group"><input class="form-control" type="file" name="farmer_aadharpdf" accept="application/pdf" id="farmer_aadharpdf"></div>
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -182,7 +183,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload PAN</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf;?>" target="_blank">View PAN</a></button></h6>
+                                            <input type="file" name="farmer_panpdf" accept="application/pdf" id="f_pan">
                                         </div>
 								    </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
@@ -210,7 +211,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Passbook</p>
-                                            <input type="file" name="" id="f_passbook">
+                                            <input type="file" name="farmer_passbook" accept="application/pdf" id="f_passbook">
                                         </div>
 								    </div>
                                 </div>
@@ -236,9 +237,24 @@ $("#editFarmerDetails").submit(function(e) {
         type: 'POST',
         data: $('#editFarmerDetails').serialize()+'&f_mobile=<?php echo $f_mobile?>',
         success: function(response){
+            if(response==4){
+                $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
+                $("f_pan").attr("required","");
+            }
+
+            if(response==3){
+                $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
+                $("farmer_aadharpdf").attr("required","");
+            }
+
+            if(response==2){
+                $("#aadhar-pan-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
+                $("farmer_aadharpdf").attr("required","");
+                $("f_pan").attr("required","");
+            }
             
             if(response==1){
-                $("#bankerror").html("You have changed your bank account details. Please uplaod new Passbook");
+                $("#bankerror").html("You have changed your bank account details. Please upload proof of your new Passbook.");
                 $("f_passbook").attr("required","");
             }
 

@@ -48,13 +48,13 @@ if (isset($_POST["submit"]))
                 $tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];
                 $tname2 = $_FILES["farmer_panpdf"]["tmp_name"];
                 $tname3 = $_FILES["farmer_photo"]["tmp_name"];
-                $tname3 = $_FILES["farmer_bankpassbook"]["tmp_name"];
+                $tname4 = $_FILES["farmer_bankpassbook"]["tmp_name"];
 
                 #target path
                 $target_path1 = "assets/documents/aadhar/".$farmer_aadharpdf;
                 $target_path2 = "assets/documents/pan/".$farmer_panpdf;
                 $target_path3 = "assets/documents/photo/".$farmer_photo;
-                $target_path4 = "assets/documents/passbook/".$farmer_photo;
+                $target_path4 = "assets/documents/passbook/".$farmer_bankpassbook;
 
             
                 #TO move the uploaded file to specific location
