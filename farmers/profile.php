@@ -197,7 +197,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Passbook</p>
-                                            <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
+                                            <h6><button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_bankpassbook;?>" target="_blank">View Passbook</a></button></h6>
                                         </div>
 								    </div>
                                 </div>
