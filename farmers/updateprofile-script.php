@@ -32,28 +32,24 @@ if(!isset($_SESSION['login_farmer'])){
     
 
         #file name with a random number so that similar dont get replaced
-        $farmer_aadharpdf= $f_mobile."-".$farmer_name."-".$_FILES["farmer_aadharpdf"]["name"];
+        //$farmer_aadharpdf= $f_mobile."-".$farmer_name."-".$_FILES["farmer_aadharpdf"]["name"];
         //$farmer_panpdf= $f_mobile."-".$farmer_name."-".$_FILES["farmer_panpdf"]["name"];
         //$farmer_photo= $f_mobile."-".$farmer_name."-".$_FILES["farmer_photo"]["name"];
-        $farmer_bankpassbook= $f_mobile."-".$farmer_name."-".$_FILES["farmer_bankpassbook"]["name"];
 
         #temporary file name to store file
-        $tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];
+        //$tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];
         //$tname2 = $_FILES["farmer_panpdf"]["tmp_name"];
         //$tname3 = $_FILES["farmer_photo"]["tmp_name"];
-        $tname4 = $_FILES["farmer_bankpassbook"]["tmp_name"];
 
         #target path
-        $target_path1 = "assets/documents/aadhar/".$farmer_aadharpdf;
+        //$target_path1 = "assets/documents/aadhar/".$farmer_aadharpdf;
         //$target_path2 = "assets/documents/pan/".$farmer_panpdf;
         //$target_path3 = "assets/documents/photo/".$farmer_photo;
-        $target_path4 = "assets/documents/passbook/".$farmer_bankpassbook;
 
         #TO move the uploaded file to specific location
-        move_uploaded_file($tname1, $target_path1);
+        //move_uploaded_file($tname1, $target_path1);
         //move_uploaded_file($tname2, $target_path2);
         //move_uploaded_file($tname3, $target_path3);
-        move_uploaded_file($tname4, $target_path4);
 
 
         //fetch old data
@@ -61,8 +57,23 @@ if(!isset($_SESSION['login_farmer'])){
 
         //is account details changed
         if($farmer_bankaccount!=$OldData['f_bankaccount'] || $farmer_bankholder!=$OldData['f_bankholder'] || $farmer_bankifsc!=$OldData['f_bankifsc'] || $farmer_bankname!=$OldData['f_bankname'] || $farmer_bankbranch!=$OldData['f_bankbranch']){
-            echo 1; //unique response code
+                //if bank det changed and pasbook not uploaded then print error
+                if(empty($_FILES['farmer_bankpassbook'])){
+                     echo 1; //unique response code
+                }
+                else{
+                    //upload file and updata Data
+                    $farmer_bankpassbook= $f_mobile."-".$farmer_name."-".$_FILES["farmer_bankpassbook"]["name"];
+                    $tname4 = $_FILES["farmer_bankpassbook"]["tmp_name"];
+                    $target_path4 = "assets/documents/passbook/".$farmer_bankpassbook;
+                    if(move_uploaded_file($tname4, $target_path4)){
+                         updateData();
+                    }
+                }
+           
         }
+
+
         else if($farmer_aadhar!=$OldData['f_aadhar'] && $farmer_pan!=$OldData['f_pan']){
             echo 2; //unique response code
         }
@@ -72,14 +83,17 @@ if(!isset($_SESSION['login_farmer'])){
         else if($farmer_pan!=$OldData['f_pan']){
             echo 4; //unique response code
         }
-        else{
+
+
+
+function updateData(){
         #sql query to insert into database
         $query = "update farmer set f_name = '".$farmer_name."', f_gender = '".$farmer_gender."', f_age = '".$farmer_age."', f_street = '".$farmer_street."', f_city = '".$farmer_city."', f_state = '".$farmer_state."', f_pincode = '".$farmer_pincode."', f_aadhar = '".$farmer_aadhar."',f_aadharpdf = '".$target_path1."', f_pan = '".$farmer_pan."', f_bankholder = '".$farmer_bankholder."', f_bankaccount = '".$farmer_bankaccount."', f_bankifsc = '".$farmer_bankifsc."', f_bankname = '".$farmer_bankname."', f_bankbranch = '".$farmer_bankbranch."', f_bankpassbook = '".$target_path4."', f_password = '".$farmer_password."' where f_mobile = '".$f_mobile."'";
         $result = mysqli_query($con,$query);
         if($result){
             echo 0;
             }
-        }
+}
 ?>
 
 

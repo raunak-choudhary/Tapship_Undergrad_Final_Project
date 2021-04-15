@@ -232,10 +232,19 @@ while( $res=mysqli_fetch_assoc($result))
 $("#editFarmerDetails").submit(function(e) {
     e.preventDefault();
 
+        var passbook = $('#f_passbook');
+        var file_data = passbook.prop('files')[0];
+        var formData = new FormData(this);
+        formData.append('f_mobile', '<?php echo $f_mobile; ?>');
+        formData.append('farmer_bankpassbook', file_data);
+
     $.ajax({
         url: 'updateprofile-script.php',
         type: 'POST',
-        data: $('#editFarmerDetails').serialize()+'&f_mobile=<?php echo $f_mobile?>',
+        data: formData,
+        contentType:false,
+        cache: false,
+        processData: false,
         success: function(response){
             if(response==4){
                 $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
