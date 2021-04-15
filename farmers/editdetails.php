@@ -175,7 +175,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
-                                            <div class="form-group"><input class="form-control" type="file" name="farmer_aadharpdf" accept="application/pdf" id="f_aadharpdf"></div>
+                                            <input type="file" name="farmer_aadharpdf" accept="application/pdf" id="f_aadharpdf">
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -247,26 +247,22 @@ $("#editFarmerDetails").submit(function(e) {
         processData: false,
         success: function(response){
             if(response==4){
+                $("#bankerror").html("You have changed your bank account details. Please upload proof of your new Passbook.");
+                $("f_passbook").attr("required","");   
+            }
+            if(response==3){
                 $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
                 $("f_panpdf").attr("required","");
             }
-
-            if(response==3){
+            if(response==2){
                 $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
                 $("f_aadharpdf").attr("required","");
             }
-
-            if(response==2){
+            if(response==1){
                 $("#aadhar-pan-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
                 $("f_aadharpdf").attr("required","");
                 $("f_panpdf").attr("required","");
             }
-            
-            if(response==1){
-                $("#bankerror").html("You have changed your bank account details. Please upload proof of your new Passbook.");
-                $("f_passbook").attr("required","");
-            }
-
             if(response==0){
                 alert("Updated Successfully");
                 location.replace('logout-script.php');
