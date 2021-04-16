@@ -31,7 +31,6 @@ error_reporting(0);
                 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
                 <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>    
                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                 
                 <script type='text/javascript'></script>
             </head>
         <body oncontextmenu='return false' class='snippet-body'>
@@ -171,7 +170,7 @@ while( $res=mysqli_fetch_assoc($result))
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Upload Aadhaar</p>
-                                            <div class="form-group"><input class="form-control" type="file" name="driver_aadharpdf" accept="application/pdf" id="d_aadharpdf"></div>
+                                            <input type="file" name="driver_aadharpdf" accept="application/pdf" id="d_aadharpdf">
                                         </div>
 									    <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
@@ -215,92 +214,43 @@ while( $res=mysqli_fetch_assoc($result))
 <script type="text/javascript">
 $("#editDriverDetails").submit(function(e) {
     e.preventDefault();
+    
+        var file_data_aadhar =  $('#d_aadharpdf').prop('files')[0];
+        var file_data_pan = $('#d_panpdf').prop('files')[0];
+        var file_data_dlfile = $('#d_dlpdf').prop('files')[0];
+        var file_data_vehiclerc = $('#d_vehiclercpdf').prop('files')[0];
+
+        var formData = new FormData(this);
+        formData.append('d_mobile', '<?php echo $d_mobile; ?>');
+        formData.append('driver_aadharfile', file_data_aadhar);
+        formData.append('driver_panfile', file_data_pan);
+        formData.append('driver_dlfile', file_data_dlfile);
+        formData.append('driver_vehiclercfile', file_data_vehiclerc);
 
     $.ajax({
         url: 'updateprofile-script.php',
         type: 'POST',
-        data: $('#editDriverDetails').serialize()+'&d_mobile=<?php echo $d_mobile?>',
+        data: formData,
+        contentType:false,
+        cache: false,
+        processData: false,
         success: function(response){
-            if(response==15){
+            if(response==4){
                 $("#document-error").html("You have changed your vehicle number. Please upload proof of RC Card of your new vehicle number.");
                 $("d_vehiclercpdf").attr("required","");
             }
-            if(response==14){
+            if(response==3){
                 $("#document-error").html("You have changed your driving license number. Please upload proof of your new Driving Licence Card.");
                 $("d_dlpdf").attr("required","");
             }
-            if(response==13){
+            if(response==2){
                 $("#document-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
                 $("d_panpdf").attr("required","");
             }
-            if(response==12){
+            if(response==1){
                 $("#document-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
                 $("d_aadharpdf").attr("required","");
             }
-            if(response==11){
-                $("#document-error").html("You have changed your driving license number and vehicle number. Please upload proof of your new Driving Licence Card and RC Card of your new vehicle number.");
-                $("d_dlpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-            if(response==10){
-                $("#document-error").html("You have changed your pan number and vehicle number. Please upload proof of your new PAN Card and RC Card of your new vehicle number.");
-                $("d_panpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-            if(response==9){
-                $("#document-error").html("You have changed your pan number and driving license number. Please upload proof of your new PAN Card and new Driving Licence Card.");
-                $("d_panpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-            }
-            if(response==8){
-                $("#document-error").html("You have changed your aadhar number and vehicle number. Please upload proof of your new Aadhar Card and RC Card of your new vehicle number.");
-                $("d_aadharpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-
-            if(response==7){
-                $("#document-error").html("You have changed your aadhar numberand driving license number. Please upload proof of your new Aadhar Card and new Driving Licence Card.");
-                $("d_aadharpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-            }
-
-            if(response==6){
-                $("#document-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
-                $("d_aadharpdf").attr("required","");
-                $("d_panpdf").attr("required","");
-            }
-            if(response==5){
-                $("#document-error").html("You have changed your document details. Please upload proof of your new PAN Card, new Driving Licence Card and RC Card of your new vehicle number.");
-                $("d_panpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-            if(response==4){
-                $("#document-error").html("You have changed your document details. Please upload proof of your new Aadhar Card, new Driving Licence Card and RC Card of your new vehicle number.");
-                $("d_aadharpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-            if(response==3){
-                $("#document-error").html("You have changed your document details. Please upload proof of your new Aadhar Card, new PAN Card and RC Card of your new vehicle number.");
-                $("d_aadharpdf").attr("required","");
-                $("d_panpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-            if(response==2){
-                $("#document-error").html("You have changed your document details. Please upload proof of your new Aadhar Card, new PAN Card and new Driving Licence Card.");
-                $("d_aadharpdf").attr("required","");
-                $("d_panpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-            }
-            if(response==1){
-                $("#document-error").html("You have changed your document details. Please upload proof of your new Aadhar Card, new PAN Card, new Driving Licence Card and RC Card of your new vehicle number.");
-                $("d_aadharpdf").attr("required","");
-                $("d_panpdf").attr("required","");
-                $("d_dlpdf").attr("required","");
-                $("d_vehiclercpdf").attr("required","");
-            }
-
             if(response==0){
                 alert("Updated Successfully");
                 location.replace('logout-script.php');
