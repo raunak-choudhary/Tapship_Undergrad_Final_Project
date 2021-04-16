@@ -39,11 +39,11 @@ $con=mysqli_connect("localhost","root","","tapship");
 					<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 					 
 					<script type='text/javascript'></script>
-					<link rel="stylesheet" href="assets1/bootstrap/css/bootstrap.min.css">
+					<!--<link rel="stylesheet" href="assets1/bootstrap/css/bootstrap.min.css">
 					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 					<link rel="stylesheet" href="assets1/css/cards.css">
 					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-					<link rel="stylesheet" href="assets1/css/styles.css">
+					<link rel="stylesheet" href="assets1/css/styles.css">-->
 </head>
 
 <body id="page-top">
