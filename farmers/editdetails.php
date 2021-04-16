@@ -232,11 +232,15 @@ while( $res=mysqli_fetch_assoc($result))
 $("#editFarmerDetails").submit(function(e) {
     e.preventDefault();
 
-        var passbook = $('#f_passbook');
-        var file_data = passbook.prop('files')[0];
+        var file_data_aadhar =  $('#f_aadharpdf').prop('files')[0];
+        var file_data_pan = $('#f_panpdf').prop('files')[0];
+        var file_data_passbook = $('#f_passbook').prop('files')[0];
+
         var formData = new FormData(this);
         formData.append('f_mobile', '<?php echo $f_mobile; ?>');
-        formData.append('farmer_bankpassbook', file_data);
+        formData.append('farmer_aadharfile', file_data_aadhar);
+        formData.append('farmer_panfile', file_data_pan);
+        formData.append('farmer_bankpassbook', file_data_passbook);
 
     $.ajax({
         url: 'updateprofile-script.php',
@@ -246,23 +250,21 @@ $("#editFarmerDetails").submit(function(e) {
         cache: false,
         processData: false,
         success: function(response){
-            if(response==4){
+            if(response==3){
                 $("#bankerror").html("You have changed your bank account details. Please upload proof of your new Passbook.");
                 $("f_passbook").attr("required","");   
             }
-            if(response==3){
+            if(response==2){
                 $("#aadhar-pan-error").html("You have changed your pan number. Please upload proof of your new PAN Card.");
                 $("f_panpdf").attr("required","");
             }
-            if(response==2){
-                $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
-                $("f_aadharpdf").attr("required","");
-            }
+
             if(response==1){
-                $("#aadhar-pan-error").html("You have changed your aadhar number and pan number. Please upload proof of your new Aadhar Card and new PAN Card.");
+                $("#aadhar-pan-error").html("You have changed your aadhar number. Please upload proof of your new Aadhar Card.");
                 $("f_aadharpdf").attr("required","");
                 $("f_panpdf").attr("required","");
             }
+
             if(response==0){
                 alert("Updated Successfully");
                 location.replace('logout-script.php');
