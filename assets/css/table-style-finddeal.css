@@ -38,7 +38,7 @@ body{
 }
 
 
-@media(max-width: 1000px)  {
+@media(max-width: 1410px)  {
 
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
