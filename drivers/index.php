@@ -144,7 +144,7 @@ if($d_approve==2)
                                             &nbsp;</span>  
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="finddeal.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Deals</button></a>
+                                        <a href="finddeal-pin.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Deals</button></a>
                                     </div>
                                 </div>
                             </div>

@@ -28,7 +28,6 @@ if (isset($_POST["submit"]))
                 $tb_status = 0;
                
                 $query = "INSERT into transportbid(tb_d_mobile, tb_cb_id, tb_bid, tb_status) VALUES('$d_mobile', '$cb_id', '$tb_bid','$tb_status')";
-                echo $query;
                 $con->query($query);
 
                 $q = "UPDATE cropsale set cr_status='7' where cr_id=$cr_id";
@@ -37,7 +36,7 @@ if (isset($_POST["submit"]))
                 $q = "UPDATE cropbid set cb_status='7' where cb_id=$cb_id";
                 $con->query($q);
 
-                //header("location: youractivebids.php");
+                header("location: youractivebids.php");
 }
  
 $con->close();

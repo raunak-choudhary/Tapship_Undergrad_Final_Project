@@ -24,6 +24,13 @@ coordinates1 = list(resp_json_payload1['resourceSets'][0]['resources'][0]['point
 lat1 = d_lat
 long1 = d_long
 
+liveurl = 'http://dev.virtualearth.net/REST/v1/Locations/'+lat1+','+long1+'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+responselive = requests.get(liveurl)
+resp_json_payloadlive = responselive.json()
+
+loclive = (resp_json_payloadlive['resourceSets'][0]['resources'][0]['name'])
+loc = str(loclive)
+
 pindic = pd.Series(df1.f_pincode.values,index=df1.cb_id).to_dict()
 crcbdic = pd.Series(df1.cr_id.values,index=df1.cb_id).to_dict()
 disdic = pindic.copy()
@@ -93,3 +100,4 @@ table = table.replace("&gt;", ">")
 table = table.replace("\n", "")
 
 print(table)
+print(loc)

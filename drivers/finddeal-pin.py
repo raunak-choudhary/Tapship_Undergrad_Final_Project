@@ -15,7 +15,7 @@ s1= 'SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_na
 df1 = pd.read_sql_query(s1,engine)
 df1 = pd.DataFrame(df1)
 
-pinurl1 = 'http://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+d_pincode+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+pinurl1 = 'https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+d_pincode+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
 response1 = requests.get(pinurl1)
 resp_json_payload1 = response1.json()
 
@@ -23,12 +23,19 @@ coordinates1 = list(resp_json_payload1['resourceSets'][0]['resources'][0]['point
 lat1 = str(coordinates1[0])
 long1 = str(coordinates1[1])
 
+liveurl = 'http://dev.virtualearth.net/REST/v1/Locations/'+lat1+','+long1+'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+responselive = requests.get(liveurl)
+resp_json_payloadlive = responselive.json()
+
+loclive = (resp_json_payloadlive['resourceSets'][0]['resources'][0]['name'])
+loc = str(loclive)
+
 pindic = pd.Series(df1.f_pincode.values,index=df1.cb_id).to_dict()
 crcbdic = pd.Series(df1.cr_id.values,index=df1.cb_id).to_dict()
 disdic = pindic.copy()
 
 for ele in pindic:
-    pinurl2 = 'http://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+pindic[ele]+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+    pinurl2 = 'https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+pindic[ele]+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
     response2 = requests.get(pinurl2)
     resp_json_payload2 = response2.json()
 
@@ -93,3 +100,8 @@ table = table.replace("\n", "")
 
 
 print(table)
+print(loc)
+
+print(lat1)
+print(long1)
+print(liveurl)
