@@ -40,7 +40,7 @@ if(!isset($_SESSION['login_farmer'])){
         echo "2";
     }
 
-       else if( ($farmer_bankaccount!=$OldData['f_bankaccount'] && empty($_FILES['farmer_bankpassbook'])) ||
+    else if( ($farmer_bankaccount!=$OldData['f_bankaccount'] && empty($_FILES['farmer_bankpassbook'])) ||
         ($farmer_bankholder!=$OldData['f_bankholder'] && empty($_FILES['farmer_bankpassbook'])) ||
         ($farmer_bankifsc!=$OldData['f_bankifsc'] && empty($_FILES['farmer_bankpassbook'])) || 
         ($farmer_bankname!=$OldData['f_bankname'] && empty($_FILES['farmer_bankpassbook'])) || 
@@ -60,31 +60,28 @@ if(!isset($_SESSION['login_farmer'])){
                     $tmpAadhar = $_FILES["farmer_aadharfile"]["tmp_name"];
                     $dirAadhar= "assets/documents/aadhar/".$farmer_adhar;
                     move_uploaded_file($tmpAadhar, $dirAadhar);
-                    
+                    $query1 = "update farmer set f_aadharpdf = '".$dirAadhar."' where f_mobile = '".$f_mobile."'";
+                    $result1 = mysqli_query($con,$query1);
                 }
 
                 if(!empty($_FILES['farmer_panfile'])){
                     $farmer_pan= $f_mobile."-".$farmer_name."-".$_FILES["farmer_panfile"]["name"];
-                $tmpPan = $_FILES["farmer_panfile"]["tmp_name"];
-                $dirPan = "assets/documents/pan/".$farmer_pan;
-                move_uploaded_file($tmpPan, $dirPan);
+                    $tmpPan = $_FILES["farmer_panfile"]["tmp_name"];
+                    $dirPan = "assets/documents/pan/".$farmer_pan;
+                    move_uploaded_file($tmpPan, $dirPan);
+                    $query2 = "update farmer set f_panpdf = '".$dirPan."' where f_mobile = '".$f_mobile."'";
+                    $result2 = mysqli_query($con,$query2);
                 }
 
                 if(!empty($_FILES['farmer_bankpassbook'])){
                     $farmer_bankpassbook= $f_mobile."-".$farmer_name."-".$_FILES["farmer_bankpassbook"]["name"];
-                $tmpPassbook = $_FILES["farmer_bankpassbook"]["tmp_name"];
-                $dirPassbook = "assets/documents/passbook/".$farmer_bankpassbook;
-                move_uploaded_file($tmpPassbook, $dirPassbook);
+                    $tmpPassbook = $_FILES["farmer_bankpassbook"]["tmp_name"];
+                    $dirPassbook = "assets/documents/passbook/".$farmer_bankpassbook;
+                    move_uploaded_file($tmpPassbook, $dirPassbook);
+                    $query3 = "update farmer set f_bankpassbook = '".$dirPassbook."' where f_mobile = '".$f_mobile."'";
+                    $result3 = mysqli_query($con,$query3);
                 }
                 
             }
-
     }
-    
-         
-            
-  
-
-        
-
 ?>
