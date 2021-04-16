@@ -28,12 +28,11 @@ error_reporting(0);
 				<link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
 				<link rel="stylesheet" href="../assets/css/table-style.css">
                 <link rel="stylesheet" href="../assets/css/profile.css">
-                <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
                 <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
                                 
                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-                <script type='text/javascript'></script>
+                
+                
             </head>
         <body oncontextmenu='return false' class='snippet-body'>
         <div class="page-content page-container" id="page-content">
@@ -50,7 +49,6 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
                 </ul>
             </div>
         </div>
@@ -158,12 +156,12 @@ $con=mysqli_connect("localhost","root","","tapship");
                 <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid"  style="width:100%;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
                     
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce"  style="width:100%;" src="../farmers/<?php echo  $cr_img2;?>" ></a>
                     <a class="h4" href="#"></a></div>
-                <div class=" col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class=" col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce"  style="width:100%;" src="../farmers/<?php echo  $cr_img3;?>" ></a>
                     <a class="h4" href="#"></a></div>
             </div>
         
