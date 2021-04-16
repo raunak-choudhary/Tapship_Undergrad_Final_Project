@@ -116,12 +116,12 @@ $con=mysqli_connect("localhost","root","","tapship");
                 <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" data-bs-hover-animate="bounce" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
                     
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
                     <a class="h4" href="#"></a></div>
-                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
+                <div class=" col-lg-4 col-md-12 col-sm-12 col-xs-12 cust_blogteaser" style="padding-bottom:20px;margin-bottom:32px;"><a href="#"><img class="img-fluid" data-bs-hover-animate="bounce" style="height:auto;" src="../farmers/<?php echo  $cr_img1;?>" ></a>
                     <a class="h4" href="#"></a></div>
             </div>
         
