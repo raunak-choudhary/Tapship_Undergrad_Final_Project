@@ -71,7 +71,7 @@ $con=mysqli_connect("localhost","root","","tapship");
             echo 2; //unique response code
         }
         else{
-        $query = "update customer set c_name = '".$customer_name."', c_contactname = '".$customer_contactname."'c_gender = '".$customer_gender."', c_age = '".$customer_age."', c_street = '".$customer_street."', c_city = '".$customer_city."', c_state = '".$customer_state."', c_pincode = '".$customer_pincode."', c_pan = '".$customer_pan."', c_password = '".$customer_password."' where c_mobile = '".$c_mobile."'";
+        $query = "update customer set c_name = '".$customer_name."', c_contactname = '".$customer_contactname."', c_gender = '".$customer_gender."', c_age = '".$customer_age."', c_street = '".$customer_street."', c_city = '".$customer_city."', c_state = '".$customer_state."', c_pincode = '".$customer_pincode."', c_pan = '".$customer_pan."', c_password = '".$customer_password."' where c_mobile = '".$c_mobile."'";
         $result = mysqli_query($con,$query);
         if($result){
             echo 0;

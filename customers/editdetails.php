@@ -235,7 +235,7 @@ while( $res=mysqli_fetch_assoc($result))
                                     </div>
                                     <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Contact Person Name</p>
-                                            <div class="form-group"><input class="form-control" type="text" name="customer_mobile" placeholder="Contact Person's Full Name" value="<?php echo $c_contactname ?>" required="" autofocus=""></div>
+                                            <div class="form-group"><input class="form-control" type="text" name="customer_contactname" placeholder="Contact Person's Full Name" value="<?php echo $c_contactname ?>" required="" autofocus=""></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Gender</p>
@@ -301,19 +301,21 @@ while( $res=mysqli_fetch_assoc($result))
 }
 ?>
 
+<script src="../assets/js/jquery.min.js"></script>
 <script type="text/javascript">
 $("#editCustomerDetails").submit(function(e) {
     e.preventDefault();
 
-        var file_data_aadhar =  $('#c_aadharpdf').prop('files')[0];
+        <?php if($c_type=="Organization")echo '//'; ?>var file_data_aadhar =  $('#c_aadharpdf').prop('files')[0];
+        <?php if($c_type=="Wholesaler")echo '//'; ?>var file_data_registration = $('#c_registration').prop('files')[0];
         var file_data_pan = $('#c_panpdf').prop('files')[0];
-        var file_data_registration = $('#c_registration').prop('files')[0];
 
         var formData = new FormData(this);
         formData.append('c_mobile', '<?php echo $c_mobile; ?>');
-        formData.append('customer_aadharfile', file_data_aadhar);
+        formData.append('customer_type', '<?php echo $c_type ?>');
+        <?php if($c_type=="Organization")echo '//'; ?>formData.append('customer_aadharfile', file_data_aadhar);
+        <?php if($c_type=="Wholesaler")echo '//'; ?>formData.append('customer_registrationfile', file_data_registration);
         formData.append('customer_panfile', file_data_pan);
-        formData.append('customer_registrationfile', file_data_registration);
 
     $.ajax({
         url: 'updateprofile-script.php',
@@ -351,7 +353,6 @@ $("#editCustomerDetails").submit(function(e) {
         </div>
     </footer>
 </div>
-<script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="../assets/js/bs-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
