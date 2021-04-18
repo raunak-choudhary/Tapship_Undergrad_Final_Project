@@ -2,14 +2,14 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$f_mobile= $res;
-if(!isset($_SESSION['login_farmer'])){
-header("location: login.php"); // Redirecting To Profile Page
+$f_mobile = $res;
+if (!isset($_SESSION['login_farmer'])) {
+    header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
 
 
-$con=mysqli_connect("localhost","root","","tapship");
+$con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
 
 
@@ -36,179 +36,178 @@ $con=mysqli_connect("localhost","root","","tapship");
 </head>
 
 <script>
-function yesnoCheck(that) {
-    if (that.value == "Fruits") {
-        document.getElementById("iffruits").style.display = "block";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+    function yesnoCheck(that) {
+        if (that.value == "Fruits") {
+            document.getElementById("iffruits").style.display = "block";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
-        
-    } else if (that.value == "Vegitables") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "block";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Vegitables") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "block";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Grains") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "block";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Grains") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "block";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Feed Crops") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "block";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Feed Crops") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "block";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Fibre Crops") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "block";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Fibre Crops") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "block";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Oil Crops") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "block";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifflowers").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Oil Crops") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "block";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Flowers") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "block";
-        document.getElementById("ifindustrialcrops").style.display = "none";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifflowers").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifindustrialcrops").required = false;
+        } else if (that.value == "Flowers") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "block";
+            document.getElementById("ifindustrialcrops").style.display = "none";
 
-    } else if (that.value == "Industrial Crop") {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "block";   
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifindustrialcrops").required = false;
 
-        document.getElementById("iffruits").required = false;
-        document.getElementById("ifvegitables").required = false;
-        document.getElementById("ifgrains").required = false;
-        document.getElementById("iffeedcrops").required = false;
-        document.getElementById("iffibrecrops").required = false;
-        document.getElementById("ifoilcrops").required = false;
-        document.getElementById("ifflowers").required = false;
+        } else if (that.value == "Industrial Crop") {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "block";
 
-    } else {
-        document.getElementById("iffruits").style.display = "none";
-        document.getElementById("ifvegitables").style.display = "none";
-        document.getElementById("ifgrains").style.display = "none";
-        document.getElementById("iffeedcrops").style.display = "none";
-        document.getElementById("iffibrecrops").style.display = "none";
-        document.getElementById("ifoilcrops").style.display = "none";
-        document.getElementById("ifflowers").style.display = "none";
-        document.getElementById("ifindustrialcrops").style.display = "none";
-        document.getElementById("no1").style.display = "none";
+            document.getElementById("iffruits").required = false;
+            document.getElementById("ifvegitables").required = false;
+            document.getElementById("ifgrains").required = false;
+            document.getElementById("iffeedcrops").required = false;
+            document.getElementById("iffibrecrops").required = false;
+            document.getElementById("ifoilcrops").required = false;
+            document.getElementById("ifflowers").required = false;
+
+        } else {
+            document.getElementById("iffruits").style.display = "none";
+            document.getElementById("ifvegitables").style.display = "none";
+            document.getElementById("ifgrains").style.display = "none";
+            document.getElementById("iffeedcrops").style.display = "none";
+            document.getElementById("iffibrecrops").style.display = "none";
+            document.getElementById("ifoilcrops").style.display = "none";
+            document.getElementById("ifflowers").style.display = "none";
+            document.getElementById("ifindustrialcrops").style.display = "none";
+            document.getElementById("no1").style.display = "none";
+        }
     }
-}
 </script>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -223,160 +222,151 @@ function yesnoCheck(that) {
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" action="addcrop-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
 
-        <h5 style="color:#fff;">Crop Type</h5>
+            <h5 style="color:#fff;">Crop Type</h5>
             <div class="form-group">
-            <select class="form-control" id="crop_type" name="crop_type" required onchange="yesnoCheck(this);">
-                <option disabled selected value="">-- Select Crop Type --</option>
-                <?php
+                <select class="form-control" id="crop_type" name="crop_type" required onchange="yesnoCheck(this);">
+                    <option disabled selected value="">-- Select Crop Type --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT DISTINCT cro_type From cropdetails");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_type'] ."'>" .$data['cro_type'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_type'] . "'>" . $data['cro_type'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
 
             <div class="form-group" id="ifvegitables" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_vegitable" name="crop_name" >
-                <option disabled selected value="">-- Select Vegitable Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_vegitable" name="crop_name">
+                    <option disabled selected value="">-- Select Vegitable Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT  cro_name From cropdetails where cro_type='Vegitables'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group" id="iffruits" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_fruit" name="crop_name" >
-                <option disabled selected value="">-- Select Fruit Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_fruit" name="crop_name">
+                    <option disabled selected value="">-- Select Fruit Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fruits'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
-        
+
 
             <div class="form-group" id="ifgrains" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_grain" name="crop_name" >
-                <option disabled selected value="">-- Select Grain Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_grain" name="crop_name">
+                    <option disabled selected value="">-- Select Grain Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Grains'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group" id="iffeedcrops" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_feedcrop" name="crop_name" >
-                <option disabled selected value="">-- Select Feed Crop Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_feedcrop" name="crop_name">
+                    <option disabled selected value="">-- Select Feed Crop Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Feed Crops'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group" id="iffibrecrops" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_fibrecrop" name="crop_name" >
-                <option disabled selected value="">-- Select Fibre Crop Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_fibrecrop" name="crop_name">
+                    <option disabled selected value="">-- Select Fibre Crop Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fibre Crops'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group" id="ifoilcrops" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_oilcrop" name="crop_name" >
-                <option disabled selected value="">-- Select Oil Crop Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_oilcrop" name="crop_name">
+                    <option disabled selected value="">-- Select Oil Crop Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Oil Crops'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
- 
+
             <div class="form-group" id="ifflowers" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_flowers" name="crop_name" >
-                <option disabled selected value="">-- Select Flowers Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_flowers" name="crop_name">
+                    <option disabled selected value="">-- Select Flowers Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Flowers'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group" id="ifindustrialcrops" style="display: none;">
-            <h5 style="color:#fff;">Crop Name</h5>
-            <select class="form-control" id="crop_industrialcrop" name="crop_name" >
-                <option disabled selected value="">-- Select Industrial Crop Name --</option>
-                <?php
+                <h5 style="color:#fff;">Crop Name</h5>
+                <select class="form-control" id="crop_industrialcrop" name="crop_name">
+                    <option disabled selected value="">-- Select Industrial Crop Name --</option>
+                    <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Industrial Crops'");  // Use select query here 
 
-                    while($data = mysqli_fetch_array($records))
-                    {
-                        echo "<option value='". $data['cro_name'] ."'>" .$data['cro_name'] ."</option>";  // displaying data in option menu
-                    }	
-                ?>  
-            </select>
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                    }
+                    ?>
+                </select>
             </div>
-            
+
             <h5 style="color:#fff;">Quantity (in kgs.)</h5>
             <div class="form-group"><input class="form-control" id="crop_quantity" type="number" name="crop_quantity" placeholder="Enter Quantity in Kilograms" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Minimum Expected Price (per kgs.)</h5>
-            <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep"  placeholder="Minimum Expected Price" required="" autofocus=""></div>
-            
+            <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep" placeholder="Minimum Expected Price" required="" autofocus=""></div>
+
             <h5 style="color:#fff;">Image - 01</h5>
-            <div class="form-group"><input class="form-control" id="crop_img1" type="file"  accept="image/jpeg, image/jpg, image/png" name="crop_img1" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img1" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img1" placeholder="Select Image" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Image - 02</h5>
-            <div class="form-group"><input class="form-control" id="crop_img2" type="file"  accept="image/jpeg, image/jpg, image/png" name="crop_img2" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img2" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img2" placeholder="Select Image" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Image - 03</h5>
-            <div class="form-group"><input class="form-control" id="crop_img3" type="file"  accept="image/jpeg, image/jpg, image/png" name="crop_img3" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img3" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img3" placeholder="Select Image" required="" autofocus=""></div>
 
             <input name="submit" class="btn btn-primary btn-block" type="submit" value=" Add Crop "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
-            
+
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
