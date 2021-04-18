@@ -1,47 +1,45 @@
 <?php
 error_reporting(0);
 $dbhost = "localhost";
-	$dbuser = "root";
-	$dbpass = "";
-	$dbname = "tapship";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "tapship";
 
-	//Create Connection
-	$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
+//Create Connection
+$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
-if (isset($_POST["submit"]))
- {
-     #retrieve file title
-     $driver_mobile = $con->real_escape_string($_POST['driver_mobile']);
-     $driver_name = $con->real_escape_string($_POST['driver_name']);
-     $driver_gender = $con->real_escape_string($_POST['driver_gender']);
-     $driver_age = $con->real_escape_string($_POST['driver_age']);
-     $driver_street = $con->real_escape_string($_POST['driver_street']);
-     $driver_city = $con->real_escape_string($_POST['driver_city']);
-     $driver_state= $con->real_escape_string($_POST['driver_state']);
-     $driver_pincode= $con->real_escape_string($_POST['driver_pincode']);
-     $driver_aadhar= $con->real_escape_string($_POST['driver_aadhar']);
-     $driver_pan= $con->real_escape_string($_POST['driver_pan']);
-     $driver_dlnumber= $con->real_escape_string($_POST['driver_dlnumber']);
-     $driver_vehiclenumber= $con->real_escape_string($_POST['driver_vehiclenumber']);
-     $driver_password= $con->real_escape_string($_POST['driver_password']);
-     $driver_approve = 1;
+if (isset($_POST["submit"])) {
+    #retrieve file title
+    $driver_mobile = $con->real_escape_string($_POST['driver_mobile']);
+    $driver_name = $con->real_escape_string($_POST['driver_name']);
+    $driver_gender = $con->real_escape_string($_POST['driver_gender']);
+    $driver_age = $con->real_escape_string($_POST['driver_age']);
+    $driver_street = $con->real_escape_string($_POST['driver_street']);
+    $driver_city = $con->real_escape_string($_POST['driver_city']);
+    $driver_state = $con->real_escape_string($_POST['driver_state']);
+    $driver_pincode = $con->real_escape_string($_POST['driver_pincode']);
+    $driver_aadhar = $con->real_escape_string($_POST['driver_aadhar']);
+    $driver_pan = $con->real_escape_string($_POST['driver_pan']);
+    $driver_dlnumber = $con->real_escape_string($_POST['driver_dlnumber']);
+    $driver_vehiclenumber = $con->real_escape_string($_POST['driver_vehiclenumber']);
+    $driver_password = $con->real_escape_string($_POST['driver_password']);
+    $driver_approve = 1;
 
-     $sql = "Select * from driver";
-     $result = $con->query($sql);
+    $sql = "Select * from driver";
+    $result = $con->query($sql);
 
-     if (mysqli_num_rows($result) > 0) {
-        while( $res = mysqli_fetch_assoc($result)) {
-            if( $res["d_mobile"]==$driver_mobile){
+    if (mysqli_num_rows($result) > 0) {
+        while ($res = mysqli_fetch_assoc($result)) {
+            if ($res["d_mobile"] == $driver_mobile) {
                 header("location: alreadyregistered.php");
-            }
-            else{
-     
+            } else {
+
                 #file name with a random number so that similar dont get replaced
-                $driver_aadharpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_aadharpdf"]["name"];
-                $driver_panpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_panpdf"]["name"];
-                $driver_photo= $driver_mobile."-".$driver_name."-".$_FILES["driver_photo"]["name"];
-                $driver_dlpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_dlpdf"]["name"];
-                $driver_vehiclercpdf= $driver_mobile."-".$driver_name."-".$_FILES["driver_vehiclercpdf"]["name"];
+                $driver_aadharpdf = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_aadharpdf"]["name"];
+                $driver_panpdf = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_panpdf"]["name"];
+                $driver_photo = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_photo"]["name"];
+                $driver_dlpdf = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_dlpdf"]["name"];
+                $driver_vehiclercpdf = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_vehiclercpdf"]["name"];
 
                 #temporary file name to store file
                 $tname1 = $_FILES["driver_aadharpdf"]["tmp_name"];
@@ -51,15 +49,15 @@ if (isset($_POST["submit"]))
                 $tname5 = $_FILES["driver_vehiclercpdf"]["tmp_name"];
 
                 #target path
-                $target_path1 = "assets/documents/aadhar/".$driver_aadharpdf;
-                $target_path2 = "assets/documents/pan/".$driver_panpdf;
-                $target_path3 = "assets/documents/photo/".$driver_photo;
-                $target_path4 = "assets/documents/dlpdf/".$driver_dlpdf;
-                $target_path5 = "assets/documents/rcpdf/".$driver_vehiclercpdf;
+                $target_path1 = "assets/documents/aadhar/" . $driver_aadharpdf;
+                $target_path2 = "assets/documents/pan/" . $driver_panpdf;
+                $target_path3 = "assets/documents/photo/" . $driver_photo;
+                $target_path4 = "assets/documents/dlpdf/" . $driver_dlpdf;
+                $target_path5 = "assets/documents/rcpdf/" . $driver_vehiclercpdf;
 
                 $d_lat = NULL;
                 $d_long = NULL;
-            
+
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname1, $target_path1);
                 move_uploaded_file($tname2, $target_path2);
@@ -70,27 +68,26 @@ if (isset($_POST["submit"]))
                 #sql query to insert into database
                 $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_dlnumber,d_dlpdf,d_vehiclenumber,d_vehiclercpdf,d_lat,d_long,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_dlnumber','$target_path4','$driver_vehiclenumber','$target_path5','$d_lat','$d_long','$driver_password','$driver_approve')";
                 $success = $con->query($query);
-
             }
         }
-     }
+    }
 }
 
- 
+
 $con->close();
- 
+
 ?>
 
 <html>
 
-  <head>
-  <title>Success - Driver Signup</title>
-  
-  <link rel="shortcut icon" type="image/png" href="../assets/img/fav.png">
-  <link rel="stylesheet" type = "text/css" href ="../assets/css/manager_registered_success.css">
-  <link rel="stylesheet" type = "text/css" href ="../assets/bootstrap/css/bootstrap.min.css">
-  <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+<head>
+    <title>Success - Driver Signup</title>
+
+    <link rel="shortcut icon" type="image/png" href="../assets/img/fav.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/manager_registered_success.css">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
@@ -101,33 +98,32 @@ $con->close();
     <link rel="stylesheet" href="../assets/css/Highlight-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
-    </head>
+</head>
 
-    <style>
-.footer-dark {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-}
+<style>
+    .footer-dark {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
 </style>
 
-  <body>
-  <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../login-choice.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../login-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../signup-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign Up</button></a></li>
                 </ul>
             </div>
@@ -141,7 +137,7 @@ $con->close();
             <h5>We are reviewing your details and documents. Please have a little patience.</h5>
             <br>
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
-        </div>    
+        </div>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
@@ -156,6 +152,6 @@ $con->close();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>
-    </body>
-    
+</body>
+
 </html>

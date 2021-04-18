@@ -24,15 +24,14 @@
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../login-choice.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../login-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../signup-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign Up</button></a></li>
                 </ul>
             </div>
@@ -48,8 +47,8 @@
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
         <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
-              
-             
+
+
 
             <h5 style="color:#fff;">Mobile Number</h5>
             <div class="form-group"><input class="form-control" id="driver_mobile" type="phone" name="driver_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Your Mobile Number" required="" autofocus=""></div>
@@ -59,12 +58,12 @@
 
             <h5 style="color:#fff;">Gender</h5>
             <div class="form-group">
-            <select class="form-control" id="driver_gender" name="driver_gender" required>
-              <option selected disabled value="">Choose Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Others">Others</option>
-            </select>
+                <select class="form-control" id="driver_gender" name="driver_gender" required>
+                    <option selected disabled value="">Choose Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
             </div>
 
             <h5 style="color:#fff;">Age</h5>
@@ -89,33 +88,33 @@
             <div class="form-group"><input class="form-control" id="driver_aadharpdf" type="file" accept="application/pdf" name="driver_aadharpdf" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN Number</h5>
-            <div class="form-group"><input class="form-control" id="driver_pan" type="text" name="driver_pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"  title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" placeholder="Your PAN Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_pan" type="text" name="driver_pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter Valid Pan Card Number (Ex. AAAAA1111A)" placeholder="Your PAN Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">PAN PDF</h5>
             <div class="form-group"><input class="form-control" id="driver_panpdf" type="file" accept="application/pdf" name="driver_panpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Driving Licence Number</h5>
-            <div class="form-group"><input class="form-control" id="driver_dlnumber" type="text" name="driver_dlnumber" pattern="^[A-Z]{2}[0-9]{13}$"  title="Enter Valid Driving Licence Number (Ex. RJ43278905431XX)" placeholder="Driving Licence Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_dlnumber" type="text" name="driver_dlnumber" pattern="^[A-Z]{2}[0-9]{13}$" title="Enter Valid Driving Licence Number (Ex. RJ43278905431XX)" placeholder="Driving Licence Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Driving Licence PDF</h5>
             <div class="form-group"><input class="form-control" id="driver_dlpdf" type="file" accept="application/pdf" name="driver_dlpdf" placeholder="Driving Licence PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Vehicle number</h5>
-            <div class="form-group"><input class="form-control" id="driver_vehiclenumber" type="text" name="driver_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}"  title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Your Vehicle Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_vehiclenumber" type="text" name="driver_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}" title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Your Vehicle Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Vehicle RC PDF</h5>
             <div class="form-group"><input class="form-control" id="driver_vehiclercpdf" type="file" accept="application/pdf" name="driver_vehiclercpdf" placeholder="Your PAN PDF" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Photo</h5>
-            <div class="form-group"><input class="form-control" id="driver_photo" type="file"  accept="image/jpeg, image/jpg, image/png" name="driver_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_photo" type="file" accept="image/jpeg, image/jpg, image/png" name="driver_photo" placeholder="Your Passport Size Photo" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Password</h5>
             <div class="form-group"><input class="form-control" id="driver_password" type="password" name="driver_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Your Password" required="" autofocus=""></div>
 
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../drivers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>            
+            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Sign Up "><a class="forgot" href="../drivers/login.php" style="color: rgb(255,255,255);">Already have account? Click here.</a>
         </form>
     </div>
-                
+
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
