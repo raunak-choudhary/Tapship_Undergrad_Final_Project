@@ -2,12 +2,12 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$d_mobile= $res;
-if(!isset($_SESSION['login_driver'])){
-header("location: login.php"); // Redirecting To Profile Page
+$d_mobile = $res;
+if (!isset($_SESSION['login_driver'])) {
+    header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
-$con=mysqli_connect("localhost","root","","tapship");
+$con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
 
 
@@ -31,24 +31,23 @@ $con=mysqli_connect("localhost","root","","tapship");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../assets/css/table-style.css"/>
-    <link rel="stylesheet" href="../assets/css/table-style-finddeal.css"/>
+    <link rel="stylesheet" href="../assets/css/table-style.css" />
+    <link rel="stylesheet" href="../assets/css/table-style-finddeal.css" />
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -61,50 +60,51 @@ $con=mysqli_connect("localhost","root","","tapship");
         </div>
     </div>
 
-<?php
+    <?php
 
-$q = "SELECT * from driver where d_mobile = $d_mobile";
-$query = mysqli_query($con,$q);
+    $q = "SELECT * from driver where d_mobile = $d_mobile";
+    $query = mysqli_query($con, $q);
 
-while($res = mysqli_fetch_array($query)){
-    //$d_pincode = $res['d_pincode'];
-    $d_lat = $res['d_lat'];
-    $d_long = $res['d_long'];
-}
+    while ($res = mysqli_fetch_array($query)) {
+        //$d_pincode = $res['d_pincode'];
+        $d_lat = $res['d_lat'];
+        $d_long = $res['d_long'];
+    }
 
-$res = shell_exec("python finddeal-loc.py $d_mobile $d_lat $d_long");
-$op = explode("\n",$res);
-?>
+    $res = shell_exec("python finddeal-loc.py $d_mobile $d_lat $d_long");
+    $op = explode("\n", $res);
+    ?>
 
-<div class="container" style="background-color:#0c3823; padding-top:10px">
-<h4 style="color:white; margin:5px; display: inline-block;">Filter Results :</h4><p style="color:white; margin:5px; display: inline-block;">(showing for live location)</p>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-        <div class="opt">
-            <center>
-            <button class="btn btn-class btn-block" style="background-color:white; color:#ffffff;"><a href="finddeal-pin.php" style="color:black;">Pincode (Address)</a></button>
-            </center>
+    <div class="container" style="background-color:#0c3823; padding-top:10px">
+        <h4 style="color:white; margin:5px; display: inline-block;">Filter Results :</h4>
+        <p style="color:white; margin:5px; display: inline-block;">(showing for live location)</p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                <div class="opt">
+                    <center>
+                        <button class="btn btn-class btn-block" style="background-color:white; color:#ffffff;"><a href="finddeal-pin.php" style="color:black;">Pincode (Address)</a></button>
+                    </center>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                <div class="opt">
+                    <center>
+                        <button class="btn btn-class btn-block" style="background-color:#90173f;"><a href="finddeal-loc.php" style="color:white;">Live Location</a></but>
+                    </center>
+                </div>
+            </div>
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="opt">
+                    <center>
+                        <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $op[1]; ?></p>
+                    </center>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-        <div class="opt">
-            <center>
-            <button class="btn btn-class btn-block" style="background-color:#90173f;"><a href="finddeal-loc.php" style="color:white;">Live Location</a></but>
-            </center>
-        </div>
-    </div>
-    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
-        <div class="opt">
-            <center>
-            <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $op[1]; ?></p>
-            </center>
-        </div>
-    </div>
-</div>
-</div>
-<br>
+    <br>
 
-<?php echo $op[0]; ?>
+    <?php echo $op[0]; ?>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">

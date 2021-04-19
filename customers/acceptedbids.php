@@ -2,14 +2,14 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$c_mobile= $res;
-if(!isset($_SESSION['login_customer'])){
-header("location: login.php"); // Redirecting To Profile Page
+$c_mobile = $res;
+if (!isset($_SESSION['login_customer'])) {
+    header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
 
 
-$con=mysqli_connect("localhost","root","","tapship");
+$con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
 
 
@@ -33,23 +33,22 @@ $con=mysqli_connect("localhost","root","","tapship");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../assets/css/table-style.css"/>
+    <link rel="stylesheet" href="../assets/css/table-style.css" />
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../customers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../customers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -63,58 +62,85 @@ $con=mysqli_connect("localhost","root","","tapship");
     </div>
 
 
-    <table  id="tabledata" class=" table table-striped table-hover table-bordered">
- 
- <tr class="bg-dark text-white text-center">
- <thead>
- <th>Sr. No.</th>
- <th> Bid ID </th>
- <th> Crop Name </th>
- <th> Crop Qunatity </th>
- <th> Crop MEP </th>
- <th> Crop MSP </th>
- <th> Farmer Name </th>
- <th> Farmer Mobile</th>
- <th> Farmer City</th>
- <th> Crop Status</th>
- <th> Bid Price (per kgs.)</th>
- <th> View</th>
- </thead>
- </tr >
+    <table id="tabledata" class=" table table-striped table-hover table-bordered">
 
- <?php
-    
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'tapship');
-   
-     
- $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, f.f_name, f.f_mobile, f.f_city, cb.cb_bidprice, cb.cb_cr_id, cb.cb_status, cb.cb_id FROM cropdetails CD, cropsale CS, farmer f, cropbid cb,customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status in (2,3,4,5,6,7,8,9,10,11) AND cb.cb_status in (1,3,4,5,6,7,8,9,10,11) AND cb.cb_c_mobile=$c_mobile";
- $query = mysqli_query($con,$q);
- $c = 1;
+        <tr class="bg-dark text-white text-center">
+            <thead>
+                <th>Sr. No.</th>
+                <th> Bid ID </th>
+                <th> Crop Name </th>
+                <th> Crop Qunatity </th>
+                <th> Crop MEP </th>
+                <th> Crop MSP </th>
+                <th> Farmer Name </th>
+                <th> Farmer Mobile</th>
+                <th> Farmer City</th>
+                <th> Crop Status</th>
+                <th> Bid Price (per kgs.)</th>
+                <th> View</th>
+            </thead>
+        </tr>
 
- while($res = mysqli_fetch_array($query)){
- ?>
- <tr class="text-center">
- <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="Bid ID"> <?php echo $res['cb_id']; ?> </td>
- <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
- <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs'; ?> </td>
- <td data-label="Crop MEP"> <?php echo '₹ ',$res['cr_mep']; ?> </td>
- <td data-label="Crop MSP"> <?php echo '₹ ',$res['cro_msp']; ?> </td>
- <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
- <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
- <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
- <td data-label="Crop Status"> <?php if($res['cr_status']=="0"){echo "Crop Added";}else if($res['cr_status']=="1"){echo "Bidding";}else if($res['cr_status']=="2"){echo "Bid Accepeted";}else if($res['cr_status']=="3"){echo "Payment Done";} else if($res['cr_status']=="4"){echo "Payment Confirmed";} else if($res['cr_status']=="5"){echo "Self Transport Selected";} else if($res['cr_status']=="6"){echo "Tapship Delivery Selected";} else if($res['cr_status']=="7"){echo "Tapship Delivery Bidding";} else if($res['cr_status']=="8"){echo "Tapship Delivery Selected";} else if($res['cr_status']=="9"){echo "Farmer Pickup conformed";} else if($res['cr_status']=="10"){echo "Driver Pickup Conformed";}else if($res['cr_status']=="11"){echo "Customer Delivery Conformed";} else if($res['cr_status']=="12"){echo "Deal Over";} ?></td>
- <td data-label="Bid Price"> <?php echo '₹ ',$res['cb_bidprice'];  ?> </td>
+        <?php
 
- <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
- </tr>
+        $con = mysqli_connect('localhost', 'root');
+        mysqli_select_db($con, 'tapship');
 
- <?php 
- }
-  ?>
- 
- </table>  
+
+        $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, f.f_name, f.f_mobile, f.f_city, cb.cb_bidprice, cb.cb_cr_id, cb.cb_status, cb.cb_id FROM cropdetails CD, cropsale CS, farmer f, cropbid cb,customer c where CD.cro_id=CS.cr_cro_id AND cb.cb_c_mobile=c.c_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_f_mobile=f.f_mobile AND cs.cr_status in (2,3,4,5,6,7,8,9,10,11) AND cb.cb_status in (1,3,4,5,6,7,8,9,10,11) AND cb.cb_c_mobile=$c_mobile";
+        $query = mysqli_query($con, $q);
+        $c = 1;
+
+        while ($res = mysqli_fetch_array($query)) {
+        ?>
+            <tr class="text-center">
+                <td data-label="Sr. No."> <?php echo $c;
+                                            $c += 1 ?> </td>
+                <td data-label="Bid ID"> <?php echo $res['cb_id']; ?> </td>
+                <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
+                <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'], ' Kgs'; ?> </td>
+                <td data-label="Crop MEP"> <?php echo '₹ ', $res['cr_mep']; ?> </td>
+                <td data-label="Crop MSP"> <?php echo '₹ ', $res['cro_msp']; ?> </td>
+                <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
+                <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
+                <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
+                <td data-label="Crop Status"> <?php if ($res['cr_status'] == "0") {
+                                                    echo "Crop Added";
+                                                } else if ($res['cr_status'] == "1") {
+                                                    echo "Bidding";
+                                                } else if ($res['cr_status'] == "2") {
+                                                    echo "Bid Accepeted";
+                                                } else if ($res['cr_status'] == "3") {
+                                                    echo "Payment Done";
+                                                } else if ($res['cr_status'] == "4") {
+                                                    echo "Payment Confirmed";
+                                                } else if ($res['cr_status'] == "5") {
+                                                    echo "Self Transport Selected";
+                                                } else if ($res['cr_status'] == "6") {
+                                                    echo "Tapship Delivery Selected";
+                                                } else if ($res['cr_status'] == "7") {
+                                                    echo "Tapship Delivery Bidding";
+                                                } else if ($res['cr_status'] == "8") {
+                                                    echo "Tapship Delivery Selected";
+                                                } else if ($res['cr_status'] == "9") {
+                                                    echo "Farmer Pickup conformed";
+                                                } else if ($res['cr_status'] == "10") {
+                                                    echo "Driver Pickup Conformed";
+                                                } else if ($res['cr_status'] == "11") {
+                                                    echo "Customer Delivery Conformed";
+                                                } else if ($res['cr_status'] == "12") {
+                                                    echo "Deal Over";
+                                                } ?></td>
+                <td data-label="Bid Price"> <?php echo '₹ ', $res['cb_bidprice'];  ?> </td>
+
+                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
+            </tr>
+
+        <?php
+        }
+        ?>
+
+    </table>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">

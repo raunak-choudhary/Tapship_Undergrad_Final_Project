@@ -2,11 +2,16 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$a_name = $res;
-if (!isset($_SESSION['login_admin'])) {
+$f_mobile = $res;
+if (!isset($_SESSION['login_farmer'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
+error_reporting(0);
+
+
+$con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +19,7 @@ if (!isset($_SESSION['login_admin'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Manage Farmers</title>
+    <title>Weather Forecast</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -29,6 +34,7 @@ if (!isset($_SESSION['login_admin'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/table-style.css" />
+    <link rel="stylesheet" href="../assets/css/table-style-finddeal.css" />
 </head>
 
 <body id="page-top">
@@ -42,84 +48,64 @@ if (!isset($_SESSION['login_admin'])) {
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Manage Farmers</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Weather Forecast on Pincode</h2>
             </div>
         </div>
     </div>
 
-    <table id="tabledata" class=" table table-striped table-hover table-bordered">
+    <?php
 
-        <tr class="bg-dark text-white text-center">
-            <thead>
-                <th>Sr. No.</th>
-                <th>ID</th>
-                <th> Name </th>
-                <th> Mobile </th>
-                <th> City </th>
-                <th> PAN </th>
-                <th>Status</th>
-                <th> Photo </th>
-                <th> Profile </th>
-            </thead>
-        </tr>
+    $q = "SELECT * from farmer where f_mobile = $f_mobile";
+    $query = mysqli_query($con, $q);
 
-        <?php
+    while ($res = mysqli_fetch_array($query)) {
+        $f_pincode = $res['f_pincode'];
+    }
+    $res = shell_exec("python weather_forecast-pin.py $f_mobile $f_pincode");
+    $op = explode("\n", $res);
+    ?>
 
-        $con = mysqli_connect('localhost', 'root');
-        mysqli_select_db($con, 'tapship');
+    <div class="container" style="background-color:#0c3823; padding-top:10px; border-radius:10px;">
+        <h4 style="color:white; margin:5px; display: inline-block;">Filter Results :</h4>
+        <p style="color:white; margin:5px; display: inline-block;">(showing for pincode)</p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                <div class="opt">
+                    <center>
+                        <button class="btn btn-class btn-block" style="background-color:#90173f; color:#ffffff;"><a href="#" style="color:white;">Pincode (Address)</a></button>
+                    </center>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                <div class="opt">
+                    <center>
+                        <button class="btn btn-class btn-block" style="background-color:white;"><a href="#" style="color:black;">Live Location</a></but>
+                    </center>
+                </div>
+            </div>
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="opt">
+                    <center>
+                        <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $op[1]; ?></p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
 
+    <?php echo $op[0]; ?>
 
-        $q = "select f_id, f_name, f_mobile, f_city, f_pan, f_approve, f_photo from farmer ORDER BY f_id DESC";
-        $query = mysqli_query($con, $q);
-        $c = 1;
-
-        while ($res = mysqli_fetch_array($query)) {
-        ?>
-            <tr class="text-center">
-                <td data-label="Sr. No."> <?php echo $c;
-                                            $c += 1 ?> </td>
-                <td data-label="ID"> <?php echo $res['f_id']; ?> </td>
-                <td data-label="Name"> <?php echo $res['f_name'];  ?> </td>
-                <td data-label="Mobile"> <?php echo $res['f_mobile'];  ?> </td>
-                <td data-label="City"> <?php echo $res['f_city'];  ?> </td>
-                <td data-label="PAN"> <?php echo $res['f_pan'];  ?> </td>
-                <td data-label="Status"> <?php if ($res['f_approve'] == "1") {
-                                                echo "No Action";
-                                            } else if ($res['f_approve'] == "2") {
-                                                echo " Accepted";
-                                            } else if ($res['f_approve'] == "3") {
-                                                echo "Review";
-                                            } else if ($res['f_approve'] == "3") {
-                                                echo "Rejected";
-                                            } else if ($res['f_approve'] == "5") {
-                                                echo "Resubmitted";
-                                            }  ?> </td>
-                <td data-label="Photo"> <img src="../farmers/<?php echo $res['f_photo'];  ?>" width="50" height="60"> </td>
-                <td data-label="Profile"> <button class="btn" style="background-color:#0c3823;"> <a href="farmerprofile.php?f_mobile=<?php echo $res['f_mobile']; ?>" class="text-white"> View </a> </button> </td>
-
-            </tr>
-
-        <?php
-        }
-        ?>
-
-    </table>
-
-
-
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark" style="background: rgb(12,56,35); margin-top: 50px;">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

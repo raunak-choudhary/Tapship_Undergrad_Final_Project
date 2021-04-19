@@ -2,12 +2,12 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$d_mobile= $res;
-if(!isset($_SESSION['login_driver'])){
-header("location: login.php"); // Redirecting To Profile Page
+$d_mobile = $res;
+if (!isset($_SESSION['login_driver'])) {
+    header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
-$con=mysqli_connect("localhost","root","","tapship");
+$con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
 
 
@@ -31,23 +31,22 @@ $con=mysqli_connect("localhost","root","","tapship");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../assets/css/table-style.css"/>
+    <link rel="stylesheet" href="../assets/css/table-style.css" />
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;" ><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button  class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -61,55 +60,56 @@ $con=mysqli_connect("localhost","root","","tapship");
     </div>
 
 
-    <table  id="tabledata" class=" table table-striped table-hover table-bordered">
- 
- <tr class="bg-dark text-white text-center">
- <thead>
- <th>Sr. No.</th>
- <th> Crop Name </th>
- <th> Crop Type</th>
- <th> Crop Quantity</th>
- <th> Farmer Name</th>
- <th> Farmer Mobile</th>
- <th> Farmer City</th>
- <th> Customer Name</th>
- <th> Customer Mobile</th>
- <th> Customer City</th>
- <th> View</th>
- </thead>
- </tr >
+    <table id="tabledata" class=" table table-striped table-hover table-bordered">
 
- <?php
-    
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'tapship');
-   
-     
- $q = "SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status='6' AND cs.cr_status = '6'";
- $query = mysqli_query($con,$q);
- $c = 1;
+        <tr class="bg-dark text-white text-center">
+            <thead>
+                <th>Sr. No.</th>
+                <th> Crop Name </th>
+                <th> Crop Type</th>
+                <th> Crop Quantity</th>
+                <th> Farmer Name</th>
+                <th> Farmer Mobile</th>
+                <th> Farmer City</th>
+                <th> Customer Name</th>
+                <th> Customer Mobile</th>
+                <th> Customer City</th>
+                <th> View</th>
+            </thead>
+        </tr>
 
- while($res = mysqli_fetch_array($query)){
- ?>
- <tr class="text-center">
- <td data-label="Sr. No."> <?php echo $c; $c+=1 ?> </td>
- <td data-label="Crop Name"> <?php echo $res['cro_name'];  ?> </td>
- <td data-label="Crop Type"> <?php echo $res['cro_type'];  ?> </td>
- <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'],' Kgs';  ?> </td>
- <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
- <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
- <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
- <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
- <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
- <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
- <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewdeal.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
- </tr>
+        <?php
 
- <?php 
- }
-  ?>
- 
- </table>  
+        $con = mysqli_connect('localhost', 'root');
+        mysqli_select_db($con, 'tapship');
+
+
+        $q = "SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status='6' AND cs.cr_status = '6'";
+        $query = mysqli_query($con, $q);
+        $c = 1;
+
+        while ($res = mysqli_fetch_array($query)) {
+        ?>
+            <tr class="text-center">
+                <td data-label="Sr. No."> <?php echo $c;
+                                            $c += 1 ?> </td>
+                <td data-label="Crop Name"> <?php echo $res['cro_name'];  ?> </td>
+                <td data-label="Crop Type"> <?php echo $res['cro_type'];  ?> </td>
+                <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'], ' Kgs';  ?> </td>
+                <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
+                <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
+                <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
+                <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
+                <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
+                <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
+                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewdeal.php?cr_id=<?php echo $res['cr_id']; ?>" class="text-white"> View </a> </button> </td>
+            </tr>
+
+        <?php
+        }
+        ?>
+
+    </table>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
