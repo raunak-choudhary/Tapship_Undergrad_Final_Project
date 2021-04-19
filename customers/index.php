@@ -145,7 +145,7 @@ error_reporting(0);
                                                 &nbsp;</span>
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="findcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Crops</button></a>
+                                            <a href="findcrop-pin.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Find the Crops</button></a>
                                         </div>
                                     </div>
                                 </div>

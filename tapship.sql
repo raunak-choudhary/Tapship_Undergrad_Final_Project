@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 01:02 PM
+-- Generation Time: Apr 19, 2021 at 03:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -68,8 +68,8 @@ INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bi
 (12, '9672836728', '8745123411', 46, 300, '2', '0', '0', '0', '0'),
 (13, '9672836728', '8745123411', 42, 500, '7', 'NEFT', 'HJGJKI7385954034HGHJH', 'assets/documents/payment/payment.pdf', '1'),
 (14, '9672836730', '8745123411', 36, 600, '6', '0', '0', '0', '0'),
-(15, '9672836730', '9672836726', 47, 25, '6', '0', '0', '0', '0'),
-(24, '9672836728', '9672836726', 44, 44, '6', '0', '0', '0', '0'),
+(15, '9672836730', '9672836722', 47, 25, '6', '0', '0', '0', '0'),
+(24, '9672836728', '9446552020', 44, 44, '6', '0', '0', '0', '0'),
 (25, '9672836728', '9672836726', 46, 30, '6', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
@@ -123,9 +123,9 @@ INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_
 (35, '9446552020', 4, '10', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '30', '2021-03-22', '0'),
 (36, '9672836722', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0'),
 (42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0'),
-(44, '9672836726', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '6'),
+(44, '9446552020', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '6'),
 (46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '6'),
-(47, '9672836726', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '6');
+(47, '9672836722', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '6');
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`) VALUES
-(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '345674', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2', 'Raunak Choudhary', '8823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
+(1, 'Raunak Chaudhary', '9672836726', 'Male', '21', '405, Gandhi Marg', 'Barmer', 'Rajasthan', '344001', '867345678323', 'assets/documents/aadhar/aadhar.pdf', 'HGYTR7325I', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo1.jfif', 'Gapu@8540', '2', 'Raunak Choudhary', '8823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
 (20, 'Ajay Kumar', '8745123411', 'Male', '30', 'C11, RajMarg', 'Jaipur', 'Rajasthan', '302001', '345574855267', 'assets/documents/aadhar/8745123411-Ajay Kumar-aadhar.pdf', 'AMQVS4065P', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Ajay Kumar', '9823456782345', 'CNRB0000468', 'Canera Bank', 'BVR', 'assets/documents/passbook/8745123411-Ajay Kumar-passbook.pdf'),
 (21, 'Karthik Gupta', '9446552020', 'Male', '40', 'A2145, New Temple Road', 'Ayodhya', 'Uttar Pradesh', '224123', '789025849516', 'assets/documents/aadhar/aadhar.pdf', 'LDKYB6703T', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8540', '2', 'Karthik Gupta', '47823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf'),
 (61, 'Anish Sharma', '9672836722', 'Male', '78', '202, Laxmi Plaza, Old Fish Market Road, Brahmavara', 'Udupi', 'Karnataka', '576213', '643436728767', 'assets/documents/aadhar/aadhar.pdf', 'TTHUO8765U', 'assets/documents/pan/pan.pdf', 'assets/documents/photo/photo2.png', 'Gapu@8654', '2', 'Anish Sharma', '7823456782345', 'CNRB0000466', 'Canera Bank', 'BVR', 'assets/documents/passbook/passbook.pdf');
