@@ -6,16 +6,15 @@ import sys
 
 engine =sqlalchemy.create_engine("mysql+pymysql://root@localhost:3306/tapship")
 
-d_mobile = str(sys.argv[1])
-d_pincode = str(sys.argv[2])
+c_mobile = str(sys.argv[1])
+c_pincode = str(sys.argv[2])
 
-s1= 'SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status="6" AND cs.cr_status = "6"'
-
+s1= 'SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, f.f_name, f.f_mobile,f.f_pincode FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 ORDER BY CS.cr_id DESC'
 
 df1 = pd.read_sql_query(s1,engine)
 df1 = pd.DataFrame(df1)
 
-pinurl1 = 'https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+d_pincode+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+pinurl1 = 'http://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+c_pincode+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
 response1 = requests.get(pinurl1)
 resp_json_payload1 = response1.json()
 
@@ -30,12 +29,11 @@ resp_json_payloadlive = responselive.json()
 loclive = (resp_json_payloadlive['resourceSets'][0]['resources'][0]['name'])
 loc = str(loclive)
 
-pindic = pd.Series(df1.f_pincode.values,index=df1.cb_id).to_dict()
-crcbdic = pd.Series(df1.cr_id.values,index=df1.cb_id).to_dict()
+pindic = pd.Series(df1.f_pincode.values,index=df1.cr_id).to_dict()
 disdic = pindic.copy()
 
 for ele in pindic:
-    pinurl2 = 'https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+pindic[ele]+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
+    pinurl2 = 'http://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='+pindic[ele]+'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d'
     response2 = requests.get(pinurl2)
     resp_json_payload2 = response2.json()
 
@@ -57,11 +55,11 @@ disdicsort = dict(sorted(disdic.items(), key=lambda item: item[1]))
 order = 'ORDER BY case '
 count = 1
 for ele in disdicsort:
-    order = order+'when cb_id ='+str(ele) +' then '+str(count)+' '
+    order = order+'when cr_id ='+str(ele) +' then '+str(count)+' '
     count+= 1
 order+= ' else '+str(count)+' end asc'
 
-s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City", f.f_pincode as "Farmer Pincode", c.c_name as "Customer Name", c.c_mobile as "Customer Mobile", c.c_city as "Customer City", c.c_pincode as "Customer Pincode" FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status="6" AND cs.cr_status = "6" '+order
+s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CD.cro_msp as "Crop MSP", CS.cr_quantity as "Crop Quantity", CS.cr_mep as "Crop MEP", CS.cr_date as "Crop Date", CS.cr_status as "Crop Status", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_pincode as "Farmer Pincode" FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 '+order
 
 df2 = pd.read_sql_query(s2,engine)
 df2 = pd.DataFrame(df2)
@@ -72,7 +70,6 @@ for ele in disdicsort:
 df2['Distance (in KM)'] = lis
 
 cbidsort = list(disdicsort.keys())
-crcbdicsort = dict(sorted(crcbdic.items(), key=lambda pair: cbidsort.index(pair[0])))
 
 idx = 0
 num = 0
@@ -85,8 +82,8 @@ df2.insert(loc=idx, column='Sr. No', value=srcol)
 
 liscr = []
 view = ''
-for ele in crcbdicsort:
-    view = '<button class="btn" style="background-color:#0c3823;"> <a href="viewdeal.php?cr_id='+str(crcbdicsort[ele])+'" class="text-white"> View </a> </button>'
+for ele in disdicsort:
+    view = '<button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?cr_id='+str(ele)+'" class="text-white"> View </a> </button>'
     liscr.append(view)
 
 for ele in liscr:
@@ -97,7 +94,6 @@ table = df2.to_html(classes=' table table-striped table-hover table-bordered')
 table = table.replace("&lt;", "<")
 table = table.replace("&gt;", ">")
 table = table.replace("\n", "")
-
 
 print(table)
 print(loc)
