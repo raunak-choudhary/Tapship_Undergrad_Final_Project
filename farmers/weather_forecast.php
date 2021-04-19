@@ -88,7 +88,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                 <div class="opt">
                     <center>
-                        <button class="btn btn-class btn-block" style="background-color:white;"><a href="#" style="color:black;">Live Location</a></but>
+                        <button class="btn btn-class btn-block" style="background-color:white;"><a href="#" style="color:black;">Live Location</a></button>
                     </center>
                 </div>
             </div>
