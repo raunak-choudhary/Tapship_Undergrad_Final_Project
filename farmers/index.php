@@ -30,6 +30,7 @@ error_reporting(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/card-hover.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="page-top">
@@ -128,6 +129,32 @@ if($f_approve==2)
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <h4>Weather Report</h4>
+		<div class="row" style="color:white;">
+		  <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:25px;  height: 190px;">
+			<h5>Monday</h5>
+			<h5>26 April 2021</h5>
+			<h1>35°C</h1>
+			<h5>Udupi</h5>
+		  </div>
+		  <div class="col-lg-5 col-md-12 col-sm-12" style="background-color:#1e5239; padding:25px; height: 190px;">
+				<h5>Feels Like &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: 37°C </h5>  
+				<h5>Humidity &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: 56% </h5>  
+				<h5>Clouds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: 76% </h5>  
+				<h5>Wind Speed &nbsp&nbsp&nbsp&nbsp&nbsp: 4.6 Kmph </h5>  
+				<h5>Weather Type &nbsp&nbsp: Cloudy </h5>
+		  </div>
+		  <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:25px;  height: 190px;">
+			<h5>Weather Forcast</h5>  
+			<button type="button" class="btn btn-primary">View Forcast</button>
+			<h5 style="padding-top:10px;">Crop Suggestions </h5>
+			<button type="button" class="btn btn-primary">View Suggestions</button>
+		  </div>
+		</div>
+	  </div>	
+      <br>
     <center>             
         <div class="container-fluid" >
             <div class="row" style="margin-top: 10px;">
