@@ -61,7 +61,7 @@ for ele in disdicsort:
     count+= 1
 order+= ' else '+str(count)+' end asc'
 
-s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City", f.f_pincode as "Farmer Pincode", c.c_name as "Customer Name", c.c_mobile as "Customer Mobile", c.c_city as "Customer City", c.c_pincode as "Customer Pincode" FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status="6" AND cs.cr_status = "6" '+order
+s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity", c.c_name as "Customer Name", c.c_mobile as "Customer Mobile", c.c_city as "Customer City", c.c_pincode as "Customer Pincode", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City", f.f_pincode as "Farmer Pincode" FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status="6" AND cs.cr_status = "6" '+order
 
 df2 = pd.read_sql_query(s2,engine)
 df2 = pd.DataFrame(df2)

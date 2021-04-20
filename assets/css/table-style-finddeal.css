@@ -82,14 +82,14 @@ background: #ccc;
 	td:nth-of-type(2):before { content: "Crop Name"; }
 	td:nth-of-type(3):before { content: "Crop Type"; }
 	td:nth-of-type(4):before { content: "Crop Quantity"; }
-	td:nth-of-type(5):before { content: "Farmer Name"; }
-	td:nth-of-type(6):before { content: "Farmer Mobile"; }
-	td:nth-of-type(7):before { content: "Farmer City"; }
-	td:nth-of-type(8):before { content: "Farmer Pincode"; }
-	td:nth-of-type(9):before { content: "Customer Name"; }
-	td:nth-of-type(10):before { content: "Customer Mobile"; }
-	td:nth-of-type(11):before { content: "Customer City"; }
-	td:nth-of-type(12):before { content: "Customer Pincode"; }
+	td:nth-of-type(5):before { content: "Customer Name"; }
+	td:nth-of-type(6):before { content: "Customer Mobile"; }
+	td:nth-of-type(7):before { content: "Customer City"; }
+	td:nth-of-type(8):before { content: "Customer Pincode"; }
+	td:nth-of-type(9):before { content: "Farmer Name"; }
+	td:nth-of-type(10):before { content: "Farmer Mobile"; }
+	td:nth-of-type(11):before { content: "Farmer City"; }
+	td:nth-of-type(12):before { content: "Farmer Pincode"; }
 	td:nth-of-type(13):before { content: "Distance (in KM)"; }
 	td:nth-of-type(14):before { content: "View Details"; }
     
