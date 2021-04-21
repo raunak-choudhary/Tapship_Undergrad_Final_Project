@@ -30,7 +30,16 @@ error_reporting(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/card-hover.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @media(max-width: 992px){
+        .lap{
+            display:none;
+        }}
+        @media(min-width: 992px){
+        .mob{
+            display:none;
+        }}
+    </style>
 </head>
 
 <body id="page-top">
@@ -138,9 +147,18 @@ error_reporting(0);
         </div>
 
         <div class="container">
-            <h4>Weather Report</h4>
-            <div class="row" style="color:white;">
-                <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:20px;  height: 250px;">
+            <div class="row" style="color:white; margin:10px; ">
+            <div class="col-lg-1 col-md-12 col-sm-12" style="background-color:#7e090f; padding:20px;">
+                <h5 class="lap">W</h5>
+                <h5 class="lap">E</h5>
+                <h5 class="lap">A</h5>
+                <h5 class="lap">T</h5>
+                <h5 class="lap">H</h5>
+                <h5 class="lap">E</h5>
+                <h5 class="lap">R</h5>
+                <h4 class="mob">Weather Report</h4>
+            </div>
+                <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:20px;  height: 265px;">
                     <h5><?php echo $op[0]; ?></h5>
                     <span><strong><?php echo $op[1]; ?></strong></span><br>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin location-icon">
@@ -152,7 +170,7 @@ error_reporting(0);
                     <h1><?php echo $op[4]; ?></h1>
                     <h5><?php echo $op[5]; ?></h5>
                 </div>
-                <div class="col-lg-5 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px; height: 250px;">
+                <div class="col-lg-5 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px; height: 265px;">
                     <h5>Clouds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[12]; ?> </h5>
                     <h5>Humidity &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[11]; ?> </h5>
                     <h5>Feels Like &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[10]; ?> </h5>
@@ -161,7 +179,7 @@ error_reporting(0);
                     <h5>Sunrise Time &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[6]; ?> </h5>
                     <h5>Sunset Time &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[7]; ?> </h5>
                 </div>
-                <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:20px;  height: 250px;">
+                <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:20px;  height: 265px;">
                     <h5>Weather Forcast</h5>
                     <button type="button" class="btn btn-primary">View Forcast</button>
                     <br><br><br>
@@ -187,7 +205,7 @@ error_reporting(0);
                                                 &nbsp;</span>
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Add New Crop</button></a>
+                                            <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">Add New Crop</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +225,7 @@ error_reporting(0);
                                                 &nbsp;</span>
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Active Crop</button></a>
+                                            <a href="activecrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View Active Crop</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +245,7 @@ error_reporting(0);
                                                 &nbsp;</span>
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Sell History</button></a>
+                                            <a href="sellhistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View Sell History</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +261,7 @@ error_reporting(0);
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; MSP Tracking
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View MSP</button></a>
+                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View MSP</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +277,7 @@ error_reporting(0);
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Help Zone
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Ask the Expert</button></a>
+                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">Ask the Expert</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -275,7 +293,7 @@ error_reporting(0);
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Knowledge Zone
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
+                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">Know More</button></a>
                                         </div>
                                     </div>
                                 </div>
