@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 05:22 PM
+-- Generation Time: Apr 21, 2021 at 09:40 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -47,15 +47,22 @@ INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
 --
 
 CREATE TABLE `contactus` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `mobile` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `subject` varchar(50) NOT NULL,
-  `msg` text NOT NULL,
-  `date` varchar(50) NOT NULL
+  `u_id` int(11) NOT NULL,
+  `u_name` varchar(50) NOT NULL,
+  `u_mobile` varchar(50) NOT NULL,
+  `u_email` varchar(50) NOT NULL,
+  `u_address` varchar(50) NOT NULL,
+  `u_subject` varchar(50) NOT NULL,
+  `u_message` text NOT NULL,
+  `u_date` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`u_id`, `u_name`, `u_mobile`, `u_email`, `u_address`, `u_subject`, `u_message`, `u_date`) VALUES
+(1, 'Raunak Choudhary', '9782507934', 'raunakc77@gmail.com', '344001', 'Please Help Me. ', 'I am a new user. Help me in making an account.', '2021-04-22 01:07:13');
 
 -- --------------------------------------------------------
 
@@ -335,8 +342,8 @@ ALTER TABLE `admin`
 -- Indexes for table `contactus`
 --
 ALTER TABLE `contactus`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`u_id`),
+  ADD UNIQUE KEY `id` (`u_id`);
 
 --
 -- Indexes for table `cropbid`
@@ -415,7 +422,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cropbid`

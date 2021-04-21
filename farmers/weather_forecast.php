@@ -74,11 +74,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
     <div class="container-fluid">
         <div class="row" style="color:white; margin:10px;">
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#7e090f; padding:15px; height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#7e090f; padding:15px; height: 430px;">
                 <h6><?php echo $op[0]; ?></h6>
                 <h6><?php echo $op[1]; ?></h6>
                 <?php echo $op[2]; ?>
-                <h3><?php echo $op[3]; ?></h3>
+                <h2><?php echo $op[3]; ?></h2>
                 <h6>Weather Type : <?php echo $op[4]; ?> </h6>
                 <h6>Clouds : <?php echo $op[5]; ?> </h6>
                 <h6>Humidity : <?php echo $op[6]; ?> </h6>
@@ -89,11 +89,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[11]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[12]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 430px;">
                 <h6><?php echo $op[13]; ?></h6>
                 <h6><?php echo $op[14]; ?></h6>
                 <?php echo $op[15]; ?>
-                <h3><?php echo $op[16]; ?></h3>
+                <h2><?php echo $op[16]; ?></h2>
                 <h6>Weather Type : <?php echo $op[17]; ?> </h6>
                 <h6>Clouds : <?php echo $op[18]; ?> </h6>
                 <h6>Humidity : <?php echo $op[19]; ?> </h6>
@@ -104,11 +104,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[24]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[25]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 430px;">
                 <h6><?php echo $op[26]; ?></h6>
                 <h6><?php echo $op[27]; ?></h6>
                 <?php echo $op[28]; ?>
-                <h3><?php echo $op[29]; ?></h3>
+                <h2><?php echo $op[29]; ?></h2>
                 <h6>Weather Type : <?php echo $op[30]; ?> </h6>
                 <h6>Clouds : <?php echo $op[31]; ?> </h6>
                 <h6>Humidity : <?php echo $op[32]; ?> </h6>
@@ -119,11 +119,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[37]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[38]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 430px;">
                 <h6><?php echo $op[39]; ?></h6>
                 <h6><?php echo $op[40]; ?></h6>
                 <?php echo $op[41]; ?>
-                <h3><?php echo $op[42]; ?></h3>
+                <h2><?php echo $op[42]; ?></h2>
                 <h6>Weather Type : <?php echo $op[43]; ?> </h6>
                 <h6>Clouds : <?php echo $op[44]; ?> </h6>
                 <h6>Humidity : <?php echo $op[45]; ?> </h6>
@@ -137,11 +137,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         </div>
         <br>
         <div class="row" style="color:white; margin:10px; ">
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 430px;">
                 <h6><?php echo $op[52]; ?></h6>
                 <h6><?php echo $op[53]; ?></h6>
                 <?php echo $op[54]; ?>
-                <h3><?php echo $op[55]; ?></h3>
+                <h2><?php echo $op[55]; ?></h2>
                 <h6>Weather Type : <?php echo $op[56]; ?> </h6>
                 <h6>Clouds : <?php echo $op[57]; ?> </h6>
                 <h6>Humidity : <?php echo $op[58]; ?> </h6>
@@ -152,11 +152,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[63]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[64]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 430px;">
                 <h6><?php echo $op[65]; ?></h6>
                 <h6><?php echo $op[66]; ?></h6>
                 <?php echo $op[67]; ?>
-                <h3><?php echo $op[68]; ?></h3>
+                <h2><?php echo $op[68]; ?></h2>
                 <h6>Weather Type : <?php echo $op[69]; ?> </h6>
                 <h6>Clouds : <?php echo $op[70]; ?> </h6>
                 <h6>Humidity : <?php echo $op[71]; ?> </h6>
@@ -167,11 +167,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[76]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[77]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 430px;">
                 <h6><?php echo $op[78]; ?></h6>
                 <h6><?php echo $op[79]; ?></h6>
                 <?php echo $op[80]; ?>
-                <h3><?php echo $op[81]; ?></h3>
+                <h2><?php echo $op[81]; ?></h2>
                 <h6>Weather Type : <?php echo $op[82]; ?> </h6>
                 <h6>Clouds : <?php echo $op[83]; ?> </h6>
                 <h6>Humidity : <?php echo $op[84]; ?> </h6>
@@ -182,11 +182,11 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <h6>Maximum Temperature : <?php echo $op[89]; ?> </h6>
                 <h6>Minimum Temperature : <?php echo $op[90]; ?> </h6>
             </div>
-            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 430px;">
                 <h6><?php echo $op[91]; ?></h6>
                 <h6><?php echo $op[92]; ?></h6>
                 <?php echo $op[93]; ?>
-                <h3><?php echo $op[94]; ?></h3>
+                <h2><?php echo $op[94]; ?></h2>
                 <h6>Weather Type : <?php echo $op[95]; ?> </h6>
                 <h6>Clouds : <?php echo $op[96]; ?> </h6>
                 <h6>Humidity : <?php echo $op[97]; ?> </h6>

@@ -360,7 +360,7 @@ error_reporting(0);
                         }
                         if (response == 0) {
                             alert("Updated Successfully");
-                            //location.replace('logout-script.php');
+                            location.replace('logout-script.php');
                         }
                     }
                 })
