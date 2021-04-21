@@ -31,14 +31,17 @@ error_reporting(0);
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/card-hover.css">
     <style>
-        @media(max-width: 992px){
-        .lap{
-            display:none;
-        }}
-        @media(min-width: 992px){
-        .mob{
-            display:none;
-        }}
+        @media(max-width: 992px) {
+            .lap {
+                display: none;
+            }
+        }
+
+        @media(min-width: 992px) {
+            .mob {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -131,7 +134,7 @@ error_reporting(0);
         </div>
     <?php }
 
-    $py_res = shell_exec("python weather_forecast-pin.py $f_mobile $f_pincode");
+    $py_res = shell_exec("python current_weather_forecast.py $f_mobile $f_pincode");
     $op = explode("\n", $py_res);
     ?>
 
@@ -148,16 +151,16 @@ error_reporting(0);
 
         <div class="container">
             <div class="row" style="color:white; margin:10px; ">
-            <div class="col-lg-1 col-md-12 col-sm-12" style="background-color:#3d0107; padding:20px;">
-                <h5 class="lap">W</h5>
-                <h5 class="lap">E</h5>
-                <h5 class="lap">A</h5>
-                <h5 class="lap">T</h5>
-                <h5 class="lap">H</h5>
-                <h5 class="lap">E</h5>
-                <h5 class="lap">R</h5>
-                <h4 class="mob">Weather Report</h4>
-            </div>
+                <div class="col-lg-1 col-md-12 col-sm-12" style="background-color:#3d0107; padding:20px;">
+                    <h5 class="lap">W</h5>
+                    <h5 class="lap">E</h5>
+                    <h5 class="lap">A</h5>
+                    <h5 class="lap">T</h5>
+                    <h5 class="lap">H</h5>
+                    <h5 class="lap">E</h5>
+                    <h5 class="lap">R</h5>
+                    <h4 class="mob">Weather Report</h4>
+                </div>
                 <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px;  height: 265px;">
                     <h5><?php echo $op[0]; ?></h5>
                     <span><strong><?php echo $op[1]; ?></strong></span><br>
@@ -181,7 +184,7 @@ error_reporting(0);
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px;  height: 265px;">
                     <h5>Weather Forcast</h5>
-                    <button type="button" class="btn btn-primary">View Forcast</button>
+                    <a href="weather_forecast.php"><button type="button" class="btn btn-primary">View Forcast</button></a>
                     <br><br><br>
                     <h5 style="padding-top:10px;">Crop Suggestions </h5>
                     <button type="button" class="btn btn-primary">View Suggestions</button>

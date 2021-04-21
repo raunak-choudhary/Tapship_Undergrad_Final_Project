@@ -57,53 +57,148 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Weather Forecast on Pincode</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Weather Forecast</h2>
             </div>
         </div>
     </div>
 
     <?php
-
     $q = "SELECT * from farmer where f_mobile = $f_mobile";
     $query = mysqli_query($con, $q);
-
     while ($res = mysqli_fetch_array($query)) {
         $f_pincode = $res['f_pincode'];
     }
-    $res = shell_exec("python weather_forecast-pin.py $f_mobile $f_pincode");
+    $res = shell_exec("python weather_forecast.py $f_mobile $f_pincode");
     $op = explode("\n", $res);
     ?>
 
-    <div class="container" style="background-color:#0c3823; padding-top:10px; border-radius:10px;">
-        <h4 style="color:white; margin:5px; display: inline-block;">Filter Results :</h4>
-        <p style="color:white; margin:5px; display: inline-block;">(showing for pincode)</p>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                <div class="opt">
-                    <center>
-                        <button class="btn btn-class btn-block" style="background-color:#90173f; color:#ffffff;"><a href="#" style="color:white;">Pincode (Address)</a></button>
-                    </center>
-                </div>
+    <div class="container-fluid">
+        <div class="row" style="color:white; margin:10px;">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#7e090f; padding:15px; height: 420px;">
+                <h6><?php echo $op[0]; ?></h6>
+                <h6><?php echo $op[1]; ?></h6>
+                <?php echo $op[2]; ?>
+                <h3><?php echo $op[3]; ?></h3>
+                <h6>Weather Type : <?php echo $op[4]; ?> </h6>
+                <h6>Clouds : <?php echo $op[5]; ?> </h6>
+                <h6>Humidity : <?php echo $op[6]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[7]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[8]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[9]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[10]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[11]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[12]; ?> </h6>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                <div class="opt">
-                    <center>
-                        <button class="btn btn-class btn-block" style="background-color:white;"><a href="#" style="color:black;">Live Location</a></button>
-                    </center>
-                </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+                <h6><?php echo $op[13]; ?></h6>
+                <h6><?php echo $op[14]; ?></h6>
+                <?php echo $op[15]; ?>
+                <h3><?php echo $op[16]; ?></h3>
+                <h6>Weather Type : <?php echo $op[17]; ?> </h6>
+                <h6>Clouds : <?php echo $op[18]; ?> </h6>
+                <h6>Humidity : <?php echo $op[19]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[20]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[21]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[22]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[23]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[24]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[25]; ?> </h6>
             </div>
-            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="opt">
-                    <center>
-                        <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $op[1]; ?></p>
-                    </center>
-                </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+                <h6><?php echo $op[26]; ?></h6>
+                <h6><?php echo $op[27]; ?></h6>
+                <?php echo $op[28]; ?>
+                <h3><?php echo $op[29]; ?></h3>
+                <h6>Weather Type : <?php echo $op[30]; ?> </h6>
+                <h6>Clouds : <?php echo $op[31]; ?> </h6>
+                <h6>Humidity : <?php echo $op[32]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[33]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[34]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[35]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[36]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[37]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[38]; ?> </h6>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+                <h6><?php echo $op[39]; ?></h6>
+                <h6><?php echo $op[40]; ?></h6>
+                <?php echo $op[41]; ?>
+                <h3><?php echo $op[42]; ?></h3>
+                <h6>Weather Type : <?php echo $op[43]; ?> </h6>
+                <h6>Clouds : <?php echo $op[44]; ?> </h6>
+                <h6>Humidity : <?php echo $op[45]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[46]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[47]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[48]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[49]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[50]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[51]; ?> </h6>
+            </div>
+        </div>
+        <br>
+        <div class="row" style="color:white; margin:10px; ">
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+                <h6><?php echo $op[52]; ?></h6>
+                <h6><?php echo $op[53]; ?></h6>
+                <?php echo $op[54]; ?>
+                <h3><?php echo $op[55]; ?></h3>
+                <h6>Weather Type : <?php echo $op[56]; ?> </h6>
+                <h6>Clouds : <?php echo $op[57]; ?> </h6>
+                <h6>Humidity : <?php echo $op[58]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[59]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[60]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[61]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[62]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[63]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[64]; ?> </h6>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+                <h6><?php echo $op[65]; ?></h6>
+                <h6><?php echo $op[66]; ?></h6>
+                <?php echo $op[67]; ?>
+                <h3><?php echo $op[68]; ?></h3>
+                <h6>Weather Type : <?php echo $op[69]; ?> </h6>
+                <h6>Clouds : <?php echo $op[70]; ?> </h6>
+                <h6>Humidity : <?php echo $op[71]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[72]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[73]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[74]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[75]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[76]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[77]; ?> </h6>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#092b1b; padding:15px;   height: 420px;">
+                <h6><?php echo $op[78]; ?></h6>
+                <h6><?php echo $op[79]; ?></h6>
+                <?php echo $op[80]; ?>
+                <h3><?php echo $op[81]; ?></h3>
+                <h6>Weather Type : <?php echo $op[82]; ?> </h6>
+                <h6>Clouds : <?php echo $op[83]; ?> </h6>
+                <h6>Humidity : <?php echo $op[84]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[85]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[86]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[87]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[88]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[89]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[90]; ?> </h6>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:15px;   height: 420px;">
+                <h6><?php echo $op[91]; ?></h6>
+                <h6><?php echo $op[92]; ?></h6>
+                <?php echo $op[93]; ?>
+                <h3><?php echo $op[94]; ?></h3>
+                <h6>Weather Type : <?php echo $op[95]; ?> </h6>
+                <h6>Clouds : <?php echo $op[96]; ?> </h6>
+                <h6>Humidity : <?php echo $op[97]; ?> </h6>
+                <h6>Dew Point : <?php echo $op[98]; ?> </h6>
+                <h6>Wind Speed : <?php echo $op[99]; ?> </h6>
+                <h6>Sunrise Time : <?php echo $op[100]; ?> </h6>
+                <h6>Sunset Time : <?php echo $op[101]; ?> </h6>
+                <h6>Maximum Temperature : <?php echo $op[102]; ?> </h6>
+                <h6>Minimum Temperature : <?php echo $op[103]; ?> </h6>
             </div>
         </div>
     </div>
-    <br>
-
-    <?php echo $op[0]; ?>
 
     <div class="footer-dark" style="background: rgb(12,56,35); margin-top: 50px;">
         <footer>

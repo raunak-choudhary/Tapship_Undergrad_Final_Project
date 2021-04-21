@@ -47,10 +47,14 @@ if response.status_code == 200:
     data = response.json()
     # getting the main dict block
     current = data['current']
+    daily = data['daily']
     l1_main = {}
+    l2_main = []
     #Collecting Current Dictionary
     for i in current:
         l1_main[i] = current[i]
+    for i in daily:
+        l2_main.append(i)
     #Collect Current Values
     current_date_ts = l1_main['dt']
     current_sunrise_ts = l1_main['sunrise']
@@ -125,10 +129,10 @@ print(current_loc)
 print(current_weather_icon)
 print(current_temp)
 print(current_weather)
+print(current_clouds)
+print(current_humidity)
+print(current_feels_like)
+print(current_dew_point)
+print(current_wind_speed)
 print(current_sunrise_time_12hour)
 print(current_sunset_time_12hour)
-print(current_wind_speed)
-print(current_dew_point)
-print(current_feels_like)
-print(current_humidity)
-print(current_clouds)
