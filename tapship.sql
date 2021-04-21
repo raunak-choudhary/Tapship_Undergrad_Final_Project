@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 03:36 PM
+-- Generation Time: Apr 21, 2021 at 05:22 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -39,6 +39,23 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
 (1, 'admin', 'Gapu@8540');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `mobile` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `msg` text NOT NULL,
+  `date` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -315,6 +332,13 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`a_id`);
 
 --
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `cropbid`
 --
 ALTER TABLE `cropbid`
@@ -386,6 +410,12 @@ ALTER TABLE `transportself`
 --
 ALTER TABLE `admin`
   MODIFY `a_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cropbid`
