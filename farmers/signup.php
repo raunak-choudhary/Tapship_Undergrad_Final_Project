@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <script language="Javascript" src="jquery.js"></script>
-    <script type="text/JavaScript" src='state.js'></script>
+    <script language="Javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/JavaScript" src="../assets/js/farmer_state_district.js"></script>
 </head>
 
 <body id="page-top">

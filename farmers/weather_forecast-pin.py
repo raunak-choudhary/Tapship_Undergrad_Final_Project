@@ -19,8 +19,7 @@ pinurl1 = 'https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=jso
 response1 = requests.get(pinurl1)
 resp_json_payload1 = response1.json()
 
-coordinates1 = list(
-    resp_json_payload1['resourceSets'][0]['resources'][0]['point']['coordinates'])
+coordinates1 = list(resp_json_payload1['resourceSets'][0]['resources'][0]['point']['coordinates'])
 lat1 = str(coordinates1[0])
 long1 = str(coordinates1[1])
 
@@ -29,8 +28,8 @@ liveurl = 'http://dev.virtualearth.net/REST/v1/Locations/'+lat1+','+long1 +'?&in
 responselive = requests.get(liveurl)
 resp_json_payloadlive = responselive.json()
 
-loclive = (resp_json_payloadlive['resourceSets'][0]['resources'][0]['name'])
-loc = str(loclive)
+loclive = (resp_json_payloadlive['resourceSets'][0]['resources'][0]['address']['locality'])
+current_loc = str(loclive)
 
 # Finding Weather Forecast using OpenWeatherMap API
 BASE_URL = "http://api.openweathermap.org/data/2.5/onecall?"
@@ -38,111 +37,98 @@ API_KEY = "69abaf93c37f52a54804658d2ddd3f26"
 
 URL = BASE_URL + "lat=" + lat1 + "&lon=" + long1 + "&exclude=minutely,hourly&units=metric&appid=" + API_KEY
 
-# degree sign
+#degree sign
 degree_sign = u"\N{DEGREE SIGN}"
 # HTTP request
 response = requests.get(URL)
-
-df1 = pd.DataFrame()
-df1 = pd.DataFrame(columns=['Date', 'Time of Sunrise', 'Time of Sunset','Max Temperature', 'Min Temperature', 'Humidity', 'Dew Point', 'Weather Forecast'])
-
 # checking the status code of the request
 if response.status_code == 200:
     # getting data in the json format
     data = response.json()
     # getting the main dict block
-    daily = data['daily']
-    l1_main = []
-    date_lst = []
-    sunrise_lst = []
-    sunset_lst = []
-    datetimestamp_lst = []
-    sunrisetimestamp_lst = []
-    sunsettimestamp_lst = []
-    humidity_lst = []
-    dew_point_lst = []
-    max_temp_lst = []
-    min_temp_lst = []
-    weather_forecast_lst = []
-
-    for i in daily:
-        l1_main.append(i)
-
-    for i in l1_main:
-        datetimestamp_lst.append(i['dt'])
-        sunrisetimestamp_lst.append(i['sunrise'])
-        sunsettimestamp_lst.append(i['sunset'])
-        humidity_lst.append(str(i['humidity'])+"%")
-        dew_point_lst.append(i['dew_point'])
-        min_temp_lst.append(str(i['temp']['min'])+degree_sign+"C")
-        max_temp_lst.append(str(i['temp']['max'])+degree_sign+"C")
-        weather_forecast_lst.append(
-            str(i['weather'][0]['description']).title())
-
-    for i in datetimestamp_lst:
-        utc = datetime.fromtimestamp(i)
-        itc_time = utc.astimezone(tz.gettz('ITC'))
-        year = itc_time.year
-        month = itc_time.month
-        day = itc_time.day
-        full_date = str(day)+'/'+str(month)+'/'+str(year)
-        date_lst.append(full_date)
-
-    for i in sunrisetimestamp_lst:
-        utc = datetime.fromtimestamp(i)
-        itc_time = utc.astimezone(tz.gettz('ITC'))
-        hour = itc_time.hour
-        minute = itc_time.minute
-        full_time = str(hour)+":"+str(minute)
-        full_time_24hour = datetime.strptime(full_time, "%H:%M")
-        fulltime_12hour = full_time_24hour.strftime("%I:%M %p")
-        sunrise_lst.append(fulltime_12hour)
-
-    for i in sunsettimestamp_lst:
-        utc = datetime.fromtimestamp(i)
-        itc_time = utc.astimezone(tz.gettz('ITC'))
-        hour = itc_time.hour
-        minute = itc_time.minute
-        full_time = str(hour)+":"+str(minute)
-        full_time_24hour = datetime.strptime(full_time, "%H:%M")
-        fulltime_12hour = full_time_24hour.strftime("%I:%M %p")
-        sunset_lst.append(fulltime_12hour)
-
-    for ele in date_lst:
-        df1['Date'] = date_lst
-
-    for ele in sunrise_lst:
-        df1['Time of Sunrise'] = sunrise_lst
-
-    for ele in sunset_lst:
-        df1['Time of Sunset'] = sunset_lst
-
-    for ele in max_temp_lst:
-        df1['Max Temperature'] = max_temp_lst
-
-    for ele in min_temp_lst:
-        df1['Min Temperature'] = min_temp_lst
-
-    for ele in humidity_lst:
-        df1['Humidity'] = humidity_lst
-
-    for ele in dew_point_lst:
-        df1['Dew Point'] = dew_point_lst
-
-    for ele in weather_forecast_lst:
-        df1['Weather Forecast'] = weather_forecast_lst
-
+    current = data['current']
+    l1_main = {}
+    #Collecting Current Dictionary
+    for i in current:
+        l1_main[i] = current[i]
+    #Collect Current Values
+    current_date_ts = l1_main['dt']
+    current_sunrise_ts = l1_main['sunrise']
+    current_sunset_ts = l1_main['sunset']
+    current_temp = l1_main['temp']
+    current_feels_like = l1_main['feels_like']
+    current_humidity = l1_main['humidity']
+    current_dew_point = l1_main['dew_point']
+    current_clouds = l1_main['clouds']
+    current_wind_speed = l1_main['wind_speed']
+    current_weather = l1_main['weather'][0]['description']
+    current_weather_icon_no = l1_main['weather'][0]['icon']
 #else:
     # showing the error message
     #print("Error in the HTTP request")
 
+day_name= ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday']
+month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-table = df1.to_html(classes=' table table-striped table-hover table-bordered')
+#Getting Current Date, Week Day, Month Name from current timestamp
+utc = datetime.fromtimestamp(current_date_ts)
+itc_time= utc.astimezone(tz.gettz('ITC'))
+year = itc_time.year
+month_no = itc_time.month
+day = itc_time.day
+current_date = str(day)+"-"+str(month_no)+"-"+str(year)
+week_day = datetime.strptime(current_date, '%d-%m-%Y').weekday()
+current_week_day = day_name[week_day]
+month = month_name[month_no-1]
+current_date = str(day)+"-"+str(month)+"-"+str(year)
 
-table = table.replace("&lt;", "<")
-table = table.replace("&gt;", ">")
-table = table.replace("\n", "")
-table = table.replace("°", "&deg;")
+#Getting Sunrise Time from sunrise timestamp
+utc = datetime.fromtimestamp(current_sunrise_ts)
+itc_time= utc.astimezone(tz.gettz('ITC'))
+hour = itc_time.hour
+minute = itc_time.minute
+current_sunrise_time = str(hour)+":"+str(minute)
+current_sunrise_time_24hour = datetime.strptime(current_sunrise_time, "%H:%M")
+current_sunrise_time_12hour = current_sunrise_time_24hour.strftime("%I:%M %p")
 
-print(table)
-print(loc)
+#Getting Sunset Time from sunset timestamp
+utc = datetime.fromtimestamp(current_sunset_ts)
+itc_time= utc.astimezone(tz.gettz('ITC'))
+hour = itc_time.hour
+minute = itc_time.minute
+current_sunset_time = str(hour)+":"+str(minute)
+current_sunset_time_24hour = datetime.strptime(current_sunset_time, "%H:%M")
+current_sunset_time_12hour = current_sunset_time_24hour.strftime("%I:%M %p")
+
+#Converting Integer Values to String Format
+current_temp = str(current_temp)+degree_sign+"C"
+current_feels_like = str(current_feels_like)+degree_sign+"C"
+current_humidity = str(current_humidity)+"%"
+current_dew_point = str(current_dew_point)+degree_sign+"C"
+current_clouds = str(current_clouds)+"%"
+current_wind_speed = str(current_wind_speed)+" km/h"
+current_weather = str(current_weather).title()
+current_weather_icon_link = "http://openweathermap.org/img/w/"+current_weather_icon_no+".png"
+current_weather_icon = '<img src="'+current_weather_icon_link+'"'+' style="vertical-align: middle; margin-right: 25px;" width="55" height="55" />'
+
+current_weather_icon = current_weather_icon.replace("&lt;", "<")
+current_weather_icon = current_weather_icon.replace("&gt;", ">")
+current_weather_icon = current_weather_icon.replace("\n", "")
+current_temp = current_temp.replace("°", "&deg;")
+current_feels_like = current_feels_like.replace("°", "&deg;")
+current_dew_point = current_dew_point.replace("°", "&deg;")
+
+#Printing Values
+print(current_week_day)
+print(current_date)
+print(current_loc)
+print(current_weather_icon)
+print(current_temp)
+print(current_weather)
+print(current_sunrise_time_12hour)
+print(current_sunset_time_12hour)
+print(current_wind_speed)
+print(current_dew_point)
+print(current_feels_like)
+print(current_humidity)
+print(current_clouds)
