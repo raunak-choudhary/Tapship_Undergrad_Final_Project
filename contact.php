@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>TapShip</title>
+    <title>Contact Us</title>
     <link rel="icon" href="assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -36,7 +36,7 @@
             </div>
         </div>
     </nav>
-    <div class="bg-gray-800 text-gray-100 px-8 py-12" style="margin-top: 10px;">
+    <div class="text-gray-100 px-8 py-12" style="margin-top: 10px;">
         <form action="contact-script.php" method="post">
             <div class="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
                 <div class="flex flex-col justify-between">
