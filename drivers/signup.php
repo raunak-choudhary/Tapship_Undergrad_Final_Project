@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <script language="Javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/JavaScript" src="../assets/js/driver_state_district.js"></script>
 </head>
 
 <body id="page-top">
@@ -70,13 +72,26 @@
             <div class="form-group"><input class="form-control" id="driver_age" type="text" name="driver_age" pattern="^[1-9]{1}[0-9]{1}$" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Apartment/Street</h5>
-            <div class="form-group"><input class="form-control" id="driver_street" type="text" name="driver_street" placeholder="Your Apartment/Street" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_street" type="text" name="driver_street" placeholder="Your Apartment/Street/City" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">City</h5>
+            <h5 style="color:#fff;">District</h5>
+            <div class="form-group">
+                <select class="form-control" id="driver_city" name="driver_city" required>
+                    <option selected disabled value="">Select State First</option>
+                </select>
+            </div>
+
+            <h5 style="color:#fff;">State</h5>
+            <div class="form-group">
+                <select class="form-control" id="driver_state" name="driver_state" onchange='select_district(this.value)' required>
+                </select>
+            </div>
+
+            <!-- <h5 style="color:#fff;">City</h5>
             <div class="form-group"><input class="form-control" id="driver_city" type="text" name="driver_city" placeholder="Your City" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">State</h5>
-            <div class="form-group"><input class="form-control" id="driver_state" type="text" name="driver_state" placeholder="Your State" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="driver_state" type="text" name="driver_state" placeholder="Your State" required="" autofocus=""></div> -->
 
             <h5 style="color:#fff;">Pincode</h5>
             <div class="form-group"><input class="form-control" id="driver_pincode" type="text" name="driver_pincode" pattern="^[1-9]{1}[0-9]{5}" title="Enter valid 6 digit Pincode (Ex. 5763XX)" placeholder="Your Pincode" required="" autofocus=""></div>
