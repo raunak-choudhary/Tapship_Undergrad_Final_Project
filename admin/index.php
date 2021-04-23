@@ -160,8 +160,9 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="col-sm-6 col-md-4 item no-gutters"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/queriesadmin.png" style="text-align: center;"></div>
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Query Zone
                                     </div>
-                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Queries</button></a>
+                                    <div class="text-dark font-weight-bold h5 mb-0" style="width: 440px;  display: inline-block; margin-right: 10px;">
+                                        <a href="contactqueries.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72); width: 220px; display: inline-block;">View Contact Us Queries</button></a>
+                                        <a href="helpzonequeries.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72); margin-right: 10px; width: 200px; display: inline-block;">View Help Zone Queries</button></a>
                                     </div>
                                 </div>
                             </div>
