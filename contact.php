@@ -40,36 +40,36 @@
         <form action="contact-script.php" method="post">
             <div class="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
                 <div class="flex flex-col justify-between">
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <h2 class="text-4xl lg:text-5xl font-bold leading-tight">Lets talk about everything!</h2>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Full Name</span>
                         <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="user_name" name="user_name" placeholder="Enter your Full Name" required="" autofocus="">
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Mobile Number</span>
                         <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="phone" id="user_mobile" name="user_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Enter your Mobile Number" required="" autofocus="">
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Email Id</span>
                         <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="email" id="user_email" name="user_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Valid Email Id (Ex. abc@xyz.com)" placeholder="Enter your Email Id">
                     </div>
                 </div>
                 <div class="flex flex-col justify-between">
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Address</span>
                         <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="user_address" name="user_address" title="Enter your City Name and Pincode" placeholder="Enter your City/Pincode" required="" autofocus="">
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Subject</span>
                         <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="user_subject" name="user_subject" placeholder="Enter Subject of your Issue" required="" autofocus="">
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Message</span>
                         <textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" id="user_message" name="user_message" title="Enter your Issue in Detail" placeholder="Enter your Issue" required="" autofocus=""></textarea>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <button class="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" type="submit" name="submit" value="Submit">
                             Send Message
                         </button>
