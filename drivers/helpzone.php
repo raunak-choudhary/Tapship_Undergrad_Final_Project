@@ -2,8 +2,8 @@
 
 include('session-script.php');
 $res = $_SESSION["sessionid"];
-$f_mobile = $res;
-if (!isset($_SESSION['login_farmer'])) {
+$d_mobile = $res;
+if (!isset($_SESSION['login_driver'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
@@ -15,7 +15,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Farmer Help Zone</title>
+    <title>Driver Help Zone</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -43,8 +43,8 @@ error_reporting(0);
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -56,11 +56,11 @@ error_reporting(0);
         die(" Connection Error ");
     }
 
-    $query = " select * from farmer where f_mobile=" . $f_mobile . "";
+    $query = " select * from driver where d_mobile=" . $d_mobile . "";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
-        $f_name =  $res['f_name'];
+        $d_name =  $res['d_name'];
     }
     ?>
 
@@ -75,11 +75,11 @@ error_reporting(0);
                 <div class="flex flex-col justify-between">
                     <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Subject</span>
-                        <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="farmer_subject" name="farmer_subject" placeholder="Enter Subject of your Issue" required="" autofocus="">
+                        <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="driver_subject" name="driver_subject" placeholder="Enter Subject of your Issue" required="" autofocus="">
                     </div>
                     <div class="mt-2">
                         <span class="uppercase text-sm text-gray-600 font-bold">Message</span>
-                        <textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" id="farmer_message" name="farmer_message" title="Enter your Issue in Detail" placeholder="Enter your Issue" required="" autofocus=""></textarea>
+                        <textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" id="driver_message" name="driver_message" title="Enter your Issue in Detail" placeholder="Enter your Issue" required="" autofocus=""></textarea>
                     </div>
                     <div class="mt-2">
                         <button class="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" type="submit" name="submit" value="Submit">

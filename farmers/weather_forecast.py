@@ -215,7 +215,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)
@@ -279,7 +279,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)
@@ -343,7 +343,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)
@@ -407,7 +407,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)
@@ -471,7 +471,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)
@@ -535,7 +535,7 @@ if response.status_code == 200:
     week_day = datetime.strptime(date, '%d-%m-%Y').weekday()
     week_day = day_name[week_day]
     month = month_name[month_no-1]
-    date = str(day)+"-"+str(month)+"-"+str(year)
+    date = str(day)+" "+str(month)+" "+str(year)
         
     #Getting Sunrise Time from sunrise timestamp
     utc = datetime.fromtimestamp(sunrise_ts)

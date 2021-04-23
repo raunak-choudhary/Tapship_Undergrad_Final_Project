@@ -84,7 +84,7 @@ current_date = str(day)+"-"+str(month_no)+"-"+str(year)
 week_day = datetime.strptime(current_date, '%d-%m-%Y').weekday()
 current_week_day = day_name[week_day]
 month = month_name[month_no-1]
-current_date = str(day)+"-"+str(month)+"-"+str(year)
+current_date = str(day)+" "+str(month)+" "+str(year)
 
 #Getting Sunrise Time from sunrise timestamp
 utc = datetime.fromtimestamp(current_sunrise_ts)
