@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/faq.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/aboutus.css">
 </head>
 
 <body id="page-top">
@@ -36,9 +37,19 @@
             </div>
         </div>
     </nav>
+
+    <div class="features-boxed">
+        <div class="container-fluid" style="background: #ffffff;">
+            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 0px;">
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">About Us</h2>
+            </div>
+        </div>
+    </div>
+
+
     <section id="uppersection">
         <div class="container text-center">
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col" data-aos="fade">
                     <h1>Problems we saw</h1>
                     <p>Farmers are not able to sell their crops to anyone they have to visit sell it to agents in APMC markets.<br>
@@ -69,21 +80,23 @@
             </div>
         </div>
     </section>
+    <div class="container text-center">
+        <div class="row mb-5">
+            <div class="col" data-aos="fade">
+                <h1>Our Team</h1>
+                <div class="p">Meet our team which worked day and night to make all this happen </div>
+            </div>
+        </div>
+    </div>
     <section id="team">
         <div class="container  text-center">
-            <div class="row mb-5">
-                <div class="col" data-aos="fade">
-                    <h1>Our Team</h1>
-                    <div class="p mt-3">this is our team which work hard to make all this happen </div>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card" data-aos="fade-up">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="card">
                         <div class="card-body">
-                            <img src="assets/img/team/a.jpeg" alt="" class="img-fluid rounded-circle w-60 mb-4">
+                            <img src="assets/img/team/a.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Ashutosh kumar</h3>
-                            <h5>UI/UX, Cyber Secrity</h5>
+                            <h5>Full Stack and Cyber Secrity</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
@@ -95,89 +108,58 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card" data-aos="fade-up">
-                        <div class="card-body" data-aos="fade">
-                            <img src="assets/img/team/ganni.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Ganpat Patel</h3>
+                <div class="col-lg-3 col-md-6 " data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                            <h3>Faheem Ahmad</h3>
                             <h5>Full Stack and Ml</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
-                            <div class="d-flex flex-row justif-content-center">
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card" data-aos="fade-up">
-                        <div class="card-body" data-aos="fade">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
                             <img src="assets/img/team/ganni.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Ganpat Patel</h3>
-                            <h5>Full Stack and Ml</h5>
+                            <h5>Full Stack and ML</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
-                            <div class="d-flex flex-row justif-content-center">
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card" data-aos="fade-up">
-                        <div class="card-body" data-aos="fade">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
                             <img src="assets/img/team/RC.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Raunak Choudhary</h3>
-                            <h5>ui ux cyber secrity</h5>
+                            <h5>Full Stack and ML</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
-                            <div class="d-flex flex-row justif-content-center">
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
