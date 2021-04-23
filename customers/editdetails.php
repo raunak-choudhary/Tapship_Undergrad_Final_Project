@@ -31,9 +31,8 @@ error_reporting(0);
     <link rel="stylesheet" href="../assets/css/profile.css">
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
-    <scrip type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></scrip>
-    <scrip type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></scrip>
-    <scrip type='text/javascript'></scrip>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
 </head>
 
 <body oncontextmenu='return false' class='snippet-body'>
@@ -321,6 +320,25 @@ error_reporting(0);
         <?php
         }
         ?>
+        <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <!-- Modal Header -->
+                    <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                        <h4 class="modal-title">Message</h4>
+                        <button type="button" class="close" onclick="pageRedirect()">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Updated Successfully. You will be logged out after this update. Please login again to access your account.
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                        <button type="button" class="btn btn-danger" onclick="pageRedirect()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="../assets/js/jquery.min.js"></script>
         <script type="text/javascript">
@@ -359,12 +377,15 @@ error_reporting(0);
                             $("c_aadharpdf").attr("required", "");
                         }
                         if (response == 0) {
-                            alert("Updated Successfully");
-                            location.replace('logout-script.php');
+                            $("#myModal").modal();
                         }
                     }
                 })
             });
+
+            function pageRedirect() {
+                location.replace('logout-script.php');
+            }
         </script>
 
         <div class="footer-dark" style="background: rgb(12,56,35);">

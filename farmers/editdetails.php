@@ -45,8 +45,7 @@ error_reporting(0);
                 <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
@@ -235,6 +234,26 @@ error_reporting(0);
         </div>
     </div>
 
+    <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+                <!-- Modal Header -->
+                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                    <h4 class="modal-title">Message</h4>
+                    <button type="button" class="close" onclick="pageRedirect()">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Updated Successfully. You will be logged out after this update. Please login again to access your account.
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                    <button type="button" class="btn btn-danger" onclick="pageRedirect()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $("#editFarmerDetails").submit(function(e) {
             e.preventDefault();
@@ -273,13 +292,15 @@ error_reporting(0);
                     }
 
                     if (response == 0) {
-                        alert("Updated Successfully");
-                        location.replace('logout-script.php');
+                        $("#myModal").modal();
                     }
-
                 }
             })
         });
+
+        function pageRedirect() {
+            location.replace('logout-script.php');
+        }
     </script>
 
 

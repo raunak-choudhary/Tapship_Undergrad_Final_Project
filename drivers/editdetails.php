@@ -218,6 +218,26 @@ error_reporting(0);
         </div>
     </div>
 
+    <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+                <!-- Modal Header -->
+                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                    <h4 class="modal-title">Message</h4>
+                    <button type="button" class="close" onclick="pageRedirect()">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Updated Successfully. You will be logged out after this update. Please login again to access your account.
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                    <button type="button" class="btn btn-danger" onclick="pageRedirect()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $("#editDriverDetails").submit(function(e) {
             e.preventDefault();
@@ -259,12 +279,15 @@ error_reporting(0);
                         $("d_aadharpdf").attr("required", "");
                     }
                     if (response == 0) {
-                        alert("Updated Successfully");
-                        location.replace('logout-script.php');
+                        $("#myModal").modal();
                     }
                 }
             })
         });
+
+        function pageRedirect() {
+            location.replace('logout-script.php');
+        }
     </script>
 
 

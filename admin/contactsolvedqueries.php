@@ -29,6 +29,7 @@ if (!isset($_SESSION['login_admin'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/table-style.css" />
+    <link rel="stylesheet" href="../assets/css/card-hover.css">
 </head>
 
 <body id="page-top">
@@ -38,13 +39,12 @@ if (!isset($_SESSION['login_admin'])) {
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">HOME</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../contact.php">CONTACT</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="contactunsolvedqueries.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Unsolved Queries</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
-
                 </ul>
             </div>
         </div>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['login_admin'])) {
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Contact Us Queries</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Contact Us Solved Queries</h2>
             </div>
         </div>
     </div>
@@ -65,14 +65,14 @@ if (!isset($_SESSION['login_admin'])) {
     if (!$con) {
         die(" Connection Error ");
     }
-    $query = "SELECT * FROM contactus";
+    $query = "SELECT * FROM contactus where u_status = '1'";
     $res = mysqli_query($con, $query);
     ?>
 
     <div class="container-fluid">
         <div class="row" style="margin-top: 10px;">
             <?php while ($row = mysqli_fetch_assoc($res)) { ?>
-                <div class="col-md-12 col-xl-6 mb-6">
+                <div class="col-md-12 col-xl-6 mb-6 my-3">
                     <div class="card">
                         <div class="card-header">
                             <h2><?php echo $row['u_subject']; ?></h2>
@@ -84,9 +84,9 @@ if (!isset($_SESSION['login_admin'])) {
                     </div>
                 </div>
                 <!-- The Modal -->
-                <div class="modal fade" id="myModal" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+                <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content" style="position: relative;background-color: #fefefe;margin: auto;padding: 0;border: 1px solid #888;width: 80%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+                        <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                             <!-- Modal Header -->
                             <div class="modal-header" style="background-color: #5cb85c;color: white;">
                                 <h4 class="modal-title">Message</h4>
