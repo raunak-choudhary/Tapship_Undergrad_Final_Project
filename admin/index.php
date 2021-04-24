@@ -161,7 +161,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 440px;  display: inline-block; margin-right: 10px;">
                                         <a href="contactunsolvedqueries.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72); width: 220px; display: inline-block;">View Contact Us Queries</button></a>
-                                        <a href="helpzonequeries.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72); margin-right: 10px; width: 200px; display: inline-block;">View Help Zone Queries</button></a>
+                                        <a href="helpzoneunsolvedqueries.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72); margin-right: 10px; width: 200px; display: inline-block;">View Help Zone Queries</button></a>
                                     </div>
                                 </div>
                             </div>

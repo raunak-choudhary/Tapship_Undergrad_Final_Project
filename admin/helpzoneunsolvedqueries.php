@@ -14,7 +14,7 @@ if (!isset($_SESSION['login_admin'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Contact Us Queries</title>
+    <title>Help Zone Queries</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -42,7 +42,7 @@ if (!isset($_SESSION['login_admin'])) {
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="contactunsolvedqueries.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Unsolved Queries</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="helpzonesolvedqueries.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Solved Queries</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="updateprofile.php?a_name=<?php echo $a_name; ?>"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="../admin/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
                 </ul>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['login_admin'])) {
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Contact Us Solved Queries</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Help Zone Unsolved Queries</h2>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['login_admin'])) {
     if (!$con) {
         die(" Connection Error ");
     }
-    $query = "SELECT * FROM contactus where u_status = '1'";
+    $query = "SELECT * FROM queries where q_status = '0'";
     $res = mysqli_query($con, $query);
     ?>
 
@@ -75,12 +75,10 @@ if (!isset($_SESSION['login_admin'])) {
                 <div class="col-md-12 col-xl-6 mb-6 my-3">
                     <div class="card">
                         <div class="card-header">
-                            <h2><?php echo $row['u_subject']; ?></h2>
+                            <h2><?php echo $row['q_subject']; ?></h2>
                         </div>
-                        <div class="card-body"><?php echo $row['u_name'] ?><span style="float: right"><?php echo $row['u_mobile']; ?></span></div>
-                        <hr style="width:100%;margin: 0.1em auto;">
-                        <div class="card-body"><?php echo $row['u_address']; ?><span style="float: right"><?php echo $row['u_date'] . " " . $row['u_time']; ?></span></div>
-                        <div class="card-footer" style=""><?php echo $row['u_email'] ?><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#myModal" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
+                        <div class="card-body"><?php echo $row['q_by_type'] ?><span style="float: right"><?php echo $row['q_mobile_no']; ?></span></div>
+                        <div class="card-footer" style=""><span style="float: left"><?php echo $row['q_date'] . " " . $row['q_time']; ?></span><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#myModal" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
                     </div>
                 </div>
                 <!-- The Modal -->
@@ -94,7 +92,7 @@ if (!isset($_SESSION['login_admin'])) {
                             </div>
                             <!-- Modal body -->
                             <div class="modal-body">
-                                <?php echo $row['u_message']; ?>
+                                <?php echo $row['q_message']; ?>
                             </div>
                             <!-- Modal footer -->
                             <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">

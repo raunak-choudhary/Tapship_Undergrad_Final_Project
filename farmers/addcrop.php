@@ -193,6 +193,69 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             document.getElementById("no1").style.display = "none";
         }
     }
+
+    function mspCheck(that) {
+        if (that.value == "Mango") {
+            <?php
+            $crop_type = "Fruits";
+            $crop_name = "Mango";
+            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
+            $query = mysqli_query($con, $sql);
+            while ($res = mysqli_fetch_array($query)) {
+                $crop_msp = $res['cro_msp'];
+            }
+            ?>
+            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_name; ?> is: Rs. <?php echo $crop_msp; ?></p>";
+        }
+        else if (that.value == "Banana") {
+            <?php
+            $crop_type = "Fruits";
+            $crop_name = "Banana";
+            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
+            $query = mysqli_query($con, $sql);
+            while ($res = mysqli_fetch_array($query)) {
+                $crop_msp = $res['cro_msp'];
+            }
+            ?>
+            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
+        }
+        else if (that.value == "Tomato") {
+            <?php
+            $crop_type = "Vegitables";
+            $crop_name = "Tomato";
+            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
+            $query = mysqli_query($con, $sql);
+            while ($res = mysqli_fetch_array($query)) {
+                $crop_msp = $res['cro_msp'];
+            }
+            ?>
+            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
+        }
+        else if (that.value == "Carrot") {
+            <?php
+            $crop_type = "Vegitables";
+            $crop_name = "Carrot";
+            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
+            $query = mysqli_query($con, $sql);
+            while ($res = mysqli_fetch_array($query)) {
+                $crop_msp = $res['cro_msp'];
+            }
+            ?>
+            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
+        }
+        else if (that.value == "Rice") {
+            <?php
+            $crop_type = "Feed Crops";
+            $crop_name = "Rice";
+            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
+            $query = mysqli_query($con, $sql);
+            while ($res = mysqli_fetch_array($query)) {
+                $crop_msp = $res['cro_msp'];
+            }
+            ?>
+            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
+        }
+    }
 </script>
 
 <body id="page-top">
@@ -238,7 +301,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifvegitables" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_vegitable" name="crop_name">
+                <select class="form-control" id="crop_vegitable" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Vegitable Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT  cro_name From cropdetails where cro_type='Vegitables'");  // Use select query here 
@@ -252,7 +315,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="iffruits" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_fruit" name="crop_name">
+                <select class="form-control" id="crop_fruit" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Fruit Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fruits'");  // Use select query here 
@@ -267,7 +330,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifgrains" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_grain" name="crop_name">
+                <select class="form-control" id="crop_grain" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Grain Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Grains'");  // Use select query here 
@@ -281,7 +344,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="iffeedcrops" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_feedcrop" name="crop_name">
+                <select class="form-control" id="crop_feedcrop" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Feed Crop Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Feed Crops'");  // Use select query here 
@@ -295,7 +358,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="iffibrecrops" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_fibrecrop" name="crop_name">
+                <select class="form-control" id="crop_fibrecrop" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Fibre Crop Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fibre Crops'");  // Use select query here 
@@ -337,7 +400,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifindustrialcrops" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_industrialcrop" name="crop_name">
+                <select class="form-control" id="crop_industrialcrop" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Industrial Crop Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Industrial Crops'");  // Use select query here 
@@ -349,11 +412,15 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 </select>
             </div>
 
+            <div class="text-warning" id="mspshow"></div>
+
             <h5 style="color:#fff;">Quantity (in kgs.)</h5>
             <div class="form-group"><input class="form-control" id="crop_quantity" type="number" name="crop_quantity" placeholder="Enter Quantity in Kilograms" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Minimum Expected Price (per kgs.)</h5>
             <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep" placeholder="Minimum Expected Price" required="" autofocus=""></div>
+
+            <div class="text-warning" id="errorshow1"></div>
 
             <h5 style="color:#fff;">Image - 01</h5>
             <div class="form-group"><input class="form-control" id="crop_img1" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img1" placeholder="Select Image" required="" autofocus=""></div>
@@ -364,8 +431,9 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             <h5 style="color:#fff;">Image - 03</h5>
             <div class="form-group"><input class="form-control" id="crop_img3" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img3" placeholder="Select Image" required="" autofocus=""></div>
 
-            <input name="submit" class="btn btn-primary btn-block" type="submit" value=" Add Crop "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
+            <input name="submit" class="btn btn-primary btn-block" type="submit" value=" Add Crop ">
 
+            <div class="text-warning" id="errorshow2"></div>
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">

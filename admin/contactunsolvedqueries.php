@@ -79,7 +79,7 @@ if (!isset($_SESSION['login_admin'])) {
                         </div>
                         <div class="card-body"><?php echo $row['u_name'] ?><span style="float: right"><?php echo $row['u_mobile']; ?></span></div>
                         <hr style="width:100%;margin: 0.1em auto;">
-                        <div class="card-body"><?php echo $row['u_address']; ?><span style="float: right"><?php echo $row['u_date']; ?></span></div>
+                        <div class="card-body"><?php echo $row['u_address']; ?><span style="float: right"><?php echo $row['u_date'] . " " . $row['u_time']; ?></span></div>
                         <div class="card-footer" style=""><?php echo $row['u_email'] ?><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#myModal" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
                     </div>
                 </div>

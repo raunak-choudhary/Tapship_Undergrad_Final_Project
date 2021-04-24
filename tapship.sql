@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 09:40 PM
+-- Generation Time: Apr 24, 2021 at 06:08 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -54,15 +54,19 @@ CREATE TABLE `contactus` (
   `u_address` varchar(50) NOT NULL,
   `u_subject` varchar(50) NOT NULL,
   `u_message` text NOT NULL,
-  `u_date` varchar(50) NOT NULL
+  `u_date` varchar(50) NOT NULL,
+  `u_time` varchar(30) DEFAULT NULL,
+  `u_status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contactus`
 --
 
-INSERT INTO `contactus` (`u_id`, `u_name`, `u_mobile`, `u_email`, `u_address`, `u_subject`, `u_message`, `u_date`) VALUES
-(1, 'Raunak Choudhary', '9782507934', 'raunakc77@gmail.com', '344001', 'Please Help Me. ', 'I am a new user. Help me in making an account.', '2021-04-22 01:07:13');
+INSERT INTO `contactus` (`u_id`, `u_name`, `u_mobile`, `u_email`, `u_address`, `u_subject`, `u_message`, `u_date`, `u_time`, `u_status`) VALUES
+(1, 'Raunak Choudhary', '9782507934', 'raunakc77@gmail.com', '344001', 'Please Help Me. ', 'I am a new user. Help me in making an account.', '2021-04-22', '01:07 AM', '1'),
+(5, 'Ganpat Patel', '9672836724', 'gapu.patel.012@gmail.com', '576213', 'Lockdown Problem', 'Help Out!!', '2021-04-23 ', '02:00 PM', '0'),
+(6, 'rc', '9638527410', 'rc@xyz.com', '344125', 'hii', 'hiii', '2021-04-23', '09:36 PM', '0');
 
 -- --------------------------------------------------------
 
@@ -148,7 +152,7 @@ INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_
 (36, '9672836722', 2, '40', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0'),
 (42, '8745123411', 1, '100', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '20', '2021-03-22', '0'),
 (44, '9446552020', 4, '500', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '42', '2021-03-25', '6'),
-(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '6'),
+(46, '9672836726', 3, '50', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '25', '2021-03-25', '0'),
 (47, '9672836722', 4, '30', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', 'assets/documents/crop/demo.png', '28', '2021-03-25', '6');
 
 -- --------------------------------------------------------
@@ -272,17 +276,29 @@ INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_stre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quries`
+-- Table structure for table `queries`
 --
 
-CREATE TABLE `quries` (
+CREATE TABLE `queries` (
   `q_id` int(11) NOT NULL,
-  `q_title` varchar(100) NOT NULL,
-  `q_des` text NOT NULL,
-  `q_by_name` int(11) NOT NULL,
-  `q_by_type` varchar(25) NOT NULL,
-  `q_by_mobile` varchar(25) NOT NULL
+  `q_subject` varchar(100) NOT NULL,
+  `q_message` text NOT NULL,
+  `q_by_type` varchar(30) NOT NULL,
+  `q_mobile_no` varchar(25) NOT NULL,
+  `q_date` varchar(30) DEFAULT NULL,
+  `q_time` varchar(30) DEFAULT NULL,
+  `q_status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `queries`
+--
+
+INSERT INTO `queries` (`q_id`, `q_subject`, `q_message`, `q_by_type`, `q_mobile_no`, `q_date`, `q_time`, `q_status`) VALUES
+(4, 'Hel', 'Hel', 'Farmer', '9672836726', '2021-04-24', '12:44 AM', '0'),
+(5, 'cust', 'cust', 'Customer', '9672836724', '2021-04-24', '01:05 AM', '0'),
+(6, 'cust1', 'cust1', 'Customer', '9672836728', '2021-04-24', '01:06 AM', '1'),
+(7, 'driver', 'driver', 'Driver', '9672836725', '2021-04-24', '01:07 AM', '1');
 
 -- --------------------------------------------------------
 
@@ -390,10 +406,11 @@ ALTER TABLE `farmer`
   ADD UNIQUE KEY `f_mobile` (`f_mobile`);
 
 --
--- Indexes for table `quries`
+-- Indexes for table `queries`
 --
-ALTER TABLE `quries`
-  ADD PRIMARY KEY (`q_id`);
+ALTER TABLE `queries`
+  ADD PRIMARY KEY (`q_id`) USING BTREE,
+  ADD UNIQUE KEY `id` (`q_id`);
 
 --
 -- Indexes for table `transportbid`
@@ -422,7 +439,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `cropbid`
@@ -440,7 +457,7 @@ ALTER TABLE `cropdetails`
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -461,10 +478,10 @@ ALTER TABLE `farmer`
   MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- AUTO_INCREMENT for table `quries`
+-- AUTO_INCREMENT for table `queries`
 --
-ALTER TABLE `quries`
-  MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `queries`
+  MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transportbid`

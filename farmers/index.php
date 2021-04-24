@@ -260,7 +260,7 @@ error_reporting(0);
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/msp.png" style="text-align: center;"></div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; MSP Tracking
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; MEP Tracking
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
                                             <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View MSP</button></a>
