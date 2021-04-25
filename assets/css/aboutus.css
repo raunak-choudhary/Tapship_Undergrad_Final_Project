@@ -169,6 +169,20 @@ h3 {
 .main-timeline2 .timeline:nth-child(4n) .icon {
   box-shadow: 0 0 0 2px #3ebae7;
 }
+.main-timeline2 .timeline:nth-child(7n) .icon,
+.main-timeline2 .timeline:nth-child(7n) .timeline-content,
+.main-timeline2 .timeline:nth-child(7n) .timeline-content:after,
+.main-timeline2 .timeline:nth-child(7n) .timeline-content:before {
+  background: #4bd9bf;
+}
+.main-timeline2 .timeline:nth-child(7n) .icon {
+  box-shadow: 0 0 0 2px #3ebae7;
+}
+.pot img {
+  margin-top: -13px;
+  z-index: -1;
+  width: 250px;
+}
 @media only screen and (max-width: 767px) {
   .main-timeline2:before {
     left: 0;

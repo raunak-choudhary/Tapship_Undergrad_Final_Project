@@ -53,34 +53,49 @@
 
 
     <section id="uppersection">
-        <div class="container text-center">
+        <div class="container text-center-justified">
             <div class="row">
-                <div class="col" data-aos="fade">
-                    <h1>Problems we saw</h1>
-                    <p>Farmers are not able to sell their crops to anyone they have to visit sell it to agents in APMC markets.<br>
-                        Agents buy crop at less rate but increased rate the rate when selling to wholesalers.<br>
-                        Truck drivers are not getting enough transport deals due to lack advance infrastructure.<br>
-                    </p>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col" data-aos="fade">
-                    <h1>Our Technology</h1>
-                    <p>We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
-                        They will not bounded to sell crop to APMC agents who usually rob them with low price to their crops.<br>
-                        On the other hand Wholesaler who buys from these APMC agents can directly buy from farmers.<br> It will remove the cost added by APMC agents.
-                        And, for transport Truck Drivers can see the successful deals on platform and can transport the crop from Farmers to Wholesaler.
-                        <br>
-                    </p>
+                <div class="col " data-aos="fade">
+                    <h1 class="text-center">Problems we saw</h1>
+                    <ul>
+                        <li>
+                            Farmers are not able to sell their crops to anyone they have to visit sell it to agents in APMC markets.<br>
+                        </li>
+                        <li>
+                            Agents buy crop at less rate but increased rate the rate when selling to wholesalers.<br>
+                        </li>
+                        <li>
+                            Truck drivers are not getting enough transport deals due to lack advance infrastructure.<br>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col" data-aos="fade">
-                    <h1>Origin Story</h1>
-                    <p>
-                        e are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
-                        They will not
-                    </p>
+                    <h1 class="text-center">Our Technology</h1>
+                    <ul>
+                        <li>
+                            We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
+                        </li>
+                        <li>
+                            They will not bounded to sell crop to APMC agents who usually rob them with low price to their crops.<br>
+                        </li>
+                        <li>
+                            On the other hand Wholesaler who buys from these APMC agents can directly buy from farmers.It will remove the cost added by APMC agents.</li>
+                        </li>
+                        <li>
+                            And, for transport Truck Drivers can see the successful deals on platform and can transport the crop from Farmers to Wholesaler.<br>
+                        </li>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" data-aos="fade">
+                    <h1 class="text-center">Origin Story</h1>
+                    <ul>
+                        <li>
+                            We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -92,8 +107,11 @@
             <div class="col-md-12">
                 <div class="main-timeline2">
                     <div class="timeline">
-                        <span class="icon fa fa-globe"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">1</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Crop Listing</h3>
                             <p class="description">
                                 Farmer will list their crop details on the portal with desired price and all the required details.
@@ -101,8 +119,11 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-rocket"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">2</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Finding Crop</h3>
                             <p class="description">
                                 Customers can search the crop as per the requirements and make a bid if interested.
@@ -110,8 +131,11 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-briefcase"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">3</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Bidding</h3>
                             <p class="description">
                                 Farmer will get all bids from all around the country and can confirm deal with the best bider.
@@ -119,19 +143,23 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-mobile"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">4</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Payment</h3>
                             <p class="description">
                                 Once deal is successful farmer will get the payment from customers.
                             </p>
                         </a>
                     </div>
-
-
                     <div class="timeline">
-                        <span class="icon fa fa-globe"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">5</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Transportation</h3>
                             <p class="description">
                                 After the deal got confirm if customer allow to get transport quote the deal info will be shared to truck drivers
@@ -139,8 +167,11 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-rocket"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">6</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Bidding</h3>
                             <p class="description">
                                 Now truck drivers can bid to get transport deal and make offer to customers.
@@ -148,8 +179,11 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-briefcase"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">7</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Payment</h3>
                             <p class="description">
                                 Customers can see the best deal and confirm a transport service with driver and make payment.
@@ -157,19 +191,23 @@
                         </a>
                     </div>
                     <div class="timeline">
-                        <span class="icon fa fa-mobile"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">8</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Delivery</h3>
                             <p class="description">
                                 Now truck driver will pick-up the crop from farmers and ship it to customer's location.
                             </p>
                         </a>
                     </div>
-
-
                     <div class="timeline">
-                        <span class="icon fa fa-globe"></span>
-                        <a href="#" class="timeline-content">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">9</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Final Payment</h3>
                             <p class="description">
                                 Driver will get payment which was on hold. Feedback from everyone to each other.
@@ -181,10 +219,14 @@
             </div>
         </div>
     </div>
+    <div class=" pot container text-center ">
+        <img src="assets/img/team/pot.png" alt="">
+    </div>
 
 
 
-    <div class="container text-center">
+
+    <div class="container text-center mt-4">
         <div class="row mb-5">
             <div class="col" data-aos="fade">
                 <h1>Our Team</h1>
@@ -199,8 +241,8 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="assets/img/team/a.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Ashutosh kumar</h3>
-                            <h5>Full Stack and Cyber Secrity</h5>
+                            <h3>Ashutosh Kumar</h3>
+                            <h5>Full Stack and Cyber Security</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
@@ -217,7 +259,7 @@
                         <div class="card-body">
                             <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Faheem Ahmad</h3>
-                            <h5>Full Stack and Ml</h5>
+                            <h5>Full Stack and ML</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="p-3"><a href="#"><i class="fa fa-facebook"></i></a></div>
