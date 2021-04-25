@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/aboutus.css">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -80,6 +85,105 @@
             </div>
         </div>
     </section>
+
+    <div class="container text-center ">
+        <h4>Timeline for the whole process</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-timeline2">
+                    <div class="timeline">
+                        <span class="icon fa fa-globe"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Crop Listing</h3>
+                            <p class="description">
+                                Farmer will list their crop details on the portal with desired price and all the required details.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-rocket"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Finding Crop</h3>
+                            <p class="description">
+                                Customers can search the crop as per the requirements and make a bid if interested.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-briefcase"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Bidding</h3>
+                            <p class="description">
+                                Farmer will get all bids from all around the country and can confirm deal with the best bider.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-mobile"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Payment</h3>
+                            <p class="description">
+                                Once deal is successful farmer will get the payment from customers.
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="timeline">
+                        <span class="icon fa fa-globe"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Transportation</h3>
+                            <p class="description">
+                                After the deal got confirm if customer allow to get transport quote the deal info will be shared to truck drivers
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-rocket"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Bidding</h3>
+                            <p class="description">
+                                Now truck drivers can bid to get transport deal and make offer to customers.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-briefcase"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Payment</h3>
+                            <p class="description">
+                                Customers can see the best deal and confirm a transport service with driver and make payment.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa fa-mobile"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Delivery</h3>
+                            <p class="description">
+                                Now truck driver will pick-up the crop from farmers and ship it to customer's location.
+                            </p>
+                        </a>
+                    </div>
+
+
+                    <div class="timeline">
+                        <span class="icon fa fa-globe"></span>
+                        <a href="#" class="timeline-content">
+                            <h3 class="title">Final Payment</h3>
+                            <p class="description">
+                                Driver will get payment which was on hold. Feedback from everyone to each other.
+                            </p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="container text-center">
         <div class="row mb-5">
             <div class="col" data-aos="fade">
@@ -89,7 +193,7 @@
         </div>
     </div>
     <section id="team">
-        <div class="container  text-center">
+        <div class="container text-center">
             <div class="row">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card">
@@ -108,8 +212,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 " data-aos="fade-up">
-                    <div class="card">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="card ">
                         <div class="card-body">
                             <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Faheem Ahmad</h3>
