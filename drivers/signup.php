@@ -43,7 +43,7 @@
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Drivers Sign</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Drivers Sign In</h2>
             </div>
         </div>
     </div>
@@ -71,8 +71,11 @@
             <h5 style="color:#fff;">Age</h5>
             <div class="form-group"><input class="form-control" id="driver_age" type="text" name="driver_age" pattern="^[1-9]{1}[0-9]{1}$" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">Apartment/Street</h5>
-            <div class="form-group"><input class="form-control" id="driver_street" type="text" name="driver_street" placeholder="Your Apartment/Street/City" required="" autofocus=""></div>
+            <h5 style="color:#fff;">State</h5>
+            <div class="form-group">
+                <select class="form-control" id="driver_state" name="driver_state" onchange='select_district(this.value)' required>
+                </select>
+            </div>
 
             <h5 style="color:#fff;">District</h5>
             <div class="form-group">
@@ -81,11 +84,9 @@
                 </select>
             </div>
 
-            <h5 style="color:#fff;">State</h5>
-            <div class="form-group">
-                <select class="form-control" id="driver_state" name="driver_state" onchange='select_district(this.value)' required>
-                </select>
-            </div>
+            <h5 style="color:#fff;">Apartment/Street</h5>
+            <div class="form-group"><input class="form-control" id="driver_street" type="text" name="driver_street" placeholder="Your Apartment/Street/City" required="" autofocus=""></div>
+
 
             <!-- <h5 style="color:#fff;">City</h5>
             <div class="form-group"><input class="form-control" id="driver_city" type="text" name="driver_city" placeholder="Your City" required="" autofocus=""></div>

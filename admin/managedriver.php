@@ -81,7 +81,7 @@ if (!isset($_SESSION['login_admin'])) {
         mysqli_select_db($con, 'tapship');
 
 
-        $q = "select d_id, d_name, d_mobile, d_city, d_dlnumber, d_vehiclenumber, d_approve, d_photo from driver ORDER BY d_id DESC";
+        $q = "select d_id, d_name, d_mobile, d_city, d_dlnumber, d_vehiclenumber, d_approve, d_photo from driver where d_id!=0 ORDER BY d_id DESC";
         $query = mysqli_query($con, $q);
         $c = 1;
 

@@ -115,8 +115,11 @@
                         <h5 style="color:#fff;">Age</h5>
                         <div class="form-group"><input class="form-control" id="customer_age" type="text" name="customer_age" pattern="^[1-9]{1}[0-9]{1}$" title="Enter Your Correct age between 18 to 99 years" placeholder="Your Age (Ex. 34)" required="" autofocus=""></div>
 
-                        <h5 style="color:#fff;">Apartment/Street</h5>
-                        <div class="form-group"><input class="form-control" id="customer_street" type="text" name="customer_street" placeholder="Your Apartment/Street/City" required="" autofocus=""></div>
+                        <h5 style="color:#fff;">State</h5>
+                        <div class="form-group">
+                            <select class="form-control" id="customer_state" name="customer_state" onchange='select_district(this.value)' required>
+                            </select>
+                        </div>
 
                         <h5 style="color:#fff;">District</h5>
                         <div class="form-group">
@@ -125,11 +128,9 @@
                             </select>
                         </div>
 
-                        <h5 style="color:#fff;">State</h5>
-                        <div class="form-group">
-                            <select class="form-control" id="customer_state" name="customer_state" onchange='select_district(this.value)' required>
-                            </select>
-                        </div>
+                        <h5 style="color:#fff;">Apartment/Street</h5>
+                        <div class="form-group"><input class="form-control" id="customer_street" type="text" name="customer_street" placeholder="Your Apartment/Street/City" required="" autofocus=""></div>
+
 
                         <!-- <h5 style="color:#fff;">City</h5>
                         <div class="form-group"><input class="form-control" id="customer_city" type="text" name="customer_city" placeholder="Your City" required="" autofocus=""></div>
