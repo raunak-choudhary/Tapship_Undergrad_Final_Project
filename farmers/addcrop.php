@@ -206,8 +206,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             }
             ?>
             document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_name; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        }
-        else if (that.value == "Banana") {
+        } else if (that.value == "Banana") {
             <?php
             $crop_type = "Fruits";
             $crop_name = "Banana";
@@ -218,8 +217,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             }
             ?>
             document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        }
-        else if (that.value == "Tomato") {
+        } else if (that.value == "Tomato") {
             <?php
             $crop_type = "Vegitables";
             $crop_name = "Tomato";
@@ -230,8 +228,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             }
             ?>
             document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        }
-        else if (that.value == "Carrot") {
+        } else if (that.value == "Carrot") {
             <?php
             $crop_type = "Vegitables";
             $crop_name = "Carrot";
@@ -242,8 +239,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             }
             ?>
             document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        }
-        else if (that.value == "Rice") {
+        } else if (that.value == "Rice") {
             <?php
             $crop_type = "Feed Crops";
             $crop_name = "Rice";
@@ -301,6 +297,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifvegitables" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
+                <a href="#" data-toggle="modal" data-target="#myModal" style="float: right;">View MSP</a>
                 <select class="form-control" id="crop_vegitable" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Vegitable Name --</option>
                     <?php
@@ -315,6 +312,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="iffruits" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
+                <a href="#" data-toggle="modal" data-target="#myModal" style="float: right;">View MSP</a>
                 <select class="form-control" id="crop_fruit" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Fruit Name --</option>
                     <?php
@@ -372,7 +370,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifoilcrops" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_oilcrop" name="crop_name">
+                <select class="form-control" id="crop_oilcrop" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Oil Crop Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Oil Crops'");  // Use select query here 
@@ -386,7 +384,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="form-group" id="ifflowers" style="display: none;">
                 <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_flowers" name="crop_name">
+                <select class="form-control" id="crop_flowers" name="crop_name" onchange="mspCheck(this);">
                     <option disabled selected value="">-- Select Flowers Name --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Flowers'");  // Use select query here 
@@ -435,6 +433,70 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
             <div class="text-warning" id="errorshow2"></div>
         </form>
+        <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <!-- Modal Header -->
+                    <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                        <h5 class="modal-title">View Minimum Selling Price (MSP)</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <form action="" method="post" target="iframe">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <select class="form-control selectpicker" id="crop_name" name="crop_name">
+                                    <option disabled selected value="">-- Select Crop Name --</option>
+                                    <?php
+                                    $records = mysqli_query($con, "SELECT  cro_name From cropdetails");  // Use select query here 
+
+                                    while ($data = mysqli_fetch_array($records)) {
+                                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+                                    }
+                                    ?>
+                                </select>
+                                <br>
+                                <button type="submit" id="search_form" name="submit" value="Submit" class="btn btn-danger"><i class="fa fa-user"></i> Submit</button>
+                                <br>
+                                <div class="text-warning" id="mspshow1"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <iframe src="about:blank" style="display:none" id="iframe" name="iframe"></iframe>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                    <script type="text/javascript">
+                        // function form_submit() {
+                        //     document.getElementById("search_form").submit();
+                        // }
+                        var iframe = document.getElementById("iframe");
+                        iframe.onload = function() {
+                            formSubmitResponse(iframe);
+                        };
+
+                        function formSubmitResponse(iframe) {
+                            var idocument = (iframe.contentDocument || iframe.contentWindow.document);
+                            if (idocument) {
+                                var responseFromBackend = idocument.getElementsByTagName("body")[0].innerHTML;
+                            }
+                        }
+                    </script>
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        $crop_name = $_POST['crop_name'];
+                        $sql = "Select * from cropdetails where cro_name='$crop_name'";
+                        $query = mysqli_query($con, $sql);
+
+                        while ($res = mysqli_fetch_array($query)) {
+                            $crop_msp = $res['cro_msp'];
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
