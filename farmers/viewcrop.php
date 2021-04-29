@@ -72,23 +72,28 @@ error_reporting(0);
 
         $cr_id = $_GET['cr_id'];
 
-        $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
-        $result = mysqli_query($con, $q);
-
-        while ($res = mysqli_fetch_assoc($result)) {
-            $cb_id =  $res['cb_id'];
-        }
 
         $q = "select cr_status from cropsale where cr_id = $cr_id";
         $result = mysqli_query($con, $q);
 
         while ($res = mysqli_fetch_assoc($result)) {
-            $cr_status = $res['cb_status'];
+            $cr_status = $res['cr_status'];
+        }
+
+        if ($cr_status == 0 || $cr_status == 1 ||$cr_status == 2 || $cr_status == 3 || $cr_status == 4 || $cr_status == 5 || $cr_status == 6 || $cr_status == 7 || $cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status FROM cropdetails CD, cropsale CS where cs.cr_id=$cr_id";
         }
 
 
-        if ($cr_status == 0 || $cr_status == 1 || $cr_status == 2 || $cr_status == 3 || $cr_status == 4 || $cr_status == 5 || $cr_status == 6) {
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id ";
+        if ($cr_status == 2 || $cr_status == 3 || $cr_status == 4 || $cr_status == 5 || $cr_status == 6 || $cr_status == 7 || $cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
+            $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
+            $result = mysqli_query($con, $q);
+
+            while ($res = mysqli_fetch_assoc($result)) {
+                $cb_id =  $res['cb_id'];
+                echo $cb_id;
+            }
+            $query = "SELECT c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id ";
         }
 
         if ($cr_status == 7 || $cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
