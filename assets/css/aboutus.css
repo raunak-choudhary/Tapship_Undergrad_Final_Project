@@ -39,6 +39,31 @@ h3 {
 #team .card:hover i {
   color: #fff;
 }
+.boxr {
+  width: 300px;
+  font-size: 20px;
+  padding-left: 50px;
+  border-radius: 20px;
+  border: 3px solid gray;
+  box-shadow: inset 20px 45px 70px 0px red, inset -20px -20px 70px 0px red;
+}
+.boxy {
+  width: 300px;
+  font-size: 20px;
+  padding-left: 50px;
+  border-radius: 20px;
+  border: 3px solid gray;
+  box-shadow: inset 20px 45px 70px 0px rgb(221, 160, 29),
+    inset -20px -20px 70px 0px rgb(221, 160, 29);
+}
+.boxg {
+  width: 300px;
+  font-size: 20px;
+  padding-left: 50px;
+  border-radius: 20px;
+  border: 3px solid gray;
+  box-shadow: inset 20px 45px 70px 0px green, inset -20px -20px 70px 0px green;
+}
 
 .main-timeline2 {
   padding-top: 50px;

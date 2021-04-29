@@ -55,9 +55,9 @@
     <section id="uppersection">
         <div class="container text-center-justified">
             <div class="row">
-                <div class="col " data-aos="fade">
-                    <h1 class="text-center">Problems we saw</h1>
-                    <ul>
+                <div class="col boxr mx-5 px-5" data-aos="fade">
+                    <h1 class="text-center"> <strong> <u> Problems we saw</u></strong> </h1>
+                    <ul class="p-5 ">
                         <li>
                             Farmers are not able to sell their crops to anyone they have to visit sell it to agents in APMC markets.<br>
                         </li>
@@ -71,9 +71,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col" data-aos="fade">
-                    <h1 class="text-center">Our Technology</h1>
-                    <ul>
+                <div class="col boxy m-5 px-5" data-aos="fade">
+                    <h1 class="text-center"><strong><u> Our Technology</u></strong></h1>
+                    <ul class="p-5 ">
                         <li>
                             We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
                         </li>
@@ -89,9 +89,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col" data-aos="fade">
-                    <h1 class="text-center">Origin Story</h1>
-                    <ul>
+                <div class="col boxg mx-5 px-5" data-aos="fade">
+                    <h1 class="text-center"><strong><u> Origin Story</u></strong></h1>
+                    <ul class="p-5 ">
                         <li>
                             We are providing a e-platform to Farmers where they can sell their crops to anyone on their desired rate and conditions.<br>
                         </li>
@@ -102,7 +102,7 @@
     </section>
 
     <div class="container text-center ">
-        <h4>Timeline for the whole process</h4>
+        <h1> <strong><u>Timeline for the whole process</u></strong> </h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="main-timeline2">
@@ -229,8 +229,8 @@
     <div class="container text-center mt-4">
         <div class="row mb-5">
             <div class="col mobmargin" data-aos="fade">
-                <h1>Our Team</h1>
-                <div class="p">Meet our team which worked day and night to make all this happen </div>
+                <h1> <strong><u>Our Team</u></strong> </h1>
+                <h4>Meet our team which worked day and night to make all this happen </h4>
             </div>
         </div>
     </div>
@@ -249,7 +249,7 @@
                                 <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-github"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                                 <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-github"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -283,7 +283,7 @@
                                 <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-github"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -300,7 +300,7 @@
                                 <div class="p-3"><a href="#"><i class="fa fa-instagram"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-linkedin"></i></a></div>
                                 <div class="p-3"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                                <div class="p-3"><a href="#"><i class="fa fa-youtube"></i></a></div>
+                                <div class="p-3"><a href="#"><i class="fa fa-github"></i></a></div>
                             </div>
                         </div>
                     </div>
