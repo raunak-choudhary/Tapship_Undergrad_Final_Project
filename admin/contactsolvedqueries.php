@@ -1,3 +1,4 @@
+
 <?php
 
 include('session-script.php');
@@ -80,11 +81,11 @@ if (!isset($_SESSION['login_admin'])) {
                         <div class="card-body"><?php echo $row['u_name'] ?><span style="float: right"><?php echo $row['u_mobile']; ?></span></div>
                         <hr style="width:100%;margin: 0.1em auto;">
                         <div class="card-body"><?php echo $row['u_address']; ?><span style="float: right"><?php echo $row['u_date'] . " " . $row['u_time']; ?></span></div>
-                        <div class="card-footer" style=""><?php echo $row['u_email'] ?><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#myModal" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
+                        <div class="card-footer" style=""><?php echo $row['u_email'] ?><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#mszModal-<?php echo $row['u_id']; ?>" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
                     </div>
                 </div>
                 <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+                <div class="modal fade" id="mszModal-<?php echo $row['u_id']; ?>" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                             <!-- Modal Header -->
