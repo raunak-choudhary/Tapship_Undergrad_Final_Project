@@ -228,7 +228,7 @@
 
     <div class="container text-center mt-4">
         <div class="row mb-5">
-            <div class="col mobmargin" data-aos="fade">
+            <div class="col" data-aos="fade">
                 <h1>Our Team</h1>
                 <div class="p">Meet our team which worked day and night to make all this happen </div>
             </div>
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card ">
                         <div class="card-body">
                             <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
@@ -271,7 +271,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
                             <img src="assets/img/team/ganni.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
                             <img src="assets/img/team/RC.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
