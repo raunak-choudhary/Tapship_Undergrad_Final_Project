@@ -41,7 +41,7 @@ if (isset($_POST["submit"]))
                 $con->query($q);
 
 
-                header("location: yourbids.php");
+                header("location: youractivebids.php");
                 }
 
                 else{
