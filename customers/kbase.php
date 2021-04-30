@@ -61,19 +61,14 @@ error_reporting(0);
         </div>
     </nav>
 		
-        <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 90px;margin-bottom: 30px;">
-                    <h1 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 25px;margin-bottom: 0px;font-size: 60px;">Knowledge Base</h1>
-                </div>
-            </div>
+        
+    </div>
+    <div class="header-container" style="background-image:url(&quot;../assets/img/law-bg.png&quot;);padding-top:350px;padding-bottom:175px;">
+        <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 header-title">
+            <h1 class="text-center" style="color: #ffffff; font-size:60px; margin-top:-230px">Knowledge Zone</h1>
         </div>
     </div>
-    <header class="header">
-        <div class="header-container" style="background-image:url(&quot;../assets/img/law-bg.png&quot;);padding-top:100px;padding-bottom:375px;">
-            
-        </div>
-    </header><div class="blog-home3 py-5">
+<div class="blog-home3 py-5">
   <div class="container">
     <!-- Row  -->
     <div class="row justify-content-center">
