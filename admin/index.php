@@ -67,7 +67,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/farmer.png" style="text-align: center;"></div>
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Farmer :
                                             <?php
-                                            echo $FarmerTotalCount = ($con->query("SELECT * FROM farmer")->num_rows)-1;
+                                            echo $FarmerTotalCount = ($con->query("SELECT * FROM farmer")->num_rows) - 1;
                                             ?>
                                             &nbsp;</span>
                                     </div>
@@ -87,7 +87,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/customer.png" style="text-align: center;"></div>
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Customer :
                                             <?php
-                                            echo $CustomerTotalCount = ($con->query("SELECT * FROM customer")->num_rows)-1;
+                                            echo $CustomerTotalCount = ($con->query("SELECT * FROM customer")->num_rows) - 1;
                                             ?>
                                             &nbsp;</span>
                                     </div>
@@ -107,7 +107,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="col-sm-6 col-md-4 item no-gutters"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/driver.png" style="text-align: center;"></div>
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Driver :
                                             <?php
-                                            echo $DriverTotalCount = ($con->query("SELECT * FROM driver")->num_rows)-1;
+                                            echo $DriverTotalCount = ($con->query("SELECT * FROM driver")->num_rows) - 1;
                                             ?>
                                             &nbsp;</span>
                                     </div>
@@ -125,10 +125,10 @@ if (!isset($_SESSION['login_admin'])) {
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
                                     <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/kiosk.png" style="text-align: center;"></div>
-                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; KIOSK Centre Details
+                                    <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; KIOSK Center Details
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Information</button></a>
+                                        <a href="kioskdetails.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Information</button></a>
                                     </div>
                                 </div>
                             </div>
