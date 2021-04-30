@@ -260,18 +260,21 @@ error_reporting(0);
 
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="../kbase.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
+                                            <a href="kbase.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">Know More</button></a>
                                         </div>
                                         <br>
                                     </div>
                                 </div>
                                 <div style="text-align:left;">
                                     <h4 style="text-align:center;"> Suggestions </h4>
-                                    <h6>1. Hey There. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-                                        2. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
-                                        3. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>
-                                        4. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-                                        5. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br></h6>
+                                    <h6><ul>
+										<li>Stay Alert - Actively pay attention to your actions and those of the drivers around you when you are driving.</li><br>
+										<li>Buckle Up - Wearing your seat belt is an essential safety tip for drivers. You can also be fined for failing to do so.</li><br>
+										<li>Obey Speed Limits - When driving, it's important to stick to the posted speed limit at all times.</li><br>
+										<li>Make Adjustments for Weather - When the weather is less than perfect, such as rainy, snowy, or foggy conditions, use extra precautions when driving and follow guidelines.</li><br>
+										<li>Follow Traffic Signals - Pay close attention to and obey stop signs and traffic lights.</li>
+									  </ul></h6>
+
                                 </div>
                             </div>
                         </div>
