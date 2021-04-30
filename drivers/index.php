@@ -267,11 +267,14 @@ error_reporting(0);
                                 </div>
                                 <div style="text-align:left;">
                                     <h4 style="text-align:center;"> Suggestions </h4>
-                                    <h6>1. Stay Alert - Actively pay attention to your actions and those of the drivers around you when you are driving<br>
-                                        2. Buckle Up - Wearing your seat belt is an essential safety tip for drivers. You can also be fined for failing to do so. <br>
-                                        3. Obey Speed Limits - When driving, it's important to stick to the posted speed limit at all times.<br>
-                                        4. Make Adjustments for Weather - When the weather is less than perfect, such as rainy, snowy, or foggy conditions, use extra precautions when driving and follow guidelines.<br>
-                                        5. Follow Traffic Signals - Pay close attention to and obey stop signs and traffic lights.<br></h6>
+                                    <h6><ul>
+										<li>Stay Alert - Actively pay attention to your actions and those of the drivers around you when you are driving.</li><br>
+										<li>Buckle Up - Wearing your seat belt is an essential safety tip for drivers. You can also be fined for failing to do so.</li><br>
+										<li>Obey Speed Limits - When driving, it's important to stick to the posted speed limit at all times.</li><br>
+										<li>Make Adjustments for Weather - When the weather is less than perfect, such as rainy, snowy, or foggy conditions, use extra precautions when driving and follow guidelines.</li><br>
+										<li>Follow Traffic Signals - Pay close attention to and obey stop signs and traffic lights.</li>
+									  </ul></h6>
+
                                 </div>
                             </div>
                         </div>
