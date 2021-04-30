@@ -35,237 +35,35 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
 </head>
 
-<script>
-    function yesnoCheck(that) {
-        if (that.value == "Fruits") {
-            document.getElementById("iffruits").style.display = "block";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Vegitables") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "block";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Grains") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "block";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Feed Crops") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "block";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Fibre Crops") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "block";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Oil Crops") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "block";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifflowers").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Flowers") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "block";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifindustrialcrops").required = false;
-
-        } else if (that.value == "Industrial Crop") {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "block";
-
-            document.getElementById("iffruits").required = false;
-            document.getElementById("ifvegitables").required = false;
-            document.getElementById("ifgrains").required = false;
-            document.getElementById("iffeedcrops").required = false;
-            document.getElementById("iffibrecrops").required = false;
-            document.getElementById("ifoilcrops").required = false;
-            document.getElementById("ifflowers").required = false;
-
-        } else {
-            document.getElementById("iffruits").style.display = "none";
-            document.getElementById("ifvegitables").style.display = "none";
-            document.getElementById("ifgrains").style.display = "none";
-            document.getElementById("iffeedcrops").style.display = "none";
-            document.getElementById("iffibrecrops").style.display = "none";
-            document.getElementById("ifoilcrops").style.display = "none";
-            document.getElementById("ifflowers").style.display = "none";
-            document.getElementById("ifindustrialcrops").style.display = "none";
-            document.getElementById("no1").style.display = "none";
-        }
-    }
-
-    function mspCheck(that) {
-        if (that.value == "Mango") {
-            <?php
-            $crop_type = "Fruits";
-            $crop_name = "Mango";
-            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-            $query = mysqli_query($con, $sql);
-            while ($res = mysqli_fetch_array($query)) {
-                $crop_msp = $res['cro_msp'];
-            }
-            ?>
-            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_name; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        } else if (that.value == "Banana") {
-            <?php
-            $crop_type = "Fruits";
-            $crop_name = "Banana";
-            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-            $query = mysqli_query($con, $sql);
-            while ($res = mysqli_fetch_array($query)) {
-                $crop_msp = $res['cro_msp'];
-            }
-            ?>
-            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        } else if (that.value == "Tomato") {
-            <?php
-            $crop_type = "Vegitables";
-            $crop_name = "Tomato";
-            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-            $query = mysqli_query($con, $sql);
-            while ($res = mysqli_fetch_array($query)) {
-                $crop_msp = $res['cro_msp'];
-            }
-            ?>
-            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        } else if (that.value == "Carrot") {
-            <?php
-            $crop_type = "Vegitables";
-            $crop_name = "Carrot";
-            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-            $query = mysqli_query($con, $sql);
-            while ($res = mysqli_fetch_array($query)) {
-                $crop_msp = $res['cro_msp'];
-            }
-            ?>
-            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        } else if (that.value == "Rice") {
-            <?php
-            $crop_type = "Feed Crops";
-            $crop_name = "Rice";
-            $sql = "Select * from cropdetails where cro_type='$crop_type' and cro_name='$crop_name'";
-            $query = mysqli_query($con, $sql);
-            while ($res = mysqli_fetch_array($query)) {
-                $crop_msp = $res['cro_msp'];
-            }
-            ?>
-            document.getElementById("mspshow").innerHTML = "<p>MSP value of <?php echo $crop_msp; ?> is: Rs. <?php echo $crop_msp; ?></p>";
-        }
-    }
-</script>
 
 <body id="page-top">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav"
+        style="background: #0c3823;">
         <div class="container-fluid">
-            <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
+            <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php"
+                style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
+            <button data-toggle="collapse" data-target="#navbarResponsive"
+                class="navbar-toggler navbar-toggler-right text-uppercase rounded" data-aos="fade"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                style="background: #fff;"><i class="fa fa-bars" style="color: #0c3823;;"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="index.php" style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log Out</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            data-bs-hover-animate="pulse" href="index.php"
+                            style="filter: contrast(100%) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);">DASHBOARD</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button
+                                class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button"
+                                style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View
+                                Profile</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button
+                                class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button"
+                                style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log
+                                Out</button></a></li>
                 </ul>
             </div>
         </div>
@@ -273,16 +71,18 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Add New Crop</h2>
+                <h2 class="text-center" data-aos="fade"
+                    style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Add New Crop</h2>
             </div>
         </div>
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
-        <form method="post" action="addcrop-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
+        <form method="post" action="addcrop-script.php" enctype="multipart/form-data"
+            style="background: #0c3823;margin-bottom: 40px;">
 
             <h5 style="color:#fff;">Crop Type</h5>
             <div class="form-group">
-                <select class="form-control" id="crop_type" name="crop_type" required onchange="yesnoCheck(this);">
+                <select class="form-control" id="crop_type" name="crop_type" required onchange="fetchCropData(this);">
                     <option disabled selected value="">-- Select Crop Type --</option>
                     <?php
                     $records = mysqli_query($con, "SELECT DISTINCT cro_type From cropdetails");  // Use select query here 
@@ -293,210 +93,81 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                     ?>
                 </select>
             </div>
-
-
-            <div class="form-group" id="ifvegitables" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <a href="#" data-toggle="modal" data-target="#myModal" style="float: right;">View MSP</a>
-                <select class="form-control" id="crop_vegitable" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Vegitable Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT  cro_name From cropdetails where cro_type='Vegitables'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+            function fetchCropData(cropType) {
+                $.ajax({
+                    url: 'crop-data-fetch-back.php',
+                    method: "POST",
+                    data: "action=crop-name&croptype=" + cropType.value,
+                    success: function(data) {
+                        $('#cropNameWrapper').html(data);
                     }
-                    ?>
-                </select>
+                })
+            }
+
+            function fetchCropDataModal(cropType) {
+                $.ajax({
+                    url: 'crop-data-fetch-back.php',
+                    method: "POST",
+                    data: "action=crop-name-modal&croptype=" + cropType,
+                    success: function(data) {
+                        $('#cropNameModalWrapper').html(data);
+                        $('#myModal').modal('show');
+                    }
+                })
+            }
+
+            function fetchCropMspModal(cropType) {
+                $.ajax({
+                    url: 'crop-data-fetch-back.php',
+                    method: "POST",
+                    data: "action=crop-msp-modal&croptype=" + cropType + "&cropname=" + $('#cropnameModal')
+                        .val(),
+                    success: function(data) {
+                        $('#mspResult').html(data);
+
+                    }
+                })
+            }
+            </script>
+
+            <div class="form-group" id="cropNameWrapper">
             </div>
 
-            <div class="form-group" id="iffruits" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <a href="#" data-toggle="modal" data-target="#myModal" style="float: right;">View MSP</a>
-                <select class="form-control" id="crop_fruit" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Fruit Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fruits'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-
-            <div class="form-group" id="ifgrains" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_grain" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Grain Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Grains'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="form-group" id="iffeedcrops" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_feedcrop" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Feed Crop Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Feed Crops'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="form-group" id="iffibrecrops" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_fibrecrop" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Fibre Crop Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Fibre Crops'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="form-group" id="ifoilcrops" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_oilcrop" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Oil Crop Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Oil Crops'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="form-group" id="ifflowers" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_flowers" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Flowers Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Flowers'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="form-group" id="ifindustrialcrops" style="display: none;">
-                <h5 style="color:#fff;">Crop Name</h5>
-                <select class="form-control" id="crop_industrialcrop" name="crop_name" onchange="mspCheck(this);">
-                    <option disabled selected value="">-- Select Industrial Crop Name --</option>
-                    <?php
-                    $records = mysqli_query($con, "SELECT cro_name From cropdetails where cro_type='Industrial Crops'");  // Use select query here 
-
-                    while ($data = mysqli_fetch_array($records)) {
-                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                    }
-                    ?>
-                </select>
-            </div>
-
-            <div class="text-warning" id="mspshow"></div>
 
             <h5 style="color:#fff;">Quantity (in kgs.)</h5>
-            <div class="form-group"><input class="form-control" id="crop_quantity" type="number" name="crop_quantity" placeholder="Enter Quantity in Kilograms" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_quantity" type="number" name="crop_quantity"
+                    placeholder="Enter Quantity in Kilograms" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Minimum Expected Price (per kgs.)</h5>
-            <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep" placeholder="Minimum Expected Price" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_mep" type="number" name="crop_mep"
+                    placeholder="Minimum Expected Price" required="" autofocus=""></div>
 
             <div class="text-warning" id="errorshow1"></div>
 
             <h5 style="color:#fff;">Image - 01</h5>
-            <div class="form-group"><input class="form-control" id="crop_img1" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img1" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img1" type="file"
+                    accept="image/jpeg, image/jpg, image/png" name="crop_img1" placeholder="Select Image" required=""
+                    autofocus=""></div>
 
             <h5 style="color:#fff;">Image - 02</h5>
-            <div class="form-group"><input class="form-control" id="crop_img2" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img2" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img2" type="file"
+                    accept="image/jpeg, image/jpg, image/png" name="crop_img2" placeholder="Select Image" required=""
+                    autofocus=""></div>
 
             <h5 style="color:#fff;">Image - 03</h5>
-            <div class="form-group"><input class="form-control" id="crop_img3" type="file" accept="image/jpeg, image/jpg, image/png" name="crop_img3" placeholder="Select Image" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" id="crop_img3" type="file"
+                    accept="image/jpeg, image/jpg, image/png" name="crop_img3" placeholder="Select Image" required=""
+                    autofocus=""></div>
 
             <input name="submit" class="btn btn-primary btn-block" type="submit" value=" Add Crop ">
 
             <div class="text-warning" id="errorshow2"></div>
         </form>
-        <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
-                    <!-- Modal Header -->
-                    <div class="modal-header" style="background-color: #5cb85c;color: white;">
-                        <h5 class="modal-title">View Minimum Selling Price (MSP)</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <form action="" method="post" target="iframe">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <select class="form-control selectpicker" id="crop_name" name="crop_name">
-                                    <option disabled selected value="">-- Select Crop Name --</option>
-                                    <?php
-                                    $records = mysqli_query($con, "SELECT  cro_name From cropdetails");  // Use select query here 
 
-                                    while ($data = mysqli_fetch_array($records)) {
-                                        echo "<option value='" . $data['cro_name'] . "'>" . $data['cro_name'] . "</option>";  // displaying data in option menu
-                                    }
-                                    ?>
-                                </select>
-                                <br>
-                                <button type="submit" id="search_form" name="submit" value="Submit" class="btn btn-danger"><i class="fa fa-user"></i> Submit</button>
-                                <br>
-                                <div class="text-warning" id="mspshow1"></div>
-                            </div>
-                        </div>
-                    </form>
-                    <iframe src="about:blank" style="display:none" id="iframe" name="iframe"></iframe>
-                    <!-- Modal footer -->
-                    <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                    <script type="text/javascript">
-                        // function form_submit() {
-                        //     document.getElementById("search_form").submit();
-                        // }
-                        var iframe = document.getElementById("iframe");
-                        iframe.onload = function() {
-                            formSubmitResponse(iframe);
-                        };
+        <div id="cropNameModalWrapper"></div>
 
-                        function formSubmitResponse(iframe) {
-                            var idocument = (iframe.contentDocument || iframe.contentWindow.document);
-                            if (idocument) {
-                                var responseFromBackend = idocument.getElementsByTagName("body")[0].innerHTML;
-                            }
-                        }
-                    </script>
-                    <?php
-                    if (isset($_POST['submit'])) {
-                        $crop_name = $_POST['crop_name'];
-                        $sql = "Select * from cropdetails where cro_name='$crop_name'";
-                        $query = mysqli_query($con, $sql);
-
-                        while ($res = mysqli_fetch_array($query)) {
-                            $crop_msp = $res['cro_msp'];
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
