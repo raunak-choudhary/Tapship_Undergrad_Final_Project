@@ -25,8 +25,13 @@
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/table-style.css">
     <link rel="stylesheet" href="../assets/css/profile.css">
+	  <link rel="stylesheet" href="assets/css/aboutus.css">
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' rel='stylesheet'>
+	<style>
+		h5 {text-align: justify;}
+		
+	</style>
 </head>
 
 <body>
@@ -46,6 +51,7 @@
             </div>
         </div>
     </nav>
+		
         <div class="features-boxed">
             <div class="container-fluid" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
@@ -55,18 +61,8 @@
         </div>
     </div>
     <header class="header">
-        <div class="header-container" style="background-image:url(&quot;assets/img/law-bg.png&quot;);padding-top:100px;padding-bottom:175px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <div class="card m-auto" style="max-width:850px">
-                            <div class="card-body">
-                                <form class="d-flex align-items-center"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search topics or keywords" name="searchbar"><button class="btn btn-success btn-lg" type="submit">Search</button></form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="header-container" style="background-image:url(&quot;assets/img/law-bg.png&quot;);padding-top:100px;padding-bottom:275px;">
+            
         </div>
     </header><div class="blog-home3 py-5">
   <div class="container">
@@ -75,61 +71,42 @@
       <!-- Column -->
       <div class="col-md-8 text-center">
         <h3 class="my-3">Latest News and Articles</h3>
-        <h5 class="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt</h5>
+        <h4 class="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt</h4>
       </div>
       <!-- Column -->
       <!-- Column -->
     </div>
-    <div class="row mt-4">
-      <!-- Column -->
-      <div class="col-lg-6">
-        <div class="card border-0 mb-4">
-          <a href="#"><img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img4.jpg" alt="wrappixel kit"></a>
-          <div class="date-pos text-center text-white p-3 bg-success-gradiant">Faheem Ahmad &nbsp; &nbsp; MAR 15, 2021</div>
-          <h5 class="font-weight-medium mt-3"><a href="#" class="link text-decoration-none">Techonologies started to change Drastically</a></h5>
-          <p class="m-t-20">You can relay on our amazing features list and also our customer services will be great experience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        </div>
-      </div>
-      <!-- Column -->
-      <div class="col-lg-6">
-        <div class="row">
-          <!-- Column -->
-          <div class="col-md-6">
-            <div class="card border-0 mb-4">
-              <a href="#"><img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img5.jpg" alt="wrappixel kit"></a>
-              <div class="date-pos text-center text-white p-3 bg-success-gradiant">Ganpat Patel &nbsp; &nbsp; MAR 21, 2021</div>
-              <h6 class="font-weight-medium mt-3"><a href="#" class="link text-decoration-none">New Seminar on Newest Farming Techniques</a></h6>
+	<section id="uppersection">
+        <div class="container text-center-justified">
+			<div class="row">
+                <div class="col boxg mx-5 px-5" data-aos="fade">
+                    <h1 class="text-center"><br><strong><u> Scientific development of smart farming technologies</u></strong></h1>
+                    <ul class="p-5 ">
+<h5>The World Government Summit launched a report called Agriculture 4.0 – The Future Of Farming Technology, in collaboration with Oliver Wyman for the 2018 edition of the international event. The report addresses the four main developments placing pressure on agriculture to meeting the demands of the future: Demographics, Scarcity of natural resources, Climate change, and Food waste.
+
+The report states that, although demand is continuously growing, by 2050 we will need to produce 70 percent more food. Meanwhile, agriculture’s share of global GDP has shrunk to just 3 percent, one-third its contribution just decades ago. Roughly 800 million people worldwide suffer from hunger. And under a business-as-usual scenario, 8 percent of the world’s population (or 650 million) will still be undernourished by 2030. The reality is that very little innovation has taken place in the industry of late—in any case, nothing to indicate that food scarcity and hunger will not be an issue in the coming decades.
+
+To meet these challenges will require a concerted effort by governments, investors, and innovative agricultural technologies. Agriculture 4.0 will no longer depend on applying water, fertilizers, and pesticides uniformly across entire fields. Instead, farmers will use the minimum quantities required and target very specific areas. The report further states that, farms and agricultural operations will have to be run very differently, primarily due to advancements in technology such as sensors, devices, machines, and information technology. Future agriculture will use sophisticated technologies such as robots, temperature and moisture sensors, aerial images, and GPS technology. These advanced devices and precision agriculture and robotic systems will allow farms to be more profitable, efficient, safe, and environmentally friendly.
+
+Governments can play a key part in solving the food scarcity issue. They need to take on a broader and more prominent role than their traditional regulatory and facilitating function
+
+<br>By challenging the traditional legacy model and pursuing such a program, governments can:<br><br>
+                        <li>
+                           Ensure food security and reduce dependency on imports.<br>
+                        </li>
+						 <li>
+                           Become a net exporter not only of products but also IP and new solutions.<br>
+                        </li>
+						 <li>
+                           Increase productivity and support the shift towards an innovation- and knowledge -based economy.<br>
+                        </li><h5>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <!-- Column -->
-          <div class="col-md-6">
-            <div class="card border-0 mb-4">
-              <a href="#"><img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img6.jpg" alt="wrappixel kit"></a>
-              <div class="date-pos text-center text-white p-3 bg-success-gradiant">Raunak Choudhary &nbsp; &nbsp; APR 12, 2021</div>
-              <h6 class="font-weight-medium mt-3"><a href="#" class="link text-decoration-none">Organic method of Farming</a></h6>
-            </div>
-          </div>
-          <!-- Column -->
-          <div class="col-md-6">
-            <div class="card border-0 mb-4">
-              <a href="#"><img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img7.jpg" alt="wrappixel kit"></a>
-              <div class="date-pos text-center text-white p-3 bg-success-gradiant">Ashutosh Kumar &nbsp; &nbsp; APR 08, 2021</div>
-              <h6 class="font-weight-medium mt-3"><a href="#" class="link text-decoration-none">IOT based Agriculture</a></h6>
-            </div>
-          </div>
-          <!-- Column -->
-          <div class="col-md-6">
-            <div class="card border-0 mb-4">
-              <a href="#"><img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img8.jpg" alt="wrappixel kit"></a>
-              <div class="date-pos text-center text-white p-3 bg-success-gradiant">Mukesh Chandra &nbsp; &nbsp; FEB 23, 2021</div>
-              <h6 class="font-weight-medium mt-3"><a href="#" class="link text-decoration-none">World's best farming methods in agriculture</a></h6>
-            </div>
-          </div>
-          <!-- Column -->
-        </div>
-      </div>
-      <!-- Column -->
-    </div>
+			</div>
+	</section>
+			
+		
   </div>
 </div>
 <div class="footer-dark" style="background: rgb(12,56,35);">
