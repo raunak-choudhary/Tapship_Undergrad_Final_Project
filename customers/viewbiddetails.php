@@ -93,10 +93,16 @@ error_reporting(0);
         $result = mysqli_query($con, $q);
 
         while ($res = mysqli_fetch_assoc($result)) {
-            $cr_status = $res['cb_status'];
+            $cr_status = $res['cr_status'];
         }
 
-        if ($cr_status == 0 || $cr_status == 1 || $cr_status == 2 || $cr_status == 3 || $cr_status == 4 || $cr_status == 5 || $cr_status == 6) {
+        if ($cr_status == 1 || $cr_status == 2) {
+            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where cb.cb_id=$cb_id AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+        }
+
+        
+
+        if ($cr_status == 3 || $cr_status == 4 || $cr_status == 5 || $cr_status == 6) {
             $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id  AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
         }
 
@@ -357,7 +363,17 @@ error_reporting(0);
                                             </div>
                                         </div><br>
 
+                                        <?php if($cb_status=='0'){
+                                            ?>
+                                                    <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Edit Bid</a></button>
+                                                    <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Delete</a></button>
+                                        <?php }
+                                        ?>
+
                                         <?php if ($cb_status == '1') { ?>
+                                        <hr>
+                                            <h6> Congratulations! Your Bid is accepted please finish payment process.</h6>
+                                            <br>
                                             <div class="features-boxed">
                                                 <div class="container" style="background: #ffffff;">
                                                     <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
