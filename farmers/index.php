@@ -154,7 +154,7 @@ error_reporting(0);
                 $('#weatherWidget').html(
                     "<center><i class='fa fa-spinner fa-spin fa-lg' style='font-size:50px;'></i></center>");
                 $.ajax({
-                    url: 'weather_widget_back.php',
+                    url: 'current_weather_widget_back.php',
                     method: "POST",
                     data: "f_mobile=" + <?php echo $f_mobile; ?> + "&f_pincode=" +
                         <?php echo $f_pincode; ?>,
