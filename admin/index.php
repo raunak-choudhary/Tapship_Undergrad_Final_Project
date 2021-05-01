@@ -144,7 +144,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Crop and Activities
                                     </div>
                                     <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                        <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Crops</button></a>
+                                        <a href="cropdetails.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Crops</button></a>
                                     </div>
                                 </div>
                             </div>

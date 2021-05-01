@@ -102,7 +102,7 @@ error_reporting(0);
                                         <h3 class="f-w-600"><?php echo "$k_name" ?></h3>
                                         <h5>KIOSK Center Agent</h5>
                                         <br><br>
-                                        <button class="btn btn-primary btn-block" type="submit" name="update">Update</button>
+                                        <button class="btn btn-info btn-block" type="submit" name="update">Update</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
