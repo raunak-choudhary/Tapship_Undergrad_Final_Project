@@ -103,7 +103,6 @@
 
     <div class="container text-center ">
         <h1> <strong><u>Timeline for the whole process</u></strong> </h1>
-        <h1> <strong><u>just to check</u></strong> </h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="main-timeline2">
