@@ -67,7 +67,6 @@
             <div class="buttons"></div>
         </div>
     </div>
-    <h1>i am iron man</h1>
     <div class="features-boxed">
         <div class="container">
             <div data-aos="zoom-in-down" class="intro" style="background: #0c3823;margin-top: 30px;">
