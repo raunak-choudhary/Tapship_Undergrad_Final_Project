@@ -174,26 +174,6 @@ error_reporting(0);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-left">
-                        <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  ">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col mr-2">
-                                        <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/transport history.png" style="text-align: center;"></div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp;Total Completed Deals :
-                                                <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
-                                                ?>
-                                                &nbsp;</span>
-                                        </div>
-                                        <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="transporthistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Transport History</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-right">
                         <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;   margin-bottom: 30px;">
                             <div class="card-body">
@@ -208,6 +188,26 @@ error_reporting(0);
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
                                             <a href="acceptedtransportbids.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Accepted Bids</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4 mb-4" data-aos="fade-left">
+                        <div class="card shadow border-left-primary py-2" style="background-color: rgba(0,0,0,0); border: 3px solid black; background:#F0F0F0;  ">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/transport history.png" style="text-align: center;"></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp;Total Completed Deals :
+                                                <?php
+                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                ?>
+                                                &nbsp;</span>
+                                        </div>
+                                        <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
+                                            <a href="transporthistory.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View Transport History</button></a>
                                         </div>
                                     </div>
                                 </div>

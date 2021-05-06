@@ -6,7 +6,7 @@
  if(!isset($_SESSION['login_farmer'])){
  header("location: login.php"); // Redirecting To Profile Page
  }
- error_reporting(0);
+ //error_reporting(0);
  
  
 $con=mysqli_connect("localhost","root","","tapship");
@@ -17,7 +17,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 
    $cb_id = $_GET['cb_id'];
 
-   $q = "SELECT * from cropbid where cb_id=$cb_id";
+   $q = "SELECT cb_cr_id, cb_c_mobile, cb_transporttype from cropbid where cb_id=$cb_id";
 
    $result = mysqli_query($con,$q);
 

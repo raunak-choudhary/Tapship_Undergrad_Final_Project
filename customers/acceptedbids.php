@@ -125,7 +125,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                                                 } else if ($res['cr_status'] == "9") {
                                                     echo "Farmer Pickup conformed";
                                                 } else if ($res['cr_status'] == "10") {
-                                                    echo "Driver Pickup Conformed";
+                                                    echo "Customer Delivery Conformation Pending";
                                                 } else if ($res['cr_status'] == "11") {
                                                     echo "Customer Delivery Conformed";
                                                 } else if ($res['cr_status'] == "12") {

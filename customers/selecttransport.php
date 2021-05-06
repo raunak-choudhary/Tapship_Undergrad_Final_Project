@@ -31,6 +31,12 @@ if (isset($_POST["submit"]))
                   $q2 = "UPDATE cropsale set cr_status='5' where cr_id=$cr_id";
                   $con->query($q2);
 
+                  $q3 = "UPDATE cropbid set cb_transporttype='1' where cb_id=$cb_id";
+                  $con->query($q3);
+  
+                  $q4 = "UPDATE cropsale set cr_transporttype='1' where cr_id=$cr_id";
+                  $con->query($q4);
+
                   $ts_name = $con->real_escape_string($_POST['ts_name']);
                   $ts_mobile = $con->real_escape_string($_POST['ts_mobile']);
                   $ts_vehiclenumber = $con->real_escape_string($_POST['ts_vehiclenumber']);
@@ -48,6 +54,12 @@ if (isset($_POST["submit"]))
 
                   $q2 = "UPDATE cropsale set cr_status='6' where cr_id=$cr_id";
                   $con->query($q2);
+
+                  $q3 = "UPDATE cropbid set cb_transporttype='2' where cb_id=$cb_id";
+                  $con->query($q3);
+  
+                  $q4 = "UPDATE cropsale set cr_transporttype='2' where cr_id=$cr_id";
+                  $con->query($q4);
 
                 }
 

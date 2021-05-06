@@ -36,7 +36,7 @@ if (isset($_POST["submit"]))
                 $q = "UPDATE cropbid set cb_status='7' where cb_id=$cb_id";
                 $con->query($q);
 
-                header("location: youractivebids.php");
+                header("location: yourtransportbids.php");
 }
  
 $con->close();
