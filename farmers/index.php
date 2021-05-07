@@ -175,11 +175,7 @@ error_reporting(0);
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/add crop.png" style="text-align: center;"></div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total added crop :
-                                                <?php
-                                                echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
-                                                ?>
-                                                &nbsp;</span>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Add New Crop
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
                                             <a href="addcrop.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">Add New Crop</button></a>
@@ -197,7 +193,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/activecrop.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total active crop :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
@@ -217,7 +213,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item no-gutters"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/farmer icons/sell history.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total sold crop :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status='12'")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
@@ -238,7 +234,7 @@ error_reporting(0);
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; MEP Tracking
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View MSP</button></a>
+                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 265px;">View MEP</button></a>
                                         </div>
                                     </div>
                                 </div>

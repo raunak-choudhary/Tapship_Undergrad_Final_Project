@@ -20,7 +20,7 @@ if($_POST['action']=="crop-name"){
     </div>
     <div class="col-3">
         <a href="#" class="btn w-100 btn-info" style="border-radius: 0;"
-            onclick="fetchCropDataModal('<?php echo $CropType; ?>')">View MSP</a>
+            onclick="fetchCropDataModal('<?php echo $CropType; ?>')">View MEP</a>
 
     </div>
 

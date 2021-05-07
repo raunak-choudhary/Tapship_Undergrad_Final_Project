@@ -142,7 +142,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/find deal.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp; &nbsp; Total Deals Available :
                                                 <?php
-                                                echo $CropTotalCount = $con->query("SELECT * FROM customer")->num_rows;
+                                                echo $CropTotalCount = $con->query("SELECT * FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status='6' AND cs.cr_status='6'")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
@@ -162,7 +162,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/your bids.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp; &nbsp; Total Bids :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_d_mobile=$d_mobile")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
@@ -182,7 +182,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item no-gutters"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/accepted bids.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> Total Accepted Bids :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status in (8,9,10,11) AND tb.tb_d_mobile=$d_mobile AND tb.tb_status='1'")->num_rows;
                                                 ?>
                                             </span>
                                         </div>
@@ -202,7 +202,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/transport history.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp;Total Completed Deals :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status=12 AND tb.tb_d_mobile=$d_mobile AND tb.tb_status='1'")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
@@ -222,7 +222,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/rejected bids.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> Total Rejected Bids :
                                                 <?php
-                                                echo $DriverTotalCount = $con->query("SELECT * FROM driver")->num_rows;
+                                                echo $count = $con->query("SELECT * FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status in (8,9,10,11,12) AND tb.tb_d_mobile=$d_mobile AND tb.tb_status='2'")->num_rows;
                                                 ?></span>
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">

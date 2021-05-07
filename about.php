@@ -240,7 +240,7 @@
                 <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
-                            <img src="assets/img/team/a.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                            <img src="assets/img/team/ashutosh.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Ashutosh Kumar</h3>
                             <h5>Full Stack and Cyber Security</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
@@ -274,7 +274,7 @@
                 <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
-                            <img src="assets/img/team/ganni.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                            <img src="assets/img/team/ganpat.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Ganpat Patel</h3>
                             <h5>Full Stack and ML</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>
@@ -291,7 +291,7 @@
                 <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
-                            <img src="assets/img/team/RC.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                            <img src="assets/img/team/raunak.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
                             <h3>Raunak Choudhary</h3>
                             <h5>Full Stack and ML</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque ut totam hic odio quia laudantium voluptate omnis, harum a animi nemo vero, quibusdam id illum dolores nihil cumque magnam?</p>

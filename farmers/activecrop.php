@@ -90,7 +90,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
         $query = mysqli_query($con, $q);
         $c = 1;
-
+        
         while ($res = mysqli_fetch_array($query)) {
         ?>
             <tr class="text-center">
@@ -138,6 +138,12 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         ?>
 
     </table>
+
+    <?php 
+    $count = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)")->num_rows;
+    if($count==0){ ?>
+    <center><h3 style="border:5px solid black;width:70%;text-align:center; margin:20px;padding:20px;"> No Data available</h3></center>
+    <?php } ?>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">

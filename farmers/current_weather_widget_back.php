@@ -42,12 +42,13 @@ $op = explode("\n", $py_res);
             <h5>Sunrise Time &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[11]; ?> </h5>
             <h5>Sunset Time &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $op[12]; ?> </h5>
         </div>
-        <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px;  height: 265px;">
+        <div class="col-lg-3 col-md-12 col-sm-12" style="background-color:#1e5239; padding:20px;">
+            <div class="lap"><br><br><br></div>
+            <center>
             <h5>Weather Forecast</h5>
-            <a href="weather_forecast.php"><button type="button" class="btn btn-primary">View Forecast</button></a>
-            <br><br><br>
-            <h5 style="padding-top:10px;">Crop Suggestions </h5>
-            <button type="button" class="btn btn-primary">View Suggestions</button>
+            <a href="weather_forecast.php"><button type="button" class="btn" style="background-color:white; color:black;">View Forecast</button></a>
+            </center>
+            <div class="lap"><br><br><br></div>
         </div>
     </div>
 </div>

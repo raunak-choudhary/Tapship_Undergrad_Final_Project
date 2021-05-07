@@ -107,7 +107,7 @@ if (!isset($_SESSION['login_admin'])) {
                                     <div class="col-sm-6 col-md-4 item no-gutters"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/admin icons/driver.png" style="text-align: center;"></div>
                                     <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Driver :
                                             <?php
-                                            echo $DriverTotalCount = ($con->query("SELECT * FROM driver")->num_rows) - 1;
+                                            echo $count = ($con->query("SELECT * FROM driver")->num_rows) - 1;
                                             ?>
                                             &nbsp;</span>
                                     </div>

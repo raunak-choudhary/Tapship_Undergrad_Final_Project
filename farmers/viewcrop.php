@@ -70,7 +70,11 @@ error_reporting(0);
             die(" Connection Error ");
         }
 
-        $cr_id = $_GET['cr_id'];
+        $id = $_GET['id'];
+        
+        $cr_id=base64_decode($id);
+        $cr_id=(double)$cr_id/525325.24/6537838239.89;
+        
 
 
         $q = "select cr_status from cropsale where cr_id = $cr_id";

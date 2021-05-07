@@ -1,0 +1,4 @@
+RewriteEngine on  
+RewriteRule ^about about.php [NC,L]
+
+ErrorDocument 404 http://localhost/tapship/404.php
