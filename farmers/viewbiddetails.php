@@ -73,7 +73,7 @@ error_reporting(0);
 
         $cb_id = $_GET['cb_id'];
 
-        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, farmer f,customer c where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile ORDER BY CS.cr_id DESC";
+        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, cb.cb_bidprice,  cb.cb_id, cb.cb_status, c.c_mobile,c.c_name, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropdetails CD, cropsale CS, cropbid cb, customer c where cb.cb_id=$cb_id AND CD.cro_id=CS.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_f_mobile =  $f_mobile";
 
         $result = mysqli_query($con, $q);
 
@@ -105,9 +105,6 @@ error_reporting(0);
             $cb_id = $res['cb_id'];
             $cb_bidprice = $res['cb_bidprice'];
             $cb_status = $res['cb_status'];
-
-            $f_name = $res['f_name'];
-            $f_mobile =  $res['f_mobile'];
         }
         ?>
 		
@@ -259,17 +256,41 @@ error_reporting(0);
                                                 <p class="m-b-10 f-w-600">Bid Price</p>
                                                 <h6 class="text-muted f-w-400"><?php echo "$cb_bidprice" ?></h6>
                                             </div>
-                                        </div><br>
-										<h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Farmer Details</strong></h4>
-                                        <div class="row">
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Farmer Name</p>
-                                                <h6 class="text-muted f-w-400"><?php echo "$f_name" ?></h6>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Farmer Mobile</p>
-                                                <h6 class="text-muted f-w-400"><?php echo "$f_mobile" ?></h6>
-                                            </div>
+                                                    <p class="m-b-10 f-w-600">Bid Total Amount</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo '₹ ', $cb_bidprice * $cr_quantity; ?></h6>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Bid Status</p>
+                                                    <h6 class="text-muted f-w-400"><?php if ($cb_status == "0") {
+                                                                                        echo "Bid Placed";
+                                                                                    } else if ($cb_status == "1") {
+                                                                                        echo "Bid Accepted";
+                                                                                    } else if ($cb_status == "2") {
+                                                                                        echo "Bid Rejected";
+                                                                                    } else if ($cb_status == "3") {
+                                                                                        echo "Payment Conformation Pending";
+                                                                                    } else if ($cb_status == "4") {
+                                                                                        echo "Transport Selection Pending";
+                                                                                    } else if ($cb_status == "5") {
+                                                                                        echo "Delivery Pending";
+                                                                                    } else if ($cb_status == "6") {
+                                                                                        echo "Tapship Delievry Selected ";
+                                                                                    } else if ($cb_status == "7") {
+                                                                                        echo "Tapship Delivery Bidding";
+                                                                                    } else if ($cb_status == "8") {
+                                                                                        echo "Farmer Pickup Conformation Pending";
+                                                                                    } else if ($cb_status == "9") {
+                                                                                        echo "Driver Pickup Conformation Pending";
+                                                                                    } else if ($cb_status == "10") {
+                                                                                        echo "Customer Delivery Conformation Pending";
+                                                                                    } else if ($cb_status == "11") {
+                                                                                        echo "Driver Delivery Conformation Pending";
+                                                                                    } else if ($cb_status == "12") {
+                                                                                        echo "Deal Over";
+                                                                                    } ?>
+                                                </div>
+
                                         </div><br>
 
         <?php

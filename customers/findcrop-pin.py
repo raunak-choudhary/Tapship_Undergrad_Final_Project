@@ -59,7 +59,7 @@ for ele in disdicsort:
     count+= 1
 order+= ' else '+str(count)+' end asc'
 
-s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity (in kgs.)", CD.cro_msp as "Crop MSP", CS.cr_mep as "Crop MEP", CS.cr_status as "Crop Status", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City" FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 '+order
+s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity (in kgs.)", CD.cro_msp as "Crop MSP", CS.cr_mep as "Crop MEP", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City" FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 '+order
 
 df2 = pd.read_sql_query(s2,engine)
 df2 = pd.DataFrame(df2)

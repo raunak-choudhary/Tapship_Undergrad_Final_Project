@@ -55,8 +55,15 @@ if (isset($_POST["submit"])) {
                 $target_path4 = "assets/documents/dlpdf/" . $driver_dlpdf;
                 $target_path5 = "assets/documents/rcpdf/" . $driver_vehiclercpdf;
 
-                $d_lat = NULL;
-                $d_long = NULL;
+                $pinurl = file_get_contents('https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='.$driver_pincode.'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
+                $data = json_decode($pinurl, true);
+            
+                $d_lat = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][0];
+                $d_long = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][1];
+
+                date_default_timezone_set("Asia/Calcutta");
+                $d_date =  date("Y-m-d");
+                $d_time = date("h:i A");
 
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname1, $target_path1);
@@ -66,7 +73,7 @@ if (isset($_POST["submit"])) {
                 move_uploaded_file($tname5, $target_path5);
 
                 #sql query to insert into database
-                $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_dlnumber,d_dlpdf,d_vehiclenumber,d_vehiclercpdf,d_lat,d_long,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_dlnumber','$target_path4','$driver_vehiclenumber','$target_path5','$d_lat','$d_long','$driver_password','$driver_approve')";
+                $query = "INSERT into driver(d_mobile,d_name,d_gender,d_age,d_street,d_city,d_state,d_pincode,d_aadhar,d_aadharpdf,d_pan,d_panpdf,d_photo,d_dlnumber,d_dlpdf,d_vehiclenumber,d_vehiclercpdf,d_lat,d_long,d_date,d_time,d_password,d_approve) VALUES('$driver_mobile','$driver_name','$driver_gender','$driver_age','$driver_street','$driver_city','$driver_state','$driver_pincode','$driver_aadhar','$target_path1','$driver_pan','$target_path2','$target_path3','$driver_dlnumber','$target_path4','$driver_vehiclenumber','$target_path5','$d_lat','$d_long','$d_date','$d_time','$driver_password','$driver_approve')";
                 $success = $con->query($query);
             }
         }

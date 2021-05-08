@@ -80,7 +80,7 @@ if (!isset($_SESSION['login_admin'])) {
             mysqli_select_db($con, 'tapship');
 
 
-            $q = "select cro_id, cro_name, cro_type, cro_costperkg, cro_msp from cropdetails where cro_id!=0 ORDER BY cro_id DESC";
+            $q = "select cro_id, cro_name, cro_type, cro_costperkg, cro_msp from cropdetails where cro_id!=0";
             $query = mysqli_query($con, $q);
             $c = 1;
             ?>

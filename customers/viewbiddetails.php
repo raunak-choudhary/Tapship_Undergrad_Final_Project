@@ -574,7 +574,7 @@ error_reporting(0);
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Location</p>
-                                                    <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,18z" target="_blank">View Location</a></h6>
+                                                    <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                                 </div>
                                             </div><br>
 
@@ -698,7 +698,7 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Location</p>
-                                                <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,18z" target="_blank">View Location</a></h6>
+                                                <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                             </div>
                                         </div><br>
 

@@ -131,7 +131,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
                 <?php
                 $cr_id = $res['cr_id'];
-                $cr_id=(double)$cr_id*525325.24*6537838239.89;
+                $cr_id=round((double)$cr_id*525325.24*6537838239.89);
                 $id = base64_encode($cr_id);
                 ?>
                 <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewcrop.php?id=<?php echo $id; ?>" class="text-white"> View </a> </button> </td>

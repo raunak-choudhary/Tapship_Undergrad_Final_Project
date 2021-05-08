@@ -7,6 +7,14 @@ if (!isset($_SESSION['login_driver'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
+
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "tapship";
+
+//Create Connection
+$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +38,37 @@ error_reporting(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="../assets/css/card-hover.css">
+    
+    <script>
+    function showPosition() {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var Latitude = position.coords.latitude;
+                var Longitude = position.coords.longitude;
+
+                var date = new Date();
+                date.setTime(date.getTime()+(60*1000));
+                var expires = "; expires="+date.toGMTString();
+
+                document.cookie = "Latitude = " + Latitude+expires;
+                document.cookie = "Longitude = " + Longitude+expires;
+            });
+        }
+    }
+
+    setTimeout(function() {
+    location.reload();
+    }, 50000);
+
+    const reloadtButton = document.querySelector("#reload");
+    function reload() {
+        reload = location.reload();
+    }
+    reloadButton.addEventListener("click", reload, false);
+    </script>
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="showPosition();">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" data-bs-hover-animate="pulse" href="../index.php" style="font-family: Montserrat, sans-serif;">TAPSHIP</a>
@@ -49,6 +85,8 @@ error_reporting(0);
             </div>
         </div>
     </nav>
+
+    
     <?php
 
     $con = mysqli_connect("localhost", "root", "", "tapship");
@@ -124,13 +162,48 @@ error_reporting(0);
     <?php
     if ($d_approve == 2) { ?>
 
+        <?php
+        $d_lat= $_COOKIE['Latitude'];
+        $d_long= $_COOKIE['Longitude'];
+
+        date_default_timezone_set("Asia/Calcutta");
+        $d_date =  date("Y-m-d");
+        $d_time = date("h:i A");
+
+        $query = "update driver set d_lat=$d_lat, d_long=$d_long, d_date='$d_date', d_time='$d_time' where d_mobile='".$d_mobile."'";
+        $success = $con->query($query);
+
+        $q = "select d_lat, d_long, d_time, d_date from driver where d_mobile=$d_mobile";
+
+        $result = mysqli_query($con, $q);
+
+        while ($res = mysqli_fetch_assoc($result)) {
+            $lat =  $res['d_lat'];
+            $long =  $res['d_long'];
+            $time =  $res['d_time'];
+            $date =  $res['d_date'];
+        }
+
+        $url = file_get_contents('http://dev.virtualearth.net/REST/v1/Locations/'.$lat.','.$long.'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
+        $data = json_decode($url, true);
+            
+        $loc = $data['resourceSets'][0]['resources'][0]['name'];
+        ?>
+
         <div class="features-boxed">
             <div class="container-fluid" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Driver Dashboard</h2>
+                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: -20px;">Driver Dashboard</h2>
                 </div>
+                <center>
+                <div style=" background-color:#0c3823; padding:10px;color:white">
+                    <h6 style="display: inline-block;">Your Current Location: <i><?php echo $loc;?></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Updated: <i><?php echo $time.' , '.$date;?></i></h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="click" onClick="window.location.reload();" class="btn btn-primary" type="button" style="background-color: white; color:black;margin-left: 10px; padding:10px; width:300px;">Update Your Live Location</button>
+                </div>
+                </center>
             </div>
         </div>
+
         <center>
             <div class="container-fluid">
                 <div class="row" style="margin-top: 10px;">
@@ -284,7 +357,6 @@ error_reporting(0);
         </center>
 
     <?php } ?>
-
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

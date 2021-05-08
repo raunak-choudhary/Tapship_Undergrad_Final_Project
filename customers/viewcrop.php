@@ -147,12 +147,12 @@ error_reporting(0);
                                             <h6 class="text-muted f-w-400"><?php echo "$cr_id" ?></h6>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep" ?></h6>
+                                            <p class="m-b-10 f-w-600">Minimum Selling Price (per kgs.)</p>
+                                            <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp" ?></h6>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Maximum Selling Price (per kgs.)</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp" ?></h6>
+                                            <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+                                            <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep" ?></h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Quantity</p>

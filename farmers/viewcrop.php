@@ -73,10 +73,8 @@ error_reporting(0);
         $id = $_GET['id'];
         
         $cr_id=base64_decode($id);
-        $cr_id=(double)$cr_id/525325.24/6537838239.89;
+        $cr_id=round((double)$cr_id/525325.24/6537838239.89);
         
-
-
         $q = "select cr_status from cropsale where cr_id = $cr_id";
         $result = mysqli_query($con, $q);
 
@@ -85,7 +83,7 @@ error_reporting(0);
         }
 
         if ($cr_status == 0 || $cr_status == 1) {
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status FROM cropdetails CD, cropsale CS where cs.cr_id=$cr_id";
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status FROM cropdetails CD, cropsale CS where cs.cr_id=$cr_id and CD.cro_id=cs.cr_cro_id";
         }
 
         if ($cr_status == 2) {
@@ -239,12 +237,12 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo "$cr_id" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
-                                                <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep" ?></h6>
+                                                <p class="m-b-10 f-w-600">Minimum Selling Price (per kgs.)</p>
+                                                <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Maximum Selling Price (per kgs.)</p>
-                                                <h6 class="text-muted f-w-400"><?php echo "₹ $cro_msp" ?></h6>
+                                                <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+                                                <h6 class="text-muted f-w-400"><?php echo "₹ $cr_mep" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Quantity</p>
@@ -600,7 +598,7 @@ error_reporting(0);
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Location</p>
-                                                    <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,18z" target="_blank">View Location</a></h6>
+                                                    <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                                 </div>
                                             </div><br>
                                         <?php

@@ -65,12 +65,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             <thead>
                 <th>Sr. No.</th>
                 <th> Bid ID </th>
-                <th> Crop Name </th>
-                <th> Crop Qunatity </th>
-                <th> Crop MEP </th>
-                <th> Crop MSP </th>
-                <th> Customer Type </th>
                 <th> Customer Name </th>
+                <th> Customer Type </th>
                 <th> Customer Mobile</th>
                 <th> Customer City</th>
                 <th> Bid Price (per kgs.)</th>
@@ -96,12 +92,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                     <td data-label="Sr. No."> <?php echo $c;
                                                 $c += 1 ?> </td>
                     <td data-label="Bid ID"> <?php echo $res['cb_id']; ?> </td>
-                    <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
-                    <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'], ' Kgs'; ?> </td>
-                    <td data-label="Crop MEP"> <?php echo '₹ ', $res['cr_mep']; ?> </td>
-                    <td data-label="Crop MSP"> <?php echo '₹ ', $res['cro_msp']; ?> </td>
-                    <td data-label="Customer Type"> <?php echo $res['c_type'];  ?> </td>
                     <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
+                    <td data-label="Customer Type"> <?php echo $res['c_type'];  ?> </td>
                     <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
                     <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
                     <td data-label="Bid Price"> <?php echo '₹ ', $res['cb_bidprice'];  ?> </td>
