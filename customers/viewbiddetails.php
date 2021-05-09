@@ -531,7 +531,7 @@ error_reporting(0);
                                             </div><br>
                                         <?php
                                         }
-                                        if ($cb_status == 8 || $cb_status == 9 || $cb_status == 11 || $cb_status == 12) { ?>
+                                        if ($cb_status == 8 || $cb_status == 9) { ?>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -613,7 +613,7 @@ error_reporting(0);
 
                                         <?php
                                         }
-                                        if ($cb_status == '10' || $cb_status == '11' || $cb_status == '12' && $cb_transporttype == '1') { ?>
+                                        if ($cb_status == '10' && $cb_transporttype == '1') { ?>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -670,7 +670,7 @@ error_reporting(0);
 
                                     <?php
                                         }
-                                        if ($cb_status == '10' || $cb_status == '11' || $cb_status == '12' && $cb_transporttype == '2') { ?>
+                                        if ($cb_status == '10' && $cb_transporttype == '2') { ?>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -740,6 +740,223 @@ error_reporting(0);
                                             }
                                         </script>
                                     <?php
+                                    }
+                                    if ($cb_status == '11' && $cb_transporttype == '1') { ?>
+                                        <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Medium</p>
+                                                <h6 class="text-muted f-w-400"><?php echo "Self Delivery"; ?></h6>
+                                            </div>
+                                         </div>   
+                                        <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                        <div class="row">
+                                            <?php
+                                                $query = "select * from transportself where ts_cb_id=$cb_id";
+                                                $result = mysqli_query($con, $query);
+
+                                                while ($res = mysqli_fetch_assoc($result)) {
+                                                    $ts_name =  $res['ts_name'];
+                                                    $ts_mobile =  $res['ts_mobile'];
+                                                    $ts_vehiclenumber =  $res['ts_vehiclenumber'];
+                                                } ?>
+
+
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Driver Name</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo $ts_name; ?></h6>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo $ts_mobile; ?></h6>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo  $ts_vehiclenumber; ?></h6>
+                                                </div>
+                                        </div><br>
+                                    
+
+                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+                                        <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $ts_name; ?>
+                                        <br>
+                                        <p id="demo"></p>
+                                        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
+
+                                    </form>
+
+                                    <script>
+                                        function checkForm(form) {
+                                            if (!form.check.checked) {
+                                                document.getElementById("demo").innerHTML = ("Please confirm that you have recived crop delivery from by clicking checkbox");
+                                                return false;
+                                            }
+                                            return true;
+                                        }
+                                    </script>
+
+
+                                <?php
+                                    }
+                                    if ($cb_status == '11' && $cb_transporttype == '2') { ?>
+                                    <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Medium</p>
+                                            <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Tranport ID</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $tb_id; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Tranport Bid</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $tb_bid; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Tranport Status</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                        </div>
+                                    </div><br>
+                                    <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Driver Name</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $d_name; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $d_mobile; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Driver Age</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $d_age; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Driver Gender</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $d_gender; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Driver License Number</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $d_dlnumber; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                            <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Location</p>
+                                            <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
+                                        </div>
+                                    </div><br>
+
+                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+                                        <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $d_name; ?>
+                                        <br>
+                                        <p id="demo"></p>
+                                        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
+
+                                    </form>
+
+                                    <script>
+                                        function checkForm(form) {
+                                            if (!form.check.checked) {
+                                                document.getElementById("demo").innerHTML = ("Please confirm that you have recived crop delivery from by clicking checkbox");
+                                                return false;
+                                            }
+                                            return true;
+                                        }
+                                    </script>
+                                    }
+                                        if ($cb_status == '12' && $cb_transporttype == '1') { ?>
+                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Medium</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo "Self Delivery"; ?></h6>
+                                                </div>
+                                             </div>   
+                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                            <div class="row">
+                                                <?php
+                                                    $query = "select * from transportself where ts_cb_id=$cb_id";
+                                                    $result = mysqli_query($con, $query);
+
+                                                    while ($res = mysqli_fetch_assoc($result)) {
+                                                        $ts_name =  $res['ts_name'];
+                                                        $ts_mobile =  $res['ts_mobile'];
+                                                        $ts_vehiclenumber =  $res['ts_vehiclenumber'];
+                                                    } ?>
+
+
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Driver Name</p>
+                                                        <h6 class="text-muted f-w-400"><?php echo $ts_name; ?></h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                                        <h6 class="text-muted f-w-400"><?php echo $ts_mobile; ?></h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                                        <h6 class="text-muted f-w-400"><?php echo  $ts_vehiclenumber; ?></h6>
+                                                    </div>
+                                            </div><br>
+
+                                    <?php
+                                        }
+                                        if ($cb_status == '12' && $cb_transporttype == '2') { ?>
+                                        <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Medium</p>
+                                                <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Tranport ID</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $tb_id; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Tranport Bid</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $tb_bid; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Tranport Status</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                            </div>
+                                        </div><br>
+                                        <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driver Name</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $d_name; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driver Mobile</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $d_mobile; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driver Age</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $d_age; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driver Gender</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $d_gender; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driver License Number</p>
+                                                <h6 class="text-muted f-w-400"><?php echo $d_dlnumber; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Vehicle Number</p>
+                                                <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Location</p>
+                                                <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
+                                            </div>
+                                        </div><br>
+                                        <?php
                                         }
                                         if ($cb_status == '11') { ?>
                                         <h6> Note: - Please wait for successfully delivered conformation from Driver</h6>
