@@ -541,66 +541,6 @@ error_reporting(0);
                                             </div><br>
                                         <?php
                                         }
-                                        if ($cb_status == 8 || $cb_status == 9 || $cb_status == 11 || $cb_status == 12) {
-                                        ?>
-                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Medium</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Tranport ID</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $tb_id; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Tranport Bid</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $tb_bid; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
-                                                </div>
-                                            </div><br>
-                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver Name</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $d_name; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver Mobile</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $d_mobile; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver Age</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $d_age; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver Gender</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $d_gender; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver License Number</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $d_dlnumber; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Vehicle Number</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Driver Address</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo  $d_street." ".$d_city." ".$d_state."-".$d_pincode; ?></h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Location</p>
-                                                    <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
-                                                </div>
-                                            </div><br>
-
-
-                                        <?php
-                                        }
                                         if ($cb_status == '8') { ?>
                                             <h6> Note: - Please wait for pickup conformation from driver</h6>
 
