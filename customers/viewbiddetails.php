@@ -650,7 +650,7 @@ error_reporting(0);
                                         
 
                                         <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-                                            <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $d_name; ?>
+                                            <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $ts_name; ?>
                                             <br>
                                             <p id="demo"></p>
                                             <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
