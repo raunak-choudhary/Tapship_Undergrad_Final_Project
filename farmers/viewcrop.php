@@ -103,8 +103,8 @@ error_reporting(0);
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";}
-
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
+        }
         if ($cr_status == 5) {
             $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
             $result = mysqli_query($con, $q);

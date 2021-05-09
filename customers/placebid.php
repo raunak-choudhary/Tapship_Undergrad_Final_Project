@@ -14,7 +14,7 @@ $con=mysqli_connect("localhost","root","","tapship");
 $cr_id = $_GET['cr_id'];
 
 $query = "SELECT f.f_mobile
-FROM cropsale CS, farmer f where f.f_mobile=CS.cr_f_mobile";
+FROM cropsale CS, farmer f where f.f_mobile=CS.cr_f_mobile AND cs.cr_id=$cr_id";
 
 $result = mysqli_query($con,$query);
 
