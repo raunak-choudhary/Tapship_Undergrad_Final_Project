@@ -867,6 +867,7 @@ error_reporting(0);
                                             return true;
                                         }
                                     </script>
+                                    <?php
                                     }
                                         if ($cb_status == '12' && $cb_transporttype == '1') { ?>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
