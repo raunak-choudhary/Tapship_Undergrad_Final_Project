@@ -140,7 +140,7 @@ error_reporting(0);
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/customer icons/find crop.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">&nbsp; &nbsp; Total Available Crops :
                                                 <?php
-                                                echo $CropTotalCount = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0")->num_rows;
+                                                echo $CropTotalCount = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>
