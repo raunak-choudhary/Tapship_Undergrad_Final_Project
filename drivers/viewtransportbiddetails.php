@@ -68,7 +68,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     }
 
     $cb_id = $_GET['cb_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (12) AND cb.cb_id = $cb_id";
+
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id AND tb.tb_d_mobile=$d_mobile";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
@@ -103,6 +104,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         $tb_id = $res['tb_id'];
         $tb_bid = $res['tb_bid'];
         $tb_status = $res['tb_status'];
+
+        echo $tb_status;
 
         $cb_status = $res['cb_status'];
     }
@@ -174,13 +177,20 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                     } ?></P>
 
     <?php
-    if ($cr_status == 8) {
+    if ($cr_status == 7) {
     ?>
-        <h6> Note: - Please wait for pickup conformation by farmer</h6>
+        <h6> Note: - Bidding for this deal is still going on please wait for selection from customer</h6>
     <?php } ?>
 
     <?php
-    if ($cr_status == 9) {
+    if ($cr_status == 8 and $tb_status==1) {
+    ?>
+        <h6> Note: - Please wait for pickup conformation by farmer</h6>
+    <?php } ?>
+    
+
+    <?php
+    if ($cr_status == 9 and $tb_status==1) {
     ?>
         <form method="post" action="pickupdone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
             <input type="checkbox" id="check"> I have picked up <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to deliver it to <?php echo $c_name; ?> from <?php echo $f_name; ?>
@@ -201,13 +211,13 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <?php } ?>
 
     <?php
-    if ($cr_status == 10) {
+    if ($cr_status == 10 and $tb_status==1) {
     ?>
         <h6> Note: - Please wait for crop successfully delivered to customer conformation from customer</h6>
     <?php } ?>
 
     <?php
-    if ($cr_status == 11) {
+    if ($cr_status == 11 and $tb_status==1) {
     ?>
         <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
             <input type="checkbox" id="check"> I have delivered <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to <?php echo $c_name; ?>which I picked from <?php echo $f_name; ?>
@@ -231,6 +241,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     if ($cr_status == 12) {
     ?>
         <h6> Note: - This deal is successfully completed and closed</h6>
+        <br>
         <h4 style="text-align: center;">Thank You for doing business with us</h4>
     <?php
     } ?>

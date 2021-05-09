@@ -76,7 +76,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <th> Customer City</th>
                 <th> Bid ID</th>
                 <th> Transport Bid</th>
-                <th> Bid Status</th>
                 <th> View</th>
             </thead>
         </tr>
@@ -105,33 +104,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
                 <td data-label="Bid ID"> <?php echo $res['tb_id']; ?> </td>
                 <td data-label="Transport Bid"> <?php echo '₹ ', $res['tb_bid'];  ?> </td>
-                <td data-label="Bid Status"> <?php if ($res['cb_status'] == "0") {
-                                                    echo "Bid Placed";
-                                                } else if ($res['cb_status'] == "1") {
-                                                    echo "Bid Accepted";
-                                                } else if ($res['cb_status'] == "2") {
-                                                    echo "Bid Rejected";
-                                                } else if ($res['cb_status'] == "3") {
-                                                    echo "Payment Conformation Pending";
-                                                } else if ($res['cb_status'] == "4") {
-                                                    echo "Transport Selection Pending";
-                                                } else if ($res['cb_status'] == "5") {
-                                                    echo "Delivery Pending";
-                                                } else if ($res['cb_status'] == "6") {
-                                                    echo "Tapship Delievry Selected ";
-                                                } else if ($res['cb_status'] == "7") {
-                                                    echo "Tapship Delivery Bidding";
-                                                } else if ($res['cb_status'] == "8") {
-                                                    echo "Farmer Pickup Conformation Pending";
-                                                } else if ($res['cb_status'] == "9") {
-                                                    echo "Driver Pickup Conformation Pending";
-                                                } else if ($res['cb_status'] == "10") {
-                                                    echo "Customer Delivery Conformation Pending";
-                                                } else if ($res['cb_status'] == "11") {
-                                                    echo "Driver Delivery Conformation Pending";
-                                                } else if ($res['cb_status'] == "12") {
-                                                    echo "Deal Over";
-                                                } ?> </td>
                 <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
             </tr>
 

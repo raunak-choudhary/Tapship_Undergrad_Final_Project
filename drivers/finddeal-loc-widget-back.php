@@ -6,6 +6,11 @@ $d_long = $_POST['d_long'];
 $res = shell_exec("python finddeal-loc.py $d_mobile $d_lat $d_long");
 $op = explode("\n", $res);
 
+$url = file_get_contents('http://dev.virtualearth.net/REST/v1/Locations/'.$d_lat.','.$d_long.'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
+$data = json_decode($url, true);
+$loc = $data['resourceSets'][0]['resources'][0]['name'];
+
+
 ?>
 
 <div class="container" style="background-color:#0c3823; padding-top:10px">
@@ -29,7 +34,7 @@ $op = explode("\n", $res);
         <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="opt">
                 <center>
-                    <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $op[1]; ?></p>
+                    <p style="border:2px white solid; color:white; padding:8px;">Result Location: <?php echo $loc; ?></p>
                 </center>
             </div>
         </div>

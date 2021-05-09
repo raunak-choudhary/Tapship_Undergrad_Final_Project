@@ -27,7 +27,6 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 
    $q2 = "SELECT * from cropbid where cb_id=$cb_id";
-   echo $q2;
    $result = mysqli_query($con,$q2);
 
    while( $res=mysqli_fetch_assoc($result))

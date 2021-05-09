@@ -81,8 +81,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
             $.ajax({
                 url: 'finddeal-pin-widget-back.php',
                 method: "POST",
-                data: "d_mobile=" + <?php echo $d_mobile; ?> + "&d_pincode=" +
-                    <?php echo $d_pincode; ?>,
+                data: "d_mobile=" + <?php echo $d_mobile; ?> + "&d_pincode=" + <?php echo $d_pincode; ?>,
                 success: function(data) {
                     $('#locationWidget').html(data);
                 }

@@ -61,9 +61,9 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     </div>
 
     <?php
-    $cb_id = $_GET['cb_id'];
+    $tb_id = $_GET['tb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, transportbid tb,customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_cb_id=$cb_id";
+    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, d.d_name, d.d_mobile, d.d_gender, d.d_age, d.d_street, d.d_city, d.d_state, d.d_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, transportbid tb, driver d where tb.tb_d_mobile=d.d_mobile AND cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_id=$tb_id";
     $result = mysqli_query($con, $q);
 
     while ($res = mysqli_fetch_assoc($result)) {
@@ -86,14 +86,14 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         $f_state = $res['f_state'];
         $f_pincode = $res['f_pincode'];
 
-        $c_name = $res['c_name'];
-        $c_mobile =  $res['c_mobile'];
-        $c_gender = $res['c_gender'];
-        $c_age = $res['c_age'];
-        $c_street = $res['c_street'];
-        $c_city = $res['c_city'];
-        $c_state = $res['c_state'];
-        $c_pincode = $res['c_pincode'];
+        $d_name = $res['d_name'];
+        $d_mobile =  $res['d_mobile'];
+        $d_gender = $res['d_gender'];
+        $d_age = $res['d_age'];
+        $d_street = $res['d_street'];
+        $d_city = $res['d_city'];
+        $d_state = $res['d_state'];
+        $d_pincode = $res['d_pincode'];
 
         $tb_id = $res['tb_id'];
         $tb_bid = $res['tb_bid'];
@@ -123,15 +123,15 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <p>Farmer State: <?php echo $f_state; ?></P>
     <p>Farmer Pincode: <?php echo $f_pincode; ?></P>
 
-    <h5>Customer Details</h5>
-    <p>Customer Name: <?php echo $c_name; ?></P>
-    <p>Customer Mobile: <?php echo $c_mobile; ?></P>
-    <p>Customer Gender: <?php echo $c_gender; ?></P>
-    <p>Customer Age: <?php echo $c_age; ?></P>
-    <p>Customer Street: <?php echo $c_street; ?></P>
-    <p>Customer City: <?php echo $c_city; ?></P>
-    <p>Customer State: <?php echo $c_state; ?></P>
-    <p>Customer Pincode: <?php echo $c_pincode; ?></P>
+    <h5>Driver Details</h5>
+    <p>Driver Name: <?php echo $d_name; ?></P>
+    <p>Driver Mobile: <?php echo $d_mobile; ?></P>
+    <p>Driver Gender: <?php echo $d_gender; ?></P>
+    <p>Driver Age: <?php echo $d_age; ?></P>
+    <p>Driver Street: <?php echo $d_street; ?></P>
+    <p>Driver City: <?php echo $d_city; ?></P>
+    <p>Driver State: <?php echo $d_state; ?></P>
+    <p>Driver Pincode: <?php echo $d_pincode; ?></P>
 
     <h5>Transport Details</h5>
     <p>Transport ID: <?php echo $tb_id; ?></P>

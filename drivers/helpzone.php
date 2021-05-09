@@ -95,7 +95,7 @@ error_reporting(0);
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                 <!-- Modal Header -->
-                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                <div class="modal-header" style="background-color: #0c3823;color: white;">
                     <h4 class="modal-title">Message</h4>
                     <button type="button" class="close" onclick="pagesuccessRedirect()">&times;</button>
                 </div>
@@ -105,7 +105,7 @@ error_reporting(0);
                     <h6>You are very important to us, all information received will always remain confidential. We will contact you as soon as we review your message.</h6>
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                <div class="modal-footer" style="padding:2px 16px;background-color: #0c3823;color: white;">
                     <button type="button" class="btn btn-danger" onclick="pagesuccessRedirect()">Close</button>
                 </div>
             </div>
@@ -116,7 +116,7 @@ error_reporting(0);
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                 <!-- Modal Header -->
-                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                <div class="modal-header" style="background-color: #0c3823;color: white;">
                     <h4 class="modal-title">Message</h4>
                     <button type="button" class="close" onclick="pageunsuccessRedirect()">&times;</button>
                 </div>
@@ -125,7 +125,7 @@ error_reporting(0);
                     Error in sending message!!! Please try again.
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                <div class="modal-footer" style="padding:2px 16px;background-color: #0c3823;color: white;">
                     <button type="button" class="btn btn-danger" onclick="pageunsuccessRedirect()">Close</button>
                 </div>
             </div>

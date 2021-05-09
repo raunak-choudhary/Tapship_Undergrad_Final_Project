@@ -63,6 +63,15 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 <?php
 
+$url = file_get_contents('https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='.$c_pincode.'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
+$data = json_decode($url, true);
+$lat = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][0];
+$long = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][1];
+
+$url = file_get_contents('http://dev.virtualearth.net/REST/v1/Locations/'.$lat.','.$long.'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
+$data = json_decode($url, true);
+$locaction = $data['resourceSets'][0]['resources'][0]['name'];
+
 $q = "SELECT * from customer where c_mobile = $c_mobile";
 $query = mysqli_query($con,$q);
 
@@ -81,7 +90,7 @@ $op = explode("\n",$res);
         <div class="opt">
             <center>
             <h4 style="color:white; margin:5px; display: inline-block;">Filter Results :</h4><p style="color:white; margin:5px; display: inline-block;">(showing for pincode)</p>
-            <p style="border:2px white solid; color:white; padding:8px; display: inline-block;">Result Location: <?php echo $op[1]; ?></p>
+            <p style="border:2px white solid; color:white; padding:8px; display: inline-block;">Result Location: <?php echo $locaction; ?></p>
             </center>
         </div>
     </div>

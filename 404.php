@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
 
     <style>
-    .page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+    .page_404{ background:#fff; font-family: 'Arvo', serif;
     }
 
     .page_404  img{ width:100%;}
@@ -71,7 +71,7 @@
 	<div class="container">
 		<div class="row">	
 		<div class="col-sm-12 ">
-		<div class="col-sm-10 col-sm-offset-1  text-center">
+		<div class="col-sm-12 col-sm-offset-1  text-center">
         <h1 class="text-center ">Oops! Looking Like You have lost</h1>
             <h4 class="text-center ">404 Error: Page Not Found</h4>
 		<div class="four_zero_four_bg">

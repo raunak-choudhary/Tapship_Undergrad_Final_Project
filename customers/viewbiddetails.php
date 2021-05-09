@@ -112,12 +112,8 @@ error_reporting(0);
             $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where cb.cb_id=$cb_id AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
         }
 
-        if ($cr_status == 8 || $cr_status == 9) {
-            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
-        }
-
-        if ($cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
-            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where cb.cb_id=$cb_id AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+        if ($cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
+            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, d.d_street, d.d_city, d.d_state, d.d_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
         }
 
         $result = mysqli_query($con, $q);
@@ -173,6 +169,10 @@ error_reporting(0);
             $d_vehiclenumber = $res['d_vehiclenumber'];
             $d_lat = $res['d_lat'];
             $d_long = $res['d_long'];
+            $d_street = $res['d_street'];
+            $d_city = $res['d_city'];
+            $d_state = $res['d_state'];
+            $d_pincode= $res['d_pincode'];
         }
         ?>
 
@@ -386,7 +386,7 @@ error_reporting(0);
                                             <br>
                                             <div class="features-boxed">
                                                 <div class="container" style="background: #ffffff;">
-                                                    <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
+                                                    <div class="intro" style="background: #0c3823; margin-bottom: 30px;">
                                                         <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Payment Details</h2>
                                                     </div>
                                                 </div>
@@ -427,16 +427,20 @@ error_reporting(0);
                                                     <p class="m-b-10 f-w-600">Transaction Proof</p>
                                                     <h6 class="text-muted f-w-400"><a href="../customers/<?php echo  $cb_tproof; ?>" target="_blank">View Transcation</a></h6>
                                                 </div>
-                                            </div><br>
+                                            </div>
                                         <?php
 
                                         }
                                         if ($cb_status == '3') { ?>
+                                        <hr>
+                                            <h6>Note: Wait for payment conformation from farmer</h4>
+                                            <br>
                                             <input name="submit" type="submit" class="btn btn-dark text-monospace  " style="background-color:#0c3823;" value="Edit Details">
 
                                         <?php
                                         }
                                         if ($cb_status == '4') { ?>
+                                        <hr>
                                             <div class="features-boxed">
                                                 <div class="container" style="background: #ffffff;">
                                                     <div class="intro" style="background: #0c3823;margin-bottom: 30px;">
@@ -448,21 +452,21 @@ error_reporting(0);
                                                 <form method="post" action="selecttransport.php?cb_id=<?php echo $cb_id; ?> " enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
                                                     <h5 style="color:#fff;">Select Tranport Type</h5>
                                                     <div class="form-group">
-                                                        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="1" required onchange="yesnoCheck(this);">
+                                                        <input type="radio" name="cropbid_transporttype" value="1" required onchange="yesnoCheck(this);">
                                                         <label style="color:#fff;" class="radio-inline">Self Transport</label><br>
-                                                        <input type="radio" name="cropbid_transporttype" id="cropbid_transporttype" value="2" required onchange="yesnoCheck(this);">
+                                                        <input type="radio" name="cropbid_transporttype" value="2" required onchange="yesnoCheck(this);">
                                                         <label style="color:#fff;" class="radio-inline">Tapship Delivery</label><br>
                                                     </div>
 
                                                     <div id="ifself" style="display: none;">
                                                         <h6 style="color:#fff;">Driver Name</h6>
-                                                        <div class="form-group"><input class="form-control" id="ts_name" type="text" name="ts_name" placeholder="Your Full Name" required="" autofocus=""></div>
+                                                        <div class="form-group"><input class="form-control" id="ts_name" type="text" name="ts_name" placeholder="Your Full Name" autofocus=""></div>
 
                                                         <h5 style="color:#fff;">Driver Mobile Number</h5>
-                                                        <div class="form-group"><input class="form-control" id="ts_mobile" type="text" name="ts_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Enter Driver Mobile Number" required="" autofocus=""></div>
+                                                        <div class="form-group"><input class="form-control" id="ts_mobile" type="text" name="ts_mobile" pattern="^[6-9]{1}[0-9]{9}$" title="Enter Valid 10 digit Mobile Number (Ex. 76435654XX)" placeholder="Enter Driver Mobile Number"  autofocus=""></div>
 
                                                         <h5 style="color:#fff;">Vehicle Number</h5>
-                                                        <div class="form-group"><input class="form-control" id="ts_vehiclenumber" type="text" name="ts_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}" title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Enter Vehicle Number" required="" autofocus=""></div>
+                                                        <div class="form-group"><input class="form-control" id="ts_vehiclenumber" type="text" name="ts_vehiclenumber" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{2\4}" title="Enter Vehicle Number (Ex. KA20CE1111)" placeholder="Enter Vehicle Number" autofocus=""></div>
                                                     </div>
 
                                                     <input name="submit" type="submit" class="btn btn-primary btn-block" value="Submit">
@@ -501,6 +505,8 @@ error_reporting(0);
                                                 </div>
                                             </div><br>
 
+                                            <h6> Note: Wait for farmer's pickup conformation by your driver <?php echo $ts_name; ?>.</h6>
+
                                         <?php
                                         }
                                         if ($cb_status == '6') { ?>
@@ -514,7 +520,7 @@ error_reporting(0);
                                             </div>
                                         <?php
                                         }
-                                        if ($cb_status == '7') { ?>
+                                        if ($cb_status == 7) { ?>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -522,6 +528,16 @@ error_reporting(0);
                                                     <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
                                                 </div>
                                                 <button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbids.php?cb_id=<?php echo $cb_id; ?>" class="text-white"> View Transport Bids </a> </button>
+                                            </div><br>
+                                        <?php
+                                        }
+                                        if ($cb_status == 8 || $cb_status == 9 || $cb_status == 11 || $cb_status == 12) { ?>
+                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Medium</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
+                                                </div>
                                             </div><br>
                                         <?php
                                         }
@@ -571,6 +587,10 @@ error_reporting(0);
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Vehicle Number</p>
                                                     <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Driver Address</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo  $d_street." ".$d_city." ".$d_state."-".$d_pincode; ?></h6>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Location</p>
@@ -729,6 +749,7 @@ error_reporting(0);
                                         }
                                         if ($cb_status == '12') { ?>
                                         <h6> Note: - This deal is successfully completed and closed</h6>
+                                        <br>
                                         <h4 style="text-align: center;">Thank You for doing business with us</h4>
                                     <?php  } ?>
                                     <hr>

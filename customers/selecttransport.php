@@ -43,8 +43,6 @@ if (isset($_POST["submit"]))
 
                   $q3 = "INSERT into transportself(ts_cb_id, ts_name, ts_mobile, ts_vehiclenumber) VALUES('$cb_id', '$ts_name', '$ts_mobile', '$ts_vehiclenumber')";
                   $con->query($q3);
-
-                  echo $q3;
                 }
 
                 if($cropbid_transporttype == 2){

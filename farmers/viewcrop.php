@@ -93,18 +93,17 @@ error_reporting(0);
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
         }
 
         if ($cr_status == 3 || $cr_status == 4) {
-            $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
+            $q = "select cb.cb_id from cropbid cb where cb.cb_cr_id = $cr_id AND cb.cb_f_mobile = $f_mobile";
             $result = mysqli_query($con, $q);
 
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
-        }
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";}
 
         if ($cr_status == 5) {
             $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
@@ -113,31 +112,27 @@ error_reporting(0);
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_status FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_status FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
         }
 
-        if ($cr_status == 6 || $cr_status == 7 || $cr_status == 8 || $cr_status == 9) {
+        if ($cr_status == 6 || $cr_status == 7) {
             $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
             $result = mysqli_query($con, $q);
 
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type FROM cropbid cb, customer c where cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile";
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c where cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
         }
 
-        if ($cr_status == 7 || $cr_status == 8 || $cr_status == 9) {
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c,driver d, transportbid tb where cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND tb.tb_cb_id=cb.cb_id AND tb.tb_cb_id=$cb_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
-        }
-
-        if ($cr_status == 10 || $cr_status== 11 || $cr_status== 12) {
+        if ($cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status== 11 || $cr_status== 12) {
             $q = "select cb_id from cropbid where cb_cr_id = $cr_id AND cb_f_mobile = $f_mobile";
             $result = mysqli_query($con, $q);
 
             while ($res = mysqli_fetch_assoc($result)) {
                 $cb_id =  $res['cb_id'];
             }
-            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_status, cb.cb_transporttype FROM cropdetails CD, cropsale CS, customer c, cropbid cb where cb.cb_id=$cb_id AND cb.cb_c_mobile=c.c_mobile AND cs.cr_cro_id=CD.cro_id";
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, c.c_name, c.c_mobile, c.c_contactname, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, c.c_type, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_name, d.d_mobile, d.d_gender, d.d_age, d.d_lat, d.d_long, d.d_vehiclenumber, d.d_dlnumber, d.d_street, d.d_city, d.d_state, d.d_pincode FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, customer c, driver d, transportbid tb where tb.tb_d_mobile=d.d_mobile AND cs.cr_id=$cr_id AND cb.cb_id=$cb_id AND cb.cb_f_mobile=$f_mobile AND cb.cb_c_mobile=c.c_mobile AND cb.cb_f_mobile=f.f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id and tb.tb_cb_id=$cb_id AND tb.tb_status=1";
         }
 
         $result = mysqli_query($con, $query);
@@ -189,6 +184,11 @@ error_reporting(0);
             $d_vehiclenumber = $res['d_vehiclenumber'];
             $d_lat = $res['d_lat'];
             $d_long = $res['d_long'];
+            $d_street = $res['d_street'];
+            $d_city = $res['d_city'];
+            $d_state = $res['d_state'];
+            $d_pincode= $res['d_pincode'];
+            
         }
         ?>
 
@@ -430,6 +430,7 @@ error_reporting(0);
                                         }
                                         if ($cr_status == 4) {
                                         ?>
+                                        <br>
                                             <h6> Note: - Please wait for transport type selection by <?php echo $c_name; ?></h6>
 
                                         <?php
@@ -497,10 +498,11 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
                                             </div>
                                         </div>
+                                        <br>
                                         <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
                                     <?php
                                         }
-                                        if ($cr_status == 7) {
+                                        if ($cr_status == 7 || $cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
                                     ?>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                         <div class="row">
@@ -509,6 +511,7 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo "Tapship Delivery"; ?></h6>
                                             </div>
                                         </div>
+                                        <br>
                                         <h6> Note: - Please wait for transport some time while customer is finding a truck</h6>
                                     <?php
 
@@ -596,6 +599,11 @@ error_reporting(0);
                                                     <p class="m-b-10 f-w-600">Vehicle Number</p>
                                                     <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
                                                 </div>
+
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Driver Address</p>
+                                                    <h6 class="text-muted f-w-400"><?php echo  $d_street." ".$d_city." ".$d_state."-".$d_pincode; ?></h6>
+                                                </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Location</p>
                                                     <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
@@ -643,6 +651,7 @@ error_reporting(0);
                                         if ($cr_status == 12) {
                                     ?>
                                         <h6> Note: - This deal is successfully completed and closed</h6>
+                                        <br>
                                         <h4 style="text-align: center;">Thank You for doing business with us</h4>
                                     <?php
                                         } ?>

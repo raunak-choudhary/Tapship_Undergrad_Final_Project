@@ -80,7 +80,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     }
 
     $cr_id = $_GET['cr_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status='6' AND CS.cr_id = $cr_id";
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (6,7) AND CS.cr_id = $cr_id";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
@@ -235,7 +235,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                                         </div>
                                     </div><br>
                                     <?php
-                                    if ($cr_status == 6) {
+                                    if ($cr_status == 6 || $cr_status == 7) {
                                     ?>
                                         <form method="post" action="placebid.php?cr_id=<?php echo $cr_id; ?> " enctype="multipart/form-data">
                                             <div class="form-group"><input class="form-control" id="tb_bid" type="text" name="tb_bid" placeholder="Tell your fare for this deal" required="" autofocus="" style="width: 300px;"></div>

@@ -77,7 +77,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <th> Customer City</th>
                 <th> Bid ID</th>
                 <th> Transport Bid</th>
-                <th> Bid Status</th>
                 <th> View</th>
             </thead>
         </tr>
@@ -107,13 +106,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
                 <td data-label="Bid ID"> <?php echo $res['tb_id']; ?> </td>
                 <td data-label="Transport Bid"> <?php echo '₹ ', $res['tb_bid'];  ?> </td>
-                <td data-label="Bid Status"> <?php if ($res['cb_status'] == "0") {
-                                                    echo "Bidding";
-                                                } else if ($res['cb_status'] == "1") {
-                                                    echo "Accepted";
-                                                } else if ($res['cb_status'] == "2") {
-                                                    echo "Bid Rejected";
-                                                } ?> </td>
                 <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
             </tr>
 

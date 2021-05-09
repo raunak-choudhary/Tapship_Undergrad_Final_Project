@@ -37,7 +37,7 @@ if($_POST['action']=="crop-name-modal"){
             <div class="modal-content"
                 style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                 <!-- Modal Header -->
-                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                <div class="modal-header" style="background-color: #0c3823;color: white;">
                     <h5 class="modal-title">View Minimum Selling Price (MSP)</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -69,7 +69,7 @@ if($_POST['action']=="crop-name-modal"){
                 <!-- Modal footer -->
 
             </div>
-            <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+            <div class="modal-footer" style="padding:2px 16px;background-color: #0c3823;color: white;">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>

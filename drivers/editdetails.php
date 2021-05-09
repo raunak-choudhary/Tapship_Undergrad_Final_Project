@@ -222,7 +222,7 @@ error_reporting(0);
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                 <!-- Modal Header -->
-                <div class="modal-header" style="background-color: #5cb85c;color: white;">
+                <div class="modal-header" style="background-color: #0c3823;color: white;">
                     <h4 class="modal-title">Message</h4>
                     <button type="button" class="close" onclick="pageRedirect()">&times;</button>
                 </div>
@@ -231,7 +231,7 @@ error_reporting(0);
                     Updated Successfully. You will be logged out after this update. Please login again to access your account.
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer" style="padding:2px 16px;background-color: #5cb85c;color: white;">
+                <div class="modal-footer" style="padding:2px 16px;background-color: #0c3823;color: white;">
                     <button type="button" class="btn btn-danger" onclick="pageRedirect()">Close</button>
                 </div>
             </div>

@@ -48,6 +48,6 @@ $con=mysqli_connect("localhost","root","","tapship");
         } 
    }
 
-   header("location: purchasehistory.php");
+   header("location: acceptedbids.php");
    
 ?>
