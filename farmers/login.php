@@ -55,6 +55,7 @@ error_reporting(0);
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
 
+        <div class="badge alert-danger w-100 p-2 mb-4"><?php echo $error; ?></div>
 
             <div class="form-group"><input class="form-control" type="phone" name="f_mobile" placeholder="Mobile Number" required></div>
             <div class="form-group"><input class="form-control" type="password" name="f_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
