@@ -121,7 +121,7 @@ error_reporting(0);
                                                         echo "Multiple Login State";
                                                     } ?></h5>
                                         <br> <br><br><br>
-                                        <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;">Edit Profile</button></a>
+                                        <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px; background-color:white; color:black;">Edit Profile</button></a>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -177,11 +177,11 @@ error_reporting(0);
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 m-l-20 f-w-600">Aadhaar</p>
-                                            <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_aadhar" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
+                                            <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_aadhar" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../customers/<?php echo  $c_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10  m-l-20 f-w-600">PAN</p>
-                                            <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf; ?>" target="_blank">View PAN</a></button></h6>
+                                            <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../customers/<?php echo  $c_panpdf; ?>" target="_blank">View PAN</a></button></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -280,11 +280,11 @@ error_reporting(0);
                             <div class="row">
                                 <div class="col-sm-6">
                                     <p class="m-b-10 m-l-20 f-w-600">Registration Document</p>
-                                    <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_registration; ?>" target="_blank">View Document</a></button></h6>
+                                    <h6 class="text-muted m-l-20 f-w-400"><button class="text-monospace" style="padding:5px;"><a href="../customers/<?php echo  $c_registration; ?>" target="_blank">View Document</a></button></h6>
                                 </div>
                                 <div class="col-sm-6">
                                     <p class="m-b-10  m-l-20 f-w-600">PAN</p>
-                                    <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../customers/<?php echo  $c_panpdf; ?>" target="_blank">View PAN</a></button></h6>
+                                    <h6 class="text-muted m-l-20 f-w-400"><?php echo "$c_pan" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../customers/<?php echo  $c_panpdf; ?>" target="_blank">View PAN</a></button></h6>
                                 </div>
                             </div>
                         </div>

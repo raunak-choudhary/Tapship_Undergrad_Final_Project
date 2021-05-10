@@ -74,7 +74,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <th> Customer Name </th>
                 <th> Customer Mobile</th>
                 <th> Customer City</th>
-                <th> Bid ID</th>
                 <th> Transport Bid</th>
                 <th> View</th>
             </thead>
@@ -102,7 +101,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <td data-label="Customer Name"> <?php echo $res['c_name'];  ?> </td>
                 <td data-label="Customer Mobile"> <?php echo $res['c_mobile'];  ?> </td>
                 <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
-                <td data-label="Bid ID"> <?php echo $res['tb_id']; ?> </td>
                 <td data-label="Transport Bid"> <?php echo '₹ ', $res['tb_bid'];  ?> </td>
                 <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
             </tr>

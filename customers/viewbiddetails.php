@@ -113,7 +113,7 @@ error_reporting(0);
         }
 
         if ($cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
-            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, d.d_street, d.d_city, d.d_state, d.d_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+            $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, d.d_street, d.d_city, d.d_state, d.d_pincode, d.d_date, d.d_time, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
         }
 
         $result = mysqli_query($con, $q);
@@ -173,6 +173,8 @@ error_reporting(0);
             $d_city = $res['d_city'];
             $d_state = $res['d_state'];
             $d_pincode= $res['d_pincode'];
+            $d_time = $res['d_time'];
+            $d_date = $res['d_date'];
         }
         ?>
 
@@ -559,7 +561,13 @@ error_reporting(0);
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                    <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                                 </div>
                                             </div><br>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -593,7 +601,7 @@ error_reporting(0);
                                                     <h6 class="text-muted f-w-400"><?php echo  $d_street." ".$d_city." ".$d_state."-".$d_pincode; ?></h6>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Location</p>
+                                                    <p class="m-b-10 f-w-600">Location (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
                                                     <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                                 </div>
                                             </div><br>
@@ -687,7 +695,13 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                             </div>
                                         </div><br>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -717,7 +731,7 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Location</p>
+                                                <p class="m-b-10 f-w-600">Location (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
                                                 <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                             </div>
                                         </div><br>
@@ -777,7 +791,7 @@ error_reporting(0);
                                         </div><br>
                                     
 
-                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+                                    <!--<form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
                                         <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $ts_name; ?>
                                         <br>
                                         <p id="demo"></p>
@@ -793,7 +807,7 @@ error_reporting(0);
                                             }
                                             return true;
                                         }
-                                    </script>
+                                    </script>-->
 
 
                                 <?php
@@ -815,7 +829,13 @@ error_reporting(0);
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Tranport Status</p>
-                                            <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                            <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                         </div>
                                     </div><br>
                                     <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -845,28 +865,11 @@ error_reporting(0);
                                             <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Location</p>
+                                            <p class="m-b-10 f-w-600">Location (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
                                             <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                         </div>
                                     </div><br>
-
-                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-                                        <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $d_name; ?>
-                                        <br>
-                                        <p id="demo"></p>
-                                        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-
-                                    </form>
-
-                                    <script>
-                                        function checkForm(form) {
-                                            if (!form.check.checked) {
-                                                document.getElementById("demo").innerHTML = ("Please confirm that you have recived crop delivery from by clicking checkbox");
-                                                return false;
-                                            }
-                                            return true;
-                                        }
-                                    </script>
+                                    
                                     <?php
                                     }
                                         if ($cb_status == '12' && $cb_transporttype == '1') { ?>
@@ -923,7 +926,13 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                             </div>
                                         </div><br>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -953,7 +962,7 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo  $d_vehiclenumber; ?></h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Location</p>
+                                                <p class="m-b-10 f-w-600">Location (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
                                                 <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                             </div>
                                         </div><br>

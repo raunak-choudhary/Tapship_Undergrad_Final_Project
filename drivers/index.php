@@ -215,7 +215,7 @@ $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error
                                         <div class="col-sm-6 col-md-4 item"><img class="img-fluid" data-bs-hover-animate="pulse" src="../assets/img/driver icons/find deal.png" style="text-align: center;"></div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size:20px;color: rgb(1,5,15);"> &nbsp; &nbsp; Total Deals Available :
                                                 <?php
-                                                echo $CropTotalCount = $con->query("SELECT * FROM cropbid cb, transportbid tb where cb.cb_transporttype=2 AND cb.cb_status in (6,7) AND tb.tb_status=0 AND tb.tb_cb_id!=cb.cb_id")->num_rows;
+                                                echo $CropTotalCount = $con->query("SELECT * FROM cropbid cb where cb.cb_status in(6,7) AND cb.cb_transporttype=2 and cb.cb_id not in (SELECT tb.tb_cb_id from transportbid tb WHERE tb.tb_d_mobile=$d_mobile)")->num_rows;
                                                 ?>
                                                 &nbsp;</span>
                                         </div>

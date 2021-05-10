@@ -125,7 +125,7 @@ error_reporting(0);
                                                     echo "Multiple Login State";
                                                 } ?></h5>
                                     <br> <br><br><br>
-                                    <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;">Edit Profile</button></a>
+                                    <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px; background-color:white; color:black;">Edit Profile</button></a>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -176,11 +176,11 @@ error_reporting(0);
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Aadhaar</p>
-                                            <h6 class="text-muted  f-w-400"><?php echo "$f_aadhar" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
+                                            <h6 class="text-muted  f-w-400"><?php echo "$f_aadhar" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../farmers/<?php echo  $f_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">PAN</p>
-                                            <h6 class="text-muted f-w-400"><?php echo "$f_pan" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_panpdf; ?>" target="_blank">View PAN</a></button></h6>
+                                            <h6 class="text-muted f-w-400"><?php echo "$f_pan" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../farmers/<?php echo  $f_panpdf; ?>" target="_blank">View PAN</a></button></h6>
                                         </div>
                                     </div>
                                     <h4 class="m-b-20 m-t-40 p-b-5 b-b-default  f-w-600"><strong>Bank Details</strong></h4>
@@ -207,7 +207,7 @@ error_reporting(0);
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Passbook</p>
-                                            <h6><button class="btn btn-grey text-monospace"><a href="../farmers/<?php echo  $f_bankpassbook; ?>" target="_blank">View Passbook</a></button></h6>
+                                            <h6><button class="text-monospace" style="padding:5px;"><a href="../farmers/<?php echo $f_bankpassbook; ?>" target="_blank">View Passbook</a></button></h6>
                                         </div>
                                     </div>
                                 </div>

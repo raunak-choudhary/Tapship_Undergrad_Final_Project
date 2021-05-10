@@ -6,10 +6,10 @@ import sys
 
 engine =sqlalchemy.create_engine("mysql+pymysql://root@localhost:3306/tapship")
 
-d_mobile = "7042757709"
-d_pincode = "574115"
+d_mobile = str(sys.argv[1])
+d_pincode = str(sys.argv[2])
 
-s1= 'SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_transporttype=2 AND cb.cb_status in (6,7) AND tb.tb_status=0 AND tb.tb_cb_id!=cb.cb_id'
+s1= 'SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status in(6,7) AND cb.cb_transporttype=2 and cb.cb_id not in (SELECT tb.tb_cb_id from transportbid tb WHERE tb.tb_d_mobile='+d_mobile+')'
 
 
 df1 = pd.read_sql_query(s1,engine)
@@ -54,7 +54,7 @@ for ele in disdicsort:
     count+= 1
 order+= ' else '+str(count)+' end asc'
 
-s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity", c.c_name as "Customer Name", c.c_mobile as "Customer Mobile", c.c_city as "Customer City", c.c_pincode as "Customer Pincode", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City", f.f_pincode as "Farmer Pincode" FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_transporttype=2 AND cb.cb_status in (6,7) AND tb.tb_status=0 AND tb.tb_cb_id!=cb.cb_id '+order
+s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity", c.c_name as "Customer Name", c.c_mobile as "Customer Mobile", c.c_city as "Customer City", c.c_pincode as "Customer Pincode", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City", f.f_pincode as "Farmer Pincode" FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status in(6,7) AND cb.cb_transporttype=2 and cb.cb_id not in (SELECT tb.tb_cb_id from transportbid tb WHERE tb.tb_d_mobile='+d_mobile+') '+order
 
 
 df2 = pd.read_sql_query(s2,engine)
