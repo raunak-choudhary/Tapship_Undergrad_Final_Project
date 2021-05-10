@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2021 at 05:29 PM
+-- Generation Time: May 10, 2021 at 07:58 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -95,7 +95,11 @@ INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bi
 (69, '9113671387', '9672836724', 67, 19, '12', 'IMPS', 'IMPS-45368293739504', 'assets/documents/payment/IMPS-45368293739504-TRANSPROOF.pdf', '1'),
 (70, '9113671387', '9672836725', 69, 29, '12', 'IMPS', 'IMPS-8978798739393', 'assets/documents/payment/IMPS-8978798739393-TRANSPROOF.pdf', '1'),
 (71, '9113671387', '9672836725', 68, 28, '2', '0', '0', '0', ''),
-(72, '9113671388', '9672836725', 68, 30, '12', 'IMPS', 'IMPS-78645637892', 'assets/documents/payment/IMPS-78645637892-TRANSPROOF.pdf', '2');
+(72, '9113671388', '9672836725', 68, 30, '12', 'IMPS', 'IMPS-78645637892', 'assets/documents/payment/IMPS-78645637892-TRANSPROOF.pdf', '2'),
+(73, '9113671387', '9672836724', 70, 100, '0', '0', '0', '0', ''),
+(74, '9113671387', '9672836724', 71, 200, '12', 'IMPS', '7878954562023235', 'assets/documents/payment/7878954562023235-164640.jpg', '1'),
+(76, '9113671387', '9672836724', 72, 600, '7', 'IMPS', '7889998897988945466', 'assets/documents/payment/7889998897988945466-164640.jpg', '2'),
+(77, '9113671387', '9672836724', 73, 400, '6', 'IMPS', '456865974561554', 'assets/documents/payment/456865974561554-app.PNG', '2');
 
 -- --------------------------------------------------------
 
@@ -154,7 +158,11 @@ CREATE TABLE `cropsale` (
 INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
 (67, '9672836724', 6, '78', 'assets/documents/crop/18862-6448-3533-9672836724.png', 'assets/documents/crop/17287-8583-6033-9672836724.png', 'assets/documents/crop/19820-8004-3375-9672836724.png', '19', '2021-05-09', '12'),
 (68, '9672836725', 10, '89', 'assets/documents/crop/11613-6944-9647-9672836725.png', 'assets/documents/crop/16731-1756-6392-9672836725.png', 'assets/documents/crop/14232-5979-6659-9672836725.png', '27', '2021-05-09', '12'),
-(69, '9672836725', 3, '56', 'assets/documents/crop/18760-3958-9242-9672836725.png', 'assets/documents/crop/14437-6945-4322-9672836725.png', 'assets/documents/crop/16192-2322-9071-9672836725.png', '26', '2021-05-09', '12');
+(69, '9672836725', 3, '56', 'assets/documents/crop/18760-3958-9242-9672836725.png', 'assets/documents/crop/14437-6945-4322-9672836725.png', 'assets/documents/crop/16192-2322-9071-9672836725.png', '26', '2021-05-09', '12'),
+(70, '9672836724', 6, '75', 'assets/documents/crop/19519-8934-4863-9672836724.png', 'assets/documents/crop/17517-5987-7638-9672836724.png', 'assets/documents/crop/13887-9326-2164-9672836724.png', '21', '2021-05-09', '1'),
+(71, '9672836724', 2, '100', 'assets/documents/crop/12539-3057-9376-9672836724.png', 'assets/documents/crop/14672-3952-4097-9672836724.png', 'assets/documents/crop/12811-2991-9968-9672836724.png', '18', '2021-05-09', '12'),
+(72, '9672836724', 1, '80', 'assets/documents/crop/19234-5754-1009-9672836724.png', 'assets/documents/crop/13136-1123-8170-9672836724.png', 'assets/documents/crop/15320-8824-2352-9672836724.png', '62', '2021-05-09', '7'),
+(73, '9672836724', 5, '60', 'assets/documents/crop/18107-9891-3642-9672836724.png', 'assets/documents/crop/17356-7997-4664-9672836724.png', 'assets/documents/crop/17924-7262-6661-9672836724.png', '17', '2021-05-10', '6');
 
 -- --------------------------------------------------------
 
@@ -232,7 +240,7 @@ CREATE TABLE `driver` (
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', ''),
-(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-09', '08:11 PM', 'Gapu@8540', '2'),
+(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-10', '11:23 AM', 'Gapu@8540', '2'),
 (2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '13.4370558', '74.7454872', '2021-05-09', '07:31 PM', 'Gapu@8540', '2');
 
 -- --------------------------------------------------------
@@ -334,7 +342,8 @@ CREATE TABLE `transportbid` (
 
 INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_status`) VALUES
 (8, '7042757709', 72, '5600', '1'),
-(9, '7042757710', 72, '5800', '2');
+(9, '7042757710', 72, '5800', '2'),
+(10, '7042757709', 76, '600', '0');
 
 -- --------------------------------------------------------
 
@@ -356,7 +365,8 @@ CREATE TABLE `transportself` (
 
 INSERT INTO `transportself` (`ts_id`, `ts_cb_id`, `ts_name`, `ts_mobile`, `ts_vehiclenumber`) VALUES
 (6, '69', 'Aadesh Pahalwan', '7845327865', 'KA20TR6547'),
-(7, '70', 'Ashok Kumar', '8945673456', 'KA20UH3482');
+(7, '70', 'Ashok Kumar', '8945673456', 'KA20UH3482'),
+(9, '74', 'Ashutosh Kumar', '9782507934', 'KA20RT1068');
 
 --
 -- Indexes for dumped tables
@@ -439,7 +449,8 @@ ALTER TABLE `queries`
 --
 ALTER TABLE `transportbid`
   ADD PRIMARY KEY (`tb_id`),
-  ADD KEY `fk_tb_cb_id` (`tb_cb_id`);
+  ADD KEY `fk_tb_cb_id` (`tb_cb_id`),
+  ADD KEY `fk_tb_d_mobile` (`tb_d_mobile`);
 
 --
 -- Indexes for table `transportself`
@@ -467,7 +478,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
@@ -479,7 +490,7 @@ ALTER TABLE `cropdetails`
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -515,13 +526,13 @@ ALTER TABLE `queries`
 -- AUTO_INCREMENT for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `transportself`
 --
 ALTER TABLE `transportself`
-  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -546,7 +557,8 @@ ALTER TABLE `cropsale`
 -- Constraints for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  ADD CONSTRAINT `fk_tb_cb_id` FOREIGN KEY (`tb_cb_id`) REFERENCES `cropbid` (`cb_id`);
+  ADD CONSTRAINT `fk_tb_cb_id` FOREIGN KEY (`tb_cb_id`) REFERENCES `cropbid` (`cb_id`),
+  ADD CONSTRAINT `fk_tb_d_mobile` FOREIGN KEY (`tb_d_mobile`) REFERENCES `driver` (`d_mobile`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
