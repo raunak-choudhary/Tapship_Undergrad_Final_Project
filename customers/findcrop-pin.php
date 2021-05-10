@@ -63,6 +63,12 @@ $con=mysqli_connect("localhost","root","","tapship");
 
 <?php
 
+$q = "SELECT * from customer where c_mobile = $c_mobile";
+$query = mysqli_query($con,$q);
+
+while($res = mysqli_fetch_array($query)){
+    $c_pincode = $res['c_pincode'];
+
 $url = file_get_contents('https://dev.virtualearth.net/REST/v1/Locations?countryRegion=IN&o=json&postalCode='.$c_pincode.'&maxResults=1&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
 $data = json_decode($url, true);
 $lat = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][0];
@@ -71,12 +77,6 @@ $long = $data['resourceSets'][0]['resources'][0]['point']['coordinates'][1];
 $url = file_get_contents('http://dev.virtualearth.net/REST/v1/Locations/'.$lat.','.$long.'?&includeNeighborhood=1&o=json&key=Alcd58ybycSq_3khfOUdGYo7AnC4PMT_03DlC6y8r7lcWZk7IwtK17LDNMq0_l3d');
 $data = json_decode($url, true);
 $locaction = $data['resourceSets'][0]['resources'][0]['name'];
-
-$q = "SELECT * from customer where c_mobile = $c_mobile";
-$query = mysqli_query($con,$q);
-
-while($res = mysqli_fetch_array($query)){
-    $c_pincode = $res['c_pincode'];
     
 }
 $res = shell_exec("python findcrop-pin.py $c_mobile $c_pincode");

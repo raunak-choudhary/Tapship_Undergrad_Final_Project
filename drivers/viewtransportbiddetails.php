@@ -320,7 +320,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     if ($cr_status == 11 and $tb_status==1) {
     ?>
         <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-            <input type="checkbox" id="check"> I have delivered <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to <?php echo $c_name; ?>which I picked from <?php echo $f_name; ?>
+            <input type="checkbox" id="check"> I have delivered <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to <?php echo $c_name; ?> which I picked from <?php echo $f_name; ?>
             <br>
             <p id="demo"></p>
             <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>

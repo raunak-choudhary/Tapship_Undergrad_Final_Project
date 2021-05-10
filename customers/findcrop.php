@@ -122,7 +122,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                                                 } else if ($res['cr_status'] == "7") {
                                                     echo "Tapship Delivery Bidding";
                                                 } else if ($res['cr_status'] == "8") {
-                                                    echo "Tapship Delivery Selected";
+                                                    echo "Tapship Delivery Bid Selected";
                                                 } else if ($res['cr_status'] == "9") {
                                                     echo "Farmer Pickup conformed";
                                                 } else if ($res['cr_status'] == "10") {
