@@ -235,7 +235,13 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 												</div>
 												<div class="col-sm-6">
 													<p class="m-b-10 f-w-600">Tranport Status</p>
-													<h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+													<h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
 												</div>
 											</div><br>
 

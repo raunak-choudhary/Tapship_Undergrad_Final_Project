@@ -37,6 +37,6 @@ $con=mysqli_connect("localhost","root","","tapship");
     $result = mysqli_query($con,$query);    
    }
 
-   header("location: acceptedtransportbids.php");
+   header("location: transporthistory.php");
    
 ?>

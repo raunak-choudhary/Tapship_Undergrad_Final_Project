@@ -559,7 +559,13 @@ error_reporting(0);
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                    <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                    <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                                 </div>
                                             </div><br>
                                             <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -687,7 +693,13 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                             </div>
                                         </div><br>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -777,7 +789,7 @@ error_reporting(0);
                                         </div><br>
                                     
 
-                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+                                    <!--<form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
                                         <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $ts_name; ?>
                                         <br>
                                         <p id="demo"></p>
@@ -793,7 +805,7 @@ error_reporting(0);
                                             }
                                             return true;
                                         }
-                                    </script>
+                                    </script>-->
 
 
                                 <?php
@@ -815,7 +827,13 @@ error_reporting(0);
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Tranport Status</p>
-                                            <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                            <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                         </div>
                                     </div><br>
                                     <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>
@@ -849,24 +867,7 @@ error_reporting(0);
                                             <h6 class="text-muted f-w-400"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></h6>
                                         </div>
                                     </div><br>
-
-                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-                                        <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $d_name; ?>
-                                        <br>
-                                        <p id="demo"></p>
-                                        <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-
-                                    </form>
-
-                                    <script>
-                                        function checkForm(form) {
-                                            if (!form.check.checked) {
-                                                document.getElementById("demo").innerHTML = ("Please confirm that you have recived crop delivery from by clicking checkbox");
-                                                return false;
-                                            }
-                                            return true;
-                                        }
-                                    </script>
+                                    
                                     <?php
                                     }
                                         if ($cb_status == '12' && $cb_transporttype == '1') { ?>
@@ -923,7 +924,13 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Tranport Status</p>
-                                                <h6 class="text-muted f-w-400"><?php echo $tb_status; ?></h6>
+                                                <h6 class="text-muted f-w-400"><?php if ($tb_status == "0") {
+                                                                                    echo "Bidding";
+                                                                                } else if ($tb_status == "1") {
+                                                                                    echo "Bid Accepeted";
+                                                                                } else if ($tb_status == "2") {
+                                                                                    echo "Bid Rejected";
+                                                                                }?></h6>
                                             </div>
                                         </div><br>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Driver Details</strong></h4>

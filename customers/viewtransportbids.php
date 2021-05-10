@@ -69,9 +69,9 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <th> Crop Name </th>
                 <th> Crop Type</th>
                 <th> Crop Quantity</th>
-                <th> Farmer Name</th>
-                <th> Farmer Mobile</th>
-                <th> Farmer City</th>
+                <th> Driver Name</th>
+                <th> Driver Mobile</th>
+                <th> Driver City</th>
                 <th> Transport ID</th>
                 <th> Transport Bid</th>
                 <th> View</th>
@@ -85,7 +85,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
         $cb_id = $_GET['cb_id'];
 
-        $q = "SELECT CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, tb.tb_id, tb.tb_bid, cb.cb_id FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_cb_id=$cb_id";
+        $q = "SELECT CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, d.d_name, d.d_mobile, d.d_city, tb.tb_id, tb.tb_bid, cb.cb_id FROM cropdetails cd, cropbid cb, cropsale cs, driver d, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_cb_id=$cb_id";
         $query = mysqli_query($con, $q);
         $c = 1;
 
@@ -97,9 +97,9 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <td data-label="Crop Name"> <?php echo $res['cro_name'];  ?> </td>
                 <td data-label="Crop Type"> <?php echo $res['cro_type'];  ?> </td>
                 <td data-label="Crop Quantity"> <?php echo $res['cr_quantity'], ' Kgs';  ?> </td>
-                <td data-label="Farmer Name"> <?php echo $res['f_name'];  ?> </td>
-                <td data-label="Farmer Mobile"> <?php echo $res['f_mobile'];  ?> </td>
-                <td data-label="Farmer City"> <?php echo $res['f_city'];  ?> </td>
+                <td data-label="Driver Name"> <?php echo $res['d_name'];  ?> </td>
+                <td data-label="Driver Mobile"> <?php echo $res['d_mobile'];  ?> </td>
+                <td data-label="Driver City"> <?php echo $res['d_city'];  ?> </td>
                 <td data-label="Transport ID"> <?php echo $res['tb_id'];  ?> </td>
                 <td data-label="Transport Bid"> <?php echo $res['tb_bid'];  ?> </td>
                 <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"> <a href="viewtransportbidsdetails.php?tb_id=<?php echo $res['tb_id']; ?>" class="text-white"> View </a> </button> </td>

@@ -84,6 +84,8 @@ error_reporting(0);
             $d_long =  $res['d_long'];
             $d_photo =  $res['d_photo'];
             $d_approve =  $res['d_approve'];
+            $d_time = $res['d_time'];
+            $d_date = $res['d_date'];
         }
         ?>
 
@@ -120,7 +122,7 @@ error_reporting(0);
                                                     echo "Multiple Login State";
                                                 } ?></h5>
                                     <br> <br><br><br>
-                                    <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px;">Edit Profile</button></a>
+                                    <a href="editdetails.php"><button class="btn btn-primary" type="button" style="width: 250px; background-color:white; color:black;">Edit Profile</button></a>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -172,23 +174,23 @@ error_reporting(0);
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 m-l-20 f-w-600">Aadhaar</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_aadhar" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_aadhar" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../drivers/<?php echo  $d_aadharpdf; ?>" target="_blank">View Aadhar</a></button></h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">PAN</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_pan" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_panpdf; ?>" target="_blank">View PAN</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_pan" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../drivers/<?php echo  $d_panpdf; ?>" target="_blank">View PAN</a></button></h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">DL Number</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_dlnumber" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_dlpdf; ?>" target="_blank">View DL</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_dlnumber" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../drivers/<?php echo  $d_dlpdf; ?>" target="_blank">View DL</a></button></h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10  m-l-20 f-w-600">Vehicle Number</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_vehiclenumber" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_vehiclercpdf; ?>" target="_blank">View RC</a></button></h6>
+                                        <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_vehiclenumber" ?> &nbsp; <button class="text-monospace" style="padding:5px;"><a href="../drivers/<?php echo  $d_vehiclercpdf; ?>" target="_blank">View RC</a></button></h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600">Live Location</p>
-                                        <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></button></h6>
+                                        <p class="m-b-10  m-l-20 f-w-600">Live Location (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
+                                        <h6 class="text-muted m-l-20 f-w-400"><button class="text-monospace" style="padding:5px;" style="padding:5px;"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></button></h6>
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +210,7 @@ error_reporting(0);
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/bs-init.js"></script>danger
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="../assets/js/freelancer.js"></script>

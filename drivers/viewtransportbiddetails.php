@@ -70,7 +70,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
     $cb_id = $_GET['cb_id'];
 
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id AND tb.tb_d_mobile=$d_mobile";
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id AND tb.tb_d_mobile=(SELECT tb_d_mobile from transportbid where tb_cb_id=$cb_id AND tb_status=1)";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
@@ -105,8 +105,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         $tb_id = $res['tb_id'];
         $tb_bid = $res['tb_bid'];
         $tb_status = $res['tb_status'];
-
-        echo $tb_status;
 
         $cb_status = $res['cb_status'];
     }
@@ -282,6 +280,12 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     if ($cr_status == 8 and $tb_status==1) {
     ?>
         <h6> Note: - Please wait for pickup conformation by farmer</h6>
+    <?php } ?>
+
+    <?php
+    if ($cr_status == 8 and $tb_status==2) {
+    ?>
+        <h6> Note: - Sorry Your Bid is rejected by Customer</h6>
     <?php } ?>
     
 
