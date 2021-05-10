@@ -295,8 +295,8 @@ error_reporting(0);
                                         <?php
                                         if ($cr_status == 0) {
                                         ?>
-                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Edit Details</a></button>
-                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Delete</a></button>
+                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="editcrop.php">Edit Details</a></button>
+                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="deletecrop.php">Delete</a></button>
 
                                         <?php
                                         }
