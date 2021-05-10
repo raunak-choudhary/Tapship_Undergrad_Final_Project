@@ -170,7 +170,7 @@ error_reporting(0);
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop Name</p>
-												<div class="form-group"><input class="form-control" type="text" name="crop_name" placeholder="Crop Name" value="<?php echo $cro_name ?>" required="" autofocus=""></div>
+												<div class="form-group"><input class="form-control" type="text" name="crop_name" placeholder="Crop Name" value="<?php echo $cro_name ?>" required="" autofocus="" disabled></div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop Type</p>
@@ -228,6 +228,10 @@ error_reporting(0);
                                                                                     echo "Deal Over";
                                                                                 } ?>" required="" autofocus="" disabled>
 												</div>
+                                            </div>
+											<div class="col-sm-6">
+											<p class="m-b-10 f-w-600"></p><br>
+                                            <button class="btn btn-dark text-monospace f-w-400  " style="background-color:#0c3823;"><a href="editcrop.php">Update</a></button>
                                             </div>
                                         </div><br>
 									</div>
