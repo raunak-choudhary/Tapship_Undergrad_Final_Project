@@ -37,6 +37,8 @@ $con=mysqli_connect("localhost","root","","tapship");
 
         $query = " update cropbid set cb_status='12' where cb_cr_id=$cr_id and cb_c_mobile=$c_mobile and cb_id=$cb_id";
         $result = mysqli_query($con,$query); 
+
+        header("location: purchasehistory.php");
     }  
     if($c_type==2){      
         $query = " update cropsale set cr_status='11' where cr_id=$cr_id";
@@ -45,9 +47,9 @@ $con=mysqli_connect("localhost","root","","tapship");
     
         $query = " update cropbid set cb_status='11' where cb_cr_id=$cr_id and cb_c_mobile=$c_mobile and cb_id=$cb_id";
         $result = mysqli_query($con,$query); 
+
+        header("location: acceptedbids.php");
         } 
    }
-
-   header("location: acceptedbids.php");
    
 ?>

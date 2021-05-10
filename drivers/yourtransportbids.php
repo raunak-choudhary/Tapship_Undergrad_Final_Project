@@ -106,7 +106,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                 <td data-label="Customer City"> <?php echo $res['c_city'];  ?> </td>
                 <td data-label="Bid ID"> <?php echo $res['tb_id']; ?> </td>
                 <td data-label="Transport Bid"> <?php echo '₹ ', $res['tb_bid'];  ?> </td>
-                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
+                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?tb_id=<?php echo $res['tb_id']; ?>" class="text-white"> View </a> </button> </td>
             </tr>
 
         <?php

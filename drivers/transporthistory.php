@@ -134,7 +134,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
                                                 } else if ($res['cb_status'] == "12") {
                                                     echo "Deal Over";
                                                 } ?> </td>
-                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?cb_id=<?php echo $res['cb_id']; ?>" class="text-white"> View </a> </button> </td>
+                <td data-label="View Details"> <button class="btn" style="background-color:#0c3823;"><a href="viewtransportbiddetails.php?tb_id=<?php echo $res['tb_id']; ?>" class="text-white"> View </a> </button> </td>
             </tr>
 
         <?php

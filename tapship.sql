@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2021 at 08:17 PM
+-- Generation Time: May 10, 2021 at 09:34 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -98,9 +98,9 @@ INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bi
 (4, '9113671387', '9672836724', 2, 19, '12', 'IMPS', 'IMPS-676784247487484', 'assets/documents/payment/IMPS-676784247487484-TRANSPROOF.pdf', '1'),
 (5, '9113671387', '9672836725', 5, 20, '8', 'IMPS', 'IMPS-8978798739393', 'assets/documents/payment/IMPS-8978798739393-TRANSPROOF.pdf', '2'),
 (6, '9113671388', '9672836724', 3, 27, '2', '0', '0', '0', '0'),
-(7, '9113671388', '9672836725', 4, 19, '7', 'IMPS', 'IMPS-24564794444', 'assets/documents/payment/IMPS-24564794444-TRANSPROOF.pdf', '2'),
+(7, '9113671388', '9672836725', 4, 19, '12', 'IMPS', 'IMPS-24564794444', 'assets/documents/payment/IMPS-24564794444-TRANSPROOF.pdf', '1'),
 (8, '9113671388', '9672836725', 5, 21, '2', '0', '0', '0', '0'),
-(9, '9113671387', '9672836724', 6, 30, '7', 'IMPS', '852752785287523', 'assets/documents/payment/852752785287523-TRANSPROOF.pdf', '2'),
+(9, '9113671387', '9672836724', 6, 30, '12', 'IMPS', '852752785287523', 'assets/documents/payment/852752785287523-TRANSPROOF.pdf', '2'),
 (10, '9113671388', '9672836724', 6, 32, '2', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
@@ -161,9 +161,9 @@ INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_
 (1, '9672836724', 1, '240', 'assets/documents/crop/16104-5383-2609-9672836724.png', 'assets/documents/crop/11914-7901-375-9672836724.png', 'assets/documents/crop/18449-4664-8434-9672836724.png', '64', '2021-05-10', '12'),
 (2, '9672836724', 4, '120', 'assets/documents/crop/1692-2628-2834-9672836724.png', 'assets/documents/crop/17398-6373-1564-9672836724.png', 'assets/documents/crop/11241-4982-8629-9672836724.png', '16', '2021-05-10', '12'),
 (3, '9672836724', 3, '80', 'assets/documents/crop/12582-4207-5021-9672836724.png', 'assets/documents/crop/17426-3728-9805-9672836724.png', 'assets/documents/crop/19568-6804-5044-9672836724.png', '25', '2021-05-10', '12'),
-(4, '9672836725', 2, '145', 'assets/documents/crop/14602-5116-7819-9672836725.png', 'assets/documents/crop/18078-3139-3176-9672836725.png', 'assets/documents/crop/16859-4073-1353-9672836725.png', '18', '2021-05-10', '7'),
+(4, '9672836725', 2, '145', 'assets/documents/crop/14602-5116-7819-9672836725.png', 'assets/documents/crop/18078-3139-3176-9672836725.png', 'assets/documents/crop/16859-4073-1353-9672836725.png', '18', '2021-05-10', '12'),
 (5, '9672836725', 6, '350', 'assets/documents/crop/18651-2615-2792-9672836725.png', 'assets/documents/crop/18254-5771-4106-9672836725.png', 'assets/documents/crop/17982-5794-8537-9672836725.png', '19', '2021-05-10', '8'),
-(6, '9672836724', 10, '500', 'assets/documents/crop/12779-3436-1873-9672836724.png', 'assets/documents/crop/14197-9250-8566-9672836724.png', 'assets/documents/crop/12248-9120-7665-9672836724.png', '25', '2021-05-10', '7'),
+(6, '9672836724', 10, '500', 'assets/documents/crop/12779-3436-1873-9672836724.png', 'assets/documents/crop/14197-9250-8566-9672836724.png', 'assets/documents/crop/12248-9120-7665-9672836724.png', '25', '2021-05-10', '12'),
 (7, '9672836724', 11, '80', 'assets/documents/crop/16673-457-2800-9672836724.png', 'assets/documents/crop/18678-9982-6439-9672836724.png', 'assets/documents/crop/15953-3782-6072-9672836724.png', '23', '2021-05-10', '0');
 
 -- --------------------------------------------------------
@@ -242,8 +242,8 @@ CREATE TABLE `driver` (
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', ''),
-(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '27.023803599999997', '74.21793260000001', '2021-05-10', '11:25 PM', 'Gapu@8540', '2'),
-(2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '27.023803599999997', '74.21793260000001', '2021-05-10', '11:35 PM', 'Gapu@8540', '2');
+(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-11', '12:39 AM', 'Gapu@8540', '2'),
+(2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '13.43488', '74.7470848', '2021-05-11', '12:26 AM', 'Gapu@8540', '2');
 
 -- --------------------------------------------------------
 
@@ -348,8 +348,8 @@ INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_st
 (4, '7042757709', 5, '4500', '1'),
 (5, '7042757710', 7, '20000', '0'),
 (6, '7042757710', 3, '17000', '2'),
-(7, '7042757709', 9, '1000', '0'),
-(8, '7042757710', 9, '20000', '0');
+(7, '7042757709', 9, '1000', '1'),
+(8, '7042757710', 9, '20000', '2');
 
 -- --------------------------------------------------------
 
@@ -370,10 +370,8 @@ CREATE TABLE `transportself` (
 --
 
 INSERT INTO `transportself` (`ts_id`, `ts_cb_id`, `ts_name`, `ts_mobile`, `ts_vehiclenumber`) VALUES
-(6, '69', 'Aadesh Pahalwan', '7845327865', 'KA20TR6547'),
-(7, '70', 'Ashok Kumar', '8945673456', 'KA20UH3482'),
-(9, '74', 'Ashutosh Kumar', '9782507934', 'KA20RT1068'),
-(10, '4', 'Aadesh Pahalwan', '7845327865', 'KA20TR6547');
+(1, '4', 'Aadesh Pahalwan', '7845327865', 'KA20TR6547'),
+(2, '7', 'Avesh Khan', '6756346728', 'RJ19UY8747');
 
 --
 -- Indexes for dumped tables
@@ -539,7 +537,7 @@ ALTER TABLE `transportbid`
 -- AUTO_INCREMENT for table `transportself`
 --
 ALTER TABLE `transportself`
-  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

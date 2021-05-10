@@ -68,10 +68,16 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         die(" Connection Error ");
     }
 
-    $cb_id = $_GET['cb_id'];
+    $tb_id = $_GET['tb_id'];
 
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND cb.cb_id = $cb_id AND tb.tb_d_mobile=(SELECT tb_d_mobile from transportbid where tb_cb_id=$cb_id AND tb_status=0)";
-    
+    $query = "SELECT tb_cb_id from transportbid where tb_id=$tb_id";
+    $result = mysqli_query($con, $query);
+
+    while ($res = mysqli_fetch_assoc($result)) {
+        $cb_id =  $res['tb_cb_id'];
+    }
+
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND tb_cb_id=$cb_id AND cb.cb_id = $cb_id AND tb.tb_d_mobile=(SELECT tb_d_mobile from transportbid where tb_id=$tb_id)";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
@@ -284,13 +290,6 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <?php } ?>
 
     <?php
-    if ($cr_status == 8 and $tb_status==2) {
-    ?>
-        <h6> Note: - Sorry Your Bid is rejected by Customer</h6>
-    <?php } ?>
-    
-
-    <?php
     if ($cr_status == 9 and $tb_status==1) {
     ?>
         <form method="post" action="pickupdone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
@@ -339,11 +338,18 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     <?php } ?>
 
     <?php
-    if ($cr_status == 12) {
+    if ($cr_status == 12 && $tb_status==1) {
     ?>
         <h6> Note: - This deal is successfully completed and closed</h6>
         <br>
         <h4 style="text-align: center;">Thank You for doing business with us</h4>
+    <?php
+    } ?>
+
+    <?php
+    if (($cr_status == 8 || $cr_status == 9 || $cr_status == 10 ||$cr_status == 11 || $cr_status == 12) && $tb_status==2) {
+    ?>
+        <h6> Note: - Sorry Your Bid is rejected by Customer</h6>
     <?php
     } ?>
     <hr>

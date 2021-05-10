@@ -8,6 +8,8 @@ header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
 
+include('viewcrop.php');
+
 
 $con=mysqli_connect("localhost","root","","tapship");
 
@@ -32,8 +34,11 @@ if (isset($_POST["submit"]))
                 $cropbid_paytype = 0;
                 $cropbid_tid = 0;
                 $cropbid_tproof = 0;
-               
-                if($cropbid_bidprice >= $crop_mep){
+
+                if($cropbid_bidprice < $crop_mep){
+                      echo "<script type='text/javascript'>$('#meperror').html('<p>Please Enter Bid Price more than or equal to Minimum Expected Price (MEP)</p>');</script>";
+                }
+                else if($cropbid_bidprice >= $crop_mep){
                 $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_paytype, cb_tid, cb_tproof) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_paytype','$cropbid_tid','$cropbid_tproof')";
                 $con->query($query);
 
