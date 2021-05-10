@@ -80,7 +80,14 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     }
 
     $cr_id = $_GET['cr_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (6,7) AND CS.cr_id = $cr_id";
+
+    $q = "SELECT cb_c_mobile from cropbid where cb_cr_id=$cr_id and cb_status!=2";
+    $result = mysqli_query($con, $q);
+    while ($res1 = mysqli_fetch_assoc($result)) {
+        $cb_c_mobile =  $res1['cb_c_mobile'];
+    }
+
+    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (6,7) AND CS.cr_id = $cr_id AND cb.cb_c_mobile = $cb_c_mobile";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {
