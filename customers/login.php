@@ -56,7 +56,7 @@ error_reporting(0);
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
             <div class="form-group"><input class="form-control" type="phone" name="c_mobile" placeholder="Mobile Number" required></div>
             <div class="form-group"><input class="form-control" type="password" name="c_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
-            <div class="badge alert-danger w-100 p-2 mb-4"><?php echo $error; ?></div>
+            <div class="badge alert-danger w-100 p-2 mb-4 text-center"><?php echo $error; ?></div>
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
         </form>
     </div>

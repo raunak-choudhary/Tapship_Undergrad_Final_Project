@@ -53,12 +53,10 @@ if (isset($_SESSION['login_admin'])) {
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
-
-
             <div class="form-group"><input class="form-control" type="text" name="a_name" placeholder="Username" required></div>
             <div class="form-group"><input class="form-control" type="password" name="a_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
+            <div class="badge alert-danger w-100 p-2 mb-4 text-center"><?php echo $error; ?></div>
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
-
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
