@@ -70,11 +70,26 @@ error_reporting(0);
 
     $query = " select * from farmer where f_mobile=" . $f_mobile . "";
     $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
 
-    while ($res = mysqli_fetch_assoc($result)) {
-        $f_approve =  $res['f_approve'];
-        $f_pincode = $res['f_pincode'];
+    $f_approve =  $res['f_approve'];
+    $f_pincode = $res['f_pincode'];
+    $f_av_status=$res['f_av_status'];
+    $f_tsv_validity=$res['f_tsv_validity'];
+
+    if($f_av_status=="INACTIVE"){
+        echo "<script>location.replace('account_verification.php')</script>";
+        exit();
     }
+
+    if($f_tsv_validity<time() || $f_tsv_validity==''){
+        echo "<script>location.replace('tsv_verification.php')</script>";
+        exit();
+    }
+
+
+    
+    
     ?>
 
     <?php
