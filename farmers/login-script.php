@@ -33,8 +33,17 @@ if (isset($_POST['submit']))
             }
             else
             {
-                $_SESSION['login_farmer'] = $f_mobile;
-                header("location: login.php");
+                // SQL query to fetch information of registerd users and finds user match.
+                $query = "SELECT f_mobile, f_password from farmer where f_mobile=? AND f_password=? LIMIT 1";
+                // To protect MySQL injection for Security purpose
+                $stmt = $con->prepare($query);
+                $stmt->bind_param("ss", $f_mobile, $f_password);
+                $stmt->execute();
+                $stmt->bind_result($f_mobile, $f_password);
+                $stmt->store_result();
+                if ($stmt->fetch()) 
+                    $_SESSION['login_farmer'] = $f_mobile; // Initializing Session
+                header("location: login.php"); // Redirecting To Profile Page
             }
         }
     }
