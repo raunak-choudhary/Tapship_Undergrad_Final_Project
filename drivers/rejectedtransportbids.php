@@ -62,7 +62,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 
 
     <table id="tabledata" class=" table table-striped table-hover table-bordered">
-        <tr class="bg-dark text-white text-center">
+        <tr class="bg-dark text-white text-center" style="display:none;">
             <thead>
                 <th>Sr. No.</th>
                 <th> Crop Name </th>

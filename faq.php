@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="row articles">
+  <div class="row articles" style="padding:20px;">
     <div class="container">
       <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>OUR BOOKS & MATERIALS</strong></h4>
       <div>

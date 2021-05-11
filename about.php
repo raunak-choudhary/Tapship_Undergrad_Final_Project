@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <div class="container text-center ">
+    <div class="container text-center " style="padding:30px;">
         <h1> <strong><u>Timeline for the whole process</u></strong> </h1>
         <div class="row">
             <div class="col-md-12">
@@ -230,7 +230,7 @@
             </div>
         </div>
     </div>
-    <section id="team">
+    <section id="team" style="padding:30px;">
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up">

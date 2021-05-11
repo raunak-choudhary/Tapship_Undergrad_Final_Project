@@ -57,11 +57,13 @@ if (!isset($_SESSION['login_admin'])) {
             </div>
         </div>
     </div>
-
+    <div style="padding-bottom:50px;">
+        <a href="addcrop.php"><button type="button" id="add_crop" name="add_crop" value="Add Crop" class="btn btn-warning" style="float:right; margin-right: 15px; margin-bottom: 5px;"><i class="fa fa-plus"></i> Add Crop</button></a>
+    </div>
     <div>
         <table id="tabledata" class=" table table-striped table-hover table-bordered">
 
-            <tr class="bg-dark text-white text-center">
+            <tr class="bg-dark text-white text-center" style="display:none;">
                 <thead>
                     <th>Sr. No.</th>
                     <th>Crop Name</th>
@@ -82,9 +84,7 @@ if (!isset($_SESSION['login_admin'])) {
             $query = mysqli_query($con, $q);
             $c = 1;
             ?>
-            <div>
-                <a href="addcrop.php"><button type="button" id="add_crop" name="add_crop" value="Add Crop" class="btn btn-warning" style="float:right; margin-right: 15px; margin-bottom: 5px;"><i class="fa fa-plus"></i> Add Crop</button></a>
-            </div>
+            
             <?php while ($res = mysqli_fetch_array($query)) {
             ?>
                 <tr class="text-center">

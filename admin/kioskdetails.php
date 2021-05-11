@@ -57,11 +57,13 @@ if (!isset($_SESSION['login_admin'])) {
             </div>
         </div>
     </div>
-
+    <div style="padding-bottom:50px;">
+        <a href="addagent.php"><button type="button" id="add_agent" name="add_agent" value="Add Agent" class="btn btn-danger" style="float:right; margin-right: 15px; margin-bottom: 5px;"><i class="fa fa-plus"></i> Add Agent</button></a>
+    </div>
     <div>
         <table id="tabledata" class=" table table-striped table-hover table-bordered">
 
-            <tr class="bg-dark text-white text-center">
+            <tr class="bg-dark text-white text-center" style="display:none;">
                 <thead>
                     <th>Sr. No.</th>
                     <th>ID</th>
@@ -85,9 +87,7 @@ if (!isset($_SESSION['login_admin'])) {
             $query = mysqli_query($con, $q);
             $c = 1;
             ?>
-            <div>
-                <a href="addagent.php"><button type="button" id="add_agent" name="add_agent" value="Add Agent" class="btn btn-danger" style="float:right; margin-right: 15px; margin-bottom: 5px;"><i class="fa fa-plus"></i> Add Agent</button></a>
-            </div>
+            
             <?php while ($res = mysqli_fetch_array($query)) {
             ?>
                 <tr class="text-center">
