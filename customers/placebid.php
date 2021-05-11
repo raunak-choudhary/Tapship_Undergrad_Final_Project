@@ -38,22 +38,16 @@ if (isset($_POST["submit"]))
                 if($cropbid_bidprice < $crop_mep){
                       echo "<script type='text/javascript'>$('#meperror').html('<p>Please Enter Bid Price more than or equal to Minimum Expected Price (MEP)</p>');</script>";
                 }
-                else if($cropbid_bidprice >= $crop_mep){
-                $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_paytype, cb_tid, cb_tproof) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_paytype','$cropbid_tid','$cropbid_tproof')";
-                $con->query($query);
 
-                $q = "UPDATE cropsale set cr_status='1' where cr_id=$cr_id";
-                $con->query($q);
+                else {
+                    $query = "INSERT into cropbid(cb_c_mobile, cb_f_mobile, cb_cr_id, cb_bidprice, cb_status, cb_paytype, cb_tid, cb_tproof) VALUES('$c_mobile', '$f_mobile', '$cr_id', '$cropbid_bidprice','$cropbid_status','$cropbid_paytype','$cropbid_tid','$cropbid_tproof')";
+                    $con->query($query);
 
-
-                header("location: youractivebids.php");
+                    $q = "UPDATE cropsale set cr_status='1' where cr_id=$cr_id";
+                    $con->query($q);
+                    echo "<script type='text/javascript'>location.replace('youractivebids.php');</script>";
+                  
                 }
-
-                else{
-                  header("location: viewcrop.php?cr_id=$cr_id");
-                }
-                
-
 }
  
 $con->close();

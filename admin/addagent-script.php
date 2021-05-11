@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
                 #sql query to insert into database
                 $query = "INSERT into kiosk(k_pincode,k_district,k_state,k_name,k_mobile,k_gender,k_age,k_aadhar,k_aadharpdf,k_address,k_photo) VALUES('$kiosk_pincode','$kiosk_district','$kiosk_state','$kiosk_name','$kiosk_mobile','$kiosk_gender','$kiosk_age','$kiosk_aadhar','$target_path1','$kiosk_address','$target_path2')";
                 $success = $con->query($query);
-                header("location: kioskdetails.php");
+                echo "<script type='text/javascript'>location.replace('kioskdetails.php');</script>";
             }
         }
     }

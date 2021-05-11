@@ -11,7 +11,7 @@ if (isset($_POST['submit']))
     else 
     {
         // mysqli_connect() function opens a new connection to the MySQL server.
-        $con = mysqli_connect("127.0.0.1", "root", "", "tapship");
+        $con = mysqli_connect("localhost", "root", "", "tapship");
 
         // Define $mobile and $password
         $f_mobile = mysqli_real_escape_string($con, $_POST['f_mobile']);

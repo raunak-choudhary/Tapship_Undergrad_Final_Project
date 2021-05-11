@@ -191,7 +191,7 @@ $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error
 
         <div class="features-boxed">
             <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: -20px;">Driver Dashboard</h2>
                 </div>
                 <center>

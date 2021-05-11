@@ -1,5 +1,5 @@
 <?php
-$account_sid = 'ACcadf2972769180fedb2af2ff68d7bc76';
-$auth_token = '09ddf8dd42944c4181684e4b10f9cc81';
-$twilio_number = "+13126265277"; 
+$account_sid = 'AC6d802a41dd5de2ceff835422a6de12fc';
+$auth_token = '099f16e5645bc4c72724cfac92b0ca95';
+$twilio_number = "+12568874154"; 
 ?>
