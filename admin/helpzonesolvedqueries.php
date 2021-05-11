@@ -78,12 +78,12 @@ if (!isset($_SESSION['login_admin'])) {
                             <h2><?php echo $row['q_subject']; ?></h2>
                         </div>
                         <div class="card-body"><?php echo $row['q_by_type'] ?><span style="float: right"><?php echo $row['q_mobile_no']; ?></span></div>
-                        <div class="card-footer" style=""><span style="float: left"><?php echo $row['q_date'] . " " . $row['q_time']; ?></span><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#myModal" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
+                        <div class="card-footer" style=""><span style="float: left"><?php echo $row['q_date'] . " " . $row['q_time']; ?></span><button class="btn btn-primary float-right " type="button" data-toggle="modal" data-target="#mszModal-<?php echo $row['q_id']; ?>" style="background-color: rgb(52,57,72); width: 200px;">View Message</button></div>
                     </div>
                 </div>
                 <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
-                    <div class="modal-dialog modal-dialog-centered">
+                <div class="modal fade" id="mszModal-<?php echo $row['q_id']; ?>" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                             <!-- Modal Header -->
                             <div class="modal-header" style="background-color: #0c3823;color: white;">
