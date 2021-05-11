@@ -108,7 +108,7 @@ if (!isset($_SESSION['login_admin'])) {
     margin: 100px auto;
 }
 </style>
-</style>
+
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" id="mainNav" style="background: #0c3823;">
         <div class="container-fluid">
@@ -162,7 +162,7 @@ if (!isset($_SESSION['login_admin'])) {
                 </div>
                 <!-- The Modal -->
                 <div class="modal fade" id="mszModal-<?php echo $row['u_id']; ?>" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
-                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                             <!-- Modal Header -->
                             <div class="modal-header" style="background-color: #0c3823;color: white;">
@@ -214,7 +214,7 @@ if (!isset($_SESSION['login_admin'])) {
         $('.markAsSolvedBtn').click(function(){
             var messageID=$(this).attr('message-id');
             $.ajax({
-                url: "mark-as-solved-queries.php",
+                url: "mark-as-contact-solved-queries.php",
                 method: "POST",
                 data: "mszID="+messageID,
                 success: function(data){

@@ -86,7 +86,7 @@ if (!isset($_SESSION['login_admin'])) {
                 </div>
                 <!-- The Modal -->
                 <div class="modal fade" id="mszModal-<?php echo $row['u_id']; ?>" data-backdrop="static" style="position: fixed;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);">
-                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content" style="position: relative;margin: auto;padding: 0;border: 1px solid #888;width: 100%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
                             <!-- Modal Header -->
                             <div class="modal-header" style="background-color: #0c3823;color: white;">
