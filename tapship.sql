@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2021 at 09:43 AM
+-- Generation Time: May 12, 2021 at 05:01 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -194,20 +194,18 @@ CREATE TABLE `customer` (
   `c_password` varchar(25) NOT NULL,
   `c_approve` varchar(100) NOT NULL,
   `c_tsv_otp` varchar(10) NOT NULL,
-  `c_tsv_validity` varchar(50) NOT NULL,
-  `c_av_otp` varchar(10) NOT NULL,
-  `c_av_status` varchar(50) NOT NULL DEFAULT 'INACTIVE'
+  `c_tsv_validity` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`, `c_tsv_otp`, `c_tsv_validity`, `c_av_otp`, `c_av_status`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'INACTIVE'),
-(1, 'Raunak Chaudhary', '9113671387', '', 'Male', '22', 'Royal Paradise, Udupi', 'Udupi', 'Karnataka', '576102', 'Wholesaler', '', '689020429366', 'assets/documents/aadhar/9113671387-Raunak Chaudhary-AADHAR.pdf', 'BOMPC6839Q', 'assets/documents/pan/9113671387-Raunak Chaudhary-PAN.pdf', 'assets/documents/photo/9113671387-Raunak Chaudhary-RC.jpg', 'Gapu@8540', '2', '', '', '', 'INACTIVE'),
-(2, 'Aarav Jindal', '9113671388', '', 'Male', '27', 'Prahlad Appartment, Udupi', 'Udupi', 'Karnataka', '576101', 'Wholesaler', '', '8760204293998', 'assets/documents/aadhar/9113671388-Aarav Jindal-AADHAR.pdf', 'ACTPC5645I', 'assets/documents/pan/9113671388-Aarav Jindal-PAN.pdf', 'assets/documents/photo/9113671388-Aarav Jindal-AJ.jpg', 'Gapu@8540', '2', '', '', '', 'INACTIVE'),
-(3, 'Demo', '9672836724', '', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Wholesaler', '', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Gapu@8540', '2', '0', '0', '0', 'INACTIVE');
+INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`, `c_tsv_otp`, `c_tsv_validity`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 'Raunak Chaudhary', '9113671387', '', 'Male', '22', 'Royal Paradise, Udupi', 'Udupi', 'Karnataka', '576102', 'Wholesaler', '', '689020429366', 'assets/documents/aadhar/9113671387-Raunak Chaudhary-AADHAR.pdf', 'BOMPC6839Q', 'assets/documents/pan/9113671387-Raunak Chaudhary-PAN.pdf', 'assets/documents/photo/9113671387-Raunak Chaudhary-RC.jpg', 'Gapu@8540', '2', '', ''),
+(2, 'Aarav Jindal', '9113671388', '', 'Male', '27', 'Prahlad Appartment, Udupi', 'Udupi', 'Karnataka', '576101', 'Wholesaler', '', '8760204293998', 'assets/documents/aadhar/9113671388-Aarav Jindal-AADHAR.pdf', 'ACTPC5645I', 'assets/documents/pan/9113671388-Aarav Jindal-PAN.pdf', 'assets/documents/photo/9113671388-Aarav Jindal-AJ.jpg', 'Gapu@8540', '2', '', ''),
+(3, 'Shri Laxmi Temple', '9672836724', 'Anish Mahatre', 'Male', '47', '456, Temple Road, Prabhu Nagar', 'Ratnagiri', 'Maharashtra', '415612', 'Organization', 'assets/documents/registration/9672836724-Shri Laxmi Temple-Registration PDF.pdf', '', '', 'HYFGT6743R', 'assets/documents/pan/9672836724-Shri Laxmi Temple-PAN.pdf', 'assets/documents/photo/9672836724-Shri Laxmi Temple-laxmi.jpg', 'Gapu@8540', '1', '', '');
 
 -- --------------------------------------------------------
 
@@ -241,20 +239,18 @@ CREATE TABLE `driver` (
   `d_password` varchar(25) NOT NULL,
   `d_approve` varchar(10) NOT NULL,
   `d_tsv_otp` varchar(10) NOT NULL,
-  `d_tsv_validity` varchar(50) NOT NULL,
-  `d_av_otp` varchar(10) NOT NULL,
-  `d_av_status` varchar(50) NOT NULL DEFAULT 'INACTIVE'
+  `d_tsv_validity` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`, `d_tsv_otp`, `d_tsv_validity`, `d_av_otp`, `d_av_status`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', 'INACTIVE'),
-(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-12', '12:23 PM', 'Gapu@8540', '2', '', '', '', 'INACTIVE'),
-(2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '13.43488', '74.7470848', '2021-05-11', '12:26 AM', 'Gapu@8540', '2', '', '', '', 'INACTIVE'),
-(3, 'Demo', '9672836724', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'TBFRT6754M', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Gapu@8540', '2', '0', '0', '0', 'INACTIVE');
+INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`, `d_tsv_otp`, `d_tsv_validity`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '1620907684'),
+(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-12', '12:23 PM', 'Gapu@8540', '2', '', ''),
+(2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '13.43488', '74.7470848', '2021-05-11', '12:26 AM', 'Gapu@8540', '2', '', ''),
+(3, 'Bhavani Rathore', '9672836724', 'Male', '34', '78, New Janta Colony', 'Ajmer', 'Rajasthan', '305001', '673489236745', 'assets/documents/aadhar/9672836724-Bhavani Rathore-AADHAR.pdf', '673489236745', 'assets/documents/pan/9672836724-Bhavani Rathore-PAN.pdf', 'assets/documents/photo/9672836724-Bhavani Rathore-bhavani.jpg', 'RJ6342567389273', 'assets/documents/dlpdf/9672836724-Bhavani Rathore-DL.pdf', 'RJ01BI7865', 'assets/documents/rcpdf/9672836724-Bhavani Rathore-RC.pdf', '', '74.636421203613', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -286,20 +282,18 @@ CREATE TABLE `farmer` (
   `f_bankbranch` varchar(100) NOT NULL,
   `f_bankpassbook` varchar(200) NOT NULL,
   `f_tsv_otp` varchar(10) NOT NULL,
-  `f_tsv_validity` varchar(50) NOT NULL,
-  `f_av_otp` varchar(10) NOT NULL,
-  `f_av_status` varchar(50) NOT NULL DEFAULT 'INACTIVE'
+  `f_tsv_validity` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`, `f_av_otp`, `f_av_status`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'INACTIVE'),
-(1, 'Ganpat Patel', '9672836724', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', '799721133696', 'assets/documents/aadhar/9672836724-Ganpat Patel-AADHAR.pdf', 'EYCPP1502E', 'assets/documents/pan/9672836724-Ganpat Patel-PAN.pdf', 'assets/documents/photo/9672836724-Ganpat Patel-2018_1.jpg', 'Gapu@8540', '2', 'Ganpat Patel', '2342567893456', 'CNRB0000466', 'Canara Bank', 'BVR', 'assets/documents/passbook/9672836724-Ganpat Patel-PASSBOOK.pdf', '', '', '', 'INACTIVE'),
-(2, 'Rakesh Sharma', '9672836725', 'Male', '28', '67, Epic Road, Bommanahalli', 'Banglore', 'Karnataka', '560068', '799721133696', 'assets/documents/aadhar/9672836725-Rakesh Sharma-AADHAR.pdf', 'UIBNO1902F', 'assets/documents/pan/9672836725-Rakesh Sharma-PAN.pdf', 'assets/documents/photo/9672836725-Rakesh Sharma-2018_1.jpg', 'Gapu@8540', '2', 'Rakesh Sharma', '7344581863456', 'CNRB0003047', 'Canara Bank', 'Bommanahalli', 'assets/documents/passbook/9672836725-Rakesh Sharma-PASSBOOK.pdf', '', '', '', 'INACTIVE'),
-(3, 'Demo', '9672836729', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Gapu@8540', '2', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', 'Demo', '', '', '', 'INACTIVE');
+INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1620834679'),
+(1, 'Ganpat Patel', '9672836724', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', '799721133696', 'assets/documents/aadhar/9672836724-Ganpat Patel-AADHAR.pdf', 'EYCPP1502E', 'assets/documents/pan/9672836724-Ganpat Patel-PAN.pdf', 'assets/documents/photo/9672836724-Ganpat Patel-2018_1.jpg', 'Gapu@8540', '2', 'Ganpat Patel', '2342567893456', 'CNRB0000466', 'Canara Bank', 'BVR', 'assets/documents/passbook/9672836724-Ganpat Patel-PASSBOOK.pdf', '', '1620831700'),
+(2, 'Rakesh Sharma', '9672836725', 'Male', '28', '67, Epic Road, Bommanahalli', 'Banglore', 'Karnataka', '560068', '799721133696', 'assets/documents/aadhar/9672836725-Rakesh Sharma-AADHAR.pdf', 'UIBNO1902F', 'assets/documents/pan/9672836725-Rakesh Sharma-PAN.pdf', 'assets/documents/photo/9672836725-Rakesh Sharma-2018_1.jpg', 'Gapu@8540', '2', 'Rakesh Sharma', '7344581863456', 'CNRB0003047', 'Canara Bank', 'Bommanahalli', 'assets/documents/passbook/9672836725-Rakesh Sharma-PASSBOOK.pdf', '', ''),
+(3, 'Yash Rana', '9661442323', 'Male', '34', '304, New Sadak, Samdari', 'Barmer', 'Rajasthan', '344021', '673456278367', 'assets/documents/aadhar/9661442323-Yash Rana-AADHAR.pdf', '673456278367', 'assets/documents/pan/9661442323-Yash Rana-PAN.pdf', 'assets/documents/photo/9661442323-Yash Rana-imag.jfif', 'Gapu@8540', '1', '673456278367', '673456278367', 'CNRB0000466', 'SBI Bank', 'Samdari', 'assets/documents/passbook/9661442323-Yash Rana-PASSBOOK.pdf', '', '');
 
 -- --------------------------------------------------------
 
@@ -332,6 +326,28 @@ INSERT INTO `kiosk` (`k_id`, `k_pincode`, `k_district`, `k_state`, `k_name`, `k_
 (2, '400001', 'Mumbai district (ex Bombay)', 'Maharashtra', 'Sikhar Gupta', '8821008937', 'Male', '35', '259478789130', 'assets/documents/aadhar/8821008937-Sikhar Gupta-AADHAR.pdf', 'Mumbai Head Post Office, Mumbai', 'assets/documents/photo/8821008937-Sikhar Gupta-pic2.jpg'),
 (3, '110001', 'New Delhi', 'Delhi', 'Varun Mishra', '9302525387', 'Male', '39', '689845492783', 'assets/documents/aadhar/9302525387-Varun Mishra-AADHAR.pdf', 'Delhi Head Post Office, Delhi Circle, New Delhi', 'assets/documents/photo/9302525387-Varun Mishra-pic3.jpg'),
 (4, '700001', 'Kolkata', 'West Bengal', 'Abhishek Bharadwaj', '9961797112', 'Male', '45', '472018910945', 'assets/documents/aadhar/9961797112-Abhishek Bharadwaj-AADHAR.pdf', 'Kolkatta Head Post Office, Kolkata', 'assets/documents/photo/9961797112-Abhishek Bharadwaj-pic4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otps`
+--
+
+CREATE TABLE `otps` (
+  `id` int(11) NOT NULL,
+  `mobile` varchar(50) NOT NULL,
+  `otp` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `otps`
+--
+
+INSERT INTO `otps` (`id`, `mobile`, `otp`) VALUES
+(2, '9672836724', '601682'),
+(3, '9672836724', '601682'),
+(4, '9672836724', '601682'),
+(5, '9672836724', '601682');
 
 -- --------------------------------------------------------
 
@@ -480,6 +496,12 @@ ALTER TABLE `kiosk`
   ADD UNIQUE KEY `k_mobile` (`k_mobile`);
 
 --
+-- Indexes for table `otps`
+--
+ALTER TABLE `otps`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `queries`
 --
 ALTER TABLE `queries`
@@ -557,6 +579,12 @@ ALTER TABLE `farmer`
 --
 ALTER TABLE `kiosk`
   MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `otps`
+--
+ALTER TABLE `otps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `queries`

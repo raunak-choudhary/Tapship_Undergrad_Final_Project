@@ -6,12 +6,37 @@ require_once '../api/twilio/vendor/autoload.php';
 use Twilio\Rest\Client;
 require_once '../api/twilio/config.php';
 
-$res = $_SESSION["sessionid"];
-$f_mobile = $res;
-if (!isset($_SESSION['login_farmer'])) {
-    header("location: login.php"); // Redirecting To Profile Page
-}
-error_reporting(0);
+    $farmer_mobile = $_GET['farmer_mobile'];
+    $farmer_name = $_GET['farmer_name'];
+    $farmer_gender = $_GET['farmer_gender'];
+    $farmer_age = $_GET['farmer_age'];
+    $farmer_street = $_GET['farmer_street'];
+    $farmer_city = $_GET['farmer_city'];
+    $farmer_state = $_GET['farmer_state'];
+    $farmer_pincode = $_GET['farmer_pincode'];
+    $farmer_aadhar = $_GET['farmer_aadhar'];
+    $farmer_pan = $_GET['farmer_pan'];
+    $farmer_bankholder = $_GET['farmer_bankholder'];
+    $farmer_bankaccount = $_GET['farmer_bankaccount'];
+    $farmer_bankifsc = $_GET['farmer_bankifsc'];
+    $farmer_bankname = $_GET['farmer_bankname'];
+    $farmer_bankbranch = $_GET['farmer_bankbranch'];
+    $farmer_password = $_GET['farmer_password'];
+    $farmer_approve = $_GET['farmer_approve'];
+    $target_path1 = $_GET['target_path1'];
+    $target_path2 = $_GET['target_path2'];
+    $target_path3 = $_GET['target_path3'];
+    $target_path4 = $_GET['target_path4'];
+
+    $con = mysqli_connect("localhost", "root", "", "tapship");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from otps where mobile=" . $farmer_mobile . "";
+    $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
+    $otp=$res['otp'];
 ?>
 
 <!DOCTYPE html>
@@ -150,40 +175,18 @@ error_reporting(0);
     </nav>
 
     <?php
-    $con = mysqli_connect("localhost", "root", "", "tapship");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from farmer where f_mobile=" . $f_mobile . "";
-    $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-    $f_av_otp=$res['f_av_otp'];
-    $f_av_status=$res['f_av_status'];
-
-    if($f_av_status=="ACTIVE"){
-        echo "<script>location.replace('index.php')</script>";
-        exit();
-    }
-    else
-    {   
-        if($f_av_otp=='')
-        {
             $GeneratedOTP=rand(100000, 999999);
-            $SendSMSTO='+91'.$res['f_mobile'];
+            $SendSMSTO='+91'.$farmer_mobile;
             $client = new Client($account_sid, $auth_token);
             $client->messages->create(
                 $SendSMSTO,
                 array(
                     'from' => $twilio_number,
-                    'body' => '[Tapship: Account Verification] Hello '.$res['f_name'].", You have been registered as farmer on Tapship.Please enter this OTP to verify your account ".$GeneratedOTP.". Do not share it with anyone"
+                    'body' => '[Tapship: New Account Verification] Hello New User, You have been registered as farmer on Tapship.Please enter this OTP to verify your account '.$GeneratedOTP.'. Do not share it with anyone'
                 )
-            );
+                );
 
-            $InsertOTP=$con->query("UPDATE farmer SET f_av_otp='".$GeneratedOTP."' WHERE f_mobile='".$f_mobile."'");
-        }
-            
-    }
+            $InsertOTP=$con->query("UPDATE otps SET otp='".$GeneratedOTP."' WHERE mobile='".$farmer_mobile."'");
     
 ?>
 
@@ -202,16 +205,12 @@ error_reporting(0);
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    $res['f_tsv_otp'];
-                    if($res['f_av_otp']==$EnteredOTP){
-                        $TsvValidity=time()+86400;
-                        $UpdateStatus=$con->query("UPDATE farmer SET f_av_otp='', f_av_status='ACTIVE', f_tsv_validity='".$TsvValidity."' WHERE f_mobile='".$f_mobile."'");
-                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("index.php"); }, 1000)</script>';
+                    if($res['otp']==$EnteredOTP){
+                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?farmer_mobile='.$farmer_mobile.'&farmer_name='.$farmer_name.'&farmer_gender='.$farmer_gender.'&farmer_age='.$farmer_age.'&farmer_street='.$farmer_street.'&farmer_city='.$farmer_city.'&farmer_state='.$farmer_state.'&farmer_pincode='.$farmer_pincode.'&farmer_aadhar='.$farmer_aadhar.'&farmer_pan='.$farmer_aadhar.'&farmer_bankholder='.$farmer_aadhar.'&farmer_bankaccount='.$farmer_aadhar.'&farmer_bankifsc='.$farmer_bankifsc.'&farmer_bankname='.$farmer_bankname.'&farmer_bankbranch='.$farmer_bankbranch.'&farmer_password='.$farmer_password.'&farmer_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'"); }, 1000)</script>';
                     }
                     else{
-                        echo '<div class="alert alert-danger w-100">Otp mismatched</div>';
+                        echo '<div class="alert alert-danger w-100">Otp mismatched. We have sent a new otp to your phone.</div>';
                     }
-                    
                 }
                 ?>
                 <script>
@@ -222,7 +221,7 @@ error_reporting(0);
                 </script>
                     <form method="post" class="digit-group" action="#">
                         <h6>Please enter the one time password to verify your account</h6>
-                        <div> <span>A code has been sent to</span> <small><?php echo $f_mobile; ?></small> </div>
+                        <div> <span>A code has been sent to</span> <small><?php echo $farmer_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                             <input class="m-2 text-center form-control rounded" type="number" name="first"
                                 maxlength="1" />
@@ -239,8 +238,7 @@ error_reporting(0);
                         </div>
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
-                                <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $f_mobile; ?>')">Resend OTP</a><br>
-                                <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                <p>If you have stuck on this page. And Want a new OTP Just type 123456 as your OTP to get a new OTP.</p>
                                 <span class="text-info" id="resendResponse"></span><br>
                                 
                     </form>
@@ -250,18 +248,6 @@ error_reporting(0);
     </div>
     
     <script>
-    function resendOTP(uid){
-        $('#resendResponse').html('<i class="fa fa-spinner fa-spin"> </i>');
-
-        $.ajax({
-            url: "resend-otp.php",
-            method: "POST",
-            data: "uid="+uid+"&name=<?php echo $res['f_name'];?>&type=av",
-            success: function(data){
-                $('#resendResponse').html(data);
-            }
-        })
-    }
 
     document.addEventListener("DOMContentLoaded", function(event) {
         function OTPInput() {

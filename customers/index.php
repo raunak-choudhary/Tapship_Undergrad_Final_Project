@@ -21,13 +21,7 @@ error_reporting(0);
 
     $c_approve =  $res['c_approve'];
     $c_pincode = $res['c_pincode'];
-    $c_av_status=$res['c_av_status'];
     $c_tsv_validity=$res['c_tsv_validity'];
-
-    if($c_av_status=="INACTIVE"){
-        echo "<script>location.replace('account_verification.php')</script>";
-        exit();
-    }
 
     if($c_tsv_validity<time() || $c_tsv_validity==''){
         echo "<script>location.replace('tsv_verification.php')</script>";

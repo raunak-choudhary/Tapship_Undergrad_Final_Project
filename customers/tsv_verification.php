@@ -33,7 +33,6 @@ error_reporting(0);
     {   
         if($c_tsv=='')
         {
-            echo "<script>alert('not')</script>";
             $GeneratedOTP=rand(100000, 999999);
             $SendSMSTO='+91'.$res['c_mobile'];
             $client = new Client($account_sid, $auth_token);
@@ -215,7 +214,7 @@ error_reporting(0);
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
                     $res['c_tsv_otp'];
                     if($res['c_tsv_otp']==$EnteredOTP){
-                        $TsvValidity=time()+86400; //24 hour validity
+                        $TsvValidity=time()+3600; //24 hour validity
                         $UpdateStatus=$con->query("UPDATE customer SET c_tsv_otp='', c_tsv_validity='".$TsvValidity."' WHERE c_mobile='".$c_mobile."'");
                         echo '<div class="alert alert-success w-100">Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("index.php"); }, 1000)</script>';
                     }

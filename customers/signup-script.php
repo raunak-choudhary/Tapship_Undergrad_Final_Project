@@ -8,70 +8,35 @@ $dbname = "tapship";
 //Create Connection
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
-if (isset($_POST["submit"])) {
-    #retrieve file title
-    $customer_type = $con->real_escape_string($_POST['customer_type']);
-    $customer_mobile = $con->real_escape_string($_POST['customer_mobile']);
-    $customer_name = $con->real_escape_string($_POST['customer_name']);
-    $customer_contactname = $con->real_escape_string($_POST['customer_contactname']);
-    $customer_gender = $con->real_escape_string($_POST['customer_gender']);
-    $customer_age = $con->real_escape_string($_POST['customer_age']);
-    $customer_street = $con->real_escape_string($_POST['customer_street']);
-    $customer_city = $con->real_escape_string($_POST['customer_city']);
-    $customer_state = $con->real_escape_string($_POST['customer_state']);
-    $customer_pincode = $con->real_escape_string($_POST['customer_pincode']);
-    $customer_aadhar = $con->real_escape_string($_POST['customer_aadhar']);
-    $customer_pan = $con->real_escape_string($_POST['customer_pan']);
-    $customer_password = $con->real_escape_string($_POST['customer_password']);
-    $customer_approve = 1;
+$customer_type = $_GET['customer_type'];
+    $customer_mobile = $_GET['customer_mobile'];
+    $customer_name = $_GET['customer_name'];
+    $customer_contactname = $_GET['customer_contactname'];
+    $customer_gender = $_GET['customer_gender'];
+    $customer_age = $_GET['customer_age'];
+    $customer_street = $_GET['customer_street'];
+    $customer_city = $_GET['customer_city'];
+    $customer_state = $_GET['customer_state'];
+    $customer_pincode = $_GET['customer_pincode'];
+    $customer_aadhar = $_GET['customer_aadhar'];
+    $customer_pan = $_GET['customer_pan'];
+    $customer_password = $_GET['customer_password'];
+    $customer_approve = $_GET['customer_approve'];
+    $target_path1 = $_GET['target_path1'];
+    $target_path2 = $_GET['target_path2'];
+    $target_path3 = $_GET['target_path3'];
+    $target_path4 = $_GET['target_path4'];
 
-    $sql = "Select * from customer";
-    $result = $con->query($sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($res = mysqli_fetch_assoc($result)) {
-            if ($res["c_mobile"] == $customer_mobile) {
-                header("location: alreadyregistered.php");
-            } else {
-                #file name with a random number so that similar dont get replaced
-                $customer_aadharpdf = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_aadharpdf"]["name"];
-                $customer_panpdf = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_panpdf"]["name"];
-                $customer_photo = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_photo"]["name"];
-                $customer_registration = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_registration"]["name"];
-
-                #temporary file name to store file
-                $tname1 = $_FILES["customer_aadharpdf"]["tmp_name"];
-                $tname2 = $_FILES["customer_panpdf"]["tmp_name"];
-                $tname3 = $_FILES["customer_photo"]["tmp_name"];
-                $tname4 = $_FILES["customer_registration"]["tmp_name"];
-
-                #target path
-                $target_path1 = "assets/documents/aadhar/" . $customer_aadharpdf;
-                $target_path2 = "assets/documents/pan/" . $customer_panpdf;
-                $target_path3 = "assets/documents/photo/" . $customer_photo;
-                $target_path4 = "assets/documents/registration/" . $customer_registration;
-
-                #TO move the uploaded file to specific location
-                move_uploaded_file($tname1, $target_path1);
-                move_uploaded_file($tname2, $target_path2);
-                move_uploaded_file($tname3, $target_path3);
-                move_uploaded_file($tname4, $target_path4);
-
-                #sql query to insert into database
-                if ($customer_type == "Wholesaler") {
-                    $query = "INSERT into customer(c_type,c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
-                    echo $query;
-                    $success = $con->query($query);
-                }
-
-                if ($customer_type == "Organization") {
-                    $query = "INSERT into customer(c_type,c_mobile,c_name,c_contactname,c_registration,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_contactname','$target_path4','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
-                    $success = $con->query($query);
-                }
-            }
-        }
+    if ($customer_type == "Wholesaler") {
+        $query = "INSERT into customer(c_type,c_mobile,c_name,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_aadhar,c_aadharpdf,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_aadhar','$target_path1','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
+        echo $query;
+        $success = $con->query($query);
     }
-}
+
+    if ($customer_type == "Organization") {
+        $query = "INSERT into customer(c_type,c_mobile,c_name,c_contactname,c_registration,c_gender,c_age,c_street,c_city,c_state,c_pincode,c_pan,c_panpdf,c_photo,c_password,c_approve) VALUES('$customer_type','$customer_mobile','$customer_name','$customer_contactname','$target_path4','$customer_gender','$customer_age','$customer_street','$customer_city','$customer_state','$customer_pincode','$customer_pan','$target_path2','$target_path3','$customer_password','$customer_approve')";
+        $success = $con->query($query);
+    }
 
 $con->close();
 

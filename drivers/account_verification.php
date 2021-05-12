@@ -6,12 +6,35 @@ require_once '../api/twilio/vendor/autoload.php';
 use Twilio\Rest\Client;
 require_once '../api/twilio/config.php';
 
-$res = $_SESSION["sessionid"];
-$d_mobile = $res;
-if (!isset($_SESSION['login_driver'])) {
-    header("location: login.php"); // Redirecting To Profile Page
-}
-error_reporting(0);
+    $driver_mobile = $_GET['driver_mobile'];
+    $driver_name = $_GET['driver_name'];
+    $driver_gender = $_GET['driver_gender'];
+    $driver_age = $_GET['driver_age'];
+    $driver_street = $_GET['driver_street'];
+    $driver_city = $_GET['driver_city'];
+    $driver_state = $_GET['driver_state'];
+    $driver_pincode = $_GET['driver_pincode'];
+    $driver_aadhar = $_GET['driver_aadhar'];
+    $driver_pan = $_GET['driver_pan'];
+    $driver_dlnumber = $_GET['driver_dlnumber'];
+    $driver_vehiclenumber = $_GET['driver_vehiclenumber'];
+    $d_lat = $_GET['d_lat'];
+    $d_long = $_GET['d_long'];
+    $target_path1 = $_GET['target_path1'];
+    $target_path2 = $_GET['target_path2'];
+    $target_path3 = $_GET['target_path3'];
+    $target_path4 = $_GET['target_path4'];
+    $target_path5 = $_GET['target_path5'];
+
+    $con = mysqli_connect("localhost", "root", "", "tapship");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from otps where mobile=" . $driver_mobile . "";
+    $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
+    $otp=$res['otp'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +43,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Driver Dashboard</title>
+    <title>Farmer Dashboard</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -150,40 +173,18 @@ error_reporting(0);
     </nav>
 
     <?php
-    $con = mysqli_connect("localhost", "root", "", "tapship");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from driver where d_mobile=" . $d_mobile . "";
-    $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-    $d_av_otp=$res['d_av_otp'];
-    $d_av_status=$res['d_av_status'];
-
-    if($d_av_status=="ACTIVE"){
-        echo "<script>location.replace('index.php')</script>";
-        exit();
-    }
-    else
-    {   
-        if($d_av_otp=='')
-        {
             $GeneratedOTP=rand(100000, 999999);
-            $SendSMSTO='+91'.$res['d_mobile'];
+            $SendSMSTO='+91'.$driver_mobile;
             $client = new Client($account_sid, $auth_token);
             $client->messages->create(
                 $SendSMSTO,
                 array(
                     'from' => $twilio_number,
-                    'body' => '[Tapship: Account Verification] Hello '.$res['d_name'].", You have been registered as driver on Tapship.Please enter this OTP to verify your account ".$GeneratedOTP.". Do not share it with anyone"
+                    'body' => '[Tapship: New Account Verification] Hello New User, You have been registered as driver on Tapship.Please enter this OTP to verify your account '.$GeneratedOTP.'. Do not share it with anyone'
                 )
-            );
+                );
 
-            $InsertOTP=$con->query("UPDATE driver SET d_av_otp='".$GeneratedOTP."' WHERE d_mobile='".$d_mobile."'");
-        }
-            
-    }
+            $InsertOTP=$con->query("UPDATE otps SET otp='".$GeneratedOTP."' WHERE mobile='".$driver_mobile."'");
     
 ?>
 
@@ -202,16 +203,13 @@ error_reporting(0);
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    $res['d_tsv_otp'];
-                    if($res['d_av_otp']==$EnteredOTP){
-                        $TsvValidity=time()+86400;
-                        $UpdateStatus=$con->query("UPDATE driver SET d_av_otp='', d_av_status='ACTIVE', d_tsv_validity='".$TsvValidity."' WHERE d_mobile='".$d_mobile."'");
-                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("index.php"); }, 1000)</script>';
+                    if($res['otp']==$EnteredOTP){
+                        $UpdateStatus=$con->query("UPDATE farmer SET f_tsv_otp='', f_tsv_validity='".$TsvValidity."' WHERE f_mobile='".$f_mobile."'");
+                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?driver_mobile='.$driver_mobile.'&driver_name='.$driver_name.'&driver_gender='.$driver_gender.'&driver_age='.$driver_age.'&driver_street='.$driver_street.'&driver_city='.$driver_city.'&driver_state='.$driver_state.'&driver_pincode='.$driver_pincode.'&driver_aadhar='.$driver_aadhar.'&driver_pan='.$driver_aadhar.'&driver_dlnumber='.$driver_dlnumber.'&driver_vehiclenumber='.$driver_vehiclenumber.'&$d_lat='.$d_lat.'&d_long='.$d_long.'&driver_password='.$driver_password.'&driver_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'&target_path5='.$target_path5.'"); }, 1000)</script>';
                     }
                     else{
-                        echo '<div class="alert alert-danger w-100">Otp mismatched</div>';
+                        echo '<div class="alert alert-danger w-100">Otp mismatched. We have sent a new otp to your phone.</div>';
                     }
-                    
                 }
                 ?>
                 <script>
@@ -222,7 +220,7 @@ error_reporting(0);
                 </script>
                     <form method="post" class="digit-group" action="#">
                         <h6>Please enter the one time password to verify your account</h6>
-                        <div> <span>A code has been sent to</span> <small><?php echo $d_mobile; ?></small> </div>
+                        <div> <span>A code has been sent to</span> <small><?php echo $driver_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                             <input class="m-2 text-center form-control rounded" type="number" name="first"
                                 maxlength="1" />
@@ -239,8 +237,8 @@ error_reporting(0);
                         </div>
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
-                                <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $d_mobile; ?>')">Resend OTP</a><br>
-                                <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                <br>
+                                <p>If you have stuck on this page. And Want a new OTP Just type 123456 as your OTP to get a new OTP.</p>
                                 <span class="text-info" id="resendResponse"></span><br>
                                 
                     </form>
@@ -250,18 +248,6 @@ error_reporting(0);
     </div>
     
     <script>
-    function resendOTP(uid){
-        $('#resendResponse').html('<i class="fa fa-spinner fa-spin"> </i>');
-
-        $.ajax({
-            url: "resend-otp.php",
-            method: "POST",
-            data: "uid="+uid+"&name=<?php echo $res['d_name'];?>&type=av",
-            success: function(data){
-                $('#resendResponse').html(data);
-            }
-        })
-    }
 
     document.addEventListener("DOMContentLoaded", function(event) {
         function OTPInput() {

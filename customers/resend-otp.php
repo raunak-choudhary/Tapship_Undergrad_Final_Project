@@ -7,55 +7,6 @@ require_once '../api/twilio/config.php';
 $uid=$_POST['uid'];
 $name=$_POST['name'];
 
-if($_POST['type']=='av'){
-if(isset($_SESSION['otptimer'])){
-   if($_SESSION['otptimer']>time()){
-        echo "please wait ".($_SESSION['otptimer']-time())." sec";
-    }
-    else{
-        $_SESSION['otptimer']=time()+120;
-        $GeneratedOTP=rand(100000, 999999);
-                $SendSMSTO='+91'.$uid;
-                $client = new Client($account_sid, $auth_token);
-                $client->messages->create(
-                    $SendSMSTO,
-                    array(
-                        'from' => $twilio_number,
-                        'body' => '[Tapship: Account Verification] Hello '.$name.", You have been registered as customer on Tapship.Please enter this OTP to verify your account ".$GeneratedOTP.". Do not share it with anyone"
-                    )
-                );
-                $con = mysqli_connect("localhost", "root", "", "tapship");
-                $InsertOTP=$con->query("UPDATE customer SET c_av_otp='".$GeneratedOTP."' WHERE c_mobile='".$uid."'");
-                echo "Otp sent successfully";
-                $_SESSION['otptimer']=time()+120;
-
-    
-    }
-}
-else{
-    $_SESSION['otptimer']=time()+120;
-    $GeneratedOTP=rand(100000, 999999);
-            $SendSMSTO='+91'.$uid;
-            $client = new Client($account_sid, $auth_token);
-            $client->messages->create(
-                $SendSMSTO,
-                array(
-                    'from' => $twilio_number,
-                    'body' => '[Tapship: Account Verification] Hello '.$name.", You have been registered as customer on Tapship.Please enter this OTP to verify your account ".$GeneratedOTP.". Do not share it with anyone"
-                )
-            );
-            $con = mysqli_connect("localhost", "root", "", "tapship");
-            $InsertOTP=$con->query("UPDATE customer SET c_av_otp='".$GeneratedOTP."' WHERE c_mobile='".$uid."'");
-            if($InsertOTP){
-                echo "Otp sent successfully";
-                $_SESSION['otptimer']=time()+120;
-
-            }
-
-}
-}
-
-
 if($_POST['type']=='tsv'){
     if(isset($_SESSION['otptimer'])){
         if($_SESSION['otptimer']>time()){

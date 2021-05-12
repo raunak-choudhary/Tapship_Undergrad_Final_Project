@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
@@ -8,66 +8,30 @@ $dbname = "tapship";
 //Create Connection
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 
-if (isset($_POST["submit"])) {
-    #retrieve file title
-    $farmer_mobile = $con->real_escape_string($_POST['farmer_mobile']);
-    $farmer_name = $con->real_escape_string($_POST['farmer_name']);
-    $farmer_gender = $con->real_escape_string($_POST['farmer_gender']);
-    $farmer_age = $con->real_escape_string($_POST['farmer_age']);
-    $farmer_street = $con->real_escape_string($_POST['farmer_street']);
-    $farmer_city = $con->real_escape_string($_POST['farmer_city']);
-    $farmer_state = $con->real_escape_string($_POST['farmer_state']);
-    $farmer_pincode = $con->real_escape_string($_POST['farmer_pincode']);
-    $farmer_aadhar = $con->real_escape_string($_POST['farmer_aadhar']);
-    $farmer_pan = $con->real_escape_string($_POST['farmer_pan']);
-    $farmer_bankholder = $con->real_escape_string($_POST['farmer_bankholder']);
-    $farmer_bankaccount = $con->real_escape_string($_POST['farmer_bankaccount']);
-    $farmer_bankifsc = $con->real_escape_string($_POST['farmer_bankifsc']);
-    $farmer_bankname = $con->real_escape_string($_POST['farmer_bankname']);
-    $farmer_bankbranch = $con->real_escape_string($_POST['farmer_bankbranch']);
-    $farmer_password = $con->real_escape_string($_POST['farmer_password']);
-    $farmer_approve = 1;
-
-    $sql = "Select * from farmer";
-    $result = $con->query($sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($res = mysqli_fetch_assoc($result)) {
-            if ($res["f_mobile"] == $farmer_mobile) {
-                header("location: alreadyregistered.php");
-            } else {
-                #file name with a random number so that similar dont get replaced
-                $farmer_aadharpdf = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_aadharpdf"]["name"];
-                $farmer_panpdf = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_panpdf"]["name"];
-                $farmer_photo = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_photo"]["name"];
-                $farmer_bankpassbook = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_bankpassbook"]["name"];
-
-                #temporary file name to store file
-                $tname1 = $_FILES["farmer_aadharpdf"]["tmp_name"];
-                $tname2 = $_FILES["farmer_panpdf"]["tmp_name"];
-                $tname3 = $_FILES["farmer_photo"]["tmp_name"];
-                $tname4 = $_FILES["farmer_bankpassbook"]["tmp_name"];
-
-                #target path
-                $target_path1 = "assets/documents/aadhar/" . $farmer_aadharpdf;
-                $target_path2 = "assets/documents/pan/" . $farmer_panpdf;
-                $target_path3 = "assets/documents/photo/" . $farmer_photo;
-                $target_path4 = "assets/documents/passbook/" . $farmer_bankpassbook;
-
-
-                #TO move the uploaded file to specific location
-                move_uploaded_file($tname1, $target_path1);
-                move_uploaded_file($tname2, $target_path2);
-                move_uploaded_file($tname3, $target_path3);
-                move_uploaded_file($tname4, $target_path4);
-
-                #sql query to insert into database
-                $query = "INSERT into farmer(f_mobile,f_name,f_gender,f_age,f_street,f_city,f_state,f_pincode,f_aadhar,f_aadharpdf,f_pan,f_panpdf,f_photo,f_bankholder,f_bankaccount,f_bankifsc,f_bankname,f_bankbranch,f_bankpassbook,f_password,f_approve) VALUES('$farmer_mobile','$farmer_name','$farmer_gender','$farmer_age','$farmer_street','$farmer_city','$farmer_state','$farmer_pincode','$farmer_aadhar','$target_path1','$farmer_pan','$target_path2','$target_path3','$farmer_bankholder','$farmer_bankaccount','$farmer_bankifsc','$farmer_bankname','$farmer_bankbranch','$target_path4','$farmer_password','$farmer_approve')";
-                $success = $con->query($query);
-            }
-        }
-    }
-}
+    $farmer_mobile = $_GET['farmer_mobile'];
+    $farmer_name = $_GET['farmer_name'];
+    $farmer_gender = $_GET['farmer_gender'];
+    $farmer_age = $_GET['farmer_age'];
+    $farmer_street = $_GET['farmer_street'];
+    $farmer_city = $_GET['farmer_city'];
+    $farmer_state = $_GET['farmer_state'];
+    $farmer_pincode = $_GET['farmer_pincode'];
+    $farmer_aadhar = $_GET['farmer_aadhar'];
+    $farmer_pan = $_GET['farmer_pan'];
+    $farmer_bankholder = $_GET['farmer_bankholder'];
+    $farmer_bankaccount = $_GET['farmer_bankaccount'];
+    $farmer_bankifsc = $_GET['farmer_bankifsc'];
+    $farmer_bankname = $_GET['farmer_bankname'];
+    $farmer_bankbranch = $_GET['farmer_bankbranch'];
+    $farmer_password = $_GET['farmer_password'];
+    $farmer_approve = $_GET['farmer_approve'];
+    $target_path1 = $_GET['target_path1'];
+    $target_path2 = $_GET['target_path2'];
+    $target_path3 = $_GET['target_path3'];
+    $target_path4 = $_GET['target_path4'];
+    #sql query to insert into database
+    $query = "INSERT into farmer(f_mobile,f_name,f_gender,f_age,f_street,f_city,f_state,f_pincode,f_aadhar,f_aadharpdf,f_pan,f_panpdf,f_photo,f_bankholder,f_bankaccount,f_bankifsc,f_bankname,f_bankbranch,f_bankpassbook,f_password,f_approve) VALUES('$farmer_mobile','$farmer_name','$farmer_gender','$farmer_age','$farmer_street','$farmer_city','$farmer_state','$farmer_pincode','$farmer_aadhar','$target_path1','$farmer_pan','$target_path2','$target_path3','$farmer_bankholder','$farmer_bankaccount','$farmer_bankifsc','$farmer_bankname','$farmer_bankbranch','$target_path4','$farmer_password','$farmer_approve')";
+    $success = $con->query($query);
 
 $con->close();
 
@@ -125,6 +89,7 @@ $con->close();
             </div>
         </div>
     </nav>
+    
     <div class="container" style="margin-top:150px;">
         <div class="jumbotron" style="text-align: center; background-color:#0c3823; color:#fff;">
             <h2> <?php echo "Welcome $farmer_name!" ?> </h2>
@@ -135,6 +100,7 @@ $con->close();
             <h6><strong>Go to home <a href="../index.php">HERE</a></strong> <span>&nbsp&nbsp&nbsp</span><strong>Try to login <a href="login.php">HERE</strong></a></h6>
         </div>
     </div>
+    
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container">

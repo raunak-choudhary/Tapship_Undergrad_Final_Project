@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="login-clean" style="padding: 0px; background: rgb(255,255,255);margin-top: 30px; ">
-        <form method="post" action="signup-script.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
+        <form method="post" action="signup-otp.php" enctype="multipart/form-data" style="background: #0c3823;margin-bottom: 40px;">
             <h5 style="color:#fff;">Select Customer Type</h5>
             <div class="form-group">
                 <select class="form-control" id="customer_type" name="customer_type" required onchange="yesnoCheck(this);">

@@ -30,13 +30,7 @@ $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error
 
     $d_approve =  $res['d_approve'];
     $d_pincode = $res['d_pincode'];
-    $d_av_status=$res['d_av_status'];
     $d_tsv_validity=$res['d_tsv_validity'];
-
-    if($d_av_status=="INACTIVE"){
-        echo "<script>location.replace('account_verification.php')</script>";
-        exit();
-    }
 
     if($d_tsv_validity<time() || $d_tsv_validity==''){
         echo "<script>location.replace('tsv_verification.php')</script>";
