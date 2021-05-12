@@ -240,8 +240,8 @@ error_reporting(0);
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
                                 <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $f_mobile; ?>')">Resend OTP</a><br>
-                                <span class="text-info" id="resendResponse"></span><br>
                                 <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                <span class="text-info" id="resendResponse"></span><br>
                                 
                     </form>
                 </div>

@@ -10,7 +10,6 @@ error_reporting(0);
 ?>
 
 <?php
-
     $con = mysqli_connect("localhost", "root", "", "tapship");
     if (!$con) {
         die(" Connection Error ");
@@ -35,7 +34,8 @@ error_reporting(0);
         exit();
     }
 
-    ?>
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -76,6 +76,7 @@ error_reporting(0);
             </div>
         </div>
     </nav>
+    
 
     <?php
     if ($c_approve == 1 || $c_approve == 3 || $c_approve == 4 || $c_approve == 5 || $c_approve == NULL) { ?>

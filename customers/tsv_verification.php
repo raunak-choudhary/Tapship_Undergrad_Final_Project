@@ -87,7 +87,7 @@ error_reporting(0);
     }
 
     .card {
-        width: 500px;
+        width: 800px;
         border: none;
         height: 400px;
         box-shadow: 0px 5px 20px 0px #d2dae3;
@@ -198,14 +198,6 @@ error_reporting(0);
         </div>
     </nav>
 
-    <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
-                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Account Verification</h2>
-                </div>
-            </div>
-        </div>
-
         <div class="features-boxed">
             <div class="container-fluid" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
@@ -253,7 +245,8 @@ error_reporting(0);
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
                                 <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $c_mobile; ?>')">Resend OTP</a><br>
-                                <span class="text-info" id="resendResponse">a</span>
+                                <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                <span class="text-info" id="resendResponse"></span>
                     </form>
                 </div>
             </div>
@@ -300,6 +293,8 @@ error_reporting(0);
         OTPInput();
     });
     </script>
+
+    <br>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
