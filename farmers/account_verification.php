@@ -49,7 +49,7 @@ error_reporting(0);
     }
 
     .height-100 {
-        height: 100vh
+        height: 120vh
     }
 
     .card {
@@ -185,7 +185,13 @@ error_reporting(0);
                     
                 }
                 ?>
-                    <form method="post" action="#">
+                <script>
+                    $('.digit-group').find('input').each(function() {
+	                $(this).attr('maxlength', 1);
+	                $(this).on('keyup', function(e) {
+		            var parent = $($(this).parent());});});
+                </script>
+                    <form method="post" class="digit-group" action="#">
                         <h6>Please enter the one time password <br> to verify your account</h6>
                         <div> <span>A code has been sent to</span> <small><?php echo $f_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
@@ -204,16 +210,16 @@ error_reporting(0);
                         </div>
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
-
-
                                 <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $f_mobile; ?>')">Resend OTP</a><br>
-                                <span class="text-info" id="resendResponse"></span>
+                                <span class="text-info" id="resendResponse"></span><br>
+                                <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <script>
     function resendOTP(uid){
         $('#resendResponse').html('<i class="fa fa-spinner fa-spin"> </i>');

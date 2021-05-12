@@ -5,7 +5,7 @@ $f_mobile = $res;
 error_reporting(0);
 
 $con = mysqli_connect("localhost", "root", "", "tapship");
-$query = "UPDATE farmer SET f_tsv_validity=0, f_av_status='INACTIVE' where f_mobile = $f_mobile";
+$query = "UPDATE farmer SET f_tsv_otp=0,f_tsv_validity=0,f_av_otp=0,f_av_status='INACTIVE' where f_mobile = $f_mobile";
 $result = mysqli_query($con,$query);
 
 session_start();
