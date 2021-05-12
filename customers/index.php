@@ -9,6 +9,34 @@ if (!isset($_SESSION['login_customer'])) {
 error_reporting(0);
 ?>
 
+<?php
+
+    $con = mysqli_connect("localhost", "root", "", "tapship");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from customer where c_mobile=" . $c_mobile . "";
+    $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
+
+    $c_approve =  $res['c_approve'];
+    $c_pincode = $res['c_pincode'];
+    $c_av_status=$res['c_av_status'];
+    $c_tsv_validity=$res['c_tsv_validity'];
+
+    if($c_av_status=="INACTIVE"){
+        echo "<script>location.replace('account_verification.php')</script>";
+        exit();
+    }
+
+    if($c_tsv_validity<time() || $c_tsv_validity==''){
+        echo "<script>location.replace('tsv_verification.php')</script>";
+        exit();
+    }
+
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -48,20 +76,6 @@ error_reporting(0);
             </div>
         </div>
     </nav>
-    <?php
-
-    $con = mysqli_connect("localhost", "root", "", "tapship");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from customer where c_mobile=" . $c_mobile . "";
-    $result = mysqli_query($con, $query);
-
-    while ($res = mysqli_fetch_assoc($result)) {
-        $c_approve =  $res['c_approve'];
-    }
-    ?>
 
     <?php
     if ($c_approve == 1 || $c_approve == 3 || $c_approve == 4 || $c_approve == 5 || $c_approve == NULL) { ?>

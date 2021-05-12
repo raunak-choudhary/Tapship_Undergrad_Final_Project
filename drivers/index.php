@@ -17,6 +17,34 @@ $dbname = "tapship";
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
 ?>
 
+<?php
+
+    $con = mysqli_connect("localhost", "root", "", "tapship");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from driver where d_mobile=" . $d_mobile . "";
+    $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
+
+    $d_approve =  $res['d_approve'];
+    $d_pincode = $res['d_pincode'];
+    $d_av_status=$res['d_av_status'];
+    $d_tsv_validity=$res['d_tsv_validity'];
+
+    if($c_av_status=="INACTIVE"){
+        echo "<script>location.replace('account_verification.php')</script>";
+        exit();
+    }
+
+    if($c_tsv_validity<time() || $c_tsv_validity==''){
+        echo "<script>location.replace('tsv_verification.php')</script>";
+        exit();
+    }
+
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -86,20 +114,6 @@ $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error
     </nav>
 
     
-    <?php
-
-    $con = mysqli_connect("localhost", "root", "", "tapship");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from driver where d_mobile=" . $d_mobile . "";
-    $result = mysqli_query($con, $query);
-
-    while ($res = mysqli_fetch_assoc($result)) {
-        $d_approve =  $res['d_approve'];
-    }
-    ?>
 
     <?php
     if ($d_approve == 1 || $d_approve == 3 || $d_approve == 4 || $d_approve == 5 || $d_approve == NULL) { ?>

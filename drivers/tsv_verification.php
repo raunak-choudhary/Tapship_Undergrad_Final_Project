@@ -7,8 +7,8 @@ use Twilio\Rest\Client;
 require_once '../api/twilio/config.php';
 
 $res = $_SESSION["sessionid"];
-$f_mobile = $res;
-if (!isset($_SESSION['login_farmer'])) {
+$d_mobile = $res;
+if (!isset($_SESSION['login_driver'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
@@ -20,32 +20,32 @@ error_reporting(0);
         die(" Connection Error ");
     }
 
-    $query = " select * from farmer where f_mobile=" . $f_mobile . "";
+    $query = " select * from driver where d_mobile=" . $d_mobile . "";
     $result = mysqli_query($con, $query);
     $res = mysqli_fetch_assoc($result);
-    $f_tsv=$res['f_tsv_otp'];
-    $f_tsv_validity=$res['f_tsv_validity'];
+    $d_tsv=$res['d_tsv_otp'];
+    $d_tsv_validity=$res['d_tsv_validity'];
 
-    if($f_tsv_validity>time()){
+    if($d_tsv_validity>time()){
         echo "<script>location.replace('index.php')</script>";
     }
     else
     {   
-        if($f_tsv=='')
+        if($d_tsv=='')
         {
             echo "<script>alert('not')</script>";
             $GeneratedOTP=rand(100000, 999999);
-            $SendSMSTO='+91'.$res['f_mobile'];
+            $SendSMSTO='+91'.$res['d_mobile'];
             $client = new Client($account_sid, $auth_token);
             $client->messages->create(
                 $SendSMSTO,
                 array(
                     'from' => $twilio_number,
-                    'body' => '[Tapship: 2-step verification] Hello '.$res['f_name'].", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
+                    'body' => '[Tapship: 2-step verification] Hello '.$res['d_name'].", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
                 )
             );
 
-            $InsertOTP=$con->query("UPDATE farmer SET f_tsv_otp='".$GeneratedOTP."' WHERE f_mobile='".$f_mobile."'");
+            $InsertOTP=$con->query("UPDATE driver SET d_tsv_otp='".$GeneratedOTP."' WHERE d_mobile='".$d_mobile."'");
         }
             
     }
@@ -58,7 +58,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Farmer Dashboard</title>
+    <title>Driver Dashboard</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -185,11 +185,11 @@ error_reporting(0);
                             data-bs-hover-animate="pulse" href="../about.php">ABOUT</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             data-bs-hover-animate="pulse" href="../faq.php">FAQ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/profile.php"><button
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/profile.php"><button
                                 class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button"
                                 style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">View
                                 Profile</button></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a href="../farmers/logout-script.php"><button
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../drivers/logout-script.php"><button
                                 class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button"
                                 style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log
                                 Out</button></a></li>
@@ -221,10 +221,10 @@ error_reporting(0);
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    $res['f_tsv_otp'];
-                    if($res['f_tsv_otp']==$EnteredOTP){
+                    $res['d_tsv_otp'];
+                    if($res['d_tsv_otp']==$EnteredOTP){
                         $TsvValidity=time()+86400; //24 hour validity
-                        $UpdateStatus=$con->query("UPDATE farmer SET f_tsv_otp='', f_tsv_validity='".$TsvValidity."' WHERE f_mobile='".$f_mobile."'");
+                        $UpdateStatus=$con->query("UPDATE driver SET d_tsv_otp='', d_tsv_validity='".$TsvValidity."' WHERE d_mobile='".$d_mobile."'");
                         echo '<div class="alert alert-success w-100">Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("index.php"); }, 1000)</script>';
                     }
                     else{
@@ -235,7 +235,7 @@ error_reporting(0);
                 ?>
                     <form method="post" action="#">
                         <h6>Please enter the one time password to verify your account</h6>
-                        <div> <span>A code has been sent to</span> <small><?php echo $f_mobile; ?></small> </div>
+                        <div> <span>A code has been sent to</span> <small><?php echo $d_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                             <input class="m-2 text-center form-control rounded" type="number" name="first"
                                 maxlength="1" />
@@ -252,7 +252,7 @@ error_reporting(0);
                         </div>
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
-                                <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $f_mobile; ?>')">Resend OTP</a><br>
+                                <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $d_mobile; ?>')">Resend OTP</a><br>
                                 <span class="text-info" id="resendResponse">a</span>
                     </form>
                 </div>
@@ -266,7 +266,7 @@ error_reporting(0);
         $.ajax({
             url: "resend-otp.php",
             method: "POST",
-            data: "uid="+uid+"&name=<?php echo $res['f_name'];?>&type=tsv",
+            data: "uid="+uid+"&name=<?php echo $res['d_name'];?>&type=tsv",
             success: function(data){
                 $('#resendResponse').html(data);
             }

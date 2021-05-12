@@ -48,12 +48,8 @@ error_reporting(0);
         }
     }
 
-    .height-100 {
-        height: 120vh
-    }
-
     .card {
-        width: 500px;
+        width: 800px;
         border: none;
         height: 400px;
         box-shadow: 0px 5px 20px 0px #d2dae3;
@@ -61,6 +57,32 @@ error_reporting(0);
         display: flex;
         justify-content: center;
         align-items: center
+    }
+
+    @media (max-width: 850px){
+        .card {
+        width: 600px;
+        border: none;
+        height: 400px;
+        box-shadow: 0px 5px 20px 0px #d2dae3;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }    
+    }
+
+    @media (max-width: 650px){
+        .card {
+        width: 400px;
+        border: none;
+        height: 400px;
+        box-shadow: 0px 5px 20px 0px #d2dae3;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }    
     }
 
     .card h6 {
@@ -165,11 +187,18 @@ error_reporting(0);
     
 ?>
 
-    <div class="container">
-        <div class="height-100 d-flex justify-content-center align-items-center">
+<div class="features-boxed">
+            <div class="container-fluid" style="background: #ffffff;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
+                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Account Verification</h2>
+                </div>
+            </div>
+        </div>
+
+    <div class="container" style="margin-top:-50px;">
+        <div class="d-flex justify-content-center align-items-center">
             <div class="position-relative p-5">
                 <div class="card p-2 text-center">
-                    <h4 class="mb-4">Account Verification</h4>
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
@@ -192,7 +221,7 @@ error_reporting(0);
 		            var parent = $($(this).parent());});});
                 </script>
                     <form method="post" class="digit-group" action="#">
-                        <h6>Please enter the one time password <br> to verify your account</h6>
+                        <h6>Please enter the one time password to verify your account</h6>
                         <div> <span>A code has been sent to</span> <small><?php echo $f_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                             <input class="m-2 text-center form-control rounded" type="number" name="first"
