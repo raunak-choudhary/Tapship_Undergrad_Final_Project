@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2021 at 05:01 PM
+-- Generation Time: May 13, 2021 at 02:01 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -164,8 +164,8 @@ INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_
 (4, '9672836725', 2, '145', 'assets/documents/crop/14602-5116-7819-9672836725.png', 'assets/documents/crop/18078-3139-3176-9672836725.png', 'assets/documents/crop/16859-4073-1353-9672836725.png', '18', '2021-05-10', '12'),
 (5, '9672836725', 6, '350', 'assets/documents/crop/18651-2615-2792-9672836725.png', 'assets/documents/crop/18254-5771-4106-9672836725.png', 'assets/documents/crop/17982-5794-8537-9672836725.png', '19', '2021-05-10', '8'),
 (6, '9672836724', 10, '500', 'assets/documents/crop/12779-3436-1873-9672836724.png', 'assets/documents/crop/14197-9250-8566-9672836724.png', 'assets/documents/crop/12248-9120-7665-9672836724.png', '25', '2021-05-10', '12'),
-(7, '9672836724', 11, '80', 'assets/documents/crop/16673-457-2800-9672836724.png', 'assets/documents/crop/18678-9982-6439-9672836724.png', 'assets/documents/crop/15953-3782-6072-9672836724.png', '23', '2021-05-10', '0'),
-(8, '9672836724', 9, '90', 'assets/documents/crop/11849-8483-9729-9672836724.png', 'assets/documents/crop/17613-9426-9015-9672836724.png', 'assets/documents/crop/12623-6791-8804-9672836724.png', '85', '2021-05-11', '0');
+(7, '9672836724', 11, '90', 'assets/documents/crop/16673-457-2800-9672836724.png', 'assets/documents/crop/18678-9982-6439-9672836724.png', 'assets/documents/crop/15953-3782-6072-9672836724.png', '22', '2021-05-10', '0'),
+(8, '9672836724', 9, '85', 'assets/documents/crop/11849-8483-9729-9672836724.png', 'assets/documents/crop/17613-9426-9015-9672836724.png', 'assets/documents/crop/12623-6791-8804-9672836724.png', '78', '2021-05-11', '0');
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,7 @@ INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (1, 'Raunak Chaudhary', '9113671387', '', 'Male', '22', 'Royal Paradise, Udupi', 'Udupi', 'Karnataka', '576102', 'Wholesaler', '', '689020429366', 'assets/documents/aadhar/9113671387-Raunak Chaudhary-AADHAR.pdf', 'BOMPC6839Q', 'assets/documents/pan/9113671387-Raunak Chaudhary-PAN.pdf', 'assets/documents/photo/9113671387-Raunak Chaudhary-RC.jpg', 'Gapu@8540', '2', '', ''),
 (2, 'Aarav Jindal', '9113671388', '', 'Male', '27', 'Prahlad Appartment, Udupi', 'Udupi', 'Karnataka', '576101', 'Wholesaler', '', '8760204293998', 'assets/documents/aadhar/9113671388-Aarav Jindal-AADHAR.pdf', 'ACTPC5645I', 'assets/documents/pan/9113671388-Aarav Jindal-PAN.pdf', 'assets/documents/photo/9113671388-Aarav Jindal-AJ.jpg', 'Gapu@8540', '2', '', ''),
-(3, 'Shri Laxmi Temple', '9672836724', 'Anish Mahatre', 'Male', '47', '456, Temple Road, Prabhu Nagar', 'Ratnagiri', 'Maharashtra', '415612', 'Organization', 'assets/documents/registration/9672836724-Shri Laxmi Temple-Registration PDF.pdf', '', '', 'HYFGT6743R', 'assets/documents/pan/9672836724-Shri Laxmi Temple-PAN.pdf', 'assets/documents/photo/9672836724-Shri Laxmi Temple-laxmi.jpg', 'Gapu@8540', '1', '', '');
+(3, 'Shri Laxmi Temple', '9672836724', 'Anish Mahatre', 'Male', '47', '456, Temple Road, Prabhu Nagar', 'Ratnagiri', 'Maharashtra', '415612', 'Organization', 'assets/documents/registration/9672836724-Shri Laxmi Temple-Registration PDF.pdf', '', '', 'HYFGT6743R', 'assets/documents/pan/9672836724-Shri Laxmi Temple-PAN.pdf', 'assets/documents/photo/9672836724-Shri Laxmi Temple-laxmi.jpg', 'Gapu@8540', '2', '', '');
 
 -- --------------------------------------------------------
 
@@ -291,7 +291,7 @@ CREATE TABLE `farmer` (
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1620834679'),
-(1, 'Ganpat Patel', '9672836724', 'Male', '21', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', '799721133696', 'assets/documents/aadhar/9672836724-Ganpat Patel-AADHAR.pdf', 'EYCPP1502E', 'assets/documents/pan/9672836724-Ganpat Patel-PAN.pdf', 'assets/documents/photo/9672836724-Ganpat Patel-2018_1.jpg', 'Gapu@8540', '2', 'Ganpat Patel', '2342567893456', 'CNRB0000466', 'Canara Bank', 'BVR', 'assets/documents/passbook/9672836724-Ganpat Patel-PASSBOOK.pdf', '', '1620831700'),
+(1, 'Ganpat Patel', '9672836724', 'Male', '20', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', '799721133696', 'assets/documents/aadhar/9672836724-Ganpat Patel-AADHAR.pdf', 'EYCPP1502E', 'assets/documents/pan/9672836724-Ganpat Patel-PAN.pdf', 'assets/documents/photo/9672836724-Ganpat Patel-2018_1.jpg', 'Gapu@8540', '2', 'Ganpat Patel', '2342567893456', 'CNRB0000466', 'Canara Bank', 'BVR', 'assets/documents/passbook/9672836724-Ganpat Patel-PASSBOOK.pdf', '', '1620831700'),
 (2, 'Rakesh Sharma', '9672836725', 'Male', '28', '67, Epic Road, Bommanahalli', 'Banglore', 'Karnataka', '560068', '799721133696', 'assets/documents/aadhar/9672836725-Rakesh Sharma-AADHAR.pdf', 'UIBNO1902F', 'assets/documents/pan/9672836725-Rakesh Sharma-PAN.pdf', 'assets/documents/photo/9672836725-Rakesh Sharma-2018_1.jpg', 'Gapu@8540', '2', 'Rakesh Sharma', '7344581863456', 'CNRB0003047', 'Canara Bank', 'Bommanahalli', 'assets/documents/passbook/9672836725-Rakesh Sharma-PASSBOOK.pdf', '', ''),
 (3, 'Yash Rana', '9661442323', 'Male', '34', '304, New Sadak, Samdari', 'Barmer', 'Rajasthan', '344021', '673456278367', 'assets/documents/aadhar/9661442323-Yash Rana-AADHAR.pdf', '673456278367', 'assets/documents/pan/9661442323-Yash Rana-PAN.pdf', 'assets/documents/photo/9661442323-Yash Rana-imag.jfif', 'Gapu@8540', '1', '673456278367', '673456278367', 'CNRB0000466', 'SBI Bank', 'Samdari', 'assets/documents/passbook/9661442323-Yash Rana-PASSBOOK.pdf', '', '');
 
@@ -326,6 +326,40 @@ INSERT INTO `kiosk` (`k_id`, `k_pincode`, `k_district`, `k_state`, `k_name`, `k_
 (2, '400001', 'Mumbai district (ex Bombay)', 'Maharashtra', 'Sikhar Gupta', '8821008937', 'Male', '35', '259478789130', 'assets/documents/aadhar/8821008937-Sikhar Gupta-AADHAR.pdf', 'Mumbai Head Post Office, Mumbai', 'assets/documents/photo/8821008937-Sikhar Gupta-pic2.jpg'),
 (3, '110001', 'New Delhi', 'Delhi', 'Varun Mishra', '9302525387', 'Male', '39', '689845492783', 'assets/documents/aadhar/9302525387-Varun Mishra-AADHAR.pdf', 'Delhi Head Post Office, Delhi Circle, New Delhi', 'assets/documents/photo/9302525387-Varun Mishra-pic3.jpg'),
 (4, '700001', 'Kolkata', 'West Bengal', 'Abhishek Bharadwaj', '9961797112', 'Male', '45', '472018910945', 'assets/documents/aadhar/9961797112-Abhishek Bharadwaj-AADHAR.pdf', 'Kolkatta Head Post Office, Kolkata', 'assets/documents/photo/9961797112-Abhishek Bharadwaj-pic4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mepdetails`
+--
+
+CREATE TABLE `mepdetails` (
+  `id` int(11) NOT NULL,
+  `cro_id` int(11) NOT NULL,
+  `mep` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mepdetails`
+--
+
+INSERT INTO `mepdetails` (`id`, `cro_id`, `mep`) VALUES
+(1, 1, 64),
+(2, 4, 16),
+(3, 3, 25),
+(4, 2, 18),
+(5, 6, 19),
+(6, 10, 25),
+(7, 11, 23),
+(8, 1, 62),
+(9, 1, 65),
+(10, 1, 68),
+(11, 1, 60),
+(12, 2, 16),
+(13, 2, 18),
+(14, 2, 15),
+(15, 2, 17),
+(16, 1, 70);
 
 -- --------------------------------------------------------
 
@@ -496,6 +530,13 @@ ALTER TABLE `kiosk`
   ADD UNIQUE KEY `k_mobile` (`k_mobile`);
 
 --
+-- Indexes for table `mepdetails`
+--
+ALTER TABLE `mepdetails`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_cro_id` (`cro_id`);
+
+--
 -- Indexes for table `otps`
 --
 ALTER TABLE `otps`
@@ -554,7 +595,7 @@ ALTER TABLE `cropdetails`
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -579,6 +620,12 @@ ALTER TABLE `farmer`
 --
 ALTER TABLE `kiosk`
   MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `mepdetails`
+--
+ALTER TABLE `mepdetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `otps`
@@ -622,6 +669,12 @@ ALTER TABLE `cropbid`
 ALTER TABLE `cropsale`
   ADD CONSTRAINT `fk_cr_cro_id` FOREIGN KEY (`cr_cro_id`) REFERENCES `cropdetails` (`cro_id`),
   ADD CONSTRAINT `fk_cr_f_mobile` FOREIGN KEY (`cr_f_mobile`) REFERENCES `farmer` (`f_mobile`);
+
+--
+-- Constraints for table `mepdetails`
+--
+ALTER TABLE `mepdetails`
+  ADD CONSTRAINT `fk_cro_id` FOREIGN KEY (`cro_id`) REFERENCES `cropdetails` (`cro_id`);
 
 --
 -- Constraints for table `transportbid`
