@@ -95,7 +95,7 @@ error_reporting(0);
             $cr_status = $res['cr_status'];
         }
 
-        if ($cr_status == 1 || $cr_status == 2) {
+        if ($cr_status == 1 || $cr_status == 2 || $cr_status=13) {
             $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb where cb.cb_id=$cb_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
         }
 
@@ -370,6 +370,8 @@ error_reporting(0);
                                                                                     echo "Driver Delivery Conformation Pending";
                                                                                 } else if ($cb_status == "12") {
                                                                                     echo "Deal Over";
+                                                                                } else if ($cb_status == "13") {
+                                                                                    echo "Crop Deleted By Farmer";
                                                                                 } ?></h6>
                                             </div>
                                         </div><br>
