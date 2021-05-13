@@ -197,6 +197,7 @@ error_reporting(0);
                                             </div>
                                             <form method="post" action="editcrop-script.php" enctype="multipart/form-data" style="width:100%;">
                                             <div class="col-sm-6">
+                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Update Crop Details</strong></h4>
                                                 <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
 												<div class="form-group"><input class="form-control" type="text" name="mep" placeholder="Minimun Expected Price" value="<?php echo $cr_mep; ?>" required="" autofocus=""></div>
                                             </div>
@@ -207,6 +208,8 @@ error_reporting(0);
 											<div class="col-sm-6">
 											<p class="m-b-10 f-w-600"></p><br>
                                             <input type="hidden" name="id" value="<?php echo $cr_id; ?>">
+                                            <input type="hidden" name="msp" value="<?php echo $cr_msp; ?>">
+                                            <div id="errorshow1" style="color:red; font-weight:700;"></div>
                                             <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
                                             </form>
                                             </div>
