@@ -4,7 +4,7 @@
  $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 
 //Create Connection
-$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
+
 
 if (isset($_POST["submit"])) {
     #retrieve file title

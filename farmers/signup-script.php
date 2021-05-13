@@ -3,7 +3,7 @@
  $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 
 //Create Connection
-$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);
+
 
     $farmer_mobile = $_GET['farmer_mobile'];
     $farmer_name = $_GET['farmer_name'];
