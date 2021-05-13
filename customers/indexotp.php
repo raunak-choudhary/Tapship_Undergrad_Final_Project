@@ -9,6 +9,28 @@ if (!isset($_SESSION['login_customer'])) {
 error_reporting(0);
 ?>
 
+<?php
+    $con = mysqli_connect("localhost", "root", "", "tapship");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from customer where c_mobile=" . $c_mobile . "";
+    $result = mysqli_query($con, $query);
+    $res = mysqli_fetch_assoc($result);
+
+    $c_approve =  $res['c_approve'];
+    $c_pincode = $res['c_pincode'];
+    $c_tsv_validity=$res['c_tsv_validity'];
+
+    if($c_tsv_validity<time() || $c_tsv_validity==''){
+        echo "<script>location.replace('tsv_verification.php')</script>";
+        exit();
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -48,20 +70,7 @@ error_reporting(0);
             </div>
         </div>
     </nav>
-    <?php
-
-    $con = mysqli_connect("localhost", "root", "", "tapship");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from customer where c_mobile=" . $c_mobile . "";
-    $result = mysqli_query($con, $query);
-
-    while ($res = mysqli_fetch_assoc($result)) {
-        $c_approve =  $res['c_approve'];
-    }
-    ?>
+    
 
     <?php
     if ($c_approve == 1 || $c_approve == 3 || $c_approve == 4 || $c_approve == 5 || $c_approve == NULL) { ?>
@@ -123,7 +132,7 @@ error_reporting(0);
 
         <div class="features-boxed">
             <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Dashboard</h2>
                 </div>
             </div>
