@@ -52,7 +52,7 @@ if (!isset($_SESSION['login_admin'])) {
 
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
-            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
+            <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                 <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Crop Details</h2>
             </div>
         </div>
@@ -90,10 +90,10 @@ if (!isset($_SESSION['login_admin'])) {
                 <tr class="text-center">
                     <td data-label="Sr. No."> <?php echo $c;
                                                 $c += 1 ?> </td>
-                    <td data-label="Pincode"> <?php echo $res['cro_name']; ?> </td>
-                    <td data-label="District"> <?php echo $res['cro_type']; ?> </td>
-                    <td data-label="State"> <?php echo '₹ ', $res['cro_costperkg']; ?> </td>
-                    <td data-label="Name"> <?php echo '₹ ', $res['cro_msp'];  ?> </td>
+                    <td data-label="Crop Name"> <?php echo $res['cro_name']; ?> </td>
+                    <td data-label="Crop Type"> <?php echo $res['cro_type']; ?> </td>
+                    <td data-label="Crop Cost per kgs."> <?php echo '₹ ', $res['cro_costperkg']; ?> </td>
+                    <td data-label="Crop MSP"> <?php echo '₹ ', $res['cro_msp'];  ?> </td>
                     <td data-label="Update"> <a href="updatecropcost.php?cro_id=<?php echo $res['cro_id']; ?>" class="text-white"> <button class="btn btn-info"> Update </button> </a> </td>
 
                 </tr>

@@ -56,12 +56,13 @@ error_reporting(0);
 
 
         <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
+            <div class="container" style="background: #ffffff;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Update Crop Details</h2>
                 </div>
             </div>
         </div>
+
 		
 		<?php
         $con = mysqli_connect("localhost", "root", "", "tapship");
@@ -74,10 +75,16 @@ error_reporting(0);
         $cr_id=base64_decode($id);
         $cr_id=round((double)$cr_id/525325.24/6537838239.89);
         
-       
-        $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status FROM cropdetails CD, cropsale CS where cs.cr_id=$cr_id and CD.cro_id=cs.cr_cro_id";
-        
+        $q = "select cr_status from cropsale where cr_id = $cr_id";
+        $result = mysqli_query($con, $q);
 
+        while ($res = mysqli_fetch_assoc($result)) {
+            $cr_status = $res['cr_status'];
+        }
+
+        if ($cr_status == 0 || $cr_status == 1) {
+            $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status FROM cropdetails CD, cropsale CS where cs.cr_id=$cr_id and CD.cro_id=cs.cr_cro_id";
+        }
 
         $result = mysqli_query($con, $query);
 
@@ -166,72 +173,42 @@ error_reporting(0);
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop ID</p> 
-												 <div class="form-group"><input class="form-control" type="text" name="crop_id" placeholder="Crop Id" value="<?php echo $cro_id ?>" required="" autofocus="" disabled></div>
+                                                <h6 class="text-muted f-w-400"><?php echo "$cro_id" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop Name</p>
-												<div class="form-group"><input class="form-control" type="text" name="crop_name" placeholder="Crop Name" value="<?php echo $cro_name ?>" required="" autofocus="" disabled></div>
+                                                <h6 class="text-muted f-w-400"><?php echo "$cro_name" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop Type</p>
-												<div class="form-group"><input class="form-control" type="text" name="crop_type" placeholder="Crop Type" value="<?php echo $cro_type ?>" required="" autofocus="" disabled></div>
+                                                <h6 class="text-muted f-w-400"><?php echo "$cro_type" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Crop Sale ID</p>
-												<div class="form-group"><input class="form-control" type="text" name="cropsale_id" placeholder="Crop SaleId" value="<?php echo $cr_ide ?>" required="" autofocus="" disabled></div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Minimum Selling Price (per kgs.)</p>
-												<div class="form-group"><input class="form-control" type="text" name="msp" placeholder="Minimum Selling Price" value="<?php echo $cr_msp ?>" required="" autofocus="" disabled></div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
-												<div class="form-group"><input class="form-control" type="text" name="mep" placeholder="Minimun Expected Price" value="<?php echo $cr_mep ?>" required="" autofocus=""></div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Quantity</p>
-												<div class="form-group"><input class="form-control" type="text" name="quantity" placeholder="Quantity" value="<?php echo $cr_quantity ?>" required="" autofocus=""></div>
-												
+                                                <h6 class="text-muted f-w-400"><?php echo "$cr_id" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Date</p>
-												<div class="form-group"><input class="form-control" type="text" name="date" placeholder="Date" value="<?php echo $cr_date ?>" required="" autofocus=""></div>
-												
+                                                <h6 class="text-muted f-w-400"><?php echo "$cr_date" ?></h6>
                                             </div>
-											<div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Crop Status</p>
-                                                <div class="form-group"><input class="form-control" type="text" name="crop_status" placeholder="Crop Status" value="<?php if ($cr_status == "0") {
-                                                                                    echo "Crop Added";
-                                                                                } else if ($cr_status == "1") {
-                                                                                    echo "Bidding";
-                                                                                } else if ($cr_status == "2") {
-                                                                                    echo "Bid Accepeted";
-                                                                                } else if ($cr_status == "3") {
-                                                                                    echo "Payment Done";
-                                                                                } else if ($cr_status == "4") {
-                                                                                    echo "Payment Confirmed";
-                                                                                } else if ($cr_status == "5") {
-                                                                                    echo "Self Transport Selected";
-                                                                                } else if ($cr_status == "6") {
-                                                                                    echo "Tapship Delivery Selection Pending";
-                                                                                } else if ($cr_status == "7") {
-                                                                                    echo "Tapship Delivery Selection Pending";
-                                                                                } else if ($cr_status == "8") {
-                                                                                    echo "Tapship Delivery Selected";
-                                                                                } else if ($cr_status == "9") {
-                                                                                    echo "Farmer Pickup conformed";
-                                                                                } else if ($cr_status == "10") {
-                                                                                    echo "Driver Pickup Conformed";
-                                                                                } else if ($cr_status == "11") {
-                                                                                    echo "Customer Delivery Conformed";
-                                                                                } else if ($cr_status == "12") {
-                                                                                    echo "Deal Over";
-                                                                                } ?>" required="" autofocus="" disabled>
-												</div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Minimum Selling Price (per kgs.)</p>
+                                                <h6 class="text-muted f-w-400"><?php echo "$cro_msp" ?></h6>
+                                            </div>
+                                            <form method="post" action="editcrop-script.php" enctype="multipart/form-data" style="width:100%;">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+												<div class="form-group"><input class="form-control" type="text" name="mep" placeholder="Minimun Expected Price" value="<?php echo $cr_mep; ?>" required="" autofocus=""></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Quantity</p>
+												<div class="form-group"><input class="form-control" type="text" name="quantity" placeholder="Quantity" value="<?php echo $cr_quantity; ?>" required="" autofocus=""></div>
                                             </div>
 											<div class="col-sm-6">
 											<p class="m-b-10 f-w-600"></p><br>
-                                            <button class="btn btn-dark text-monospace f-w-400  " style="background-color:#0c3823;"><a href="editcrop.php">Update</a></button>
+                                            <input type="hidden" name="id" value="<?php echo $cr_id; ?>">
+                                            <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
+                                            </form>
                                             </div>
                                         </div><br>
 									</div>

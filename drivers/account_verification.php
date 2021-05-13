@@ -189,8 +189,8 @@ require_once '../api/twilio/config.php';
 ?>
 
 <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
+            <div class="container" style="background: #ffffff;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Account Verification</h2>
                 </div>
             </div>

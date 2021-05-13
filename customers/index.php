@@ -122,7 +122,7 @@ error_reporting(0);
     if ($c_approve == 2) { ?>
 
         <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
+            <div class="container" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Customer Dashboard</h2>
                 </div>
@@ -240,7 +240,7 @@ error_reporting(0);
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1" style="width: 300px;"><span class="text-capitalize text-center" style="font-size: 25px;color: rgb(1,5,15);">MEP Tracking
                                         </div>
                                         <div class="text-dark font-weight-bold h5 mb-0" style="width: 290px;">
-                                            <a href="#"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View MEP</button></a>
+                                            <a href="meptracking.php"><button class="btn btn-primary" type="button" style="background-color: rgb(52,57,72);margin-left: 10px; width: 250px;">View MEP</button></a>
                                         </div>
                                     </div>
                                 </div>

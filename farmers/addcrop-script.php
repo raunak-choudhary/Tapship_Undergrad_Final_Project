@@ -58,6 +58,9 @@ if (isset($_POST["submit"])) {
 
         $query = "INSERT into cropsale(cr_f_mobile, cr_cro_id, cr_quantity,cr_mep,cr_img1,cr_img2,cr_img3, cr_date, cr_status) VALUES('$crop_f_mobile', '$crop_cro_id', '$crop_quantity','$crop_mep','$target_path1','$target_path2','$target_path3','$date', '$crop_status')";
         $success = $con->query($query);
+
+        $query1 = "INSERT into mepdetails(cro_id,mep) VALUES('$crop_cro_id', '$crop_mep')";
+        $success = $con->query($query1);
         echo "<script type='text/javascript'>location.replace('activecrop.php');</script>";
     }
 }

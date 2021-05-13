@@ -56,8 +56,8 @@ error_reporting(0);
 
 
         <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
-                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px; max-width:1000px;">
+            <div class="container" style="background: #ffffff;">
+                <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Crop Details</h2>
                 </div>
             </div>
@@ -296,16 +296,19 @@ error_reporting(0);
 
                                         <?php
                                         if ($cr_status == 0) {
+                                            $cr_id=round((double)$cr_id*525325.24*6537838239.89);
+                                            $id = base64_encode($cr_id);
                                         ?>
-                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="editcrop.php">Edit Details</a></button>
-                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="deletecrop.php">Delete</a></button>
+
+                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="editcrop.php?id=<?php echo $id; ?>" style="color:white; text-decoration: none;">Edit Details</a></button>
+                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="deletecrop.php?id=<?php echo $id; ?>" style="color:white; text-decoration: none;">Delete</a></button>
 
                                         <?php
                                         }
                                         if ($cr_status == 1) {
                                         ?>
-                                            <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white"> View Bids </a> </button>
-                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Delete</a></button>
+                                            <button class="btn" style="background-color:#0c3823;"> <a href="viewbids.php?cr_id=<?php echo $cr_id; ?>" class="text-white" style="color:white; text-decoration: none;"> View Bids </a> </button>
+                                            <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;" ><a href="deletecrop.php?id=<?php echo $id; ?>" style="color:white; text-decoration: none;">Delete</a></button>
 
                                         <?php
 
@@ -453,7 +456,6 @@ error_reporting(0);
                                                     <p class="m-b-10 f-w-600">Medium</p>
                                                     <h6 class="text-muted f-w-400"><?php echo "Self Transport"; ?></h6>
                                                 </div>
-
 
                                                 <?php
                                                 if ($cb_status == "5") {
