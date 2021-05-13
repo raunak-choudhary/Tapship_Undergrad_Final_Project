@@ -194,6 +194,10 @@ error_reporting(0);
                                                     <p class="m-b-10 f-w-600">Upload PAN</p>
                                                     <input type="file" name="customer_panpdf" accept="application/pdf" id="c_panpdf">
                                                 </div>
+                                                <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">New Profile Photo</p>
+                                                <input type="file" name="customer_photo" accept="image/jpeg, image/jpg, image/png" id="c_photo">
+                                            </div>
                                             </div>
                                         </div>
                                     </div>

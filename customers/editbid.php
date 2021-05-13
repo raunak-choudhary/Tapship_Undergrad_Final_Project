@@ -334,7 +334,6 @@ error_reporting(0);
 											<div class="col-sm-6">
 											<p class="m-b-10 f-w-600"></p><br>
                                             <input type="hidden" name="id" value="<?php echo $cb_id; ?>">
-                                            <div id="errorshow1" style="color:red; font-weight:700;"></div>
                                             <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
                                             </form>
                                         </div><br>

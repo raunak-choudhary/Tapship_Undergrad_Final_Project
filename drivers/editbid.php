@@ -67,7 +67,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         die(" Connection Error ");
     }
 
-    $tb_id = $_GET['tb_id'];
+    $tb_id = $_GET['id'];
 
     $query = "SELECT tb_cb_id from transportbid where tb_id=$tb_id";
     $result = mysqli_query($con, $query);
@@ -240,11 +240,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 													<p class="m-b-10 f-w-600">Bid ID</p>
 													<h6 class="text-muted f-w-400"><?php echo $tb_id; ?></h6>
 												</div>
-												<div class="col-sm-6">
-													<p class="m-b-10 f-w-600">Bid Price</p>
-													<h6 class="text-muted f-w-400"><?php echo $tb_bid; ?></h6>
-												</div>
-												<div class="col-sm-6">
+                                                <div class="col-sm-6">
 													<p class="m-b-10 f-w-600">Bid Status</p>
 													<h6 class="text-muted f-w-400"><?php if ($cb_status == "0") {
 																				echo "Bid Placed";
@@ -274,87 +270,20 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
 																				echo "Deal Over";
 																			} ?></h6>
 												</div>
+                                                
+                                                <form method="post" action="editbid-script.php" enctype="multipart/form-data" style="width:100%;">
+                                                <br><div class="col-sm-6">
+                                                    <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Update Bid Price</strong></h4>
+                                                    <p class="m-b-10 f-w-600">Bid Price</p>
+                                                    <div class="form-group"><input class="form-control" type="text" name="bid" placeholder="Enter Bid Price" value="<?php echo $tb_bid; ?>" required="" autofocus=""></div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600"></p><br>
+                                                <input type="hidden" name="id" value="<?php echo $tb_id; ?>">
+                                                <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
+                                                </form>
+												
 											</div><br>
-
-    <?php
-    if ($cr_status == 7) {
-    ?>
-        <h6> Note: - Bidding for this deal is still going on please wait for selection from customer</h6>
-        <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="editbid.php?id=<?php echo $tb_id; ?>" style="color:white; text-decoration: none;">Edit Bid Details</a></button>
-        <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="deletebid.php?id=<?php echo $tb_id; ?>" style="color:white; text-decoration: none;">Delete</a></button>
-
-    <?php } ?>
-
-    <?php
-    if ($cr_status == 8 and $tb_status==1) {
-    ?>
-        <h6> Note: - Please wait for pickup conformation by farmer</h6>
-    <?php } ?>
-
-    <?php
-    if ($cr_status == 9 and $tb_status==1) {
-    ?>
-        <form method="post" action="pickupdone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-            <input type="checkbox" id="check"> I have picked up <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to deliver it to <?php echo $c_name; ?> from <?php echo $f_name; ?>
-            <br>
-            <p id="demo"></p>
-            <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Pickup </button>
-        </form>
-
-        <script>
-            function checkForm(form) {
-                if (!form.check.checked) {
-                    document.getElementById("demo").innerHTML = ("Please accept your pickup from farmer by clicking checkbox");
-                    return false;
-                }
-                return true;
-            }
-        </script>
-    <?php } ?>
-
-    <?php
-    if ($cr_status == 10 and $tb_status==1) {
-    ?>
-        <h6> Note: - Please wait for crop successfully delivered to customer conformation from customer</h6>
-    <?php } ?>
-
-    <?php
-    if ($cr_status == 11 and $tb_status==1) {
-    ?>
-        <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
-            <input type="checkbox" id="check"> I have delivered <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> to <?php echo $c_name; ?> which I picked from <?php echo $f_name; ?>
-            <br>
-            <p id="demo"></p>
-            <button name="submit" type="submit" class="btn btn-dark text-monospace" style="background-color:#0c3823;"> Confirm Delivery </button>
-        </form>
-
-        <script>
-            function checkForm(form) {
-                if (!form.check.checked) {
-                    document.getElementById("demo").innerHTML = ("Please accept that you have delivered items to customer successfully by clicking checkbox");
-                    return false;
-                }
-                return true;
-            }
-        </script>
-    <?php } ?>
-
-    <?php
-    if ($cr_status == 12 && $tb_status==1) {
-    ?>
-        <h6> Note: - This deal is successfully completed and closed</h6>
-        <br>
-        <h4 style="text-align: center;">Thank You for doing business with us</h4>
-    <?php
-    } ?>
-
-    <?php
-    if (($cr_status == 8 || $cr_status == 9 || $cr_status == 10 ||$cr_status == 11 || $cr_status == 12) && $tb_status==2) {
-    ?>
-        <h6> Note: - Sorry Your Bid is rejected by Customer</h6>
-    <?php
-    } ?>
-    <hr>
 	
                         </div>
                     </div>

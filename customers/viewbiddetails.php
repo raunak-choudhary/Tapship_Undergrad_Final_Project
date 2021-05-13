@@ -412,7 +412,7 @@ error_reporting(0);
                                                     <div class="form-group"><input class="form-control" id="cropbid_tid" type="text" name="cropbid_tid" placeholder="Put Transaction ID" required="" autofocus=""></div>
                                                     <h5 style="color:#fff;">Transaction Proof (PDF/Photo)</h5>
                                                     <div class="form-group"><input class="form-control" id="cropbid_tproof" type="file" accept="image/jpeg, image/jpg, image/png, application/pdf" name="cropbid_tproof" required="" autofocus=""></div>
-                                                    <input name="submit" type="submit" class="btn btn-primary btn-block" value="Update Payment">
+                                                    <input name="submit" type="submit" class="btn btn-primary btn-block" value="Make Payment">
                                                 </form>
                                             </div>
                                         <?php
