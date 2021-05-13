@@ -4,7 +4,7 @@ import random
 import requests
 import sys
 
-engine =sqlalchemy.create_engine("mysql+pymysql://root@localhost:3306/tapship")
+engine =sqlalchemy.create_engine("mysql+pymysql://uodltp4afruoomkk:WAniOzDcPXxfNZTCLGnl@b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com:3306/b3bu9bb23ikjqsiv8aku")
 
 d_mobile = str(sys.argv[1])
 d_lat = str(sys.argv[2])
