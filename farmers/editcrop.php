@@ -63,18 +63,18 @@ error_reporting(0);
             </div>
         </div>
 
-		
-		<?php
+
+        <?php
         $con = mysqli_connect("localhost", "root", "", "tapship");
         if (!$con) {
             die(" Connection Error ");
         }
 
         $id = $_GET['id'];
-        
-        $cr_id=base64_decode($id);
-        $cr_id=round((double)$cr_id/525325.24/6537838239.89);
-        
+
+        $cr_id = base64_decode($id);
+        $cr_id = round((float)$cr_id / 525325.24 / 6537838239.89);
+
         $q = "select cr_status from cropsale where cr_id = $cr_id";
         $result = mysqli_query($con, $q);
 
@@ -138,12 +138,11 @@ error_reporting(0);
             $d_street = $res['d_street'];
             $d_city = $res['d_city'];
             $d_state = $res['d_state'];
-            $d_pincode= $res['d_pincode'];
-            
+            $d_pincode = $res['d_pincode'];
         }
         ?>
-		
-		 <div>
+
+        <div>
             <div class="container">
                 <div class="cust_bloglistintro">
                     <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
@@ -161,7 +160,7 @@ error_reporting(0);
                 </div>
 
             </div>
-			<div class="padding">
+            <div class="padding">
                 <div class="row container d-flex justify-content-center">
                     <div class="col-xl-12 col-md-12">
                         <div class="card user-card-full">
@@ -172,7 +171,7 @@ error_reporting(0);
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Crop Details</strong></h4>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Crop ID</p> 
+                                                <p class="m-b-10 f-w-600">Crop ID</p>
                                                 <h6 class="text-muted f-w-400"><?php echo "$cro_id" ?></h6>
                                             </div>
                                             <div class="col-sm-6">
@@ -196,35 +195,35 @@ error_reporting(0);
                                                 <h6 class="text-muted f-w-400"><?php echo "$cro_msp" ?></h6>
                                             </div>
                                             <form method="post" action="editcrop-script.php" enctype="multipart/form-data" style="width:100%;">
-                                            <div class="col-sm-6">
-                                            <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Update Crop Details</strong></h4>
-                                                <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
-												<div class="form-group"><input class="form-control" type="text" name="mep" placeholder="Minimun Expected Price" value="<?php echo $cr_mep; ?>" required="" autofocus=""></div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Quantity</p>
-												<div class="form-group"><input class="form-control" type="text" name="quantity" placeholder="Quantity" value="<?php echo $cr_quantity; ?>" required="" autofocus=""></div>
-                                            </div>
-											<div class="col-sm-6">
-											<p class="m-b-10 f-w-600"></p><br>
-                                            <input type="hidden" name="id" value="<?php echo $cr_id; ?>">
-                                            <input type="hidden" name="msp" value="<?php echo $cr_msp; ?>">
-                                            <div id="errorshow1" style="color:red; font-weight:700;"></div>
-                                            <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
+                                                <div class="col-sm-6">
+                                                    <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Update Crop Details</strong></h4>
+                                                    <p class="m-b-10 f-w-600">Minimun Expected Price (per kgs.)</p>
+                                                    <p style="color:red; font-weight:700;">**Please Enter MEP less than 25% of Minimum Selling Price (MSP)**</p>
+                                                    <div class="form-group"><input class="form-control" type="text" name="mep" placeholder="Minimun Expected Price" value="<?php echo $cr_mep; ?>" required="" autofocus=""></div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Quantity</p>
+                                                    <div class="form-group"><input class="form-control" type="text" name="quantity" placeholder="Quantity" value="<?php echo $cr_quantity; ?>" required="" autofocus=""></div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600"></p><br>
+                                                    <input type="hidden" name="id" value="<?php echo $cr_id; ?>">
+                                                    <input type="hidden" name="msp" value="<?php echo $cro_msp; ?>">
+                                                    <button class="btn btn-primary btn-block" type="submit" name="update" style="background-color:#0c3823;">Update</button>
                                             </form>
-                                            </div>
-                                        </div><br>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-       
-										
-										
-			<div class="footer-dark" style="background: rgb(12,56,35);">
+                                        </div>
+                                    </div><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-dark" style="background: rgb(12,56,35);">
             <footer>
                 <div class="container-fluid">
                     <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
