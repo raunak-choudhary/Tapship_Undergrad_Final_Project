@@ -280,6 +280,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
     if ($cr_status == 7) {
     ?>
         <h6> Note: - Bidding for this deal is still going on please wait for selection from customer</h6>
+        <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Edit Bid</a></button>
+        <button class="btn btn-dark text-monospace  " style="background-color:#0c3823;"><a href="#">Delete</a></button>
     <?php } ?>
 
     <?php
