@@ -11,12 +11,12 @@ error_reporting(0);
 include('viewcrop.php');
 
 
- $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 
 $cr_id = $_GET['cr_id'];
 
 $query = "SELECT f.f_mobile
-FROM cropsale CS, farmer f where f.f_mobile=CS.cr_f_mobile AND cs.cr_id=$cr_id";
+FROM cropsale cs, farmer f where f.f_mobile=cs.cr_f_mobile AND cs.cr_id=$cr_id";
 
 $result = mysqli_query($con,$query);
 

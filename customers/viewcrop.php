@@ -66,15 +66,15 @@ error_reporting(0);
         </div>
     </div>
     <?php
-     $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
     if (!$con) {
         die(" Connection Error ");
     }
 
     $cr_id = $_GET['cr_id'];
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode
-    FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND CS.cr_id = $cr_id
-    ORDER BY CS.cr_id DESC";
+    $query = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode
+    FROM cropdetails cd, cropsale cs, farmer f where cd.cro_id=cs.cr_cro_id AND f.f_mobile=cs.cr_f_mobile AND cs.cr_id = $cr_id
+    ORDER BY cs.cr_id DESC";
 
     $result = mysqli_query($con, $query);
 

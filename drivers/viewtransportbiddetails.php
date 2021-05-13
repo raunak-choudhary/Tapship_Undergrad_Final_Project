@@ -7,7 +7,7 @@ if (!isset($_SESSION['login_driver'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
- $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 ?>
 
 
@@ -62,7 +62,7 @@ error_reporting(0);
 
 
     <?php
-     $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
     if (!$con) {
         die(" Connection Error ");
     }
@@ -76,7 +76,7 @@ error_reporting(0);
         $cb_id =  $res['tb_cb_id'];
     }
 
-    $query = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND tb_cb_id=$cb_id AND cb.cb_id = $cb_id AND tb.tb_d_mobile=(SELECT tb_d_mobile from transportbid where tb_id=$tb_id)";
+    $query = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cs.cr_id, cs.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, c.c_name, c.c_mobile, c.c_gender, c.c_age, c.c_street, c.c_city, c.c_state, c.c_pincode, tb.tb_id, tb.tb_bid, tb.tb_status, cb.cb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cs.cr_status in (7,8,9,10,11,12) AND tb_cb_id=$cb_id AND cb.cb_id = $cb_id AND tb.tb_d_mobile=(SELECT tb_d_mobile from transportbid where tb_id=$tb_id)";
     $result = mysqli_query($con, $query);
 
     while ($res = mysqli_fetch_assoc($result)) {

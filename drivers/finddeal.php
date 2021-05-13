@@ -7,7 +7,7 @@ if (!isset($_SESSION['login_driver'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 error_reporting(0);
- $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 ?>
 
 
@@ -79,11 +79,11 @@ error_reporting(0);
 
         <?php
 
-         $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+         $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
         
 
 
-        $q = "SELECT CD.cro_name, CD.cro_type, cb.cb_id, CS.cr_id, CS.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status in (6,7) AND cs.cr_status = '6'";
+        $q = "SELECT cd.cro_name, cd.cro_type, cb.cb_id, cs.cr_id, cs.cr_quantity, f.f_name, f.f_mobile, f.f_city, f.f_pincode, c.c_name, c.c_mobile, c.c_city, c.c_pincode FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND cb.cb_status in (6,7) AND cs.cr_status = '6'";
         $query = mysqli_query($con, $q);
         $c = 1;
 

@@ -9,7 +9,7 @@ if (!isset($_SESSION['login_farmer'])) {
 error_reporting(0);
 
 
- $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 ?>
 
 
@@ -80,13 +80,13 @@ error_reporting(0);
 
         <?php
 
-         $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+         $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
         
 
 
-        $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status
-        FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)
-        ORDER BY CS.cr_id DESC";
+        $q = "SELECT cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status
+        FROM cropdetails cd, cropsale cs, farmer f where cd.cro_id=cs.cr_cro_id AND f.f_mobile=cs.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)
+        ORDER BY cs.cr_id DESC";
 
         $query = mysqli_query($con, $q);
         $c = 1;
@@ -145,7 +145,7 @@ error_reporting(0);
     </table>
 
     <?php 
-    $count = $con->query("SELECT * FROM cropdetails CD, cropsale CS, farmer f where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)")->num_rows;
+    $count = $con->query("SELECT * FROM cropdetails cd, cropsale cs, farmer f where cd.cro_id=cs.cr_cro_id AND f.f_mobile=cs.cr_f_mobile AND cs.cr_f_mobile = $f_mobile AND cs.cr_status in (0,1,2,3,4,5,6,7,8,9,10,11)")->num_rows;
     if($count==0){ ?>
     <center><h3 style="border:5px solid black;width:70%;text-align:center; margin:20px;padding:20px;"> No Data available</h3></center>
     <?php } ?>

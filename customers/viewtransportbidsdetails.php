@@ -8,7 +8,7 @@ if (!isset($_SESSION['login_farmer'])) {
 }
 error_reporting(0);
 
- $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 ?>
 
 
@@ -63,7 +63,7 @@ error_reporting(0);
     <?php
     $tb_id = $_GET['tb_id'];
 
-    $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CS.cr_id, CS.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, d.d_name, d.d_mobile, d.d_gender, d.d_age, d.d_street, d.d_city, d.d_state, d.d_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, transportbid tb, driver d where tb.tb_d_mobile=d.d_mobile AND cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_id=$tb_id";
+    $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cs.cr_id, cs.cr_quantity, cs.cr_status, cs.cr_img1,cs.cr_img2,cs.cr_img3, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, d.d_name, d.d_mobile, d.d_gender, d.d_age, d.d_street, d.d_city, d.d_state, d.d_pincode, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, transportbid tb, driver d where tb.tb_d_mobile=d.d_mobile AND cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status='7' AND tb.tb_id=$tb_id";
     $result = mysqli_query($con, $q);
 
     while ($res = mysqli_fetch_assoc($result)) {

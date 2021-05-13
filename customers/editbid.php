@@ -81,14 +81,14 @@ error_reporting(0);
 
 
         <?php
-         $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+         $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
         if (!$con) {
             die(" Connection Error ");
         }
 
         $cb_id = $_GET['id'];
 
-        $q = "SELECT CD.cro_id, CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_f_mobile, CS.cr_cro_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status, CS.cr_img1, CS.cr_img2, CS.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails CD, cropsale CS, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=CS.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND CD.cro_id=CS.cr_cro_id";
+        $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status FROM cropdetails cd, cropsale cs, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id";
         $result = mysqli_query($con, $q);
 
         while ($res = mysqli_fetch_assoc($result)) {

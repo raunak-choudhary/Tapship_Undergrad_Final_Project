@@ -9,7 +9,7 @@ engine =sqlalchemy.create_engine("mysql+pymysql://m1t7Rrl6v7@remotemysql.com:330
 c_mobile = str(sys.argv[1])
 c_pincode = str(sys.argv[2])
 
-s1= 'SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_status, f.f_name, f.f_mobile,f.f_pincode FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 ORDER BY CS.cr_id DESC'
+s1= 'SELECT cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_quantity, cs.cr_mep, cs.cr_status, f.f_name, f.f_mobile,f.f_pincode FROM cropdetails cd, cropsale cs, farmer f  where cd.cro_id=cs.cr_cro_id AND f.f_mobile=cs.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 ORDER BY cs.cr_id DESC'
 
 df1 = pd.read_sql_query(s1,engine)
 df1 = pd.DataFrame(df1)
@@ -52,7 +52,7 @@ for ele in disdicsort:
     count+= 1
 order+= ' else '+str(count)+' end asc'
 
-s2= 'SELECT CD.cro_name as "Crop Name", CD.cro_type as "Crop Type", CS.cr_quantity as "Crop Quantity (in kgs.)", CD.cro_msp as "Crop MSP", CS.cr_mep as "Crop MEP", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City" FROM cropdetails CD, cropsale CS, farmer f  where CD.cro_id=CS.cr_cro_id AND f.f_mobile=CS.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 '+order
+s2= 'SELECT cd.cro_name as "Crop Name", cd.cro_type as "Crop Type", cs.cr_quantity as "Crop Quantity (in kgs.)", cd.cro_msp as "Crop MSP", cs.cr_mep as "Crop MEP", f.f_name as "Farmer Name", f.f_mobile as "Farmer Mobile", f.f_city as "Farmer City" FROM cropdetails cd, cropsale cs, farmer f  where cd.cro_id=cs.cr_cro_id AND f.f_mobile=cs.cr_f_mobile AND cs.cr_status IN (0,1) AND (SELECT count(cb_id) from cropbid cb WHERE cb.cb_c_mobile ='+c_mobile+' AND cb.cb_cr_id = cs.cr_id)=0 '+order
 
 df2 = pd.read_sql_query(s2,engine)
 df2 = pd.DataFrame(df2)
