@@ -76,8 +76,8 @@ if (!isset($_SESSION['login_admin'])) {
 
             <?php
 
-            $con = mysqli_connect('localhost', 'root');
-            mysqli_select_db($con, 'tapship');
+             $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+            
 
 
             $q = "select cro_id, cro_name, cro_type, cro_costperkg, cro_msp from cropdetails where cro_id!=0";

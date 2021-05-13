@@ -1,9 +1,6 @@
 <?php
 error_reporting(0);
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "tapship";
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 
 //Create Connection
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($con->connect_error);

@@ -1,6 +1,6 @@
 <?php
 $id = $_POST['id'];
-$con = mysqli_connect("localhost", "root", "", "tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 $q = "select cro_name, cro_type, cro_costperkg, cro_msp from cropdetails where cro_id=$id";
 $query = mysqli_query($con, $q);
  while ($res = mysqli_fetch_array($query)) {

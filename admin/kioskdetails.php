@@ -79,8 +79,8 @@ if (!isset($_SESSION['login_admin'])) {
 
             <?php
 
-            $con = mysqli_connect('localhost', 'root');
-            mysqli_select_db($con, 'tapship');
+             $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+            
 
 
             $q = "select k_id, k_pincode, k_district, k_state, k_name, k_mobile, k_photo from kiosk where k_id!=0 ORDER BY k_id DESC";

@@ -9,7 +9,7 @@ header("location: login.php"); // Redirecting To Profile Page
 error_reporting(0);
 
 
-$con=mysqli_connect("localhost","root","","tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 
 $cb_id = $_GET['cb_id'];
 $q = "SELECT cb_cr_id FROM cropbid where cb_id=$cb_id";

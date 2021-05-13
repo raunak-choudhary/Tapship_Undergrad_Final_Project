@@ -7,7 +7,7 @@ if (!isset($_SESSION['login_farmer'])) {
     header("location: login.php"); // Redirecting To Profile Page
 }
 
-$con = mysqli_connect("localhost", "root", "", "tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 $cr_id = $con->real_escape_string($_POST['id']);
 $cr_mep = $con->real_escape_string($_POST['mep']);
 $cr_quantity = $con->real_escape_string($_POST['quantity']);

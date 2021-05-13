@@ -5,7 +5,7 @@ $res = $_SESSION["sessionid"];
 $c_mobile = $res;
 error_reporting(0);
 
-$con = mysqli_connect("localhost", "root", "", "tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 $query = "UPDATE customer SET c_tsv_otp='', c_tsv_validity='', c_av_otp='' where c_mobile = $c_mobile";
 $result = mysqli_query($con,$query);
 session_start();

@@ -11,7 +11,7 @@ error_reporting(0);
 include('viewcrop.php');
 
 
-$con=mysqli_connect("localhost","root","","tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 
 $cr_id = $_GET['cr_id'];
 

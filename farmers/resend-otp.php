@@ -24,7 +24,7 @@ if($_POST['type']=='tsv'){
                              'body' => '[Tapship: 2-step verification] Hello '.$name.", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
                              )
                      );
-                     $con = mysqli_connect("localhost", "root", "", "tapship");
+                      $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
                      $InsertOTP=$con->query("UPDATE farmer SET f_tsv_otp='".$GeneratedOTP."' WHERE f_mobile='".$uid."'");
                      echo "Otp sent successfully";
                      $_SESSION['otptimer']=time()+120;
@@ -45,7 +45,7 @@ if($_POST['type']=='tsv'){
                          'body' => '[Tapship: 2-step verification] Hello '.$name.", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
                          )
                  );
-                 $con = mysqli_connect("localhost", "root", "", "tapship");
+                  $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
                  $InsertOTP=$con->query("UPDATE farmer SET f_tsv_otp='".$GeneratedOTP."' WHERE f_mobile='".$uid."'");
                     echo "Otp sent successfully";
                     $_SESSION['otptimer']=time()+120;

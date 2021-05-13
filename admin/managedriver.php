@@ -77,8 +77,8 @@ if (!isset($_SESSION['login_admin'])) {
 
         <?php
 
-        $con = mysqli_connect('localhost', 'root');
-        mysqli_select_db($con, 'tapship');
+         $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+        
 
 
         $q = "select d_id, d_name, d_mobile, d_city, d_dlnumber, d_vehiclenumber, d_approve, d_photo from driver where d_id!=0 ORDER BY d_id DESC";

@@ -4,7 +4,7 @@ import random
 import requests
 import sys
 
-engine =sqlalchemy.create_engine("mysql+pymysql://root@localhost:3306/tapship")
+engine =sqlalchemy.create_engine("mysql+pymysql://m1t7Rrl6v7@remotemysql.com:3306/m1t7Rrl6v7")
 
 c_mobile = str(sys.argv[1])
 c_pincode = str(sys.argv[2])

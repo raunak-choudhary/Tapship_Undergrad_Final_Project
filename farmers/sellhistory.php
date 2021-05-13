@@ -9,7 +9,7 @@ if (!isset($_SESSION['login_farmer'])) {
 error_reporting(0);
 
 
-$con = mysqli_connect("localhost", "root", "", "tapship");
+ $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
 ?>
 
 
@@ -78,8 +78,8 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         </tr>
 
         <?php
-        $con = mysqli_connect('localhost', 'root');
-        mysqli_select_db($con, 'tapship');
+         $con = mysqli_connect("remotemysql.com", "m1t7Rrl6v7", "gIP1i7Re2y", "m1t7Rrl6v7");
+        
 
 
         $q = "SELECT CD.cro_name, CD.cro_type, CD.cro_msp, CS.cr_id, CS.cr_quantity, CS.cr_mep, CS.cr_date, CS.cr_status
