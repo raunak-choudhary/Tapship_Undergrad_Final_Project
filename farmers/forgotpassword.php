@@ -12,7 +12,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Driver Login</title>
+    <title>Forgot Password</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -48,19 +48,20 @@ error_reporting(0);
     <div class="features-boxed">
         <div class="container-fluid" style="background: #ffffff;">
             <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Drivers Login</h2>
+                <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Forgot Password</h2>
             </div>
         </div>
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
-        <form method="post" style="background: #0c3823;margin-bottom: 40px;">
-            <div class="form-group"><input class="form-control" type="phone" name="d_mobile" placeholder="Mobile Number" required></div>
-            <div class="form-group"><input class="form-control" type="password" name="d_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
-            <div class="badge alert-danger w-100 p-2 mb-4 text-center"><?php echo $error; ?></div>
-            <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login ">
+        <form method="post" action="forgotpassword-script.php" style="background: #0c3823;margin-bottom: 40px;">
+            <div class="form-group"><input class="form-control" type="phone" pattern="^[6-9]{1}[0-9]{9}$" name="mob" placeholder="Mobile Number" required="" autofocus=""></div>
+            <div class="form-group"><input class="form-control" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pass" placeholder="Enter New Password" required="" autofocus=""></div>
+            <button class="btn btn-primary btn-block" type="submit" name="get otp">Get OTP</button>
             <br>
+            <a class="forgot" href="../farmers/login.php" style="color: rgb(255,255,255); font-size:15px;">Already Have Account? Click here</a>
             <a class="forgot" href="signup.php" style="color: rgb(255,255,255); font-size:15px;">Don't have account? Click here</a>
-            <a class="forgot" href="forgotpassword.php" style="color: rgb(255,255,255);  font-size:15px;">Forgot Password</a>
+            <hr style="border-top: 2px solid white;">
+            <p style="color:white; text-align:center;">** If You enter wrong mobile number you won't be able to generate OTP. **</P?
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">

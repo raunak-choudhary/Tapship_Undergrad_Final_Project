@@ -5,35 +5,41 @@ include('session-script.php');
 require_once '../api/twilio/vendor/autoload.php';
 use Twilio\Rest\Client;
 require_once '../api/twilio/config.php';
-    
-    $customer_type = $_GET['customer_type'];
-    $customer_mobile = $_GET['customer_mobile'];
-    $customer_name = $_GET['customer_name'];
-    $customer_contactname = $_GET['customer_contactname'];
-    $customer_gender = $_GET['customer_gender'];
-    $customer_age = $_GET['customer_age'];
-    $customer_street = $_GET['customer_street'];
-    $customer_city = $_GET['customer_city'];
-    $customer_state = $_GET['customer_state'];
-    $customer_pincode = $_GET['customer_pincode'];
-    $customer_aadhar = $_GET['customer_aadhar'];
-    $customer_pan = $_GET['customer_pan'];
-    $customer_password = $_GET['customer_password'];
-    $customer_approve = $_GET['customer_approve'];
-    $target_path1 = $_GET['target_path1'];
-    $target_path2 = $_GET['target_path2'];
-    $target_path3 = $_GET['target_path3'];
-    $target_path4 = $_GET['target_path4'];
-    
+
+$res = $_SESSION["sessionid"];
+$c_mobile = $res;
+error_reporting(0);
+?>
+
+<?php
      $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
     if (!$con) {
         die(" Connection Error ");
     }
 
-    $query = " select * from otps where mobile=" . $customer_mobile . "";
+    $query = " select * from customer where c_mobile=" . $c_mobile . "";
     $result = mysqli_query($con, $query);
     $res = mysqli_fetch_assoc($result);
-    $otp=$res['otp'];
+    $c_tsv=$res['c_tsv_otp'];
+    $c_tsv_validity=$res['c_tsv_validity'];
+ 
+        if($c_tsv=='')
+        {
+            $GeneratedOTP=rand(100000, 999999);
+            $SendSMSTO='+91'.$res['c_mobile'];
+            $client = new Client($account_sid, $auth_token);
+            $client->messages->create(
+                $SendSMSTO,
+                array(
+                    'from' => $twilio_number,
+                    'body' => '[Tapship: 2-step verification] Hello '.$res['c_name'].", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
+                )
+            );
+
+            $InsertOTP=$con->query("UPDATE customer SET c_tsv_otp='".$GeneratedOTP."' WHERE c_mobile='".$c_mobile."'");
+        }
+            
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,7 @@ require_once '../api/twilio/config.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Account Verification</title>
+    <title>Forgot Password OTP</title>
     <link rel="icon" href="../assets/img/fav.png" type="image/png">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -171,54 +177,36 @@ require_once '../api/twilio/config.php';
         </div>
     </nav>
 
-    <?php
-            $GeneratedOTP=rand(100000, 999999);
-            $SendSMSTO='+91'.$customer_mobile;
-            $client = new Client($account_sid, $auth_token);
-            $client->messages->create(
-                $SendSMSTO,
-                array(
-                    'from' => $twilio_number,
-                    'body' => '[Tapship: New Account Verification] Hello New User, You have been registered as customer on Tapship.Please enter this OTP to verify your account '.$GeneratedOTP.'. Do not share it with anyone'
-                )
-                );
-
-            $InsertOTP=$con->query("UPDATE otps SET otp='".$GeneratedOTP."' WHERE mobile='".$customer_mobile."'");
-    
-?>
-
-<div class="features-boxed">
+        <div class="features-boxed">
             <div class="container" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
-                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Account Verification</h2>
+                    <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: 0px;">Forgot Password OTP</h2>
                 </div>
             </div>
         </div>
 
-    <div class="container" style="margin-top:-50px;">
+    <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <div class="position-relative p-5">
+            <div class="position-relative">
                 <div class="card p-2 text-center">
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    if($res['otp']==$EnteredOTP){
-                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?customer_type='.$customer_type.'&customer_mobile='.$customer_mobile.'&customer_name='.$customer_name.'&customer_contactname='.$customer_contactname.'&customer_gender='.$customer_gender.'&customer_age='.$customer_age.'&customer_street='.$customer_street.'&customer_city='.$customer_city.'&customer_state='.$customer_state.'&customer_pincode='.$customer_pincode.'&customer_aadhar='.$customer_aadhar.'&customer_pan='.$customer_pan.'&customer_password='.$customer_password.'&customer_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'"); }, 1000)</script>';
+                    $res['c_tsv_otp'];
+                    if($res['c_tsv_otp']==$EnteredOTP){
+                        $TsvValidity=time()+3600; //24 hour validity
+                        $UpdateStatus=$con->query("UPDATE customer SET c_tsv_otp='', c_tsv_validity='".$TsvValidity."' WHERE c_mobile='".$c_mobile."'");
+                        echo '<div class="alert alert-success w-100">Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("passchangesuccess.php?mob='.$c_mobile.'"); }, 1000)</script>';
                     }
                     else{
-                        echo '<div class="alert alert-danger w-100">Otp mismatched. We have sent a new otp to your phone.</div>';
+                        echo '<div class="alert alert-danger w-100">Otp mismatched</div>';
                     }
+                    
                 }
                 ?>
-                <script>
-                    $('.digit-group').find('input').each(function() {
-	                $(this).attr('maxlength', 1);
-	                $(this).on('keyup', function(e) {
-		            var parent = $($(this).parent());});});
-                </script>
-                    <form method="post" class="digit-group" action="#">
+                    <form method="post" action="#">
                         <h6>Please enter the one time password to verify your account</h6>
-                        <div> <span>A code has been sent to</span> <small><?php echo $customer_mobile; ?></small> </div>
+                        <div> <span>A code has been sent to</span> <small><?php echo $c_mobile; ?></small> </div>
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                             <input class="m-2 text-center form-control rounded" type="number" name="first"
                                 maxlength="1" />
@@ -235,18 +223,29 @@ require_once '../api/twilio/config.php';
                         </div>
                         <div class="mt-4"> <button type="submit" name="submit"
                                 class="btn btn-danger px-4 validate">Validate</button> </div>
-                                <p>If you have stuck on this page. And Want a new OTP Just type 123456 as your OTP to get a new OTP.</p>
-                                <span class="text-info" id="resendResponse"></span><br>
-                                
+                                <a class="text-danger py-4 btn" onclick="resendOTP('<?php echo $c_mobile; ?>')">Resend OTP</a><br>
+                                <p>If you have stuck on this page. Kindly <a href="logout-script.php">click here</a></p>
+                                <span class="text-info" id="resendResponse"></span>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script>
 
+    <script>
+        function resendOTP(uid){
+            $('#resendResponse').html('<i class="fa fa-spinner fa-spin"> </i>');
+        $.ajax({
+            url: "resend-otp.php",
+            method: "POST",
+            data: "uid="+uid+"&name=<?php echo $res['c_name'];?>&type=tsv",
+            success: function(data){
+                $('#resendResponse').html(data);
+            }
+        })
+    }
     document.addEventListener("DOMContentLoaded", function(event) {
+
         function OTPInput() {
             const inputs = document.querySelectorAll('#otp > *[name]');
             for (let i = 0; i < inputs.length; i++) {
@@ -273,6 +272,8 @@ require_once '../api/twilio/config.php';
         OTPInput();
     });
     </script>
+
+    <br>
 
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
