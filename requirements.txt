@@ -2,4 +2,3 @@ pymysql
 sqlalchemy
 pandas
 requests
-sys
