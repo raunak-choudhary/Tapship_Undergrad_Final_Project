@@ -30,7 +30,9 @@ if (isset($_POST["submit"])) {
         while ($res = mysqli_fetch_assoc($result)) {
             if ($res["c_mobile"] == $customer_mobile) {
                 header("location: alreadyregistered.php");
-            } else {
+            }
+        }
+    }
                 #file name with a random number so that similar dont get replaced
                 $customer_aadharpdf = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_aadharpdf"]["name"];
                 $customer_panpdf = $customer_mobile . "-" . $customer_name . "-" . $_FILES["customer_panpdf"]["name"];
@@ -60,9 +62,6 @@ if (isset($_POST["submit"])) {
 
                 echo "<script>location.replace('account_verification.php?customer_type=$customer_type&customer_mobile=$customer_mobile&customer_name=$customer_name&customer_contactname=$customer_contactname&customer_gender=$customer_gender&customer_age=$customer_age&customer_street=$customer_street&customer_city=$customer_city&customer_state=$customer_state&customer_pincode=$customer_pincode&customer_aadhar=$customer_aadhar&customer_pan=$customer_pan&customer_password=$customer_password&customer_approve=1&target_path1=$target_path1&target_path2=$target_path2&target_path3=$target_path3&target_path4=$target_path4')</script>";
                 exit();
-            }
-        }
-    }
 }
 
 ?>

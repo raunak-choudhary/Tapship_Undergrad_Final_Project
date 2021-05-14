@@ -195,7 +195,7 @@ error_reporting(0);
         </div>
 
     <div class="container">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="height-100 d-flex justify-content-center align-items-center">
             <div class="position-relative">
                 <div class="card p-2 text-center">
                     <?php
@@ -281,9 +281,7 @@ error_reporting(0);
         OTPInput();
     });
     </script>
-
     <br>
-
 
     <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>

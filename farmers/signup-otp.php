@@ -33,7 +33,9 @@ if (isset($_POST["submit"])) {
         while ($res = mysqli_fetch_assoc($result)) {
             if ($res["f_mobile"] == $farmer_mobile) {
                 header("location: alreadyregistered.php");
-            } else {
+            } 
+        }
+    }
                 #file name with a random number so that similar dont get replaced
                 $farmer_aadharpdf = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_aadharpdf"]["name"];
                 $farmer_panpdf = $farmer_mobile . "-" . $farmer_name . "-" . $_FILES["farmer_panpdf"]["name"];
@@ -59,14 +61,12 @@ if (isset($_POST["submit"])) {
                 move_uploaded_file($tname3, $target_path3);
                 move_uploaded_file($tname4, $target_path4);
 
-                q = "INSERT into otps(mobile) VALUES('$farmer_mobile')";
+                $q = "INSERT into otps(mobile) VALUES('$farmer_mobile')";
                 $success = $con->query($q);
 
                 echo "<script>location.replace('account_verification.php?farmer_mobile=$farmer_mobile&farmer_name=$farmer_name&farmer_gender=$farmer_gender&farmer_age=$farmer_age&farmer_street=$farmer_street&farmer_city=$farmer_city&farmer_state=$farmer_state&farmer_pincode=$farmer_pincode&farmer_aadhar=$farmer_aadhar&farmer_pan=$farmer_pan&farmer_bankholder=$farmer_bankholder&farmer_bankaccount=$farmer_bankaccount&farmer_bankifsc=$farmer_bankifsc&farmer_bankname=$farmer_bankname&farmer_bankbranch=$farmer_bankbranch&farmer_password=$farmer_password&farmer_approve=1&target_path1=$target_path1&target_path2=$target_path2&target_path3=$target_path3&target_path4=$target_path4')</script>";
                 exit();
-            }
-        }
-    }
+            
 }
 
 ?>

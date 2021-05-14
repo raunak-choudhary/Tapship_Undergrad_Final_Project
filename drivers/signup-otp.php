@@ -30,7 +30,9 @@ if (isset($_POST["submit"])) {
         while ($res = mysqli_fetch_assoc($result)) {
             if ($res["d_mobile"] == $driver_mobile) {
                 header("location: alreadyregistered.php");
-            } else {
+            }
+        }
+    }
 
                 #file name with a random number so that similar dont get replaced
                 $driver_aadharpdf = $driver_mobile . "-" . $driver_name . "-" . $_FILES["driver_aadharpdf"]["name"];
@@ -75,9 +77,6 @@ if (isset($_POST["submit"])) {
 
                 echo "<script>location.replace('account_verification.php?driver_mobile=$driver_mobile&driver_name=$driver_name&driver_gender=$driver_gender&driver_age=$driver_age&driver_street=$driver_street&driver_city=$driver_city&driver_state=$driver_state&driver_pincode=$driver_pincode&driver_aadhar=$driver_aadhar&driver_pan=$driver_pan&driver_dlnumber=$driver_dlnumber&driver_vehiclenumber=$driver_vehiclenumber&driver_password=$driver_password&d_lat=$d_lat&d_long=$d_long&driver_approve=1&target_path1=$target_path1&target_path2=$target_path2&target_path3=$target_path3&target_path4=$target_path4&target_path5=$target_path5')</script>";
                 exit();
-            }
-        }
-    }
 }
 
 ?>
