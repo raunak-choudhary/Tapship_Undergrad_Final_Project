@@ -1,6 +1,5 @@
 pymysql
 sqlalchemy
 pandas
-random
 requests
 sys
