@@ -1,4 +1,4 @@
-import pandas as pd  
+'''import pandas as pd  
 import sqlalchemy
 import random 
 import requests
@@ -86,6 +86,6 @@ table = df2.to_html(classes=' table table-striped table-hover table-bordered')
 
 table = table.replace("&lt;", "<")
 table = table.replace("&gt;", ">")
-table = table.replace("\n", "")
+table = table.replace("\n", "")'''
 
-print(table)
+print('table')
