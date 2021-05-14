@@ -6,5 +6,4 @@ matplotlib
 numpy
 tz
 datetime
-time
 matplotlib.pyplot
