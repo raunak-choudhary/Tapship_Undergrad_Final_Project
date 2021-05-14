@@ -2,7 +2,6 @@ pymysql
 sqlalchemy
 pandas
 requests
-base64
 io
 matplotlib
 json
