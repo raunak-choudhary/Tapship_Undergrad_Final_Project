@@ -14,28 +14,6 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
 
 ?>
 
-<?php
-
-     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from driver where d_mobile=" . $d_mobile . "";
-    $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-
-    $d_approve =  $res['d_approve'];
-    $d_pincode = $res['d_pincode'];
-    $d_tsv_validity=$res['d_tsv_validity'];
-
-    if($d_tsv_validity<time() || $d_tsv_validity==''){
-        echo "<script>location.replace('tsv_verification.php')</script>";
-        exit();
-    }
-
-    ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -105,6 +83,20 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
     </nav>
 
     
+    <?php
+
+$con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from driver where d_mobile=" . $d_mobile . "";
+    $result = mysqli_query($con, $query);
+
+    while ($res = mysqli_fetch_assoc($result)) {
+        $d_approve =  $res['d_approve'];
+    }
+    ?>
 
     <?php
     if ($d_approve == 1 || $d_approve == 3 || $d_approve == 4 || $d_approve == 5 || $d_approve == NULL) { ?>
@@ -362,7 +354,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
 
     <?php } ?>
 
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

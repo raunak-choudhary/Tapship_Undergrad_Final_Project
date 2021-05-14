@@ -54,7 +54,7 @@ error_reporting(0);
     </div>
     <div class="login-clean" style="padding: 0px;background: rgb(255,255,255);margin-top: 30px;">
         <form method="post" style="background: #0c3823;margin-bottom: 40px;">
-            <div class="form-group"><input class="form-control" type="phone" name="d_mobile" placeholder="Mobile Number" required></div>
+            <div class="form-group"><input class="form-control" type="phone" name="d_mobile" pattern="^[6-9]{1}[0-9]{9}$" placeholder="Mobile Number" required></div>
             <div class="form-group"><input class="form-control" type="password" name="d_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></div>
             <div class="badge alert-danger w-100 p-2 mb-4 text-center"><?php echo $error; ?></div>
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login ">
@@ -63,7 +63,7 @@ error_reporting(0);
             <a class="forgot" href="forgotpassword.php" style="color: rgb(255,255,255);  font-size:15px;">Forgot Password</a>
         </form>
     </div>
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

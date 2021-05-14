@@ -59,7 +59,7 @@ if (isset($_SESSION['login_admin'])) {
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login "><a class="forgot" href="signup.php" style="color: rgb(255,255,255);">Don't have account? Click here.</a>
         </form>
     </div>
-    <div class="footer-dark" style="background: rgb(12,56,35);">
+    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
