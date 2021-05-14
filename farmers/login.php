@@ -60,7 +60,7 @@ error_reporting(0);
             <input name="submit" type="submit" class="btn btn-primary btn-block" type="submit" value=" Login ">
             <br>
             <a class="forgot" href="signup.php" style="color: rgb(255,255,255); font-size:15px;">Don't have account? Click here</a>
-            <a class="forgot" href="forgotpassword" style="color: rgb(255,255,255);  font-size:15px;">Forgot Password</a>
+            <a class="forgot" href="forgotpassword.php" style="color: rgb(255,255,255);  font-size:15px;">Forgot Password</a>
         </form>
     </div>
     <div class="footer-dark" style="background: rgb(12,56,35);">
