@@ -88,4 +88,4 @@ table = table.replace("&lt;", "<")
 table = table.replace("&gt;", ">")
 table = table.replace("\n", "")
 
-print('hello')
+print(table)
