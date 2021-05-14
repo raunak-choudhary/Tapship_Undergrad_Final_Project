@@ -195,7 +195,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
         ?>
 
         <div class="features-boxed">
-            <div class="container" style="background: #ffffff;">
+            <div class="container-fluid" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: -20px;">Driver Dashboard</h2>
                 </div>
@@ -362,7 +362,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
 
     <?php } ?>
 
-    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
+    <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>

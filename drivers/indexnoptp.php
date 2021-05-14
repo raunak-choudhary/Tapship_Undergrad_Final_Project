@@ -354,7 +354,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
 
     <?php } ?>
 
-    <div class="footer-dark fixed-bottom" style="background: rgb(12,56,35);">
+    <div class="footer-dark" style="background: rgb(12,56,35);">
         <footer>
             <div class="container-fluid">
                 <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
