@@ -1,2 +1,7 @@
-mysql
 pymysql
+sqlalchemy
+pandas
+os
+random
+requests
+sys
