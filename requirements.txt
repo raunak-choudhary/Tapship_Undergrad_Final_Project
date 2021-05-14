@@ -2,3 +2,12 @@ pymysql
 sqlalchemy
 pandas
 requests
+base64
+io
+matplotlib
+json
+numpy
+tz
+datetime
+time
+matplotlib.pyplot
