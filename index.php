@@ -32,6 +32,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a href="login-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Log in</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="signup-choice.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Sign Up</button></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a href="admin/login.php"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;">Admin</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><button class="btn btn-dark text-monospace" data-bs-hover-animate="pulse" type="button" style="margin: 10px;background: rgb(255,255,255);color: #0c3823;margin-left: 0;border-radius: 10px;"><a href="path_to_file" download="tapship.apk" style="text-decoration:none; color:#0c3823;">Download APP</a></button></li>
                 </ul>
             </div>
         </div>
