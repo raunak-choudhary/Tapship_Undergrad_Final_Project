@@ -2,7 +2,6 @@ pymysql
 sqlalchemy
 pandas
 requests
-io
 matplotlib
 json
 numpy
