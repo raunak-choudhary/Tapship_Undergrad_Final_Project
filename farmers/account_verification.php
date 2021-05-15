@@ -35,8 +35,9 @@ require_once '../api/twilio/config.php';
 
     $query = " select * from otps where mobile=" . $farmer_mobile . "";
     $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-    $otp=$res['otp'];
+    while ($res = mysqli_fetch_assoc($result)) {
+        $validity=$res['validity'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -175,6 +176,7 @@ require_once '../api/twilio/config.php';
     </nav>
 
     <?php
+        if($validity==0){
             $GeneratedOTP=rand(100000, 999999);
             $SendSMSTO='+91'.$farmer_mobile;
             $client = new Client($account_sid, $auth_token);
@@ -185,8 +187,9 @@ require_once '../api/twilio/config.php';
                     'body' => '[Tapship: New Account Verification] Hello New User, You have been registered as farmer on Tapship.Please enter this OTP to verify your account '.$GeneratedOTP.'. Do not share it with anyone'
                 )
                 );
+        }
 
-            $InsertOTP=$con->query("UPDATE otps SET otp='".$GeneratedOTP."' WHERE mobile='".$farmer_mobile."'");
+            $InsertOTP=$con->query("UPDATE otps SET otp=$GeneratedOTP, validity=1 WHERE mobile='".$farmer_mobile."'");
     
 ?>
 
@@ -205,8 +208,13 @@ require_once '../api/twilio/config.php';
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    if($res['otp']==$EnteredOTP){
-                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?farmer_mobile='.$farmer_mobile.'&farmer_name='.$farmer_name.'&farmer_gender='.$farmer_gender.'&farmer_age='.$farmer_age.'&farmer_street='.$farmer_street.'&farmer_city='.$farmer_city.'&farmer_state='.$farmer_state.'&farmer_pincode='.$farmer_pincode.'&farmer_aadhar='.$farmer_aadhar.'&farmer_pan='.$farmer_aadhar.'&farmer_bankholder='.$farmer_aadhar.'&farmer_bankaccount='.$farmer_aadhar.'&farmer_bankifsc='.$farmer_bankifsc.'&farmer_bankname='.$farmer_bankname.'&farmer_bankbranch='.$farmer_bankbranch.'&farmer_password='.$farmer_password.'&farmer_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'"); }, 1000)</script>';
+                    $query = " select * from otps where mobile=" . $farmer_mobile . "";
+                    $result = mysqli_query($con, $query);
+                    while ($res = mysqli_fetch_assoc($result)) {
+                        $otp=$res['otp'];
+                    }
+                    if($otp==$EnteredOTP){
+                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?farmer_mobile='.$farmer_mobile.'&farmer_name='.$farmer_name.'&farmer_gender='.$farmer_gender.'&farmer_age='.$farmer_age.'&farmer_street='.$farmer_street.'&farmer_city='.$farmer_city.'&farmer_state='.$farmer_state.'&farmer_pincode='.$farmer_pincode.'&farmer_aadhar='.$farmer_aadhar.'&farmer_pan='.$farmer_pan.'&farmer_bankholder='.$farmer_bankholder.'&farmer_bankaccount='.$farmer_bankaccount.'&farmer_bankifsc='.$farmer_bankifsc.'&farmer_bankname='.$farmer_bankname.'&farmer_bankbranch='.$farmer_bankbranch.'&farmer_password='.$farmer_password.'&farmer_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'"); }, 1000)</script>';
                     }
                     else{
                         echo '<div class="alert alert-danger w-100">Otp mismatched. We have sent a new otp to your phone.</div>';
