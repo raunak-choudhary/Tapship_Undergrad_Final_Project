@@ -112,7 +112,7 @@
             <h5 style="color:#fff;">Bank Account Holder Name</h5>
             <div class="form-group"><input class="form-control" id="farmer_bankholder" type="text" name="farmer_bankholder" placeholder="Account Holder Name" required="" autofocus=""></div>
 
-            <h5 style="color:#fff;">Bank Account Name</h5>
+            <h5 style="color:#fff;">Bank Account Number</h5>
             <div class="form-group"><input class="form-control" id="farmer_bankaccount" type="text" name="farmer_bankaccount" placeholder="Your Bank Account Number" required="" autofocus=""></div>
 
             <h5 style="color:#fff;">Bank IFSC Code</h5>
