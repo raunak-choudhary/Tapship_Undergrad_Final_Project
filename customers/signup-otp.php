@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
                 move_uploaded_file($tname3, $target_path3);
                 move_uploaded_file($tname4, $target_path4);
 
-                q = "INSERT into otps(mobile) VALUES('$customer_mobile')";
+                $q = "INSERT into otps(mobile) VALUES('$customer_mobile')";
                 $success = $con->query($q);
 
                 echo "<script>location.replace('account_verification.php?customer_type=$customer_type&customer_mobile=$customer_mobile&customer_name=$customer_name&customer_contactname=$customer_contactname&customer_gender=$customer_gender&customer_age=$customer_age&customer_street=$customer_street&customer_city=$customer_city&customer_state=$customer_state&customer_pincode=$customer_pincode&customer_aadhar=$customer_aadhar&customer_pan=$customer_pan&customer_password=$customer_password&customer_approve=1&target_path1=$target_path1&target_path2=$target_path2&target_path3=$target_path3&target_path4=$target_path4')</script>";

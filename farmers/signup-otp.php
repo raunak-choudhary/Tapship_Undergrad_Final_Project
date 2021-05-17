@@ -1,6 +1,6 @@
 <?php 
 
-error_reporting(0);
+//error_reporting(0);
 $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
 
 //Create Connection
