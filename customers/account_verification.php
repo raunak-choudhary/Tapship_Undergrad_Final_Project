@@ -184,7 +184,7 @@ require_once '../api/twilio/config.php';
                 )
                 );
 
-            $InsertOTP=$con->query("UPDATE otps SET otp='".$GeneratedOTP."' WHERE mobile='".$customer_mobile."'");
+            $InsertOTP=$con->query("UPDATE otps SET otp=$GeneratedOTP, validity=1 WHERE mobile=$customer_mobile");
     
 ?>
 
