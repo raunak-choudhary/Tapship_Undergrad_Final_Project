@@ -33,8 +33,9 @@ require_once '../api/twilio/config.php';
 
     $query = " select * from otps where mobile=" . $driver_mobile . "";
     $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-    $otp=$res['otp'];
+    while ($res = mysqli_fetch_assoc($result)) {
+        $validity=$res['validity'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -203,8 +204,12 @@ require_once '../api/twilio/config.php';
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    if($res['otp']==$EnteredOTP){
-                        $UpdateStatus=$con->query("UPDATE farmer SET f_tsv_otp='', f_tsv_validity='".$TsvValidity."' WHERE f_mobile='".$f_mobile."'");
+                    $query = " select * from otps where mobile=" . $driver_mobile . "";
+                    $result = mysqli_query($con, $query);
+                    while ($res = mysqli_fetch_assoc($result)) {
+                        $otp=$res['otp'];
+                    }
+                    if($otp==$EnteredOTP){
                         echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?driver_mobile='.$driver_mobile.'&driver_name='.$driver_name.'&driver_gender='.$driver_gender.'&driver_age='.$driver_age.'&driver_street='.$driver_street.'&driver_city='.$driver_city.'&driver_state='.$driver_state.'&driver_pincode='.$driver_pincode.'&driver_aadhar='.$driver_aadhar.'&driver_pan='.$driver_aadhar.'&driver_dlnumber='.$driver_dlnumber.'&driver_vehiclenumber='.$driver_vehiclenumber.'&$d_lat='.$d_lat.'&d_long='.$d_long.'&driver_password='.$driver_password.'&driver_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'&target_path5='.$target_path5.'"); }, 1000)</script>';
                     }
                     else{

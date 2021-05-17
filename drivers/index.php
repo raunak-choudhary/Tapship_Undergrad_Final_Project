@@ -14,28 +14,6 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
 
 ?>
 
-<?php
-
-     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from driver where d_mobile=" . $d_mobile . "";
-    $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-
-    $d_approve =  $res['d_approve'];
-    $d_pincode = $res['d_pincode'];
-    $d_tsv_validity=$res['d_tsv_validity'];
-
-    if($d_tsv_validity<time() || $d_tsv_validity==''){
-        echo "<script>location.replace('tsv_verification.php')</script>";
-        exit();
-    }
-
-    ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -105,6 +83,20 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
     </nav>
 
     
+    <?php
+
+$con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from driver where d_mobile=" . $d_mobile . "";
+    $result = mysqli_query($con, $query);
+
+    while ($res = mysqli_fetch_assoc($result)) {
+        $d_approve =  $res['d_approve'];
+    }
+    ?>
 
     <?php
     if ($d_approve == 1 || $d_approve == 3 || $d_approve == 4 || $d_approve == 5 || $d_approve == NULL) { ?>
@@ -195,7 +187,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
         ?>
 
         <div class="features-boxed">
-            <div class="container-fluid" style="background: #ffffff;">
+            <div class="container" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: -20px;">Driver Dashboard</h2>
                 </div>

@@ -9,28 +9,6 @@ if (!isset($_SESSION['login_farmer'])) {
 error_reporting(0);
 ?>
 
-<?php
-     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
-    if (!$con) {
-        die(" Connection Error ");
-    }
-
-    $query = " select * from farmer where f_mobile=" . $f_mobile . "";
-    $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-
-    $f_approve =  $res['f_approve'];
-    $f_pincode = $res['f_pincode'];
-    $f_tsv_validity=$res['f_tsv_validity'];
-
-    if($f_tsv_validity<time() || $f_tsv_validity==''){
-        echo "<script>location.replace('tsv_verification.php')</script>";
-        exit();
-    }
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -84,7 +62,21 @@ error_reporting(0);
         </div>
     </nav>
 
-    
+    <?php
+     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+    if (!$con) {
+        die(" Connection Error ");
+    }
+
+    $query = " select * from farmer where f_mobile=" . $f_mobile . "";
+    $result = mysqli_query($con, $query);
+
+    while ($res = mysqli_fetch_assoc($result)) {
+        $f_approve =  $res['f_approve'];
+        $f_pincode = $res['f_pincode'];
+    }
+    ?>
+
     <?php
     if ($f_approve == 1 || $f_approve == 3 || $f_approve == 4 || $f_approve == 5 || $f_approve == NULL) { ?>
         <div class="container" style="margin-top:150px;">

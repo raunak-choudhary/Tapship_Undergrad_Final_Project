@@ -95,25 +95,9 @@ error_reporting(0);
             $cr_status = $res['cr_status'];
         }
 
-        if ($cr_status == 1 || $cr_status == 2 || $cr_status=13) {
-            $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails cd, cropsale cs, farmer f, cropbid cb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id";
-        }
-
-        if ($cr_status == 3) {
-            $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails cd, cropsale cs, farmer f, cropbid cb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id";
-        }
-
-        if ($cr_status == 4) {
-            $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails cd, cropsale cs, farmer f, cropbid cb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id";
-        }
-
-        if ($cr_status == 5 || $cr_status == 6 || $cr_status == 7) {
-            $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof FROM cropdetails cd, cropsale cs, farmer f, cropbid cb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id";
-        }
-
-        if ($cr_status == 8 || $cr_status == 9 || $cr_status == 10 || $cr_status == 11 || $cr_status == 12) {
-            $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, d.d_street, d.d_city, d.d_state, d.d_pincode, d.d_date, d.d_time, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropsale cs, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
-        }
+        
+        $q = "SELECT cd.cro_id, cd.cro_name, cd.cro_type, cd.cro_msp, cs.cr_id, cs.cr_f_mobile, cs.cr_cro_id, cs.cr_quantity, cs.cr_mep, cs.cr_date, cs.cr_status, cs.cr_img1, cs.cr_img2, cs.cr_img3, cs.cr_status, f.f_name, f.f_mobile, f.f_gender, f.f_age, f.f_street, f.f_city, f.f_state, f.f_pincode, f.f_bankholder, f.f_bankaccount, f.f_bankifsc, f.f_bankname, f.f_bankbranch, cb.cb_bidprice, cb.cb_id, cb.cb_status, cb.cb_paytype, cb.cb_tid, cb.cb_tproof, cb.cb_transporttype, d.d_mobile, d.d_name, d.d_gender, d.d_age, d.d_dlnumber, d.d_vehiclenumber, d.d_lat, d.d_long, d.d_street, d.d_city, d.d_state, d.d_pincode, d.d_date, d.d_time, tb.tb_id, tb.tb_bid, tb.tb_status FROM cropdetails cd, cropsale cs, farmer f, cropbid cb, driver d, transportbid tb where cb.cb_id=$cb_id AND f.f_mobile=cs.cr_f_mobile AND cb.cb_cr_id=cs.cr_id AND cd.cro_id=cs.cr_cro_id AND d.d_mobile=tb.tb_d_mobile AND tb.tb_status='1'";
+        
 
         $result = mysqli_query($con, $q);
 
@@ -758,6 +742,7 @@ error_reporting(0);
                                         </script>
                                     <?php
                                     }
+
                                     if ($cb_status == '11' && $cb_transporttype == '1') { ?>
                                         <h4 class="m-b-20 p-b-5 b-b-default f-w-600"><strong>Tranport Details</strong></h4>
                                         <div class="row">
@@ -794,7 +779,7 @@ error_reporting(0);
                                         </div><br>
                                     
 
-                                    <!--<form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
+                                    <form method="post" action="deliverydone.php?cb_id=<?php echo $cb_id; ?>" enctype="multipart/form-data" onsubmit="return checkForm(this);">
                                         <input type="checkbox" id="check"> I got <?php echo $cr_quantity; ?> kgs. of <?php echo $cro_name; ?> from <?php echo $f_name; ?> which is delivered by Driver <?php echo $ts_name; ?>
                                         <br>
                                         <p id="demo"></p>
@@ -810,7 +795,7 @@ error_reporting(0);
                                             }
                                             return true;
                                         }
-                                    </script>-->
+                                    </script>
 
 
                                 <?php

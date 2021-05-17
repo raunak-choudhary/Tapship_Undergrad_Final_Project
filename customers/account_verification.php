@@ -32,8 +32,9 @@ require_once '../api/twilio/config.php';
 
     $query = " select * from otps where mobile=" . $customer_mobile . "";
     $result = mysqli_query($con, $query);
-    $res = mysqli_fetch_assoc($result);
-    $otp=$res['otp'];
+    while ($res = mysqli_fetch_assoc($result)) {
+        $validity=$res['validity'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +203,12 @@ require_once '../api/twilio/config.php';
                     <?php
                 if(isset($_POST['submit'])){
                     $EnteredOTP=$_POST['first'].$_POST['second'].$_POST['third'].$_POST['fourth'].$_POST['fifth'].$_POST['sixth'];
-                    if($res['otp']==$EnteredOTP){
+                    $query = " select * from otps where mobile=" . $customer_mobile . "";
+                    $result = mysqli_query($con, $query);
+                    while ($res = mysqli_fetch_assoc($result)) {
+                        $otp=$res['otp'];
+                    }
+                    if($otp==$EnteredOTP){
                         echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?customer_type='.$customer_type.'&customer_mobile='.$customer_mobile.'&customer_name='.$customer_name.'&customer_contactname='.$customer_contactname.'&customer_gender='.$customer_gender.'&customer_age='.$customer_age.'&customer_street='.$customer_street.'&customer_city='.$customer_city.'&customer_state='.$customer_state.'&customer_pincode='.$customer_pincode.'&customer_aadhar='.$customer_aadhar.'&customer_pan='.$customer_pan.'&customer_password='.$customer_password.'&customer_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'"); }, 1000)</script>';
                     }
                     else{
