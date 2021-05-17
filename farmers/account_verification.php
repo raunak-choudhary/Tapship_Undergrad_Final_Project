@@ -1,6 +1,6 @@
 <?php
 
-include('session-script.php');
+//include('session-script.php');
 
 require_once '../api/twilio/vendor/autoload.php';
 use Twilio\Rest\Client;
