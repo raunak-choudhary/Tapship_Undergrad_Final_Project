@@ -174,6 +174,7 @@ require_once '../api/twilio/config.php';
     </nav>
 
     <?php
+            if($validity==0){
             $GeneratedOTP=rand(100000, 999999);
             $SendSMSTO='+91'.$driver_mobile;
             $client = new Client($account_sid, $auth_token);
@@ -184,6 +185,7 @@ require_once '../api/twilio/config.php';
                     'body' => '[Tapship: New Account Verification] Hello New User, You have been registered as driver on Tapship.Please enter this OTP to verify your account '.$GeneratedOTP.'. Do not share it with anyone'
                 )
                 );
+            }
 
             $InsertOTP=$con->query("UPDATE otps SET otp=$GeneratedOTP, validity=1 WHERE mobile=$driver_mobile");
     
