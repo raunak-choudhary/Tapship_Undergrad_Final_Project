@@ -19,6 +19,7 @@ $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "u
     $driver_vehiclenumber = $_GET['driver_vehiclenumber'];
     $d_lat = $_GET['d_lat'];
     $d_long = $_GET['d_long'];
+    $driver_approve = $_GET['driver_approve'];
     $target_path1 = $_GET['target_path1'];
     $target_path2 = $_GET['target_path2'];
     $target_path3 = $_GET['target_path3'];
