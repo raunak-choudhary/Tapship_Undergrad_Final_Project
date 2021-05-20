@@ -183,12 +183,11 @@ if (!isset($_SESSION['login_admin'])) {
                                         <p class="m-b-10  m-l-20 f-w-600">Vehicle Number</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><?php echo "$d_vehiclenumber" ?> &nbsp; <button class="btn btn-grey text-monospace"><a href="../drivers/<?php echo  $d_vehiclercpdf; ?>" target="_blank">View RC</a></button></h6>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <p class="m-b-10  m-l-20 f-w-600"> (<i>Last Updated: <?php echo "$d_time" ?>&nbsp<?php echo "$d_date" ?><i>)</p>
                                         <h6 class="text-muted m-l-20 f-w-400"><button class="btn btn-dark text-monospace" style="background-color:#0c3823;"><a href="https://www.google.com/maps/@<?php echo  $d_lat; ?>,<?php echo  $d_long; ?>,14z" target="_blank">View Location</a></button></h6>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10  m-l-20 f-w-600">Status View</p>
+                                    <div class="col-sm-12">
                                         <form action="statusdriver.php?d_mobile=<?php echo $d_mobile; ?>" method="post">
                                             <?php
                                             if ($d_approve == 1) {

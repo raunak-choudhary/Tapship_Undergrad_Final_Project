@@ -166,7 +166,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         $d_date =  date("Y-m-d");
         $d_time = date("h:i A");
 
-        $query = "update driver set d_lat=$d_lat, d_long=$d_long, d_date='$d_date', d_time='$d_time' where d_mobile='".$d_mobile."'";
+        $query = "update driver set d_lat=$d_lat, d_long=$d_long, d_date='$d_date', d_time='$d_time' where d_mobile=$d_mobile";
         $success = $con->query($query);
 
         $q = "select d_lat, d_long, d_time, d_date from driver where d_mobile=$d_mobile";
@@ -187,7 +187,7 @@ $con = mysqli_connect("localhost", "root", "", "tapship");
         ?>
 
         <div class="features-boxed">
-            <div class="container" style="background: #ffffff;">
+            <div class="container-fluid" style="background: #ffffff;">
                 <div class="intro" style="background: #0c3823;margin-top: 120px;margin-bottom: 30px;">
                     <h2 class="text-center" data-aos="fade" style="color: rgb(255,255,255);padding: 30px;margin-bottom: -20px;">Driver Dashboard</h2>
                 </div>

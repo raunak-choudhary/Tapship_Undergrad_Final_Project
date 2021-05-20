@@ -15,6 +15,7 @@ require_once '../api/twilio/config.php';
     $driver_aadhar = $_GET['driver_aadhar'];
     $driver_pan = $_GET['driver_pan'];
     $driver_dlnumber = $_GET['driver_dlnumber'];
+    $driver_password = $_GET['driver_password'];
     $driver_vehiclenumber = $_GET['driver_vehiclenumber'];
     $d_lat = $_GET['d_lat'];
     $d_long = $_GET['d_long'];
@@ -210,7 +211,7 @@ require_once '../api/twilio/config.php';
                         $otp=$res['otp'];
                     }
                     if($otp==$EnteredOTP){
-                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?driver_mobile='.$driver_mobile.'&driver_name='.$driver_name.'&driver_gender='.$driver_gender.'&driver_age='.$driver_age.'&driver_street='.$driver_street.'&driver_city='.$driver_city.'&driver_state='.$driver_state.'&driver_pincode='.$driver_pincode.'&driver_aadhar='.$driver_aadhar.'&driver_pan='.$driver_aadhar.'&driver_dlnumber='.$driver_dlnumber.'&driver_vehiclenumber='.$driver_vehiclenumber.'&$d_lat='.$d_lat.'&d_long='.$d_long.'&driver_password='.$driver_password.'&driver_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'&target_path5='.$target_path5.'"); }, 1000)</script>';
+                        echo '<div class="alert alert-success w-100">Account Verification successful. redirecting to home...</div><script>setTimeout(function(){ location.replace("signup-script.php?driver_mobile='.$driver_mobile.'&driver_name='.$driver_name.'&driver_gender='.$driver_gender.'&driver_age='.$driver_age.'&driver_street='.$driver_street.'&driver_city='.$driver_city.'&driver_state='.$driver_state.'&driver_pincode='.$driver_pincode.'&driver_aadhar='.$driver_aadhar.'&driver_pan='.$driver_pan.'&driver_dlnumber='.$driver_dlnumber.'&driver_vehiclenumber='.$driver_vehiclenumber.'&d_lat='.$d_lat.'&d_long='.$d_long.'&driver_password='.$driver_password.'&driver_approve=1&target_path1='.$target_path1.'&target_path2='.$target_path2.'&target_path3='.$target_path3.'&target_path4='.$target_path4.'&target_path5='.$target_path5.'"); }, 1000)</script>';
                     }
                     else{
                         echo '<div class="alert alert-danger w-100">Otp mismatched. We have sent a new otp to your phone.</div>';
