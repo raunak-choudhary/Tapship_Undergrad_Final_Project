@@ -4,7 +4,7 @@ $res = $_SESSION["sessionid"];
 $f_mobile = $res;
 error_reporting(0);
 
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 $query = "UPDATE farmer SET f_tsv_otp='', f_tsv_validity='' where f_mobile = '$f_mobile'";
 $result = mysqli_query($con,$query);
 

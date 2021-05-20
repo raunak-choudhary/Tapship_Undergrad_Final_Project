@@ -24,7 +24,7 @@ require_once '../api/twilio/config.php';
     $target_path4 = $_GET['target_path4'];
     $target_path5 = $_GET['target_path5'];
 
-     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+     $con = mysqli_connect("localhost", "root", "", "tapship");
     if (!$con) {
         die(" Connection Error ");
     }

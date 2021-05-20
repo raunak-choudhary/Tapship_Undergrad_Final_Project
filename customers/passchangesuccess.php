@@ -1,5 +1,5 @@
 <?php
-$c_mobile = $_GET['mob'];$con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+$c_mobile = $_GET['mob'];$con = mysqli_connect("localhost", "root", "", "tapship");
 
 $query = "SELECT c_temppass from customer where c_mobile = $c_mobile";
 echo $query;

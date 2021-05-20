@@ -1,5 +1,5 @@
 <?php
-$f_mobile = $_GET['mob'];$con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+$f_mobile = $_GET['mob'];$con = mysqli_connect("localhost", "root", "", "tapship");
 
 $query = "SELECT f_temppass from farmer where f_mobile = $f_mobile";
 echo $query;

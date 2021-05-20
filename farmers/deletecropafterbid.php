@@ -7,7 +7,7 @@
  header("location: login.php"); // Redirecting To Profile Page
  }
  
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 
 $id = $_GET['id'];
         

@@ -3,7 +3,7 @@ session_start(); // Starting Session
 $error = ''; // Variable To Store Error Message
 
         // mysqli_connect() function opens a new connection to the MySQL server.
-        $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+        $con = mysqli_connect("localhost", "root", "", "tapship");
         $f_mobile= $con->real_escape_string($_POST['mob']);
         $f_password= $con->real_escape_string($_POST['pass']);
         $_SESSION["sessionid"] = $f_mobile;

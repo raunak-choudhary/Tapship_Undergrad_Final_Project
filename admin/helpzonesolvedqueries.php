@@ -61,7 +61,7 @@ if (!isset($_SESSION['login_admin'])) {
     <br><br>
 
     <?php
-     $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+     $con = mysqli_connect("localhost", "root", "", "tapship");
     if (!$con) {
         die(" Connection Error ");
     }

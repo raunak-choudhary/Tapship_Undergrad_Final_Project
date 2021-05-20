@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 // mysqli_connect() function opens a new connection to the MySQL server.
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 session_start();// Starting Session
 // Storing Session
 $user_check = $_SESSION['login_admin'];

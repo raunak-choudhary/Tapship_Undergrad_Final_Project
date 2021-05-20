@@ -1,6 +1,6 @@
 <?php
 $id = $_POST['id'];
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 $q = "select cro_name, cro_type, cro_costperkg, cro_msp from cropdetails where cro_id=$id";
 $query = mysqli_query($con, $q);
  while ($res = mysqli_fetch_array($query)) {

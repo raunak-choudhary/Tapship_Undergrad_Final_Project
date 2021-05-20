@@ -9,7 +9,7 @@ if (!isset($_SESSION['login_driver'])) {
 error_reporting(0);
 
 
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 ?>
 
 
@@ -82,7 +82,7 @@ error_reporting(0);
 
         <?php
 
-         $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+         $con = mysqli_connect("localhost", "root", "", "tapship");
         
 
         $q = "SELECT cd.cro_name, cd.cro_type, cs.cr_id, cs.cr_quantity, f.f_name, f.f_mobile, f.f_city, c.c_name, c.c_mobile, c.c_city, tb.tb_id, tb.tb_bid, cb.cb_id FROM cropdetails cd, cropbid cb, cropsale cs, farmer f, customer c, transportbid tb where cd.cro_id=cs.cr_cro_id AND cb.cb_cr_id=cs.cr_id AND f.f_mobile=cb.cb_f_mobile AND c.c_mobile=cb.cb_c_mobile AND tb.tb_cb_id=cb.cb_id AND cs.cr_status in (8,9,10,11) AND tb.tb_d_mobile=$d_mobile AND tb.tb_status='1'";

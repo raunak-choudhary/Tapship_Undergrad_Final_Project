@@ -24,7 +24,7 @@ if($_POST['type']=='tsv'){
                              'body' => '[Tapship: 2-step verification] Hello '.$name.", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
                              )
                      );
-                      $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+                      $con = mysqli_connect("localhost", "root", "", "tapship");
                      $InsertOTP=$con->query("UPDATE customer SET c_tsv_otp='".$GeneratedOTP."' WHERE c_mobile='".$uid."'");
                      echo "Otp sent successfully";
                      $_SESSION['otptimer']=time()+120;
@@ -45,7 +45,7 @@ if($_POST['type']=='tsv'){
                          'body' => '[Tapship: 2-step verification] Hello '.$name.", Please enter this OTP to Login ".$GeneratedOTP.". Do not share it with anyone"
                          )
                  );
-                  $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+                  $con = mysqli_connect("localhost", "root", "", "tapship");
                  $InsertOTP=$con->query("UPDATE customer SET c_tsv_otp='".$GeneratedOTP."' WHERE c_mobile='".$uid."'");
                     echo "Otp sent successfully";
                     $_SESSION['otptimer']=time()+120;

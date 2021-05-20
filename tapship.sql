@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 13, 2021 at 02:01 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Host: b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com:3306
+-- Generation Time: May 20, 2021 at 03:21 PM
+-- Server version: 8.0.22-13
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tapship`
+-- Database: `b3bu9bb23ikjqsiv8aku`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `a_id` int(25) NOT NULL,
+  `a_id` int NOT NULL,
   `a_name` varchar(50) NOT NULL,
   `a_password` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -47,7 +48,7 @@ INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
 --
 
 CREATE TABLE `contactus` (
-  `u_id` int(11) NOT NULL,
+  `u_id` int NOT NULL,
   `u_name` varchar(50) NOT NULL,
   `u_mobile` varchar(50) NOT NULL,
   `u_email` varchar(50) NOT NULL,
@@ -57,7 +58,7 @@ CREATE TABLE `contactus` (
   `u_date` varchar(50) NOT NULL,
   `u_time` varchar(30) DEFAULT NULL,
   `u_status` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contactus`
@@ -66,7 +67,7 @@ CREATE TABLE `contactus` (
 INSERT INTO `contactus` (`u_id`, `u_name`, `u_mobile`, `u_email`, `u_address`, `u_subject`, `u_message`, `u_date`, `u_time`, `u_status`) VALUES
 (1, 'Raunak Choudhary', '9782507934', 'raunakc77@gmail.com', '67, Arbindo Marg, Kalyanpur, Barmer (Rajasthan)', 'Please Help Me. ', 'I am a new user. Help me in making an account.', '2021-04-22', '01:07 AM', '1'),
 (2, 'Ganpat Patel', '9672836724', 'gapu.012@gmail.com', '569, Rajiv Nagar, Kundapura, Udupi (Karnataka)', 'Lockdown Problem', 'Help Out, due to lockdown I have doubt whether your platform can still help me to get transport deals. I want to hear from you whether your platform will be active during lockdown state also? ', '2021-04-23 ', '02:00 PM', '1'),
-(3, 'Avinash', '9638527410', 'avinash16@gmail.com', '45, 47th Cross, Chickpet, Banglore Urban (Karnataka)', 'Brief me about your platform', 'Hey! I am a new user and I want to use your platform as a customer. So please brief me about process of buying as a customer through your platform.', '2021-04-23', '09:36 PM', '0');
+(3, 'Avinash', '9638527410', 'avinash16@gmail.com', '45, 47th Cross, Chickpet, Banglore Urban (Karnataka)', 'Brief me about your platform', 'Hey! I am a new user and I want to use your platform as a customer. So please brief me about process of buying as a customer through your platform.', '2021-04-23', '09:36 PM', '1');
 
 -- --------------------------------------------------------
 
@@ -75,33 +76,17 @@ INSERT INTO `contactus` (`u_id`, `u_name`, `u_mobile`, `u_email`, `u_address`, `
 --
 
 CREATE TABLE `cropbid` (
-  `cb_id` int(11) NOT NULL,
+  `cb_id` int NOT NULL,
   `cb_c_mobile` varchar(50) NOT NULL,
   `cb_f_mobile` varchar(50) NOT NULL,
-  `cb_cr_id` int(11) NOT NULL,
-  `cb_bidprice` int(11) NOT NULL,
+  `cb_cr_id` int NOT NULL,
+  `cb_bidprice` int NOT NULL,
   `cb_status` varchar(10) NOT NULL,
   `cb_paytype` varchar(100) NOT NULL,
   `cb_tid` varchar(100) NOT NULL,
   `cb_tproof` varchar(500) NOT NULL,
   `cb_transporttype` varchar(10) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cropbid`
---
-
-INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
-(1, '9113671387', '9672836724', 1, 65, '12', 'IMPS', 'IMPS-45368293739504', 'assets/documents/payment/IMPS-45368293739504-TRANSPROOF.pdf', '2'),
-(2, '9113671388', '9672836724', 1, 64, '2', '0', '0', '0', '0'),
-(3, '9113671387', '9672836724', 3, 26, '12', 'IMPS', 'IMPS-78645637892', 'assets/documents/payment/IMPS-78645637892-TRANSPROOF.pdf', '2'),
-(4, '9113671387', '9672836724', 2, 19, '12', 'IMPS', 'IMPS-676784247487484', 'assets/documents/payment/IMPS-676784247487484-TRANSPROOF.pdf', '1'),
-(5, '9113671387', '9672836725', 5, 20, '8', 'IMPS', 'IMPS-8978798739393', 'assets/documents/payment/IMPS-8978798739393-TRANSPROOF.pdf', '2'),
-(6, '9113671388', '9672836724', 3, 27, '2', '0', '0', '0', '0'),
-(7, '9113671388', '9672836725', 4, 19, '12', 'IMPS', 'IMPS-24564794444', 'assets/documents/payment/IMPS-24564794444-TRANSPROOF.pdf', '1'),
-(8, '9113671388', '9672836725', 5, 21, '2', '0', '0', '0', '0'),
-(9, '9113671387', '9672836724', 6, 30, '12', 'IMPS', '852752785287523', 'assets/documents/payment/852752785287523-TRANSPROOF.pdf', '2'),
-(10, '9113671388', '9672836724', 6, 32, '2', '0', '0', '0', '0');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -110,12 +95,12 @@ INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bi
 --
 
 CREATE TABLE `cropdetails` (
-  `cro_id` int(11) NOT NULL,
+  `cro_id` int NOT NULL,
   `cro_name` varchar(50) NOT NULL,
   `cro_type` varchar(25) NOT NULL,
   `cro_costperkg` varchar(25) DEFAULT NULL,
   `cro_msp` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cropdetails`
@@ -132,7 +117,12 @@ INSERT INTO `cropdetails` (`cro_id`, `cro_name`, `cro_type`, `cro_costperkg`, `c
 (8, 'Orange', 'Fruits', '14', 21),
 (9, 'Pomegranate', 'Fruits', '50', 75),
 (10, 'Wheat', 'Feed Crops', '16', 24),
-(11, 'Corn', 'Feed Crops', '14', 21);
+(11, 'Corn', 'Feed Crops', '14', 21),
+(12, 'Grapes', 'Fruits', '30', 45),
+(27, 'Oranges', 'Fruits', '25', 38),
+(28, 'Ladies Fingers', 'Vegitables', '22', 33),
+(30, 'Chilli', 'Vegitables', '15', 23),
+(31, 'Ladies Finger', 'Vegitables', '25', 38);
 
 -- --------------------------------------------------------
 
@@ -141,9 +131,9 @@ INSERT INTO `cropdetails` (`cro_id`, `cro_name`, `cro_type`, `cro_costperkg`, `c
 --
 
 CREATE TABLE `cropsale` (
-  `cr_id` int(11) NOT NULL,
+  `cr_id` int NOT NULL,
   `cr_f_mobile` varchar(10) NOT NULL,
-  `cr_cro_id` int(11) NOT NULL,
+  `cr_cro_id` int NOT NULL,
   `cr_quantity` varchar(10) NOT NULL,
   `cr_img1` varchar(500) NOT NULL,
   `cr_img2` varchar(500) NOT NULL,
@@ -151,21 +141,7 @@ CREATE TABLE `cropsale` (
   `cr_mep` varchar(10) NOT NULL,
   `cr_date` date NOT NULL,
   `cr_status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cropsale`
---
-
-INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
-(1, '9672836724', 1, '240', 'assets/documents/crop/16104-5383-2609-9672836724.png', 'assets/documents/crop/11914-7901-375-9672836724.png', 'assets/documents/crop/18449-4664-8434-9672836724.png', '64', '2021-05-10', '12'),
-(2, '9672836724', 4, '120', 'assets/documents/crop/1692-2628-2834-9672836724.png', 'assets/documents/crop/17398-6373-1564-9672836724.png', 'assets/documents/crop/11241-4982-8629-9672836724.png', '16', '2021-05-10', '12'),
-(3, '9672836724', 3, '80', 'assets/documents/crop/12582-4207-5021-9672836724.png', 'assets/documents/crop/17426-3728-9805-9672836724.png', 'assets/documents/crop/19568-6804-5044-9672836724.png', '25', '2021-05-10', '12'),
-(4, '9672836725', 2, '145', 'assets/documents/crop/14602-5116-7819-9672836725.png', 'assets/documents/crop/18078-3139-3176-9672836725.png', 'assets/documents/crop/16859-4073-1353-9672836725.png', '18', '2021-05-10', '12'),
-(5, '9672836725', 6, '350', 'assets/documents/crop/18651-2615-2792-9672836725.png', 'assets/documents/crop/18254-5771-4106-9672836725.png', 'assets/documents/crop/17982-5794-8537-9672836725.png', '19', '2021-05-10', '8'),
-(6, '9672836724', 10, '500', 'assets/documents/crop/12779-3436-1873-9672836724.png', 'assets/documents/crop/14197-9250-8566-9672836724.png', 'assets/documents/crop/12248-9120-7665-9672836724.png', '25', '2021-05-10', '12'),
-(7, '9672836724', 11, '90', 'assets/documents/crop/16673-457-2800-9672836724.png', 'assets/documents/crop/18678-9982-6439-9672836724.png', 'assets/documents/crop/15953-3782-6072-9672836724.png', '22', '2021-05-10', '0'),
-(8, '9672836724', 9, '85', 'assets/documents/crop/11849-8483-9729-9672836724.png', 'assets/documents/crop/17613-9426-9015-9672836724.png', 'assets/documents/crop/12623-6791-8804-9672836724.png', '78', '2021-05-11', '0');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -174,10 +150,10 @@ INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_
 --
 
 CREATE TABLE `customer` (
-  `c_id` int(11) NOT NULL,
+  `c_id` int NOT NULL,
   `c_name` varchar(100) NOT NULL,
   `c_mobile` varchar(25) NOT NULL,
-  `c_contactname` varchar(50) NOT NULL,
+  `c_contactname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `c_gender` varchar(25) NOT NULL,
   `c_age` varchar(10) NOT NULL,
   `c_street` varchar(50) NOT NULL,
@@ -185,27 +161,27 @@ CREATE TABLE `customer` (
   `c_state` varchar(25) NOT NULL,
   `c_pincode` varchar(10) NOT NULL,
   `c_type` varchar(25) NOT NULL,
-  `c_registration` varchar(100) NOT NULL,
-  `c_aadhar` varchar(25) NOT NULL,
-  `c_aadharpdf` varchar(100) NOT NULL,
+  `c_registration` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `c_aadhar` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `c_aadharpdf` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `c_pan` varchar(25) NOT NULL,
   `c_panpdf` varchar(100) NOT NULL,
   `c_photo` varchar(100) NOT NULL,
   `c_password` varchar(25) NOT NULL,
   `c_approve` varchar(100) NOT NULL,
-  `c_tsv_otp` varchar(10) NOT NULL,
-  `c_tsv_validity` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `c_tsv_otp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `c_tsv_validity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `c_temppass` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`, `c_tsv_otp`, `c_tsv_validity`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 'Raunak Chaudhary', '9113671387', '', 'Male', '22', 'Royal Paradise, Udupi', 'Udupi', 'Karnataka', '576102', 'Wholesaler', '', '689020429366', 'assets/documents/aadhar/9113671387-Raunak Chaudhary-AADHAR.pdf', 'BOMPC6839Q', 'assets/documents/pan/9113671387-Raunak Chaudhary-PAN.pdf', 'assets/documents/photo/9113671387-Raunak Chaudhary-RC.jpg', 'Gapu@8540', '2', '', ''),
-(2, 'Aarav Jindal', '9113671388', '', 'Male', '27', 'Prahlad Appartment, Udupi', 'Udupi', 'Karnataka', '576101', 'Wholesaler', '', '8760204293998', 'assets/documents/aadhar/9113671388-Aarav Jindal-AADHAR.pdf', 'ACTPC5645I', 'assets/documents/pan/9113671388-Aarav Jindal-PAN.pdf', 'assets/documents/photo/9113671388-Aarav Jindal-AJ.jpg', 'Gapu@8540', '2', '', ''),
-(3, 'Shri Laxmi Temple', '9672836724', 'Anish Mahatre', 'Male', '47', '456, Temple Road, Prabhu Nagar', 'Ratnagiri', 'Maharashtra', '415612', 'Organization', 'assets/documents/registration/9672836724-Shri Laxmi Temple-Registration PDF.pdf', '', '', 'HYFGT6743R', 'assets/documents/pan/9672836724-Shri Laxmi Temple-PAN.pdf', 'assets/documents/photo/9672836724-Shri Laxmi Temple-laxmi.jpg', 'Gapu@8540', '2', '', '');
+INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`, `c_tsv_otp`, `c_tsv_validity`, `c_temppass`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 'Aditya Chopra', '9672836724', '', 'Male', '32', '56, Akshay Vihar', 'Bagalkot', 'Karnataka', '577001', 'Wholesaler', '', '345647893567', 'assets/documents/aadhar/9672836724-Aditya Chopra-AADHAR.pdf', 'RTVCD6453O', 'assets/documents/pan/9672836724-Aditya Chopra-PAN.pdf', 'assets/documents/photo/9672836724-Aditya Chopra-img3.jpg', 'Gapu@8540', '2', '', '', ''),
+(2, 'Surender Singh Pvt. Ltd.', '9782507934', 'Abhimanyu Singh', 'Male', '32', 'DLF Queens Court, Greater Kailash Part 2', 'New Delhi', 'Delhi', '110048', 'Organization', 'assets/documents/registration/9782507934-Surender Singh Pvt. Ltd.-Registration.pdf', '', '', 'KLRTC7320Q', 'assets/documents/pan/9782507934-Surender Singh Pvt. Ltd.-PAN.pdf', 'assets/documents/photo/9782507934-Surender Singh Pvt. Ltd.-pic8.jpg', 'Gapu@8540', '2', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -214,7 +190,7 @@ INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender
 --
 
 CREATE TABLE `driver` (
-  `d_id` int(11) NOT NULL,
+  `d_id` int NOT NULL,
   `d_name` varchar(50) NOT NULL,
   `d_mobile` varchar(25) NOT NULL,
   `d_gender` varchar(25) NOT NULL,
@@ -238,19 +214,17 @@ CREATE TABLE `driver` (
   `d_time` varchar(500) NOT NULL,
   `d_password` varchar(25) NOT NULL,
   `d_approve` varchar(10) NOT NULL,
-  `d_tsv_otp` varchar(10) NOT NULL,
-  `d_tsv_validity` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `d_tsv_otp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `d_tsv_validity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `d_temppass` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`, `d_tsv_otp`, `d_tsv_validity`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '1620907684'),
-(1, 'Faheem Ahmad', '7042757709', 'Male', '22', 'Pink House, Near Baroda Bank, Shankarpura', 'Udupi', 'Karnataka', '574115', '506231410194', 'assets/documents/aadhar/7042757709-Faheem Ahmad-AADHAR.pdf', 'BPDPA9672E', 'assets/documents/pan/7042757709-Faheem Ahmad-PAN.pdf', 'assets/documents/photo/7042757709-Faheem Ahmad-faheem.jpeg', 'BR0120170448831', 'assets/documents/dlpdf/7042757709-Faheem Ahmad-DL.pdf', 'KA20CS1267', 'assets/documents/rcpdf/7042757709-Faheem Ahmad-RC.pdf', '13.43488', '74.7470848', '2021-05-12', '12:23 PM', 'Gapu@8540', '2', '', ''),
-(2, 'Suresh Singh', '7042757710', 'Male', '29', '34, Hemant nagar, Luni', 'Jodhpur', 'Rajasthan', '342802', '873456789256', 'assets/documents/aadhar/7042757710-Suresh Singh-AADHAR.pdf', 'TBFRT6754M', 'assets/documents/pan/7042757710-Suresh Singh-PAN.pdf', 'assets/documents/photo/7042757710-Suresh Singh-suresh.jpg', 'RJ8735672907512', 'assets/documents/dlpdf/7042757710-Suresh Singh-DL.pdf', 'RJ19TR7656', 'assets/documents/rcpdf/7042757710-Suresh Singh-RC.pdf', '13.43488', '74.7470848', '2021-05-11', '12:26 AM', 'Gapu@8540', '2', '', ''),
-(3, 'Bhavani Rathore', '9672836724', 'Male', '34', '78, New Janta Colony', 'Ajmer', 'Rajasthan', '305001', '673489236745', 'assets/documents/aadhar/9672836724-Bhavani Rathore-AADHAR.pdf', '673489236745', 'assets/documents/pan/9672836724-Bhavani Rathore-PAN.pdf', 'assets/documents/photo/9672836724-Bhavani Rathore-bhavani.jpg', 'RJ6342567389273', 'assets/documents/dlpdf/9672836724-Bhavani Rathore-DL.pdf', 'RJ01BI7865', 'assets/documents/rcpdf/9672836724-Bhavani Rathore-RC.pdf', '', '74.636421203613', '', '', '', '', '', '');
+INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`, `d_tsv_otp`, `d_tsv_validity`, `d_temppass`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -259,13 +233,13 @@ INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_stre
 --
 
 CREATE TABLE `farmer` (
-  `f_id` int(11) NOT NULL,
+  `f_id` int NOT NULL,
   `f_name` varchar(50) NOT NULL,
   `f_mobile` varchar(25) NOT NULL,
   `f_gender` varchar(25) NOT NULL,
   `f_age` varchar(10) NOT NULL,
   `f_street` varchar(50) NOT NULL,
-  `f_city` varchar(25) NOT NULL,
+  `f_city` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `f_state` varchar(25) NOT NULL,
   `f_pincode` varchar(10) NOT NULL,
   `f_aadhar` varchar(25) NOT NULL,
@@ -281,19 +255,17 @@ CREATE TABLE `farmer` (
   `f_bankname` varchar(200) NOT NULL,
   `f_bankbranch` varchar(100) NOT NULL,
   `f_bankpassbook` varchar(200) NOT NULL,
-  `f_tsv_otp` varchar(10) NOT NULL,
-  `f_tsv_validity` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `f_tsv_otp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `f_tsv_validity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `f_temppass` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `farmer`
 --
 
-INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1620834679'),
-(1, 'Ganpat Patel', '9672836724', 'Male', '20', '202, Laxmi Plaza, Brahmavara', 'Udupi', 'Karnataka', '576213', '799721133696', 'assets/documents/aadhar/9672836724-Ganpat Patel-AADHAR.pdf', 'EYCPP1502E', 'assets/documents/pan/9672836724-Ganpat Patel-PAN.pdf', 'assets/documents/photo/9672836724-Ganpat Patel-2018_1.jpg', 'Gapu@8540', '2', 'Ganpat Patel', '2342567893456', 'CNRB0000466', 'Canara Bank', 'BVR', 'assets/documents/passbook/9672836724-Ganpat Patel-PASSBOOK.pdf', '', '1620831700'),
-(2, 'Rakesh Sharma', '9672836725', 'Male', '28', '67, Epic Road, Bommanahalli', 'Banglore', 'Karnataka', '560068', '799721133696', 'assets/documents/aadhar/9672836725-Rakesh Sharma-AADHAR.pdf', 'UIBNO1902F', 'assets/documents/pan/9672836725-Rakesh Sharma-PAN.pdf', 'assets/documents/photo/9672836725-Rakesh Sharma-2018_1.jpg', 'Gapu@8540', '2', 'Rakesh Sharma', '7344581863456', 'CNRB0003047', 'Canara Bank', 'Bommanahalli', 'assets/documents/passbook/9672836725-Rakesh Sharma-PASSBOOK.pdf', '', ''),
-(3, 'Yash Rana', '9661442323', 'Male', '34', '304, New Sadak, Samdari', 'Barmer', 'Rajasthan', '344021', '673456278367', 'assets/documents/aadhar/9661442323-Yash Rana-AADHAR.pdf', '673456278367', 'assets/documents/pan/9661442323-Yash Rana-PAN.pdf', 'assets/documents/photo/9661442323-Yash Rana-imag.jfif', 'Gapu@8540', '1', '673456278367', '673456278367', 'CNRB0000466', 'SBI Bank', 'Samdari', 'assets/documents/passbook/9661442323-Yash Rana-PASSBOOK.pdf', '', '');
+INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`, `f_temppass`) VALUES
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -302,7 +274,7 @@ INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_stre
 --
 
 CREATE TABLE `kiosk` (
-  `k_id` int(11) NOT NULL,
+  `k_id` int NOT NULL,
   `k_pincode` varchar(10) NOT NULL,
   `k_district` varchar(50) NOT NULL,
   `k_state` varchar(50) NOT NULL,
@@ -314,7 +286,7 @@ CREATE TABLE `kiosk` (
   `k_aadharpdf` varchar(500) NOT NULL,
   `k_address` varchar(500) NOT NULL,
   `k_photo` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kiosk`
@@ -334,32 +306,18 @@ INSERT INTO `kiosk` (`k_id`, `k_pincode`, `k_district`, `k_state`, `k_name`, `k_
 --
 
 CREATE TABLE `mepdetails` (
-  `id` int(11) NOT NULL,
-  `cro_id` int(11) NOT NULL,
-  `mep` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `cro_id` int NOT NULL,
+  `mep` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mepdetails`
 --
 
 INSERT INTO `mepdetails` (`id`, `cro_id`, `mep`) VALUES
-(1, 1, 64),
-(2, 4, 16),
-(3, 3, 25),
-(4, 2, 18),
-(5, 6, 19),
-(6, 10, 25),
-(7, 11, 23),
-(8, 1, 62),
-(9, 1, 65),
-(10, 1, 68),
-(11, 1, 60),
-(12, 2, 16),
-(13, 2, 18),
-(14, 2, 15),
-(15, 2, 17),
-(16, 1, 70);
+(1, 1, 62),
+(2, 6, 19);
 
 -- --------------------------------------------------------
 
@@ -368,20 +326,37 @@ INSERT INTO `mepdetails` (`id`, `cro_id`, `mep`) VALUES
 --
 
 CREATE TABLE `otps` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `mobile` varchar(50) NOT NULL,
-  `otp` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `otp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `validity` int DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `otps`
 --
 
-INSERT INTO `otps` (`id`, `mobile`, `otp`) VALUES
-(2, '9672836724', '601682'),
-(3, '9672836724', '601682'),
-(4, '9672836724', '601682'),
-(5, '9672836724', '601682');
+INSERT INTO `otps` (`id`, `mobile`, `otp`, `validity`) VALUES
+(1, '9672836724', '345952', 1),
+(2, '9672836724', '345952', 1),
+(3, '9672836724', '345952', 1),
+(4, '9672836724', '345952', 1),
+(5, '9672836724', '345952', 1),
+(6, '9782507934', '234575', 1),
+(7, '9782507934', '234575', 1),
+(8, '9782507934', '234575', 1),
+(9, '9672836724', '345952', 1),
+(10, '9672836724', '345952', 1),
+(11, '9672836724', '345952', 1),
+(12, '9782507934', '234575', 1),
+(13, '9782507934', '234575', 1),
+(14, '9672836724', NULL, 0),
+(15, '9782507934', '234575', 1),
+(16, '9782507934', '234575', 1),
+(17, '9661442323', '768836', 1),
+(18, '9661442323', '768836', 1),
+(19, '9661442323', '768836', 1),
+(20, '9661442323', '768836', 1);
 
 -- --------------------------------------------------------
 
@@ -390,7 +365,7 @@ INSERT INTO `otps` (`id`, `mobile`, `otp`) VALUES
 --
 
 CREATE TABLE `queries` (
-  `q_id` int(11) NOT NULL,
+  `q_id` int NOT NULL,
   `q_subject` varchar(100) NOT NULL,
   `q_message` text NOT NULL,
   `q_by_type` varchar(30) NOT NULL,
@@ -398,7 +373,7 @@ CREATE TABLE `queries` (
   `q_date` varchar(30) DEFAULT NULL,
   `q_time` varchar(30) DEFAULT NULL,
   `q_status` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `queries`
@@ -406,7 +381,7 @@ CREATE TABLE `queries` (
 
 INSERT INTO `queries` (`q_id`, `q_subject`, `q_message`, `q_by_type`, `q_mobile_no`, `q_date`, `q_time`, `q_status`) VALUES
 (1, 'Crop Minimum Expected Price Update Problem', 'I am having a problem updating the Minimum Expected Price of my crop. Please help me!!', 'Farmer', '9672836724', '2021-05-11', '11:46 AM', '1'),
-(2, 'Payment Problem', 'Please help me understand the payment process. How should I complete the payment with Farmer & Driver?', 'Customer', '9113671387', '2021-05-11', '12:08 PM', '0'),
+(2, 'Payment Problem', 'Please help me understand the payment process. How should I complete the payment with Farmer & Driver?', 'Customer', '9113671387', '2021-05-11', '12:08 PM', '1'),
 (3, 'Location Update Problem', 'I am facing issues in updating my current location. Kindly help me.', 'Driver', '7042757709', '2021-05-11', '12:10 PM', '0');
 
 -- --------------------------------------------------------
@@ -416,26 +391,12 @@ INSERT INTO `queries` (`q_id`, `q_subject`, `q_message`, `q_by_type`, `q_mobile_
 --
 
 CREATE TABLE `transportbid` (
-  `tb_id` int(11) NOT NULL,
+  `tb_id` int NOT NULL,
   `tb_d_mobile` varchar(200) NOT NULL,
-  `tb_cb_id` int(11) NOT NULL,
+  `tb_cb_id` int NOT NULL,
   `tb_bid` varchar(100) NOT NULL,
   `tb_status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `transportbid`
---
-
-INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_status`) VALUES
-(1, '7042757709', 1, '6000', '1'),
-(2, '7042757710', 1, '6500', '2'),
-(3, '7042757709', 3, '500', '1'),
-(4, '7042757709', 5, '4500', '1'),
-(5, '7042757710', 7, '20000', '0'),
-(6, '7042757710', 3, '17000', '2'),
-(7, '7042757709', 9, '1000', '1'),
-(8, '7042757710', 9, '20000', '2');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -444,21 +405,12 @@ INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_st
 --
 
 CREATE TABLE `transportself` (
-  `ts_id` int(11) NOT NULL,
+  `ts_id` int NOT NULL,
   `ts_cb_id` varchar(100) NOT NULL,
   `ts_name` varchar(100) NOT NULL,
   `ts_mobile` varchar(100) NOT NULL,
   `ts_vehiclenumber` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `transportself`
---
-
-INSERT INTO `transportself` (`ts_id`, `ts_cb_id`, `ts_name`, `ts_mobile`, `ts_vehiclenumber`) VALUES
-(1, '4', 'Aadesh Pahalwan', '7845327865', 'KA20TR6547'),
-(2, '7', 'Avesh Khan', '6756346728', 'RJ19UY8747'),
-(3, '11', 'Amit Kumar', '9782507934', 'RJ04RV5241');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -571,85 +523,85 @@ ALTER TABLE `transportself`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `u_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cb_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
 --
 ALTER TABLE `cropdetails`
-  MODIFY `cro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cro_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cr_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `c_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `d_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `f_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kiosk`
 --
 ALTER TABLE `kiosk`
-  MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `k_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mepdetails`
 --
 ALTER TABLE `mepdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `otps`
 --
 ALTER TABLE `otps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `queries`
 --
 ALTER TABLE `queries`
-  MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `q_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tb_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transportself`
 --
 ALTER TABLE `transportself`
-  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ts_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

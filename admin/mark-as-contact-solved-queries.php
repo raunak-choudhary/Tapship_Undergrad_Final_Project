@@ -1,5 +1,5 @@
 <?php
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
 
 $MszID= $_POST['mszID'];
 $MarkingAsSolved=$con->query("UPDATE contactus SET u_status='1' WHERE u_id='".$MszID."'");

@@ -7,7 +7,7 @@
  header("location: login.php"); // Redirecting To Profile Page
  }
  
- $con = mysqli_connect("b3bu9bb23ikjqsiv8aku-mysql.services.clever-cloud.com", "uodltp4afruoomkk", "WAniOzDcPXxfNZTCLGnl", "b3bu9bb23ikjqsiv8aku");
+ $con = mysqli_connect("localhost", "root", "", "tapship");
     $cb_id = $con->real_escape_string($_POST['id']);
     $cropbid_paytype =  $con->real_escape_string($_POST['cropbid_paytype']);
     $cropbid_tid =  $con->real_escape_string($_POST['cropbid_tid']);
