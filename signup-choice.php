@@ -40,7 +40,7 @@
         <div class="container">
             <div class="intro">
                 <div style="background: #0c3823;margin-top: 20px;margin-bottom: -10px;">
-                    <h2 class="text-center" style="background: rgba(12,56,35,0);color: rgb(255,255,255);padding: 15px;margin-bottom: 0px;">Crate New Accout Here</h2>
+                    <h2 class="text-center" style="background: rgba(12,56,35,0);color: rgb(255,255,255);padding: 15px;margin-bottom: 0px;">Create New Accout Here</h2>
                     <p style="padding: 20px;padding-top: 0px;margin-bottom: 30px;text-align: center;color: rgb(245,245,245);"><strong>Please select your user type below&nbsp;</strong></p>
                 </div>
             </div>
