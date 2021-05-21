@@ -65,9 +65,9 @@ error_reporting(0);
 
 
     </div>
-    <div class="header-container" style="background-image:url(&quot;../assets/img/law-bg.png&quot;);padding-top:350px;padding-bottom:175px;">
+    <div class="header-container" style="background-image:url(&quot;../assets/img/c_suggestion.png&quot;);padding-top:400px;padding-bottom:175px;">
         <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 header-title">
-            <h1 class="text-center" style="color: #ffffff; font-size:60px; margin-top:-230px">Knowledge Zone</h1>
+            <h1 class="text-center" style="color: #ffffff; font-size:60px; margin-top:-270px">Knowledge Zone</h1>
         </div>
     </div>
     <div class="blog-home3 py-5">
@@ -86,26 +86,21 @@ error_reporting(0);
                 <div class="container text-center-justified">
                     <div class="row">
                         <div class="col boxg mx-5 px-5" data-aos="fade">
-                            <h1 class="text-center"><br><strong><u> Scientific development of smart farming technologies</u></strong></h1>
+                            <h1 class="text-center"><br><strong><u> Buying Strategies And Dealing With Suppliers</u></strong></h1>
                             <ul class="p-5 ">
-                                <h5>The World Government Summit launched a report called Agriculture 4.0 – The Future Of Farming Technology, in collaboration with Oliver Wyman for the 2018 edition of the international event. The report addresses the four main developments placing pressure on agriculture to meeting the demands of the future: Demographics, Scarcity of natural resources, Climate change, and Food waste.
-
-                                    The report states that, although demand is continuously growing, by 2050 we will need to produce 70 percent more food. Meanwhile, agriculture’s share of global GDP has shrunk to just 3 percent, one-third its contribution just decades ago. Roughly 800 million people worldwide suffer from hunger. And under a business-as-usual scenario, 8 percent of the world’s population (or 650 million) will still be undernourished by 2030. The reality is that very little innovation has taken place in the industry of late—in any case, nothing to indicate that food scarcity and hunger will not be an issue in the coming decades.
-
-                                    To meet these challenges will require a concerted effort by governments, investors, and innovative agricultural technologies. Agriculture 4.0 will no longer depend on applying water, fertilizers, and pesticides uniformly across entire fields. Instead, farmers will use the minimum quantities required and target very specific areas. The report further states that, farms and agricultural operations will have to be run very differently, primarily due to advancements in technology such as sensors, devices, machines, and information technology. Future agriculture will use sophisticated technologies such as robots, temperature and moisture sensors, aerial images, and GPS technology. These advanced devices and precision agriculture and robotic systems will allow farms to be more profitable, efficient, safe, and environmentally friendly.
-
-                                    Governments can play a key part in solving the food scarcity issue. They need to take on a broader and more prominent role than their traditional regulatory and facilitating function
-
-                                    <br>By challenging the traditional legacy model and pursuing such a program, governments can:<br><br>
-                                    <li>
-                                        Ensure food security and reduce dependency on imports.<br>
-                                    </li>
-                                    <li>
-                                        Become a net exporter not only of products but also IP and new solutions.<br>
-                                    </li>
-                                    <li>
-                                        Increase productivity and support the shift towards an innovation- and knowledge -based economy.<br>
-                                    </li>
+                                <h5>To be successful in retail, it is essential to stock the right products, at the right time and at the right price. To do this, you must be able to source your products from the best and most reliable supplier that you can. This is not always an easy thing to do. Obviously you need to establish the product lines you are going to sell from a supplier that will be consistent and reliable.
+								<br><br><strong>Identifying your Niche</strong><br><br>Before you begin the process of sourcing your stock, it is always a good idea to visit a competitors store to see what they are stocking and what price levels they are retailing at. Try to gain some idea of the brand names that are being sold and decide which seem to be the highest selling lines. It is always a good idea to have a look in their reduction sections to get an idea of which items are not selling quite as well and are being sold off cheaply.
+								<br>It may be possible that the retailer will talk with you. This is more easily achieved if they are some distance from your location and therefore not a retailer you will be in direct competition with. If they will talk to you, attempt to get an idea from them of which items sell best and at which times of the year. What sort of pricing strategy do they have? Do they offer multiple price deals on new products to introduce them etc? What items don’t sell too well? Remember, just because items don’t sell too well for them, it doesn’t mean they won’t for you.
+								<br>Once you have established your product range, or at least a broad knowledge of a product range, it is time to search for the products. It may be a good idea at this stage to visit some trade exhibitions or shows to broaden your own knowledge of the particular product range you have chosen. You may find that newer versions of products are about to be released onto the market. Having this knowledge can help in two ways. Firstly, it gives you an opportunity to source a new product range other retailers may not have discovered yet and secondly, you could use this information to your advantage and reduce your prices down for the stock that will be replaced with newer versions. This can be done more gradually and with greater effect if it is carried out in advance of the new products arrival.
+								<br>Careful consideration of your supplier is important to any retail business. You need to be able to make sure you have a supplier that will not let you down. You simply will not be satisfied with a supplier who will raise prices with little or no reason just as soon as you have become reliant on them. Check out reviews for their service where you can.
+								<br><br><strong>Sourcing Your Goods</strong><br><br>Suppliers come in many different types. Briefly, you can purchase from Manufacturers, Importers, Distributors, Wholesalers and even from Auctions. Each of these sources have plusses and minuses.
+								<br><br><b>Manufacturers –</b> It can sometimes be beneficial to approach manufacturers directly. Often they will sell directly to the retailer, but to do so the manufacturer will usually expect large bulk orders. In some rare instances exclusivity can also be obtained which will ensure an extra possibility of success in your business. If a manufacturer will not sell to you directly, then you should ask them for a list of their distributors.
+								<br><b>Importers – </b>Buying direct from importers can hold serious advantages, but also serious disadvantages. You can get the best prices, buying foreign goods directly from an importer, but you should take into account shipping timeframes, product life cycles, tax and duties and other associated problems.
+								<br><b>Distributors –</b> They sell large varieties of products at slightly higher prices than the manufacturers. It is possible to buy smaller quantities with little or no minimum quantities. Often items will be shipped for free.
+								<br><b>Wholesalers – </b>This type of supplier most often gives the best price for you to pass on to the customer. They usually have a large range of products and you will find a large amount of merchandise at the best possible prices. Wholesalers will often sell pallet loads of items and even truck loads. There are often terms and conditions attached to certain sales, as with any purchase.
+								<br><br><strong>Identifying Potential Suppliers</strong><br><br>When you have identified the products you want to stock, you need to identify the best possible vendor for your retail business. You need to be able to find a vendor that will supply products to you at the best possible price. These products need to be of the best quality and the vendor must be able to guarantee delivery times and be reliable when they commit to delivery. Problems normally do occur and the company must be able to back you up that eventuality with the best possible Customer Service.
+								<br>
+					
                                     <h5>
                             </ul>
                         </div>
