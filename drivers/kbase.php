@@ -63,9 +63,9 @@ error_reporting(0);
             </div>
         </nav>
     </div>
-    <div class="header-container" style="background-image:url(&quot;../assets/img/law-bg.png&quot;);padding-top:350px;padding-bottom:175px;">
+    <div class="header-container" style="background-image:url(&quot;../assets/img/d_suggestion.png&quot;);padding-top:350px;padding-bottom:175px;">
         <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 header-title">
-            <h1 class="text-center" style="color: #ffffff; font-size:60px; margin-top:-230px">Knowledge Zone</h1>
+            <h1 class="text-center" style="color: #; font-size:60px; margin-top:-240px">Knowledge Zone</h1>
         </div>
     </div>
     <div class="blog-home3 py-5">
@@ -84,26 +84,28 @@ error_reporting(0);
                 <div class="container text-center-justified">
                     <div class="row">
                         <div class="col boxg mx-5 px-5" data-aos="fade">
-                            <h1 class="text-center"><br><strong><u> Scientific development of smart farming technologies</u></strong></h1>
+                            <h1 class="text-center"><br><strong><u> Keeping Drivers and the Community Safe During the Pandemic </u></strong></h1>
                             <ul class="p-5 ">
-                                <h5>The World Government Summit launched a report called Agriculture 4.0 – The Future Of Farming Technology, in collaboration with Oliver Wyman for the 2018 edition of the international event. The report addresses the four main developments placing pressure on agriculture to meeting the demands of the future: Demographics, Scarcity of natural resources, Climate change, and Food waste.
+                                <h5><strong>THE CHALLENGE</strong><br>When the COVID-19 crisis began earlier this year, it was imperative for Logistics—an essential provider in the delivery of food, medicine, and other critical supplies—to protect its drivers and community.
 
-                                    The report states that, although demand is continuously growing, by 2050 we will need to produce 70 percent more food. Meanwhile, agriculture’s share of global GDP has shrunk to just 3 percent, one-third its contribution just decades ago. Roughly 800 million people worldwide suffer from hunger. And under a business-as-usual scenario, 8 percent of the world’s population (or 650 million) will still be undernourished by 2030. The reality is that very little innovation has taken place in the industry of late—in any case, nothing to indicate that food scarcity and hunger will not be an issue in the coming decades.
+To ensure this happened (and continues to happen), We implemented a few simple, common-sense practices in the everyday shipping and receiving of goods, from the pickup point through final delivery.
 
-                                    To meet these challenges will require a concerted effort by governments, investors, and innovative agricultural technologies. Agriculture 4.0 will no longer depend on applying water, fertilizers, and pesticides uniformly across entire fields. Instead, farmers will use the minimum quantities required and target very specific areas. The report further states that, farms and agricultural operations will have to be run very differently, primarily due to advancements in technology such as sensors, devices, machines, and information technology. Future agriculture will use sophisticated technologies such as robots, temperature and moisture sensors, aerial images, and GPS technology. These advanced devices and precision agriculture and robotic systems will allow farms to be more profitable, efficient, safe, and environmentally friendly.
+When a truck driver arrives at a food facility to pick up a shipment, he or she typically has two primary interactions. First, the driver must pass through a security gate with proper authorization. Typically, this does not involve the driver leaving the truck, but it sometimes happens.
 
-                                    Governments can play a key part in solving the food scarcity issue. They need to take on a broader and more prominent role than their traditional regulatory and facilitating function
+Next, the driver enters the facility's shipping office. Often, the office is crowded with other drivers from multiple regions and states who are verifying their loads and receiving their load or unload instructions. There are also multiple tasks that usually involve several more points of contact, such as filling out forms and sealing trailers to ensure the safety of food and other shipments.
 
-                                    <br>By challenging the traditional legacy model and pursuing such a program, governments can:<br><br>
-                                    <li>
-                                        Ensure food security and reduce dependency on imports.<br>
-                                    </li>
-                                    <li>
-                                        Become a net exporter not only of products but also IP and new solutions.<br>
-                                    </li>
-                                    <li>
-                                        Increase productivity and support the shift towards an innovation- and knowledge -based economy.<br>
-                                    </li>
+On the other end, similar interactions occur with the receiving of goods at a warehouse or distribution center.Across the India, thousands of these deliveries happen every day—following protocols that have been entrenched as standard practice as far back as the early 1980s.
+<br><br><strong>THE SOLUTION</strong><br>Logistics advised its drivers, when possible, to simply stay in their trucks—whether they are picking up a load or delivering it to the receiver. It is a solution to driver and customer safety that Logistics has provided to several customers.
+
+The whole process of following verification and safety rules on each end of the shipment can still be done easily without close personal contact. Some standard practices, such as checking proper sealing of the trailer, can be done by the driver just outside the shipper's or receiver's location to avoid another potential exposure.
+
+Tapship has some customers whose operation procedures necessitate drivers leaving their trucks during delivery or pickup. In those situations, the TapShip drivers don masks and gloves before leaving the truck, and follow CDC social-distancing safety suggestions while interacting with the customer.
+
+Executives of TapShip took the initiative at the state and federal level to promote truck driver safety.Changing these existing over-the-road shipping protocols was not costly or over-burdensome. TapShip communicated with its drivers and customers that the intent was to protect the health of everyone involved in the shipment of food and supplies, including the end consumer. All it takes is one sick driver or employee to infect and shut down an entire plant, so this simple safety practice also protects the financial bottom line.
+
+TapShip further communicated their company's safety message in a podcast interview conducted by Inbound Logistics. His hope was to spread his company's safety practices throughout the shipping industry. With everyone following along in their own small roles, TapShip reasoned that it adds up to eventually beating the pandemic and keeping India's economy running.
+
+
                                     <h5>
                             </ul>
                         </div>
