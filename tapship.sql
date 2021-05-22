@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2021 at 03:51 PM
+-- Generation Time: May 22, 2021 at 04:14 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -87,16 +87,6 @@ CREATE TABLE `cropbid` (
   `cb_transporttype` varchar(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cropbid`
---
-
-INSERT INTO `cropbid` (`cb_id`, `cb_c_mobile`, `cb_f_mobile`, `cb_cr_id`, `cb_bidprice`, `cb_status`, `cb_paytype`, `cb_tid`, `cb_tproof`, `cb_transporttype`) VALUES
-(1, '9672836724', '9672836724', 2, 20, '12', 'IMPS', 'IMPS-64738325278828723', 'assets/documents/payment/IMPS-64738325278828723-TRANSPROOF.pdf', '1'),
-(2, '9672836724', '9672836724', 1, 62, '12', 'IMPS', 'IMPS-45367374863786478', 'assets/documents/payment/IMPS-45367374863786478-TRANSPROOF.pdf', '2'),
-(3, '7042757709', '9672836724', 4, 25, '12', 'IMPS', 'IMPS-6643877498734', 'assets/documents/payment/IMPS-6643877498734-TRANSPROOF.pdf', '1'),
-(4, '7042757709', '9672836724', 3, 17, '12', 'NEFT', 'NEFT-6748742687439843', 'assets/documents/payment/NEFT-6748742687439843-TRANSPROOF.pdf', '2');
-
 -- --------------------------------------------------------
 
 --
@@ -152,16 +142,6 @@ CREATE TABLE `cropsale` (
   `cr_status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cropsale`
---
-
-INSERT INTO `cropsale` (`cr_id`, `cr_f_mobile`, `cr_cro_id`, `cr_quantity`, `cr_img1`, `cr_img2`, `cr_img3`, `cr_mep`, `cr_date`, `cr_status`) VALUES
-(1, '9672836724', 1, '120', 'assets/documents/crop/12816-3168-775-9672836724.png', 'assets/documents/crop/18086-1819-142-9672836724.png', 'assets/documents/crop/13094-9032-3977-9672836724.png', '62', '2021-05-20', '12'),
-(2, '9672836724', 6, '80', 'assets/documents/crop/17751-3103-9388-9672836724.png', 'assets/documents/crop/12385-1669-8508-9672836724.png', 'assets/documents/crop/11270-6878-5880-9672836724.png', '19', '2021-05-20', '12'),
-(3, '9672836724', 4, '70', 'assets/documents/crop/15901-6701-8654-9672836724.png', 'assets/documents/crop/19817-7330-6031-9672836724.png', 'assets/documents/crop/13197-6004-3815-9672836724.png', '16', '2021-05-21', '12'),
-(4, '9672836724', 3, '70', 'assets/documents/crop/12089-7642-9329-9672836724.png', 'assets/documents/crop/18399-2749-250-9672836724.png', 'assets/documents/crop/14876-9182-8484-9672836724.png', '24', '2021-05-21', '12');
-
 -- --------------------------------------------------------
 
 --
@@ -199,9 +179,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`c_id`, `c_name`, `c_mobile`, `c_contactname`, `c_gender`, `c_age`, `c_street`, `c_city`, `c_state`, `c_pincode`, `c_type`, `c_registration`, `c_aadhar`, `c_aadharpdf`, `c_pan`, `c_panpdf`, `c_photo`, `c_password`, `c_approve`, `c_tsv_otp`, `c_tsv_validity`, `c_temppass`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 'Salman Khan', '9672836724', '', 'Male', '26', '45, Rose Villa', 'Davanagere', 'Karnataka', '577001', 'Wholesaler', '', '345647893567', 'assets/documents/aadhar/9672836724-Salman Khan-AADHAR.pdf', 'RTVCD6453O', 'assets/documents/pan/9672836724-Salman Khan-PAN.pdf', 'assets/documents/photo/9672836724-Salman Khan-img1.jpg', 'Gapu@8540', '2', '', '', ''),
-(2, 'Roshan Sodhi', '7042757709', '', 'Male', '36', '78, Babe di Galli', 'Amritsar', 'Punjab', '143001', 'Wholesaler', '', '875465437463', 'assets/documents/aadhar/7042757709-Roshan Sodhi-AADHAR.pdf', 'MNGSA6543H', 'assets/documents/pan/7042757709-Roshan Sodhi-PAN.pdf', 'assets/documents/photo/7042757709-Roshan Sodhi-faheem.jpeg', 'Gapu@8540', '2', '', '', ''),
-(4, 'Jethalal and Sons', '9661442323', 'Jethalal', 'Male', '57', 'Mohan Baag', 'Ahmedabad', 'Gujarat', '320008', 'Organization', 'assets/documents/registration/9661442323-Jethalal and Sons-Registration PDF.pdf', '', '', 'BGTUV7632H', 'assets/documents/pan/9661442323-Jethalal and Sons-PAN.pdf', 'assets/documents/photo/9661442323-Jethalal and Sons-2018_1.jpg', 'Gapu@8540', '1', '', '', '');
+(1, 'Salman Khan', '9672836724', '', 'Male', '26', '45, Rose Villa', 'Davanagere', 'Karnataka', '577001', 'Wholesaler', '', '345647893567', 'assets/documents/aadhar/9672836724-Salman Khan-AADHAR.pdf', 'RTVCD6453O', 'assets/documents/pan/9672836724-Salman Khan-PAN.pdf', 'assets/documents/photo/9672836724-Salman Khan-img1.jpg', 'Gapu@8540', '2', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -245,9 +223,7 @@ CREATE TABLE `driver` (
 
 INSERT INTO `driver` (`d_id`, `d_name`, `d_mobile`, `d_gender`, `d_age`, `d_street`, `d_city`, `d_state`, `d_pincode`, `d_aadhar`, `d_aadharpdf`, `d_pan`, `d_panpdf`, `d_photo`, `d_dlnumber`, `d_dlpdf`, `d_vehiclenumber`, `d_vehiclercpdf`, `d_lat`, `d_long`, `d_date`, `d_time`, `d_password`, `d_approve`, `d_tsv_otp`, `d_tsv_validity`, `d_temppass`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', ''),
-(1, 'Vivek Singh', '9672836724', 'Male', '27', '90, Old Road, Jamnagar', 'Katihar', 'Bihar', '854311', '984536272167', 'assets/documents/aadhar/9672836724-Vivek Singh-AADHAR.pdf', 'VETYD5632N', 'assets/documents/pan/9672836724-Vivek Singh-PAN.pdf', 'assets/documents/photo/9672836724-Vivek Singh-img2.jpg', 'BR5345362784673', 'assets/documents/dlpdf/9672836724-Vivek Singh-DL.pdf', 'BR02HJ5342', 'assets/documents/rcpdf/9672836724-Vivek Singh-RC.pdf', '13.4366105', '74.745365', '2021-05-20', '10:55 PM', 'Gapu@8540', '2', '', '', ''),
-(2, 'Rahmat Ali', '7042757709', 'Male', '34', '54, Long Route', 'Dakshina Kannada (Mangalo', 'Karnataka', '574142', '654365437456', 'assets/documents/aadhar/7042757709-Rahmat Ali-AADHAR.pdf', 'BVSAD6547G', 'assets/documents/pan/7042757709-Rahmat Ali-PAN.pdf', 'assets/documents/photo/7042757709-Rahmat Ali-faheem.jpeg', 'KA6544536743743', 'assets/documents/dlpdf/7042757709-Rahmat Ali-DL.pdf', 'KA20HG7543', 'assets/documents/rcpdf/7042757709-Rahmat Ali-RC.pdf', '12.956780433655', '74.872703552246', '2021-05-21', '07:34 PM', 'Gapu@8540', '1', '', '', ''),
-(3, 'Prahlad Kumar', '9661442323', 'Male', '28', '69, Goal Ground', 'Central Delhi', 'Delhi', '110025', '654783283627', 'assets/documents/aadhar/9661442323-Prahlad Kumar-AADHAR.pdf', 'BFAGS5436U', 'assets/documents/pan/9661442323-Prahlad Kumar-PAN.pdf', 'assets/documents/photo/9661442323-Prahlad Kumar-ashutosh.jpeg', 'DL6574382838432', 'assets/documents/dlpdf/9661442323-Prahlad Kumar-DL.pdf', 'DL03TU6543', 'assets/documents/rcpdf/9661442323-Prahlad Kumar-RC.pdf', '13.4366105', '74.745365', '2021-05-21', '08:36 PM', 'Gapu@8540', '2', '', '', '');
+(1, 'Vivek Singh', '9672836724', 'Male', '27', '90, Old Road, Jamnagar', 'Katihar', 'Bihar', '854311', '984536272167', 'assets/documents/aadhar/9672836724-Vivek Singh-AADHAR.pdf', 'VETYD5632N', 'assets/documents/pan/9672836724-Vivek Singh-PAN.pdf', 'assets/documents/photo/9672836724-Vivek Singh-img2.jpg', 'BR5345362784673', 'assets/documents/dlpdf/9672836724-Vivek Singh-DL.pdf', 'BR02HJ5342', 'assets/documents/rcpdf/9672836724-Vivek Singh-RC.pdf', '13.4366105', '74.745365', '2021-05-20', '10:55 PM', 'Gapu@8540', '2', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -289,9 +265,7 @@ CREATE TABLE `farmer` (
 
 INSERT INTO `farmer` (`f_id`, `f_name`, `f_mobile`, `f_gender`, `f_age`, `f_street`, `f_city`, `f_state`, `f_pincode`, `f_aadhar`, `f_aadharpdf`, `f_pan`, `f_panpdf`, `f_photo`, `f_password`, `f_approve`, `f_bankholder`, `f_bankaccount`, `f_bankifsc`, `f_bankname`, `f_bankbranch`, `f_bankpassbook`, `f_tsv_otp`, `f_tsv_validity`, `f_temppass`) VALUES
 (0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 'Aditya Chopra', '9672836724', 'Male', '35', '56, Akshay Vihar', 'Mumbai City (ex Bombay)', 'Maharashtra', '230532', '678746784673', 'assets/documents/aadhar/9672836724-Aditya Chopra-AADHAR.pdf', 'HIOPI7654V', 'assets/documents/pan/9672836724-Aditya Chopra-PAN.pdf', 'assets/documents/photo/9672836724-Aditya Chopra-imag.jfif', 'Gapu@8540', '2', 'Aditya Chopra', '6547389764532', 'SBIN0020852', 'SBI', 'Mumbai', 'assets/documents/passbook/9672836724-Aditya Chopra-PASSBOOK.pdf', '', '', ''),
-(2, 'Gopi Chand', '7042757709', 'Male', '67', '56, Manan Vihar', 'Rohtak', 'Haryana', '124001', '656734562612', 'assets/documents/aadhar/7042757709-Gopi Chand-AADHAR.pdf', 'HFSDH6743H', 'assets/documents/pan/7042757709-Gopi Chand-PAN.pdf', 'assets/documents/photo/7042757709-Gopi Chand-suresh.jpg', 'Gapu@8540', '2', 'Gopi Chand', '6574832834673', 'SBIN0002420', 'SBI', 'Ambala', 'assets/documents/passbook/7042757709-Gopi Chand-PASSBOOK.pdf', '', '', ''),
-(3, 'Harish Rana', '9661442323', 'Male', '45', '67, Hari Om Mandir', 'North Goa', 'Goa', '403521', '654732354673', 'assets/documents/aadhar/9661442323-Harish Rana-AADHAR.pdf', 'BVSAD6743H', 'assets/documents/pan/9661442323-Harish Rana-PAN.pdf', 'assets/documents/photo/9661442323-Harish Rana-img3.jpg', 'Gapu@8540', '4', 'Harish Rana', '4635621235463', 'SBIN0067321', 'SBI', 'North Goa', 'assets/documents/passbook/9661442323-Harish Rana-PASSBOOK.pdf', '', '', '');
+(1, 'Aditya Chopra', '9672836724', 'Male', '35', '56, Akshay Vihar', 'Mumbai City (ex Bombay)', 'Maharashtra', '230532', '678746784673', 'assets/documents/aadhar/9672836724-Aditya Chopra-AADHAR.pdf', 'HIOPI7654V', 'assets/documents/pan/9672836724-Aditya Chopra-PAN.pdf', 'assets/documents/photo/9672836724-Aditya Chopra-imag.jfif', 'Gapu@8540', '2', 'Aditya Chopra', '6547389764532', 'SBIN0020852', 'SBI', 'Mumbai', 'assets/documents/passbook/9672836724-Aditya Chopra-PASSBOOK.pdf', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -367,7 +341,11 @@ INSERT INTO `mepdetails` (`id`, `cro_id`, `mep`) VALUES
 (23, 5, 20),
 (24, 5, 17),
 (25, 5, 18),
-(26, 6, 19);
+(26, 6, 19),
+(27, 6, 20),
+(28, 6, 19),
+(29, 6, 21),
+(30, 6, 18);
 
 -- --------------------------------------------------------
 
@@ -467,14 +445,6 @@ CREATE TABLE `transportbid` (
   `tb_status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `transportbid`
---
-
-INSERT INTO `transportbid` (`tb_id`, `tb_d_mobile`, `tb_cb_id`, `tb_bid`, `tb_status`) VALUES
-(1, '9672836724', 2, '8000', '1'),
-(2, '9661442323', 4, '7000', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -488,14 +458,6 @@ CREATE TABLE `transportself` (
   `ts_mobile` varchar(100) NOT NULL,
   `ts_vehiclenumber` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `transportself`
---
-
-INSERT INTO `transportself` (`ts_id`, `ts_cb_id`, `ts_name`, `ts_mobile`, `ts_vehiclenumber`) VALUES
-(1, '1', 'Arnav Pal', '7654537282', 'KA23HG6473'),
-(2, '3', 'Vishu', '7654536272', 'KA19GH6432');
 
 --
 -- Indexes for dumped tables
@@ -620,7 +582,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `cropbid`
 --
 ALTER TABLE `cropbid`
-  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cropdetails`
@@ -632,25 +594,25 @@ ALTER TABLE `cropdetails`
 -- AUTO_INCREMENT for table `cropsale`
 --
 ALTER TABLE `cropsale`
-  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cr_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kiosk`
@@ -662,7 +624,7 @@ ALTER TABLE `kiosk`
 -- AUTO_INCREMENT for table `mepdetails`
 --
 ALTER TABLE `mepdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `otps`
@@ -680,13 +642,13 @@ ALTER TABLE `queries`
 -- AUTO_INCREMENT for table `transportbid`
 --
 ALTER TABLE `transportbid`
-  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `tb_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transportself`
 --
 ALTER TABLE `transportself`
-  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ts_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
