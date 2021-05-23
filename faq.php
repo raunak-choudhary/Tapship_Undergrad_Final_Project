@@ -41,12 +41,12 @@
   </div>
   <div class="row articles" style="padding:20px;">
     <div class="container">
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>OUR BOOKS & MATERIALS</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>TapShip Portal</strong></h4>
       <div>
         <input type="checkbox" id="question1" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question1" class="question">
-          Will your books and materials withstand repeated use—are they satisfaction guaranteed?
+          What is the difference between TapShip and the existing mandi system?
         </label>
         <div class="answers">
           <p>Our hardcover books are library bound with exposed reinforced endsheets, which means extra lasting power, use after use. They are side sewn or section sewn, and all covers are laminated with glossy film. The books are vibrant, durable, and unconditionally guaranteed. </p>
@@ -57,7 +57,7 @@
         <input type="checkbox" id="question2" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question2" class="question">
-          Do you have “green” products?
+          How will TapShip operate?
         </label>
         <div class="answers">
           <p>Many of Cavendish Square’s products are produced with recycled pulp content, allowing our company to pursue its green goals while adding additional value for your eco-conscious purchases. </p>
@@ -68,7 +68,7 @@
         <input type="checkbox" id="question3" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question3" class="question">
-          Do you provide book processing?
+         Are there any conditions for joining TapShip?
         </label>
         <div class="answers">
           <p>Cavendish Square gladly provides library processing services. Please call 1-877-980-4450 or email Customer Service to learn more about processing and available and customizable options for your bookshelf needs. </p>
@@ -79,7 +79,7 @@
         <input type="checkbox" id="question4" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question4" class="question">
-          Do you keep my library processing specifications on file?
+          Will the APMC mandis lose out business due to TapShip?
         </label>
         <div class="answers">
           <p>Yes, Cavendish Square keeps all customer processing specifications on file. You won't need to fill out library processing forms each time you order, we’ll do it for you. You can download a processing form here. </p>
@@ -90,75 +90,21 @@
         <input type="checkbox" id="question5" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question5" class="question">
-          What is the charge for processing?
+          Who will actually opearte the TapShip platform?
         </label>
         <div class="answers">
           <p>We offer free processing on all orders over $350. On orders less than $350 the cost of barcodes and marc records is $25.00 per order. </p>
         </div>
       </div>
       <!-- _____________________________________________________ -->
-      <div>
-        <input type="checkbox" id="question6" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question6" class="question">
-          Are your books on Accelerated Reader®?
-        </label>
-        <div class="answers">
-          <p>Accelerated Reader quizzes are available for many of our books. The AR Logo will appear where quizzes are available. For more about AR, please click here. </p>
-        </div>
-      </div>
-      <!-- _____________________________________________________ -->
-      <div>
-        <input type="checkbox" id="question7" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question7" class="question">
-          Are your books correlated to state and national standards?
-        </label>
-        <div class="answers">
-          <p>Yes, all of our books are correlated to state and national standards. This web site’s correlation page will help you easily match our products with your state standards, and choose excellent selections for national standards. Otherwise, feel free to call us at 1-877-980-4450 and we’ll assist you in meeting your needs. </p>
-        </div>
-      </div>
-      <!-- _____________________________________________________ -->
-      <div>
-        <input type="checkbox" id="question8" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question8" class="question">
-          Where can I find information about your authors or how can I contact them?
-        </label>
-        <div class="answers">
-          <p>Cavendish Square commissions authors who are subject-matter experts and professional writers. If you’d like to learn more about an author’s background or if you wish to contact one of our authors, please click here to submit your contact information along with the author’s name. </p>
-        </div>
-      </div>
-      <!-- _____________________________________________________ -->
-      <div>
-        <input type="checkbox" id="question9" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question9" class="question">
-          How do I submit a book idea, collection suggestion, or artwork to Cavendish Square?
-        </label>
-        <div class="answers">
-          <p>Cavendish Square would like to hear from you—we’re dedicated to offering an ever-expanding array of solutions that will meet your needs. Any ideas, suggestions, or creative input that Cavendish Square can follow to help you achieve academic success, please feel free to share with our representatives. Artists and writers may also contact our Customer Service team for information about contributing to Cavendish. </p>
-        </div>
-      </div>
-      <!-- _____________________________________________________ -->
-      <div>
-        <input type="checkbox" id="question10" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question10" class="question">
-          Are your books available in other formats, such as eBooks?
-        </label>
-        <div class="answers">
-          <p>Cavendish Square titles are also available as eBooks. Also available are over 50 database titles. Click here for more information on our eBooks and digital databases. For a complete list of available digital resources, please call Customer Service at 1-877-980-4450 between 9AM and 5 PM EST, Monday through Friday. </p>
-        </div>
-      </div>
-
+    
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>PURCHASE, ORDERING, & RETURNS</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>Purchase, Ordering, & Returns</strong></h4>
       <div>
         <input type="checkbox" id="question11" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question11" class="question">
-          What is the "S&L" price?
+          Why Should I sell and purshase crop on TapShip?
         </label>
         <div class="answers">
           <p>S&L means school/library. Our school/library prices reflect a 30% discount off list prices.</p>
@@ -169,7 +115,7 @@
         <input type="checkbox" id="question12" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question12" class="question">
-          How do I order Cavendish Square Materials?
+          Who can sell and purchase on TapShip?
         </label>
         <div class="answers">
           <p>You can order Cavendish Square Products by mail, toll-free fax or telephone, and online through our cart or quick order portals.</p>
@@ -189,7 +135,7 @@
         <input type="checkbox" id="question13" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question13" class="question">
-          How do I redeem coupons/discounts/online purchase bonuses?
+          What are the documents required to register as a Farmer on TapShip?
         </label>
         <div class="answers">
           <p>Cavendish Square is happy to redeem all coupons, price-reduction offers, online purchase bonuses, and special discounts. Please include any coupons or offers with mailed or faxed orders.</p>
@@ -202,7 +148,7 @@
         <input type="checkbox" id="question14" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question14" class="question">
-          How long will it take for me to receive my order once it has been placed?
+          What are the documents required to register as a Customer on TapShip?
         </label>
         <div class="answers">
           <p>Our standard shipping time is 7 to 10 business days from the receipt of your purchase order for in-stock items. If your order requires expedited delivery, please call Customer Service at 1-877-980-4450. </p>
@@ -213,7 +159,7 @@
         <input type="checkbox" id="question15" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question15" class="question">
-          What happens when an item is Out of Stock? Does that mean it will be backordered?
+          What are the documents required to register as a Driver on TapShip?
         </label>
         <div class="answers">
           <p>Cavendish Square does its very best to keep everything in stock. If a product is temporarily out of stock, it will be backordered automatically and shipped immediately upon availability.</p>
@@ -231,7 +177,7 @@
         <input type="checkbox" id="question16" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question16" class="question">
-          What is your return policy?
+         Who takes care of the delivery of my products?
         </label>
         <div class="answers">
           <p>Our products are satisfaction guaranteed. If you are not completely satisfied with your purchase, please contact Customer Service within 30 days of delivery and we will gladly replace your products or credit your account.<br />
@@ -239,7 +185,7 @@
         </div>
       </div>
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>TAX &amp; SHIPPING</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>TAX &amp; Shipping</strong></h4>
       <div>
         <input type="checkbox" id="question17" name="q" class="questions">
         <div class="plus">+</div>
@@ -265,12 +211,12 @@
       </div>
       <!-- _____________________________________________________ -->
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>RIGHTS &amp; USAGE</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>Rights &amp; Usage</strong></h4>
       <div>
         <input type="checkbox" id="question19" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question19" class="question">
-          How do I inquire about reproduction, translation, electronic publishing, or subsidiary rights?
+          How do users rights are protected on TapShip?
         </label>
         <div class="answers">
           <p>Permissible usage varies per product. Many of our books are available for translation, subsidiary rights licensing, and usage other than original purposes.</p>
@@ -286,12 +232,12 @@
         </div>
       </div>
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>DOMESTIC &amp; INTERNATIONAL SALES</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>MSP & Payments</strong></h4>
       <div>
         <input type="checkbox" id="question20" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question20" class="question">
-          How can I find my local sales representative?
+          How MSP is calculated for each crop?
         </label>
         <div class="answers">
           <p>Our Representatives—who are experts in making sure that your acquisition needs are met—can be located by calling Customer Service at 1-877-980-4450. </p>
@@ -302,7 +248,7 @@
         <input type="checkbox" id="question21" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question21" class="question">
-          How do I purchase books if I live outside of the United States?
+          What is MEP?
         </label>
         <div class="answers">
           <p>Customer Service can help you directly with international purchases. Additional shipping charges will be added for international delivery. Please call Customer Service at 1-877-980-4450. </p>
@@ -313,7 +259,7 @@
         <input type="checkbox" id="question23" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question23" class="question">
-          How can I obtain a copy of your catalogs and brochures?
+          Benefits of using TapShip Portal?
         </label>
         <div class="answers">
           <p>We produce several catalogs and brochures, covering our full line across all divisions. To download any brochures and catalogs in PDF form, or to request delivery of any of our current materials, please click here. </p>
@@ -321,7 +267,7 @@
       </div>
       <!-- _____________________________________________________ -->
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>CUSTOMER SERVICE</strong></h4>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>Customer Service</strong></h4>
       <div>
         <input type="checkbox" id="question24" name="q" class="questions">
         <div class="plus">+</div>
@@ -355,19 +301,8 @@
       </div>
       <!-- _____________________________________________________ -->
       <!-- __________________________ SECTIONS ___________________________ -->
-      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>USING THIS WEBSITE</strong></h4>
-      <div>
-        <input type="checkbox" id="question26" name="q" class="questions">
-        <div class="plus">+</div>
-        <label for="question26" class="question">
-          What are the benefits of registering for an online user account?
-        </label>
-        <div class="answers">
-          <p>We know that your time is very valuable. As a registered user, the time you spend browsing our site and learning about our products can be saved in your Wish List, and you can create multiple Wish Lists for future visits. You can also save carts for impending purchases. You can customize the information that you’d like to receive from Cavendish Square regarding your areas of interest. </p>
-          <p>Another advantage of being an online user is that you become eligible for exclusive discounts and generous offers from Cavendish Square.</p>
-          <p>Register Me Today!</p>
-        </div>
-      </div>
+      <h4 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-top: 20px;margin-bottom: 10px;"><strong>Using this Website</strong></h4>
+      
       <!-- _____________________________________________________ -->
       <div>
         <input type="checkbox" id="question27" name="q" class="questions">
@@ -384,7 +319,7 @@
         <input type="checkbox" id="question28" name="q" class="questions">
         <div class="plus">+</div>
         <label for="question28" class="question">
-          Who do I contact with feedback regarding this site?
+          With whom I can contact regarding Feedback of this portal?
         </label>
         <div class="answers">
           <p>All comments are welcome. Please submit your feedback, suggestions, or comments here.  To read our privacy policy, please click here. </p>
