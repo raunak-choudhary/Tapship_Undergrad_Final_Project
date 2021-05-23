@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
 
     $date = date("Y/m/d");
 
-    if (($crop_mep <= $crop_cro_msp) || ($crop_mep >= $crop_final_mep_range)) {
+    if ($crop_mep >= $crop_final_mep_range) {
         echo "<script type='text/javascript'>$('#errorshow1').html('<p>Please Enter Minimum Expected Price (MEP) less than 25% of Minimum Selling Price (MSP).</p>'); 
         $('#errorshow2').html('<br><center><h5>Unsuccessful Attempt</h5></center>');</script>";
     } else {
