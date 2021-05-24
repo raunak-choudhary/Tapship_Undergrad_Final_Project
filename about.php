@@ -221,105 +221,99 @@
     <br<br><br>>
 
 
-
-
-    <div class="container text-center mt-4" style="margin-bottom:-150px;>
-        <div class="row mb-5">
-            <div class="col mobmargin" data-aos="fade">
-                <h1> <strong><u>Our Team</u></strong> </h1>
-                <h4>Meet our team which worked day and night to make all this happen </h4>
-            </div>
-        </div>
-    </div>
-    <section id="team">
-        <div class="text-center" style="padding:60px;">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;"> 
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="assets/img/team/ashutosh.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Ashutosh Kumar</h3>
-                            <h5>Front End and Cyber Security</h5>
-                            <p>No one need my introduction Everyone knows who I am. I am just an engineering student who is really interested to hack your WiFi. Don't woryy I am still learning you can let your hotspot on.</p>
-                            <div class="d-flex flex-row justify-content-center">
-                                <div class="p-3"><a href="https://www.linkedin.com/in/secashu/"><i class="fa fa-linkedin"></i></a></div>
-                                <div class="p-3"><a href="https://github.com/secashu"><i class="fa fa-github"></i></a></div>
-                                
-                                <div class="p-3"><a href="https://www.facebook.com/ashutosh.hack"><i class="fa fa-facebook"></i></a></div>
-                                <div class="p-3"><a href="https://www.instagram.com/ashutosh.hack/"><i class="fa fa-instagram"></i></a></div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
-                    <div class="card ">
-                        <div class="card-body">
-                            <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Faheem Ahmad</h3>
-                            <h5>Front End and ML</h5>
-                            <p>To touch the zenith of career by converting my innovative ideas into fruitful results and to work in cutting edge competitive industry and challenging work environment to conduce the best of my ability.</p>
-                            <div class="d-flex flex-row justify-content-center">
-                                <div class="p-3"><a href="https://www.linkedin.com/in/faheemahmad227/"><i class="fa fa-linkedin"></i></a></div>
-                                <div class="p-3"><a href="https://github.com/faheemahmad227"><i class="fa fa-github"></i></a></div>
-                                
-                                <div class="p-3"><a href="https://www.facebook.com/SAHQUIB"><i class="fa fa-facebook"></i></a></div>
-                                <div class="p-3"><a href="https://www.instagram.com/f.a_magnanimous/"><i class="fa fa-instagram"></i></a></div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="assets/img/team/ganpat.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Ganpat Patel</h3>
-                            <h5>Full Stack and ML/Hosting</h5>
-                            <p>I am interested in Python, Data Science, and Web development. I am good at the idea of solving generation and solving problems.I am always ready to grab new opportunities that help me to develop my skills.</p>
-                            <div class="d-flex flex-row justify-content-center">
-                                <div class="p-3"><a href="https://www.linkedin.com/in/ganpat-patel/"><i class="fa fa-linkedin"></i></a></div>
-                                <div class="p-3"><a href="https://github.com/ganpat-patel-012"><i class="fa fa-github"></i></a></div>
-                                
-                                <div class="p-3"><a href="https://www.facebook.com/ganpatpatel.luni"><i class="fa fa-facebook"></i></a></div>
-                                <div class="p-3"><a href="https://www.instagram.com/ganpat_patel_luni/"><i class="fa fa-instagram"></i></a></div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="assets/img/team/raunak.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
-                            <h3>Raunak Choudhary</h3>
-                            <h5>Full Stack and ML</h5>
-                            <p>I believe that "Data has a Better Idea" because, in present times, we all want to know and predict the things/activities which can be done by analyzing the data which we produce knowingly/unknowingly every day.</p>
-                            <div class="d-flex flex-row justify-content-center">
-                                <div class="p-3"><a href="https://www.linkedin.com/in/raunak-choudhary/"><i class="fa fa-linkedin"></i></a></div>
-                                <div class="p-3"><a href="https://github.com/raunak-choudhary"><i class="fa fa-github"></i></a></div>
-                                
-                                <div class="p-3"><a href="https://www.facebook.com/raunak.choudhary.17"><i class="fa fa-facebook"></i></a></div>
-                                <div class="p-3"><a href="https://www.instagram.com/rc_optimistic/"><i class="fa fa-instagram"></i></a></div> 
-                            </div>
-                        </div>
-                    </div>
+        <div class="container text-center mt-4" style="margin-bottom:-150px" ;>
+            <div class="row mb-5">
+                <div class="col mobmargin" data-aos="fade">
+                    <h1> <strong><u>Our Team</u></strong> </h1>
+                    <h4>Meet our team which worked day and night to make all this happen </h4>
                 </div>
             </div>
         </div>
-    </section>
-
-
-    <div class="footer-dark" style="background: rgb(12,56,35); margin-top: 50px;">
-        <footer>
-            <div class="container-fluid">
-                <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
+        <section id="team">
+            <div class="text-center" style="padding:60px;">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/team/ashutosh.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                                <h3>Ashutosh Kumar</h3>
+                                <h5>Front End and Cyber Security</h5>
+                                <p>No one need my introduction Everyone knows who I am. I am just an engineering student who is really interested to hack your WiFi. Don't woryy I am still learning you can let your hotspot on.</p>
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="p-3"><a href="https://www.linkedin.com/in/secashu/"><i class="fa fa-linkedin"></i></a></div>
+                                    <div class="p-3"><a href="https://github.com/secashu"><i class="fa fa-github"></i></a></div>
+                                    <div class="p-3"><a href="https://www.facebook.com/ashutosh.hack"><i class="fa fa-facebook"></i></a></div>
+                                    <div class="p-3"><a href="https://www.instagram.com/ashutosh.hack/"><i class="fa fa-instagram"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
+                        <div class="card ">
+                            <div class="card-body">
+                                <img src="assets/img/team/faheem.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                                <h3>Faheem Ahmad</h3>
+                                <h5>Front End and ML</h5>
+                                <p>To touch the zenith of career by converting my innovative ideas into fruitful results and to work in cutting edge competitive industry and challenging work environment to conduce the best of my ability.</p>
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="p-3"><a href="https://www.linkedin.com/in/faheemahmad227/"><i class="fa fa-linkedin"></i></a></div>
+                                    <div class="p-3"><a href="https://github.com/faheemahmad227"><i class="fa fa-github"></i></a></div>
+                                    <div class="p-3"><a href="https://www.facebook.com/SAHQUIB"><i class="fa fa-facebook"></i></a></div>
+                                    <div class="p-3"><a href="https://www.instagram.com/f.a_magnanimous/"><i class="fa fa-instagram"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/team/ganpat.jpeg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                                <h3>Ganpat Patel</h3>
+                                <h5>Full Stack and ML/Hosting</h5>
+                                <p>I am interested in Python, Data Science, and Web development. I am good at the idea of solving generation and solving problems.I am always ready to grab new opportunities that help me to develop my skills.</p>
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="p-3"><a href="https://www.linkedin.com/in/ganpat-patel/"><i class="fa fa-linkedin"></i></a></div>
+                                    <div class="p-3"><a href="https://github.com/ganpat-patel-012"><i class="fa fa-github"></i></a></div>
+                                    <div class="p-3"><a href="https://www.facebook.com/ganpatpatel.luni"><i class="fa fa-facebook"></i></a></div>
+                                    <div class="p-3"><a href="https://www.instagram.com/ganpat_patel_luni/"><i class="fa fa-instagram"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mobcard" data-aos="fade-up" style="padding-top:130px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/team/raunak.jpg" alt="" class="img-fluid rounded-circle w-70 mb-3">
+                                <h3>Raunak Choudhary</h3>
+                                <h5>Full Stack and ML</h5>
+                                <p>I believe that "Data has a Better Idea" because, in present times, we all want to know and predict the things/activities which can be done by analyzing the data which we produce knowingly/unknowingly every day.</p>
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="p-3"><a href="https://www.linkedin.com/in/raunak-choudhary/"><i class="fa fa-linkedin"></i></a></div>
+                                    <div class="p-3"><a href="https://github.com/raunak-choudhary"><i class="fa fa-github"></i></a></div>
+                                    <div class="p-3"><a href="https://www.facebook.com/raunak.choudhary.17"><i class="fa fa-facebook"></i></a></div>
+                                    <div class="p-3"><a href="https://www.instagram.com/rc_optimistic/"><i class="fa fa-instagram"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/freelancer.js"></script>
+        </section>
+
+
+        <div class="footer-dark" style="background: rgb(12,56,35); margin-top: 50px;">
+            <footer>
+                <div class="container-fluid">
+                    <p style="text-align: center;"><strong>© 2021 TapShip.&nbsp; All rights reserved.</strong><br></p>
+                </div>
+            </footer>
+        </div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bs-init.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="assets/js/freelancer.js"></script>
 </body>
 
 </html>
