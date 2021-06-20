@@ -120,7 +120,7 @@
                             <strong class="fa-stack-1x">2</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Finding Crop</h3>
+                            <h3 class="title">Finding Crop & Bidding</h3>
                             <p class="description">
                                 Customers can search the crop as per the requirements and make a bid if interested.
                             </p>
@@ -132,7 +132,7 @@
                             <strong class="fa-stack-1x">3</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Bidding</h3>
+                            <h3 class="title">Select Best Bid</h3>
                             <p class="description">
                                 Farmer will get all bids from all around the country and can confirm deal with the best bider.
                             </p>
@@ -146,7 +146,7 @@
                         <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Payment</h3>
                             <p class="description">
-                                Once deal is successful farmer will get the payment from customers.
+                                Once deal is successful, farmer will get the payment from customers.
                             </p>
                         </a>
                     </div>
@@ -156,9 +156,9 @@
                             <strong class="fa-stack-1x">5</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Transportation</h3>
+                            <h3 class="title">Transportation Choice</h3>
                             <p class="description">
-                                After the deal got confirm if customer allow to get transport quote the deal info will be shared to truck drivers
+                                After the payment is done, customer need to select whether to go for self transport or tapship delivery.
                             </p>
                         </a>
                     </div>
@@ -168,9 +168,9 @@
                             <strong class="fa-stack-1x">6</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Bidding</h3>
+                            <h3 class="title">Self Transport</h3>
                             <p class="description">
-                                Now truck drivers can bid to get transport deal and make offer to customers.
+                                If Self Transport selected by customer, details of driver are provided to platform by customer. The details of drivers are sent to corresponding farmer.
                             </p>
                         </a>
                     </div>
@@ -180,9 +180,9 @@
                             <strong class="fa-stack-1x">7</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Payment</h3>
+                            <h3 class="title">Self Transportation Driver Arrival</h3>
                             <p class="description">
-                                Customers can see the best deal and confirm a transport service with driver and make payment.
+                                Farmer will confirm the pickup of shipment by the driver with the details provided by corresponding customer.
                             </p>
                         </a>
                     </div>
@@ -192,9 +192,9 @@
                             <strong class="fa-stack-1x">8</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
-                            <h3 class="title">Delivery</h3>
+                            <h3 class="title">Tapship Delivery Deals & Bidding</h3>
                             <p class="description">
-                                Now truck driver will pick-up the crop from farmers and ship it to customer's location.
+                                Drivers will get all the transport deals and can bid to their favourable deals and make an offer to customer.
                             </p>
                         </a>
                     </div>
@@ -204,9 +204,45 @@
                             <strong class="fa-stack-1x">9</strong>
                         </span>
                         <a href="#" class="timeline-content" data-aos="fade-up">
+                            <h3 class="title">Select Best Bid</h3>
+                            <p class="description">
+                                Customer can see all bids and select the best deal and confirm a transport service with driver.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">10</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
+                            <h3 class="title">Tapship Delivery Driver Arrival</h3>
+                            <p class="description">
+                                Farmer will confirm the pickup of shipment by the driver with the details provided by our platform.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">11</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
+                            <h3 class="title">Shipment Arrival to Customer</h3>
+                            <p class="description">
+                                Customer and Driver both can confirm the arrival of shipment at destination.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <span class="icon fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">12</strong>
+                        </span>
+                        <a href="#" class="timeline-content" data-aos="fade-up">
                             <h3 class="title">Final Payment</h3>
                             <p class="description">
-                                Driver will get payment which was on hold. Feedback from everyone to each other.
+                                Driver will get payment from customer and Feedback has been taken from all the users.
                             </p>
                         </a>
                     </div>

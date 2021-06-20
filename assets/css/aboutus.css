@@ -174,16 +174,19 @@ h3 {
 .main-timeline2 .timeline:nth-child(2n) .timeline-content,
 .main-timeline2 .timeline:nth-child(2n) .timeline-content:after,
 .main-timeline2 .timeline:nth-child(2n) .timeline-content:before {
-  background: #4bd9bf;
+  background: #ff9e09;
+}
+.main-timeline2 .timeline:nth-child(2n) .icon {
+  box-shadow: 0 0 0 2px #ff9e09;
 }
 .main-timeline2 .timeline:nth-child(3n) .icon,
 .main-timeline2 .timeline:nth-child(3n) .timeline-content,
 .main-timeline2 .timeline:nth-child(3n) .timeline-content:after,
 .main-timeline2 .timeline:nth-child(3n) .timeline-content:before {
-  background: #ff9e09;
+  background: #4bd9bf;
 }
 .main-timeline2 .timeline:nth-child(3n) .icon {
-  box-shadow: 0 0 0 2px #ff9e09;
+  box-shadow: 0 0 0 2px #4bd9bf;
 }
 .main-timeline2 .timeline:nth-child(4n) .icon,
 .main-timeline2 .timeline:nth-child(4n) .timeline-content,
@@ -194,6 +197,15 @@ h3 {
 .main-timeline2 .timeline:nth-child(4n) .icon {
   box-shadow: 0 0 0 2px #3ebae7;
 }
+.main-timeline2 .timeline:nth-child(6n) .icon,
+.main-timeline2 .timeline:nth-child(6n) .timeline-content,
+.main-timeline2 .timeline:nth-child(6n) .timeline-content:after,
+.main-timeline2 .timeline:nth-child(6n) .timeline-content:before {
+  background: #ff9e09;
+}
+.main-timeline2 .timeline:nth-child(6n) .icon {
+  box-shadow: 0 0 0 2px #ff9e09;
+}
 .main-timeline2 .timeline:nth-child(7n) .icon,
 .main-timeline2 .timeline:nth-child(7n) .timeline-content,
 .main-timeline2 .timeline:nth-child(7n) .timeline-content:after,
@@ -201,6 +213,33 @@ h3 {
   background: #4bd9bf;
 }
 .main-timeline2 .timeline:nth-child(7n) .icon {
+  box-shadow: 0 0 0 2px #4bd9bf;
+}
+.main-timeline2 .timeline:nth-child(9n) .icon,
+.main-timeline2 .timeline:nth-child(9n) .timeline-content,
+.main-timeline2 .timeline:nth-child(9n) .timeline-content:after,
+.main-timeline2 .timeline:nth-child(9n) .timeline-content:before {
+  background: #e84c47;
+}
+.main-timeline2 .timeline:nth-child(9n) .icon {
+  box-shadow: 0 0 0 2px #e84c47;
+}
+.main-timeline2 .timeline:nth-child(11n) .icon,
+.main-timeline2 .timeline:nth-child(11n) .timeline-content,
+.main-timeline2 .timeline:nth-child(11n) .timeline-content:after,
+.main-timeline2 .timeline:nth-child(11n) .timeline-content:before {
+  background: #4bd9bf;
+}
+.main-timeline2 .timeline:nth-child(11n) .icon {
+  box-shadow: 0 0 0 2px #4bd9bf;
+}
+.main-timeline2 .timeline:nth-child(12n) .icon,
+.main-timeline2 .timeline:nth-child(12n) .timeline-content,
+.main-timeline2 .timeline:nth-child(12n) .timeline-content:after,
+.main-timeline2 .timeline:nth-child(12n) .timeline-content:before {
+  background: #3ebae7;
+}
+.main-timeline2 .timeline:nth-child(12n) .icon {
   box-shadow: 0 0 0 2px #3ebae7;
 }
 .pot img {
