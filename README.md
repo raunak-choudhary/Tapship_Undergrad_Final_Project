@@ -68,3 +68,5 @@ The project was inspired by the ongoing challenges in the Indian agricultural ma
 ---
 
 This project was developed as part of the **Bachelor of Engineering in Computer Science & Engineering** final year curriculum under **Visvesvaraya Technological University (VTU)** at **Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM)**, Udupi, India.
+
+---
